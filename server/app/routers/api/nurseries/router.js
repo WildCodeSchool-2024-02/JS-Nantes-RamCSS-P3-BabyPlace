@@ -3,16 +3,20 @@ const express = require("express");
 const router = express.Router();
 
 /* ************************************************************************* */
-// Import And Use Routers Here
+// Define Your API Routes Here
 /* ************************************************************************* */
 
-// const itemsRouter = require("./items/router");
+// Import nursery-related actions
+const { browse, read, add } = require("../../../controllers/nurseryActions");
 
-// router.use("/items", itemsRouter);
+// Route to get a list of nurseries
+router.get("/", browse);
 
-const nurseriesRouter = require("./nurseries/router");
+// Route to get a specific nursery by ID
+router.get("/:id", read);
 
-router.use("/nurseries", nurseriesRouter);
+// Route to add a new nursery
+router.post("/", add);
 
 /* ************************************************************************* */
 
