@@ -1,0 +1,35 @@
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(
+    179deg,
+    rgba(71, 79, 255, 0.9) 2.49%,
+    rgba(89, 84, 249, 0.91) 13.34%,
+    #e37acc 99.05%
+  );
+}
+
+h1 {
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+.mambaby_login {
+  width: 350px;
+}
+
+.logo_login {
+  width: 200px;
+}
+
+.container_login {
+  padding: 100px;
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
