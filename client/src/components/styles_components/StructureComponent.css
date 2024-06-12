@@ -1,21 +1,7 @@
-/* TODO Variables à changer après une fois le fichier Global CSS réalisé */
-
-.titles {
-  font-family: "Philosopher";
-  font-size: 32px;
-}
-
-.texts {
-  font-family: "Libre Franklin";
-  font-size: 16px;
-}
-
-/* TODO---------------------------------------------------------------- */
-
 .advanced-line {
   width: 100%;
   height: 10px;
-  background: #e8e8e8;
+  background: var(--background-grey);
 }
 
 .global-container-structure {
@@ -28,12 +14,12 @@
   padding: 0 50px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 6px;
 }
 
 .right-part-container-structure {
   width: 50%;
-  background-color: rgba(226, 105, 221, 0.15);
+  background-color: var(--background-light-purple);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,7 +28,7 @@
 .descritif-background {
   width: 50%;
   height: 75%;
-  background-color: #ffff;
+  background-color: var(--background-light);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -65,27 +51,6 @@
   gap: 16px;
 }
 
-.input-checkbox[type="checkbox"] {
-  opacity: 0;
-  position: absolute;
-}
-
-.input-checkbox[type="checkbox"] + .label-checkbox {
-  width: 200px;
-  cursor: pointer;
-  background-color: #f2f2f2;
-  border-radius: 10px;
-  border: 1px solid var(--Gray-30, #b4b4bb);
-  padding: 10px 20px;
-  font-size: 16px;
-  text-align: center;
-}
-
-.input-checkbox[type="checkbox"]:checked + .label-checkbox {
-  background-color: #7e72f2;
-  color: white;
-}
-
 .information-name {
   font-size: 12px;
   margin-left: 10px;
@@ -93,7 +58,7 @@
 }
 
 .navlink-screen1 {
-  background: #7e72f2;
+  background: var(--purple-color);
   border-radius: 99px;
   width: 150px;
   height: 50px;
@@ -101,7 +66,7 @@
   gap: 10px;
   justify-content: center;
   text-decoration: none;
-  color: white;
+  color: var(--ligth-color-text);
   margin-left: 690px;
   position: relative;
 }
@@ -110,25 +75,4 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-}
-
-.input-container {
-  width: 600px;
-  height: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* gap: 8px; */
-  border-radius: 18px;
-  border: 1px solid #7e72f2;
-  padding: 0 8px;
-}
-
-.text-input-label {
-  font-weight: bolder;
-  color: #7e72f2;
-}
-
-.input-text {
-  border: none;
 }

@@ -17,9 +17,9 @@ function StructureComponent() {
             id="nursery-type"
             name="type"
             type="checkbox"
-            className="input-checkbox"
+            className="input-checkbox-pro"
           />
-          <label htmlFor="nursery-type" className="label-checkbox texts">
+          <label htmlFor="nursery-type" className="label-checkbox-pro texts">
             Crèche
           </label>
           <h2 className="titles">Maintenant, précisons les choses...</h2>
@@ -31,9 +31,12 @@ function StructureComponent() {
               id="parental-nursery"
               name="type"
               type="checkbox"
-              className="input-checkbox"
+              className="input-checkbox-pro"
             />
-            <label htmlFor="parental-nursery" className="label-checkbox texts">
+            <label
+              htmlFor="parental-nursery"
+              className="label-checkbox-pro texts"
+            >
               Crèche parentale
             </label>
             {/* ---checkbox 2 => "Micro-Crèche" */}
@@ -41,9 +44,9 @@ function StructureComponent() {
               id="micro-nursery"
               name="type"
               type="checkbox"
-              className="input-checkbox"
+              className="input-checkbox-pro"
             />
-            <label htmlFor="micro-nursery" className="label-checkbox texts">
+            <label htmlFor="micro-nursery" className="label-checkbox-pro texts">
               Micro-Crèche
             </label>
             {/* ---checkbox 3 => "Crèche d'entreprise" */}
@@ -51,9 +54,12 @@ function StructureComponent() {
               id="company-nursery"
               name="type"
               type="checkbox"
-              className="input-checkbox"
+              className="input-checkbox-pro"
             />
-            <label htmlFor="company-nursery" className="label-checkbox texts">
+            <label
+              htmlFor="company-nursery"
+              className="label-checkbox-pro texts"
+            >
               Crèche d'entreprise
             </label>
             {/* ---checkbox 4 => "Halte garderie" */}
@@ -61,9 +67,9 @@ function StructureComponent() {
               id="daycare"
               name="type"
               type="checkbox"
-              className="input-checkbox"
+              className="input-checkbox-pro"
             />
-            <label htmlFor="daycare" className="label-checkbox texts">
+            <label htmlFor="daycare" className="label-checkbox-pro texts">
               Halte garderie
             </label>
             {/* ---checkbox 5 => "Crèche collective" */}
@@ -71,11 +77,11 @@ function StructureComponent() {
               id="collective-nursery"
               name="type"
               type="checkbox"
-              className="input-checkbox"
+              className="input-checkbox-pro"
             />
             <label
               htmlFor="collective-nursery"
-              className="label-checkbox texts"
+              className="label-checkbox-pro texts"
             >
               Crèche collective
             </label>
@@ -84,11 +90,11 @@ function StructureComponent() {
               id="ecological-nursery"
               name="type"
               type="checkbox"
-              className="input-checkbox"
+              className="input-checkbox-pro"
             />
             <label
               htmlFor="ecological-nursery"
-              className="label-checkbox texts"
+              className="label-checkbox-pro texts"
             >
               Crèche écologique
             </label>
@@ -97,11 +103,11 @@ function StructureComponent() {
               id="multireception-nursery"
               name="type"
               type="checkbox"
-              className="input-checkbox"
+              className="input-checkbox-pro"
             />
             <label
               htmlFor="multireception-nursery"
-              className="label-checkbox texts"
+              className="label-checkbox-pro texts"
             >
               Multi-Accueil
             </label>
@@ -110,9 +116,12 @@ function StructureComponent() {
               id="municipal-nursery"
               name="type"
               type="checkbox"
-              className="input-checkbox"
+              className="input-checkbox-pro"
             />
-            <label htmlFor="municipal-nursery" className="label-checkbox texts">
+            <label
+              htmlFor="municipal-nursery"
+              className="label-checkbox-pro texts"
+            >
               Crèche municipale
             </label>
             {/* ---checkbox 9 => "Crèche associative" */}
@@ -120,11 +129,11 @@ function StructureComponent() {
               id="associatif-nursery"
               name="type"
               type="checkbox"
-              className="input-checkbox"
+              className="input-checkbox-pro"
             />
             <label
               htmlFor="associatif-nursery"
-              className="label-checkbox texts"
+              className="label-checkbox-pro texts"
             >
               Crèche associative
             </label>
@@ -134,28 +143,28 @@ function StructureComponent() {
           <h2 className="titles">Complétez et vérifiez vos informations</h2>
           <div className="global-input-container">
             <div>
-              <div className="input-container">
-                <label htmlFor="name" className="texts text-input-label">
+              <div className="input-container-pro">
+                <label htmlFor="name" className="texts text-input-label-pro">
                   Nom :
                 </label>
                 <input
                   type="text"
                   placeholder="Ex : La crèche des petits lutins"
-                  className="texts input-text"
+                  className="texts input-text-pro"
                 />
               </div>
               <p className="texts information-name">
                 Ce nom sera celui qui s'affichera en titre de votre annonce.
               </p>
             </div>
-            <div className="input-container">
-              <label htmlFor="name" className="texts text-input-label">
+            <div className="input-container-pro">
+              <label htmlFor="name" className="texts text-input-label-pro">
                 N° de téléphone :
               </label>
               <input
                 type="text"
                 placeholder="Ex : 08.00.00.00.00"
-                className="texts input-text"
+                className="texts input-text-pro"
               />
             </div>
           </div>
