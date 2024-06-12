@@ -1,5 +1,6 @@
 import NavigationLogin from "../../components/AccueilParents/NavigationLogin";
 import "../styles_parents/AccueilParents.css";
+import "../../assets/css/fonts.css";
 
 function AccueilParents() {
   return (
@@ -14,7 +15,7 @@ function AccueilParents() {
         className="logo_login"
         alt="Logo"
       />
-      <h1>Garde d'enfant à la demande</h1>
+      <h3>Garde d'enfant à la demande</h3>
       <p>Trouvez un.e professionnel.le de la garde d'enfant</p>
       <NavigationLogin />
     </div>

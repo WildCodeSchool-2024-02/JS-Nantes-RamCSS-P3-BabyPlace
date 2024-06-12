@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import "../../assets/css/fonts.css";
 
 function NavigationLogin() {
   return (

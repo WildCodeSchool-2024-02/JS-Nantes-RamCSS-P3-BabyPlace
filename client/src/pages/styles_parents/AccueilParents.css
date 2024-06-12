@@ -9,7 +9,7 @@ body {
   );
 }
 
-h1 {
+h3 {
   color: white;
 }
 
@@ -32,4 +32,10 @@ p {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.ButtonNaviguate {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
