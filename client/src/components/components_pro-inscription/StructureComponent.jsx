@@ -14,12 +14,12 @@ function StructureComponent() {
         <div className="left-part-container-structure">
           <h2 className="titles">Quel type d'accueil proposez vous?</h2>
           <input
-            id="nurserytype"
+            id="nursery-type"
             name="type"
             type="checkbox"
             className="input-checkbox"
           />
-          <label htmlFor="nurserytype" className="label-checkbox texts">
+          <label htmlFor="nursery-type" className="label-checkbox texts">
             Crèche
           </label>
           <h2 className="titles">Maintenant, précisons les choses...</h2>
@@ -28,32 +28,32 @@ function StructureComponent() {
           <div className="checkboxgroup" aria-label="Type of nursery">
             {/* ---checkbox 1 => "Crèche parentale" */}
             <input
-              id="parentalnursery"
+              id="parental-nursery"
               name="type"
               type="checkbox"
               className="input-checkbox"
             />
-            <label htmlFor="parentalnursery" className="label-checkbox texts">
+            <label htmlFor="parental-nursery" className="label-checkbox texts">
               Crèche parentale
             </label>
             {/* ---checkbox 2 => "Micro-Crèche" */}
             <input
-              id="micronursery"
+              id="micro-nursery"
               name="type"
               type="checkbox"
               className="input-checkbox"
             />
-            <label htmlFor="micronursery" className="label-checkbox texts">
+            <label htmlFor="micro-nursery" className="label-checkbox texts">
               Micro-Crèche
             </label>
             {/* ---checkbox 3 => "Crèche d'entreprise" */}
             <input
-              id="companynursery"
+              id="company-nursery"
               name="type"
               type="checkbox"
               className="input-checkbox"
             />
-            <label htmlFor="companynursery" className="label-checkbox texts">
+            <label htmlFor="company-nursery" className="label-checkbox texts">
               Crèche d'entreprise
             </label>
             {/* ---checkbox 4 => "Halte garderie" */}
@@ -68,55 +68,64 @@ function StructureComponent() {
             </label>
             {/* ---checkbox 5 => "Crèche collective" */}
             <input
-              id="collectivenursery"
-              name="type"
-              type="checkbox"
-              className="input-checkbox"
-            />
-            <label htmlFor="collectivenursery" className="label-checkbox texts">
-              Crèche collective
-            </label>
-            {/* ---checkbox 6 => "Crèche écologique" */}
-            <input
-              id="ecologicalnursery"
-              name="type"
-              type="checkbox"
-              className="input-checkbox"
-            />
-            <label htmlFor="ecologicalnursery" className="label-checkbox texts">
-              Crèche écologique
-            </label>
-            {/* ---checkbox 7 => "Multi-Accueil" */}
-            <input
-              id="multireceptionnursery"
+              id="collective-nursery"
               name="type"
               type="checkbox"
               className="input-checkbox"
             />
             <label
-              htmlFor="multireceptionnursery"
+              htmlFor="collective-nursery"
+              className="label-checkbox texts"
+            >
+              Crèche collective
+            </label>
+            {/* ---checkbox 6 => "Crèche écologique" */}
+            <input
+              id="ecological-nursery"
+              name="type"
+              type="checkbox"
+              className="input-checkbox"
+            />
+            <label
+              htmlFor="ecological-nursery"
+              className="label-checkbox texts"
+            >
+              Crèche écologique
+            </label>
+            {/* ---checkbox 7 => "Multi-Accueil" */}
+            <input
+              id="multireception-nursery"
+              name="type"
+              type="checkbox"
+              className="input-checkbox"
+            />
+            <label
+              htmlFor="multireception-nursery"
               className="label-checkbox texts"
             >
               Multi-Accueil
             </label>
             {/* ---checkbox 8 => "Crèche municipale" */}
             <input
-              id="municipalnursery"
+              id="municipal-nursery"
               name="type"
               type="checkbox"
               className="input-checkbox"
             />
-            <label htmlFor="municipalnursery" className="label-checkbox texts">
+            <label htmlFor="municipal-nursery" className="label-checkbox texts">
               Crèche municipale
             </label>
             {/* ---checkbox 9 => "Crèche associative" */}
             <input
-              id="associatifnursery"
+              id="associatif-nursery"
               name="type"
               type="checkbox"
               className="input-checkbox"
             />
-            <label htmlFor="associatifnursery" className="label-checkbox texts">
+            <label
+              htmlFor="associatif-nursery"
+              className="label-checkbox texts"
+            >
               Crèche associative
             </label>
           </div>
