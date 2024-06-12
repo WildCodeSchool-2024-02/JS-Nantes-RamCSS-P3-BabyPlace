@@ -1,11 +1,11 @@
-import InscriptionProEcran1 from "./pages/pages_pro-inscription/InscriptionProEcran1";
+import InscriptionPro from "./pages/pages_pro-inscription/InscriptionPro";
 
 import "./App.css";
 
 function App() {
   return (
     <div>
-      <InscriptionProEcran1 />
+      <InscriptionPro />
     </div>
   );
 }

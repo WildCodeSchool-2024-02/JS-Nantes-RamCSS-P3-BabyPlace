@@ -1,4 +1,6 @@
-import "../../pages/styles_pro-inscription/NavbarInscriptionPro.css";
+import { NavLink } from "react-router-dom";
+
+import "../styles_components/NavbarInscriptionPro.css";
 import "../../assets/css/fonts.css";
 
 function NavbarInscriptionPro() {
@@ -18,9 +20,9 @@ function NavbarInscriptionPro() {
         </p>
       </div>
       <div className="nav-bar-pro-right-part">
-        <a href="/" className="nav-bar-pro-text nav-bar-pro-buttons">
+        <NavLink to="/" className="nav-bar-pro-text nav-bar-pro-buttons">
           Enregistrer et quitter
-        </a>
+        </NavLink>
       </div>
     </div>
   );
