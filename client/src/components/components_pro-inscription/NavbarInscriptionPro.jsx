@@ -13,14 +13,12 @@ function NavbarInscriptionPro() {
             alt="logo"
             className="image"
           />
-          <h2 className="nav-bar-pro-text nav-bar-pro-title">Babyplace</h2>
+          <h2 className="nav-bar-pro-text titles">Babyplace</h2>
         </div>
-        <p className="nav-bar-pro-text nav-bar-pro-buttons">
-          Structure d'accueil
-        </p>
+        <p className="nav-bar-pro-text texts">Structure d'accueil</p>
       </div>
       <div className="nav-bar-pro-right-part">
-        <NavLink to="/" className="nav-bar-pro-text nav-bar-pro-buttons">
+        <NavLink to="/" className="nav-bar-pro-text texts">
           Enregistrer et quitter
         </NavLink>
       </div>
