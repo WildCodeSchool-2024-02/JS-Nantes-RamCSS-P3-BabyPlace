@@ -4,41 +4,61 @@ import "../../components/styles_components/connexion-parent.css";
 function ConnexionParent() {
   return (
     <div className="mobile-connexion">
-      <img
-        src="./src/assets/images/logos/logo_complet.png"
-        className="img-connextion-parent"
-        alt=""
-      />
-
-      <h1 className="titles h1-connexion ">Garde d'enfant à la demande</h1>
-
-      <div className="container-label-input-connexion">
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          className="input-connexion"
-          placeholder="Email"
+      <div className="logo-h1-connexion">
+        <img
+          src="./src/assets/images/logos/logo_complet.png"
+          className="img-connextion-parent"
+          alt=""
         />
-
-        <input
-          type="password"
-          id="password"
-          name="name"
-          required
-          className="input-connexion"
-          placeholder="Mot de passe"
-        />
-
-        <a href="/" className="link-connexion-parent">
-          {" "}
-          Mot de passe oublié
-        </a>
+        <h1 className="titles h1-connexion ">Garde d'enfant à la demande</h1>
       </div>
-      <NavLink to="/accueil" className="btn-global">
-        Se connecter
-      </NavLink>
+
+      <div className="logo-form">
+        <div className="img-h2-desktop">
+          <h2 className="titles h2-connexion">
+            Trouvez un.e professionel.le de la garde d’enfant.
+          </h2>
+          <img
+            className="img-desk"
+            src="./src/assets/images/illustration/img_structure_desktop_ecran_connexion.png"
+            alt=""
+          />
+        </div>
+
+        <div className="container-label-input-connexion">
+          <label htmlFor="name" className="label-connexion">
+            name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            className="input-connexion"
+            placeholder="Email"
+          />
+
+          <label htmlFor="password" className="label-connexion">
+            password
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            className="input-connexion"
+            placeholder="Mot de passe"
+          />
+
+          <a href="/" className="link-connexion-parent">
+            {" "}
+            Mot de passe oublié
+          </a>
+          <NavLink to="/accueil" className="btn-global">
+            Se connecter
+          </NavLink>
+        </div>
+      </div>
     </div>
   );
 }

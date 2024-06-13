@@ -20,6 +20,11 @@
 
 .h1-connexion {
   text-align: center;
+  color: white;
+}
+
+.img-h2-desktop {
+  display: none;
 }
 
 .container-label-input-connexion {
@@ -27,6 +32,10 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+.label-connexion {
+  display: none;
 }
 
 .input-connexion {
@@ -65,4 +74,53 @@
   flex-shrink: 0;
   margin: auto;
   margin-top: 80px;
+}
+
+@media (width >= 1250px) {
+  .mobile-connexion {
+    background-size: 30vw 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-h1-connexion {
+    display: flex;
+  }
+
+  .h1-connexion {
+    text-align: start;
+  }
+
+  .logo-form {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .img-h2-desktop {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .img-h2-desktop > h2 {
+    color: white;
+  }
+
+  .container-label-input-connexion {
+    margin-top: 235px;
+    margin-left: 25%;
+  }
+
+  .input-connexion {
+    border: 1px solid black;
+  }
+
+  .input-connexion::placeholder {
+    color: black;
+    padding: 10px;
+  }
+
+  .link-connexion-parent {
+    color: black;
+  }
 }
