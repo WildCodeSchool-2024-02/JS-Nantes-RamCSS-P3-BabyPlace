@@ -95,15 +95,21 @@
   .logo-form {
     display: flex;
     flex-direction: row;
+    overflow: hidden;
   }
 
   .img-h2-desktop {
     display: flex;
     flex-direction: column;
+    width: 29vw;
+    padding: 40px;
+    margin-left: -23px;
   }
 
   .img-h2-desktop > h2 {
+    margin-top: 100px;
     color: white;
+    text-align: center;
   }
 
   .container-label-input-connexion {
