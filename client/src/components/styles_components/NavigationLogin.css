@@ -1,0 +1,7 @@
+.button-naviguate {
+  text-decoration: none !important;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

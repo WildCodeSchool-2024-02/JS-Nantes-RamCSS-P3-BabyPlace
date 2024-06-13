@@ -1,12 +1,22 @@
 import { NavLink } from "react-router-dom";
+import "../styles_components/NavigationLogin.css";
 import "../../assets/css/fonts.css";
 
 function NavigationLogin() {
   return (
-    <div className="ButtonNaviguate">
-      <NavLink to="/Pass"> Passer </NavLink>
-      <NavLink to="/Login"> Se connecter </NavLink>
-      <NavLink to="/SignUp"> S'inscrire </NavLink>
+    <div className="button-naviguate">
+      <NavLink className="button-naviguate" to="/Pass">
+        {" "}
+        Passer{" "}
+      </NavLink>
+      <NavLink className="button-naviguate" to="/Login">
+        {" "}
+        Se connecter{" "}
+      </NavLink>
+      <NavLink className="button-naviguate" to="/SignUp">
+        {" "}
+        S'inscrire{" "}
+      </NavLink>
     </div>
   );
 }

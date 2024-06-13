@@ -4,19 +4,25 @@ import "../../assets/css/fonts.css";
 
 function AccueilParents() {
   return (
-    <div className="container_login">
-      <img
-        src="./src/assets/images/illustration/Mam&baby.png"
-        className="mambaby_login"
-        alt="Mam&baby"
-      />
-      <img
-        src="./src/assets/images/logos/logo_complet.png"
-        className="logo_login"
-        alt="Logo"
-      />
-      <h3>Garde d'enfant à la demande</h3>
-      <p>Trouvez un.e professionnel.le de la garde d'enfant</p>
+    <div className="container-login">
+      <div className="container-img-text">
+        <img
+          src="./src/assets/images/illustration/Mam&baby.png"
+          className="mambaby-login"
+          alt="Mam&baby"
+        />
+        <img
+          src="./src/assets/images/logos/logo_complet.png"
+          className="logo-login"
+          alt="Logo"
+        />
+        <h3 className="titles parents-welcome-title">
+          Garde d'enfant à la demande
+        </h3>
+        <p className="texts parents-welcome-text">
+          Trouvez un.e professionnel.le de la garde d'enfant
+        </p>
+      </div>
       <NavigationLogin />
     </div>
   );
