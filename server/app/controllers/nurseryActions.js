@@ -81,13 +81,14 @@ const add = async (req, res, next) => {
 // The D of BREAD - Destroy (Delete) operation
 const destroy = async (req, res, next) => {
   try {
+    const {id} = req.params
     // Delete the nursery from the database based on the provided ID
-    const success = await tables.nursery.delete(req.params.id);
+    const success = await tables.nursery.delete(id);
 
     // If the deletion was successful, respond with HTTP 200 (OK)
     // Otherwise, respond with HTTP 404 (Not Found)
-    if (success) {
-      res.sendStatus(200);
+    if (success === 1) {
+      res.sendStatus(204);
     } else {
       res.sendStatus(404);
     }

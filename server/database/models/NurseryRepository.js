@@ -66,13 +66,13 @@ class NurseryRepository extends AbstractRepository {
   // The D of CRUD - Delete operation
   async delete(id) {
     // Execute the SQL DELETE query to remove an item by its ID
-    const [result] = await this.database.query(
+    const [row] = await this.database.query(
       `DELETE FROM ${this.table} WHERE id = ?`,
       [id]
     );
 
     // Return a boolean indicating whether the deletion was successful
-    return result.affectedRows > 0;
+    return row.affectedRows;
   }
 }
 
