@@ -1,0 +1,52 @@
+.descritif-background {
+  width: 50%;
+  height: 75%;
+  background-color: var(--background-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-descriptif-structure {
+  padding: 0 40px;
+}
+
+.text-descriptif-structure {
+  flex-wrap: wrap;
+  padding: 0 40px;
+}
+
+.button-photos-pro {
+  width: 300px;
+  height: 41px;
+  cursor: pointer;
+  background-color: var(--input-light-background);
+  color: var(--input-purple-background);
+  border-radius: 10px;
+  border: 1px solid var(--input-purple-background);
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.button-photos-pro:active {
+  background-color: var(--input-purple-background);
+  color: var(--ligth-color-text);
+  font-weight: normal;
+}
+
+.adaptatif-button-photos-pro {
+  margin-bottom: 150px;
+}
+.profile-picture-container {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.profile-picture-pro {
+  width: 150px;
+  border-radius: 90%;
+}
