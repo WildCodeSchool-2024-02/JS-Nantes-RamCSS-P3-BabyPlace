@@ -4,7 +4,7 @@ import "../../assets/css/fonts.css";
 
 function NavigationLogin() {
   return (
-    <div className="button-naviguate">
+    <div className="button-naviguate texts">
       <NavLink className="button-naviguate" to="/Pass">
         {" "}
         Passer{" "}

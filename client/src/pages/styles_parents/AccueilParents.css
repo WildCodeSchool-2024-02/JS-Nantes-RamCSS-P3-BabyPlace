@@ -12,21 +12,23 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
 }
 
-.container-img-text {
+.img-login {
+  padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 40px;
 }
 
-.parents-welcome-title {
-  color: white;
-}
-
-.parents-welcome-text {
+.text-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: white;
 }
 
