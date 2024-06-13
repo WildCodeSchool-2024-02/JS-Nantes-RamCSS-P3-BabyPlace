@@ -22,7 +22,7 @@ function PicturesComponent() {
             <img
               className="profile-picture-pro"
               src="../src/assets/images/illustration/avatar.png"
-              alt="avatar du profil"
+              alt="avatar du profil professionnel"
             />
             <button type="submit" className="button-photos-pro texts">
               Télécharger votre photo
