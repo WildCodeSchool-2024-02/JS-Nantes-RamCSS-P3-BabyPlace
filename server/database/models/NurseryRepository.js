@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const AbstractRepository = require("./AbstractRepository");
 
 class NurseryRepository extends AbstractRepository {
@@ -8,24 +9,33 @@ class NurseryRepository extends AbstractRepository {
   }
 
   // The C of CRUD - Create operation
+  // async create(nursery) {
+  //   // Execute the SQL INSERT query to add a new nursery to the "nursery" table
+  //   const [result] = await this.database.query(
+  //     `INSERT INTO ${this.table} (title, user_id) VALUES (?, ?)`,
+  //     [nursery.user_id]
+  //   );
 
-  async create(nursery) {
-    // Execute the SQL INSERT query to add a new nursert to the "nursery" table
-    const [result] = await this.database.query(
-      `insert into ${this.table} (title, user_id) values (?, ?)`,
-      [nursery.title, nursery.user_id]
-    );
+  //   // Return the ID of the newly inserted nursery
+  //   return result.insertId;
+  // }
 
-    // Return the ID of the newly inserted nursery
-    return result.insertId;
+  // Alias for the create method
+  async create( siret, name, address, postal_code, city, phone, email, type_of_nursery, capacity,opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
+    presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct ) {
+    const [rows] = await this.database.query(`INSERT INTO ${this.table} (
+    siret, name, address, postal_code, city, phone, email, type_of_nursery, capacity,opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
+    presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
+    [siret, name, address, postal_code, city, phone, email, type_of_nursery, capacity,opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
+      presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct ]);
+    return rows;
   }
 
-  // The Rs of CRUD - Read operations
-
+  // The R of CRUD - Read operations
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `SELECT * FROM ${this.table} WHERE id = ?`,
       [id]
     );
 
@@ -34,26 +44,36 @@ class NurseryRepository extends AbstractRepository {
   }
 
   async readAll() {
-    // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    // Execute the SQL SELECT query to retrieve all items from the "nursery" table
+    const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
 
     // Return the array of items
     return rows;
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
+  async update(nursery) {
+    // Execute the SQL UPDATE query to modify an existing nursery
+    const [result] = await this.database.query(
+      `UPDATE ${this.table} SET title = ?, user_id = ? WHERE id = ?`,
+      [nursery.title, nursery.user_id, nursery.id]
+    );
 
-  // async update(item) {
-  //   ...
-  // }
+    // Return a boolean indicating whether the update was successful
+    return result.affectedRows > 0;
+  }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
+  async delete(id) {
+    // Execute the SQL DELETE query to remove an item by its ID
+    const [result] = await this.database.query(
+      `DELETE FROM ${this.table} WHERE id = ?`,
+      [id]
+    );
 
-  // async delete(id) {
-  //   ...
-  // }
+    // Return a boolean indicating whether the deletion was successful
+    return result.affectedRows > 0;
+  }
 }
 
 module.exports = NurseryRepository;

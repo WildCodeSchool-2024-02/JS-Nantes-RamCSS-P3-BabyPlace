@@ -21,7 +21,6 @@ class ParentRepository extends AbstractRepository {
   }
 
   // The Rs of CRUD - Read operations
-
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific parent by its ID
     const [rows] = await this.database.query(
@@ -30,7 +29,7 @@ class ParentRepository extends AbstractRepository {
     );
 
     // Return the first row of the result, which represents the parent
-    return rows[0];
+    return rows;
   }
 
   async readAll() {
@@ -42,18 +41,28 @@ class ParentRepository extends AbstractRepository {
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
+  async update(id, parent) {
+    // Execute the SQL UPDATE query to modify an existing parent in the "parent" table
+    const [result] = await this.database.query(
+      `update ${this.table} set title = ?, user_id = ? where id = ?`,
+      [parent.title, parent.user_id, id]
+    );
 
-  // async update(item) {
-  //   ...
-  // }
+    // Return the number of affected rows
+    return result.affectedRows;
+  }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
+  async delete(id) {
+    // Execute the SQL DELETE query to remove a parent by its ID
+    const [result] = await this.database.query(
+      `delete from ${this.table} where id = ?`,
+      [id]
+    );
 
-  // async delete(id) {
-  //   ...
-  // }
+    // Return the number of affected rows
+    return result.affectedRows;
+  }
 }
 
 module.exports = ParentRepository;

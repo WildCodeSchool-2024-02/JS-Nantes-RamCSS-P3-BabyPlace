@@ -43,7 +43,7 @@ CREATE TABLE `Child` (
 
 -- Création de la table Nursery
 CREATE TABLE `Nursery` (
-    `id` INT NOT NULL PRIMARY KEY,
+    `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `siret` INT NOT NULL,
     `name` VARCHAR(50) NOT NULL,
     `address` VARCHAR(150) NOT NULL,
