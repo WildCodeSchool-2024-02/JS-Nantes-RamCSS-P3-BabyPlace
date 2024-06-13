@@ -4,14 +4,19 @@ import "../styles_components/StructureComponent.css";
 
 function StructureComponent() {
   return (
-    <div>
+    <section>
       {/* ----- Visual indicating the progress of registration => level 0 ----- */}
-      <div className="advanced-line" />
+      <progress
+        className="advanced-line-0"
+        name="Barre de progression"
+        max="100"
+        value="0"
+      />
 
       {/* ----- full screen ----- */}
-      <div className="global-container-structure">
+      <section className="global-container-register-pro">
         {/* ----- Left part of the screen ------ */}
-        <div className="left-part-container-structure">
+        <section className="left-part-container-register-pro">
           <h2 className="titles">Quel type d'accueil proposez vous?</h2>
           <input
             id="nursery-type"
@@ -25,7 +30,7 @@ function StructureComponent() {
           <h2 className="titles">Maintenant, précisons les choses...</h2>
 
           {/* * Types of Nurseries */}
-          <div className="checkboxgroup" aria-label="Type of nursery">
+          <section className="checkboxgroup" aria-label="Type of nursery">
             {/* ---checkbox 1 => "Crèche parentale" */}
             <input
               id="parental-nursery"
@@ -137,13 +142,13 @@ function StructureComponent() {
             >
               Crèche associative
             </label>
-          </div>
+          </section>
 
           {/* Name & Phone number */}
           <h2 className="titles">Complétez et vérifiez vos informations</h2>
-          <div className="global-input-container">
-            <div>
-              <div className="input-container-pro">
+          <section className="global-input-container">
+            <section>
+              <section className="input-container-pro">
                 <label htmlFor="name" className="texts text-input-label-pro">
                   Nom :
                 </label>
@@ -152,12 +157,12 @@ function StructureComponent() {
                   placeholder="Ex : La crèche des petits lutins"
                   className="texts input-text-pro"
                 />
-              </div>
+              </section>
               <p className="texts information-name">
                 Ce nom sera celui qui s'affichera en titre de votre annonce.
               </p>
-            </div>
-            <div className="input-container-pro">
+            </section>
+            <section className="input-container-pro">
               <label htmlFor="name" className="texts text-input-label-pro">
                 N° de téléphone :
               </label>
@@ -166,37 +171,41 @@ function StructureComponent() {
                 placeholder="Ex : 08.00.00.00.00"
                 className="texts input-text-pro"
               />
-            </div>
-          </div>
+            </section>
+          </section>
 
-          {/* Redirection to screen 2 of profesional registration */}
-          <NavLink to="/" className="navlink-screen1 texts">
-            <p>Suivant</p>
-            <img
-              src="../src/assets/images/illustration/arrow_right.svg"
-              alt="Arrow"
-            />
-          </NavLink>
-        </div>
+          {/* Redirection to screen 2 of professional registration */}
+          <nav className="nav-buttons-pro-register adaptatif-nav-buttons">
+            <NavLink to="/" className="navlink-next-pro screen1 texts">
+              <p>Suivant</p>
+              <img
+                src="../src/assets/images/illustration/arrow_right.svg"
+                alt="Arrow"
+              />
+            </NavLink>
+          </nav>
+        </section>
 
         {/* ----- Right part of the screen ------ */}
-        <div className="right-part-container-structure">
-          <div className="descritif-background">
+        <section className="right-part-container-register-pro">
+          <section className="descritif-background">
             <img
               src="../src/assets/images/illustration/img_structure_ecran1.png"
               alt="Avatar"
               className="image-descriptif-structure"
             />
-            <h2 className="titles">Choississez votre catégorie</h2>
+            <h2 className="titles title-descriptif-structure">
+              Choississez votre catégorie d'annonce
+            </h2>
             <p className="text-descriptif-structure texts">
               En sélectionnant les catégories adéquates, vous aidez les parents
               à savoir à quoi s'attendre concernant l'accueil de leur enfant au
               sein de votre structure.
             </p>
-          </div>
-        </div>
-      </div>
-    </div>
+          </section>
+        </section>
+      </section>
+    </section>
   );
 }
 

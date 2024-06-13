@@ -68,6 +68,29 @@
   text-decoration: none;
 }
 
+/* * Visual of professional register */
+
+.global-container-register-pro {
+  display: flex;
+  min-height: calc(100vh - 90px);
+}
+
+.left-part-container-register-pro {
+  width: 50%;
+  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.right-part-container-register-pro {
+  width: 50%;
+  background-color: var(--background-light-purple);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* * Input professional part */
 
 .input-container-pro {
@@ -115,4 +138,53 @@
 .input-checkbox-pro[type="checkbox"]:checked + .label-checkbox-pro {
   background-color: var(--input-purple-background);
   color: var(--ligth-color-text);
+}
+
+/* * Progress bar */
+
+/* global styles of progress bar */
+progress {
+  width: 100%;
+  height: 17px;
+  -webkit-appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: var(--background-grey);
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--purple-color);
+}
+
+/* Firefox styles of progress bar */
+progress::-moz-progress-bar {
+  background-color: var(--purple-color);
+}
+
+/* * buttons place */
+
+.nav-buttons-pro-register {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* * Button 'Suivant' professional part */
+
+.navlink-next-pro {
+  background: var(--purple-color);
+  border-radius: 99px;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--ligth-color-text);
+}
+
+/* * Button "Retour" professional part */
+
+.navlink-prev-pro {
+  color: var(--purple-color);
 }
