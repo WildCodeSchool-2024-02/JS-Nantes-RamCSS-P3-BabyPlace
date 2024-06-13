@@ -22,7 +22,7 @@ function LocalisationComponent() {
             Les parents n'obtiendront l'adresse qu'après avoir effectué la
             réservation
           </p>
-          <button type="submit" className="button-localisation-pro texts">
+          <button type="submit" className="button-photos-pro texts">
             Utiliser l'emplacement actuel
           </button>
           <h2 className="titles">Adresse postale</h2>
