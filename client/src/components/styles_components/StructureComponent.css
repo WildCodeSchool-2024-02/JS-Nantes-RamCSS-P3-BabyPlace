@@ -1,24 +1,5 @@
-.descritif-background {
-  width: 50%;
-  height: 75%;
-  background-color: var(--background-light);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.title-descriptif-structure {
-  padding: 0 40px;
-}
-
 .image-descriptif-structure {
   width: 75%;
-}
-
-.text-descriptif-structure {
-  flex-wrap: wrap;
-  padding: 0 40px;
 }
 
 .checkboxgroup {
