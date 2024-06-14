@@ -8,7 +8,7 @@ function ConnexionParent() {
         <img
           src="./src/assets/images/logos/logo_complet.png"
           className="img-connexion-parent"
-          alt=""
+          alt="logo"
         />
         <h1 className="titles h1-connexion ">Garde d'enfant à la demande</h1>
       </div>
@@ -21,7 +21,7 @@ function ConnexionParent() {
           <img
             className="img-desk"
             src="./src/assets/images/illustration/img_structure_desktop_ecran_connexion.png"
-            alt=""
+            alt="baby_place_image"
           />
         </div>
 
@@ -57,7 +57,7 @@ function ConnexionParent() {
           </a>
           <NavLink
             to="/accueil"
-            className="btn-global link-connexion-parent-btn"
+            className="btn-global link-connexion-parent-btn texts"
           >
             Se connecter
           </NavLink>

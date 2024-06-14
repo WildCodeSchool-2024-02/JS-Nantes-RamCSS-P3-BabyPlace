@@ -1,5 +1,5 @@
 .mobile-connexion {
-  background-color: var(--background-gradiant);
+  background: var(--background-gradient);
   min-height: 100vh;
   min-width: 100vw;
   padding: 20px;
@@ -36,12 +36,15 @@
   width: 329px;
   border: none;
   border-radius: 10px;
-  background-color: #dfdede21;
 }
 
 .input-connexion::placeholder {
   color: var(--ligth-color-text);
   padding: 10px;
+}
+
+.input-connexion:focus {
+  outline: 1px solid var(--purple-color);
 }
 
 .link-connexion-parent {
@@ -55,10 +58,9 @@
   border-radius: 10px;
   width: 297px;
   height: 53.667px;
-  background-color: #7e72f2;
+  background-color: var(--purple-color);
   color: var(--ligth-color-text);
   text-align: center;
-  font-family: Nunito;
   font-size: 24px;
   font-weight: 800;
   display: flex;
@@ -115,7 +117,7 @@
   }
 
   .input-connexion {
-    border: 1px solid rgba(0, 0, 0, 0.268);
+    border: 1px solid var(--input-light-border);
     border-radius: 4px;
   }
 
@@ -132,6 +134,7 @@
   .link-connexion-parent-btn {
     width: 100%;
     margin-top: 0px;
+    border-radius: 4px;
   }
 
   .link-pro-connexion {
