@@ -21,7 +21,7 @@ function ConnexionParent() {
           <img
             className="img-desk"
             src="./src/assets/images/illustration/img_structure_desktop_ecran_connexion.png"
-            alt=""
+            alt="baby_place_image"
           />
         </div>
 
@@ -57,7 +57,7 @@ function ConnexionParent() {
           </a>
           <NavLink
             to="/accueil"
-            className="btn-global link-connexion-parent-btn"
+            className="btn-global link-connexion-parent-btn texts"
           >
             Se connecter
           </NavLink>
