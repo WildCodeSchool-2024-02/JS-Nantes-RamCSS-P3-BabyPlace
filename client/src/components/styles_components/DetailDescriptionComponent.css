@@ -1,0 +1,8 @@
+.little-titles-details {
+  font-size: 24px;
+}
+
+.checkboxgroup-detail {
+  display: flex;
+  flex-direction: column;
+}
