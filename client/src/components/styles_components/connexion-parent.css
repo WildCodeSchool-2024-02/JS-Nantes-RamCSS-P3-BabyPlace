@@ -1,5 +1,5 @@
 .mobile-connexion {
-  background-color: var(--background-gradiant);
+  background: var(--background-gradient);
   min-height: 100vh;
   min-width: 100vw;
   padding: 20px;

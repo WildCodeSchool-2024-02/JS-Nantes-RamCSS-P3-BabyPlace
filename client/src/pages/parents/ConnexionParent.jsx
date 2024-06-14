@@ -8,7 +8,7 @@ function ConnexionParent() {
         <img
           src="./src/assets/images/logos/logo_complet.png"
           className="img-connexion-parent"
-          alt=""
+          alt="logo"
         />
         <h1 className="titles h1-connexion ">Garde d'enfant à la demande</h1>
       </div>
