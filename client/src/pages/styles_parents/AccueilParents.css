@@ -32,10 +32,21 @@
   color: white;
 }
 
-.mambaby-login {
+.mumbaby-login {
   width: 350px;
 }
 
 .logo-login {
   width: 200px;
+}
+
+.button-navigate {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: auto;
+  padding: 10px;
+  width: 100vw;
 }
