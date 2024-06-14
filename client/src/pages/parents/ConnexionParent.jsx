@@ -7,7 +7,7 @@ function ConnexionParent() {
       <div className="logo-h1-connexion">
         <img
           src="./src/assets/images/logos/logo_complet.png"
-          className="img-connextion-parent"
+          className="img-connexion-parent"
           alt=""
         />
         <h1 className="titles h1-connexion ">Garde d'enfant à la demande</h1>
@@ -28,7 +28,7 @@ function ConnexionParent() {
         <div className="container-label-input-connexion">
           <h2 className="titles">Je me connecte</h2>
           <label htmlFor="name" className="label-connexion">
-            name
+            Email
           </label>
           <input
             type="text"
@@ -40,7 +40,7 @@ function ConnexionParent() {
           />
 
           <label htmlFor="password" className="label-connexion">
-            password
+            Mot de passe
           </label>
           <input
             type="password"
@@ -64,7 +64,7 @@ function ConnexionParent() {
         </div>
       </div>
       <div className="link-pro-connexion texts">
-        <a href="a">Acces a votre espace</a>
+        <a href="a">Accès a votre espace</a>
         <div className="btn-link-pro-connexion">pro</div>
       </div>
     </div>

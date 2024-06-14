@@ -1,18 +1,11 @@
 .mobile-connexion {
-  /* background-color: var(--background-gradiant); */
-  background: linear-gradient(
-    179deg,
-    rgba(71, 79, 255, 0.9) 2.49%,
-    rgba(89, 84, 249, 0.91) 13.34%,
-    rgb(227, 122, 204) 99.05%
-  );
-
+  background-color: var(--background-gradiant);
   min-height: 100vh;
   min-width: 100vw;
   padding: 20px;
 }
 
-.img-connextion-parent {
+.img-connexion-parent {
   width: 62px;
   height: 32px;
   margin: 20px;
@@ -20,7 +13,7 @@
 
 .h1-connexion {
   text-align: center;
-  color: white;
+  color: var(--ligth-color-text);
 }
 
 .img-h2-desktop {
@@ -47,13 +40,13 @@
 }
 
 .input-connexion::placeholder {
-  color: white;
+  color: var(--ligth-color-text);
   padding: 10px;
 }
 
 .link-connexion-parent {
   text-decoration: none;
-  color: white;
+  color: var(--ligth-color-text);
   margin-left: 10px;
 }
 
@@ -63,7 +56,7 @@
   width: 297px;
   height: 53.667px;
   background-color: #7e72f2;
-  color: var(--white, #fff);
+  color: var(--ligth-color-text);
   text-align: center;
   font-family: Nunito;
   font-size: 24px;
@@ -80,7 +73,7 @@
   display: none;
 }
 
-@media (width >= 1250px) {
+@media (width >= 1024px) {
   .mobile-connexion {
     background-size: 30vw 100vh;
     background-repeat: no-repeat;
@@ -112,7 +105,7 @@
 
   .img-h2-desktop > h2 {
     margin-top: 100px;
-    color: white;
+    color: var(--ligth-color-text);
     text-align: center;
   }
 
@@ -127,12 +120,12 @@
   }
 
   .input-connexion::placeholder {
-    color: black;
+    color: var(--dark-color-text);
     padding: 10px;
   }
 
   .link-connexion-parent {
-    color: black;
+    color: var(--dark-color-text);
     text-align: center;
   }
 
@@ -145,7 +138,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    color: white;
+    color: var(--ligth-color-text);
     text-decoration: none;
     gap: 10px;
     margin-left: 275px;
@@ -153,12 +146,12 @@
 
   .link-pro-connexion > a {
     display: inline-block;
-    color: white;
+    color: var(--ligth-color-text);
     text-decoration: none;
   }
 
   .btn-link-pro-connexion {
-    border: 1px solid white;
+    border: 1px solid var(--ligth-color-text);
     border-radius: 15px;
     width: 80px;
     height: 28px;
