@@ -16,7 +16,7 @@ function ConnexionParent() {
       <div className="logo-form">
         <div className="img-h2-desktop">
           <h2 className="titles h2-connexion">
-            Trouvez un.e professionel.le de la garde d’enfant.
+            Trouvez un.e professionel.le de la garde d’enfant
           </h2>
           <img
             className="img-desk"
@@ -26,6 +26,7 @@ function ConnexionParent() {
         </div>
 
         <div className="container-label-input-connexion">
+          <h2 className="titles">Je me connecte</h2>
           <label htmlFor="name" className="label-connexion">
             name
           </label>
@@ -54,10 +55,17 @@ function ConnexionParent() {
             {" "}
             Mot de passe oublié
           </a>
-          <NavLink to="/accueil" className="btn-global">
+          <NavLink
+            to="/accueil"
+            className="btn-global link-connexion-parent-btn"
+          >
             Se connecter
           </NavLink>
         </div>
+      </div>
+      <div className="link-pro-connexion texts">
+        <a href="a">Acces a votre espace</a>
+        <div className="btn-link-pro-connexion">pro</div>
       </div>
     </div>
   );
