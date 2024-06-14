@@ -1,22 +1,3 @@
-.descritif-background {
-  width: 50%;
-  height: 75%;
-  background-color: var(--background-light);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.title-descriptif-structure {
-  padding: 0 40px;
-}
-
-.text-descriptif-structure {
-  flex-wrap: wrap;
-  padding: 0 40px;
-}
-
 .button-photos-pro {
   width: 300px;
   height: 41px;
@@ -39,14 +20,4 @@
 
 .adaptatif-button-photos-pro {
   margin-bottom: 150px;
-}
-.profile-picture-container {
-  display: flex;
-  align-items: center;
-  gap: 48px;
-}
-
-.profile-picture-pro {
-  width: 150px;
-  border-radius: 90%;
 }

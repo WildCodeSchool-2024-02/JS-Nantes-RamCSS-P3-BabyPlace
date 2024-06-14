@@ -91,6 +91,25 @@
   align-items: center;
 }
 
+.descritif-background {
+  width: 50%;
+  height: 75%;
+  background-color: var(--background-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-descriptif-structure {
+  padding: 0 40px;
+}
+
+.text-descriptif-structure {
+  flex-wrap: wrap;
+  padding: 0 40px;
+}
+
 /* * Input professional part */
 
 .input-container-pro {
@@ -187,4 +206,29 @@ progress::-moz-progress-bar {
 
 .navlink-prev-pro {
   color: var(--purple-color);
+}
+
+/* * profil */
+
+.profile-picture-container {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.profile-picture-pro {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 90%;
+}
+
+.profile-picture-pro-adaptatif {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 90%;
+}
+
+.profil-name {
 }
