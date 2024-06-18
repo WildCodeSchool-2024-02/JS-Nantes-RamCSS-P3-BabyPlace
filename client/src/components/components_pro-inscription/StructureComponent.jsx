@@ -4,7 +4,7 @@ import "../styles_components/StructureComponent.css";
 
 function StructureComponent() {
   return (
-    <section>
+    <section className="global-container-screen-register">
       {/* ----- Visual indicating the progress of registration => level 0 ----- */}
       <progress
         className="advanced-line-0"

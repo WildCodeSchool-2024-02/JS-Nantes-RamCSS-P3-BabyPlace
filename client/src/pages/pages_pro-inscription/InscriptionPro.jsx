@@ -5,7 +5,8 @@ import NavbarInscriptionPro from "../../components/components_pro-inscription/Na
 // import LocalisationComponent from "../../components/components_pro-inscription/LocalisationComponent";
 // import PicturesComponent from "../../components/components_pro-inscription/PicturesComponent";
 // import DescriptionComponent from "../../components/components_pro-inscription/DescriptionComponent";
-import DetailDescriptionComponent from "../../components/components_pro-inscription/DetailDescriptionComponent";
+// import DetailDescriptionComponent from "../../components/components_pro-inscription/DetailDescriptionComponent";
+import UseConditionComponent from "../../components/components_pro-inscription/UseConditionComponent";
 
 import "../styles_pro_pages/InscriptionPro.css";
 
@@ -13,7 +14,7 @@ function InscriptionPro() {
   return (
     <div>
       <NavbarInscriptionPro />
-      <DetailDescriptionComponent />
+      <UseConditionComponent />
     </div>
   );
 }

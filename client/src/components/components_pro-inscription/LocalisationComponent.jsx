@@ -4,7 +4,7 @@ import "../styles_components/LocalisationComponent.css";
 
 function LocalisationComponent() {
   return (
-    <section>
+    <section className="global-container-screen-register">
       {/* ----- Visual indicating the progress of registration => level 1 ----- */}
       <progress
         className="advanced-line-1"
@@ -65,12 +65,12 @@ function LocalisationComponent() {
             </section>
           </section>
 
-          {/* Redirection to screen 1 of professional registration */}
+          {/* Redirection to prev screen of professional registration */}
           <nav className="nav-buttons-pro-register">
             <NavLink to="/" className="navlink-prev-pro screen2 texts">
               <p>&lt; Retour</p>
             </NavLink>
-            {/* Redirection to screen 3 of professional registration */}
+            {/* Redirection to next screen of professional registration */}
             <NavLink to="/" className="navlink-next-pro screen2 texts">
               <p>Suivant</p>
               <img

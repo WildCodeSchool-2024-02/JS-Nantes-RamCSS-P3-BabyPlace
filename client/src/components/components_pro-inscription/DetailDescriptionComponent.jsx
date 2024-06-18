@@ -14,7 +14,7 @@ function DetailDescriptionComponent() {
       />
 
       {/* ----- full screen ----- */}
-      <section className="global-container-register-pro">
+      <section className="adaptatif-global-container-detail">
         {/* ----- Left part of the screen ------ */}
         <section className="left-part-container-register-pro adaptatif-left-part-detail">
           <h2 className="titles">Les petits plus de votre accueil</h2>

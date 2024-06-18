@@ -4,7 +4,7 @@ import "../styles_components/PicturesComponent.css";
 
 function PicturesComponent() {
   return (
-    <section>
+    <section className="global-container-screen-register">
       {/* ----- Visual indicating the progress of registration => level 3 ----- */}
       <progress
         className="advanced-line-1"

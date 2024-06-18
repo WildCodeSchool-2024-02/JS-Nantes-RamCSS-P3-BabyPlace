@@ -1,11 +1,10 @@
 import { NavLink } from "react-router-dom";
 
 import "../styles_components/DescriptionComponent.css";
-import "../../assets/images/illustration/avatar_lorem.jpg";
 
 function DescriptionComponent() {
   return (
-    <section>
+    <section className="global-container-screen-register">
       {/* ----- Visual indicating the progress of registration => level 3 ----- */}
       <progress
         className="advanced-line-1"
