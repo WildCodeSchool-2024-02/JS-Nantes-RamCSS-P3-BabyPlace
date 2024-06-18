@@ -1,12 +1,9 @@
 .mobile-connexion {
-  background-color: var(--background-gradiant);
-  min-height: 100vh;
-  min-width: 100vw;
-  padding: 20px;
+  background: var(--background-gradient);
+  height: 100vh;
 }
 
 .img-connexion-parent {
-  width: 62px;
   height: 32px;
   margin: 20px;
 }
@@ -14,6 +11,11 @@
 .h1-connexion {
   text-align: center;
   color: var(--ligth-color-text);
+  letter-spacing: 1px;
+}
+
+.h2-connexion-parent {
+  display: none;
 }
 
 .img-h2-desktop {
@@ -24,7 +26,8 @@
   margin-top: 90px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
+  align-items: center;
 }
 
 .label-connexion {
@@ -36,12 +39,16 @@
   width: 329px;
   border: none;
   border-radius: 10px;
-  background-color: #dfdede21;
+  padding-left: 20px;
+  background-color: rgba(255, 255, 255, 0.144);
 }
 
 .input-connexion::placeholder {
   color: var(--ligth-color-text);
-  padding: 10px;
+}
+
+.input-connexion:focus {
+  outline: 1px solid var(--purple-color);
 }
 
 .link-connexion-parent {
@@ -55,18 +62,16 @@
   border-radius: 10px;
   width: 297px;
   height: 53.667px;
-  background-color: #7e72f2;
+  background-color: var(--purple-color);
   color: var(--ligth-color-text);
   text-align: center;
-  font-family: Nunito;
   font-size: 24px;
   font-weight: 800;
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex-shrink: 0;
-  margin: auto;
-  margin-top: 80px;
+  margin-top: 70px;
 }
 
 .link-pro-connexion {
@@ -95,12 +100,15 @@
     overflow: hidden;
   }
 
+  .h2-connexion-parent {
+    display: block;
+  }
+
   .img-h2-desktop {
     display: flex;
     flex-direction: column;
     width: 29vw;
     padding: 40px;
-    margin-left: -23px;
   }
 
   .img-h2-desktop > h2 {
@@ -110,12 +118,11 @@
   }
 
   .container-label-input-connexion {
-    margin-top: 150px;
     margin-left: 25%;
   }
 
   .input-connexion {
-    border: 1px solid rgba(0, 0, 0, 0.268);
+    border: 1px solid var(--input-light-border);
     border-radius: 4px;
   }
 
@@ -132,6 +139,7 @@
   .link-connexion-parent-btn {
     width: 100%;
     margin-top: 0px;
+    border-radius: 4px;
   }
 
   .link-pro-connexion {
@@ -141,16 +149,16 @@
     color: var(--ligth-color-text);
     text-decoration: none;
     gap: 10px;
-    margin-left: 275px;
+    margin-left: 220px;
   }
 
-  .link-pro-connexion > a {
-    display: inline-block;
-    color: var(--ligth-color-text);
-    text-decoration: none;
+  .btn-link-connexion {
+    font-size: 1.5rem;
+    font-weight: 600;
   }
 
   .btn-link-pro-connexion {
+    font-weight: 600;
     border: 1px solid var(--ligth-color-text);
     border-radius: 15px;
     width: 80px;

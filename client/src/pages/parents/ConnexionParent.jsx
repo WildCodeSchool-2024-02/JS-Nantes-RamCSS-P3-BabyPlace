@@ -8,7 +8,7 @@ function ConnexionParent() {
         <img
           src="./src/assets/images/logos/logo_complet.png"
           className="img-connexion-parent"
-          alt=""
+          alt="logo"
         />
         <h1 className="titles h1-connexion ">Garde d'enfant à la demande</h1>
       </div>
@@ -21,12 +21,12 @@ function ConnexionParent() {
           <img
             className="img-desk"
             src="./src/assets/images/illustration/img_structure_desktop_ecran_connexion.png"
-            alt=""
+            alt="baby place"
           />
         </div>
 
         <div className="container-label-input-connexion">
-          <h2 className="titles">Je me connecte</h2>
+          <h2 className="titles h2-connexion-parent">Je me connecte</h2>
           <label htmlFor="name" className="label-connexion">
             Email
           </label>
@@ -51,22 +51,22 @@ function ConnexionParent() {
             placeholder="Mot de passe"
           />
 
-          <a href="/" className="link-connexion-parent">
+          <a href="/" className="link-connexion-parent texts">
             {" "}
             Mot de passe oublié
           </a>
           <NavLink
             to="/accueil"
-            className="btn-global link-connexion-parent-btn"
+            className="btn-global link-connexion-parent-btn texts"
           >
             Se connecter
           </NavLink>
         </div>
       </div>
-      <div className="link-pro-connexion texts">
-        <a href="a">Accès a votre espace</a>
+      <NavLink to="/connexionpro" className="link-pro-connexion texts">
+        <div className="btn-link-connexion">Accès a votre espace</div>
         <div className="btn-link-pro-connexion">pro</div>
-      </div>
+      </NavLink>
     </div>
   );
 }
