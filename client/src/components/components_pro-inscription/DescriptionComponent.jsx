@@ -11,7 +11,7 @@ function DescriptionComponent() {
         className="advanced-line-1"
         name="Barre de progression"
         max="100"
-        value="30"
+        value="21"
       />
 
       {/* ----- full screen ----- */}
