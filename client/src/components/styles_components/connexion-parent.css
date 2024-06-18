@@ -10,7 +10,7 @@
 
 .h1-connexion {
   text-align: center;
-  color: var(--ligth-color-text);
+  color: var(--light-color-text);
   letter-spacing: 1px;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .input-connexion::placeholder {
-  color: var(--ligth-color-text);
+  color: var(--light-color-text);
 }
 
 .input-connexion:focus {
@@ -53,7 +53,7 @@
 
 .link-connexion-parent {
   text-decoration: none;
-  color: var(--ligth-color-text);
+  color: var(--light-color-text);
   margin-left: 10px;
 }
 
@@ -63,7 +63,7 @@
   width: 297px;
   height: 53.667px;
   background-color: var(--purple-color);
-  color: var(--ligth-color-text);
+  color: var(--light-color-text);
   text-align: center;
   font-size: 24px;
   font-weight: 800;
@@ -113,7 +113,7 @@
 
   .img-h2-desktop > h2 {
     margin-top: 100px;
-    color: var(--ligth-color-text);
+    color: var(--light-color-text);
     text-align: center;
   }
 
@@ -146,7 +146,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    color: var(--ligth-color-text);
+    color: var(--light-color-text);
     text-decoration: none;
     gap: 10px;
     margin-left: 220px;
@@ -159,11 +159,11 @@
 
   .btn-link-pro-connexion {
     font-weight: 600;
-    border: 1px solid var(--ligth-color-text);
+    border: 1px solid var(--light-color-text);
     border-radius: 15px;
     width: 80px;
     height: 28px;
     text-align: center;
-    padding: 2px;
+    padding-bottom: 32px;
   }
 }

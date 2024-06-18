@@ -35,7 +35,9 @@
 
   /* * text */
   --dark-color-text: rgb(0, 0, 0);
-  --ligth-color-text: rgb(255, 255, 255);
+  /* !attention au non de la variable "light" correction du formateur */
+  --light-color-text: rgb(255, 255, 255);
+  /*! ***************************************************************/
 
   /* * Elements */
   --input-light-background: rgb(242, 242, 242);

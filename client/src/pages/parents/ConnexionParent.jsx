@@ -16,7 +16,7 @@ function ConnexionParent() {
       <div className="logo-form">
         <div className="img-h2-desktop">
           <h2 className="titles h2-connexion">
-            Trouvez un.e professionel.le de la garde d’enfant
+            Trouvez un⸱e professionel⸱le de la garde d’enfant
           </h2>
           <img
             className="img-desk"
@@ -63,9 +63,12 @@ function ConnexionParent() {
           </NavLink>
         </div>
       </div>
-      <NavLink to="/connexionpro" className="link-pro-connexion texts">
-        <div className="btn-link-connexion">Accès a votre espace</div>
-        <div className="btn-link-pro-connexion">pro</div>
+      <NavLink
+        to="/connexionpro"
+        className="btn-link-connexion link-pro-connexion texts"
+      >
+        Accès a votre espace
+        <span className="btn-link-pro-connexion">pro</span>
       </NavLink>
     </div>
   );
