@@ -33,7 +33,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="pcsc1"
-                  name="type"
+                  name="pcsc1"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -44,7 +44,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="nesting"
-                  name="type"
+                  name="nesting"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -55,7 +55,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="montessori"
-                  name="type"
+                  name="montessori"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -66,7 +66,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="disability"
-                  name="type"
+                  name="disability"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -85,7 +85,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="garden"
-                  name="type"
+                  name="garden"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -96,7 +96,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="outing"
-                  name="type"
+                  name="outing"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -107,7 +107,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="pets"
-                  name="type"
+                  name="pets"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -118,7 +118,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="pollution"
-                  name="type"
+                  name="pollution"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -129,7 +129,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="meal"
-                  name="type"
+                  name="meal"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -140,7 +140,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="hygiene"
-                  name="type"
+                  name="hygiene"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -159,7 +159,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="walk"
-                  name="type"
+                  name="walk"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -170,7 +170,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="awakening"
-                  name="type"
+                  name="awakening"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -181,7 +181,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="music"
-                  name="type"
+                  name="music"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -192,7 +192,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="artistic"
-                  name="type"
+                  name="artistic"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -203,7 +203,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="international"
-                  name="type"
+                  name="international"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -214,7 +214,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="ram"
-                  name="type"
+                  name="ram"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -225,7 +225,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="transport"
-                  name="type"
+                  name="transport"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />
@@ -246,7 +246,7 @@ function DetailDescriptionComponent() {
               <section>
                 <input
                   id="albums"
-                  name="type"
+                  name="albums"
                   type="checkbox"
                   className="input-checkbox-detail-pro"
                 />

@@ -20,7 +20,7 @@ function StructureComponent() {
           <h2 className="titles">Quel type d'accueil proposez vous?</h2>
           <input
             id="nursery-type"
-            name="type"
+            name="nursery-type"
             type="checkbox"
             className="input-checkbox-pro"
           />
@@ -34,7 +34,7 @@ function StructureComponent() {
             {/* ---checkbox 1 => "Crèche parentale" */}
             <input
               id="parental-nursery"
-              name="type"
+              name="parental-nursery"
               type="checkbox"
               className="input-checkbox-pro"
             />
@@ -47,7 +47,7 @@ function StructureComponent() {
             {/* ---checkbox 2 => "Micro-Crèche" */}
             <input
               id="micro-nursery"
-              name="type"
+              name="micro-nursery"
               type="checkbox"
               className="input-checkbox-pro"
             />
@@ -57,7 +57,7 @@ function StructureComponent() {
             {/* ---checkbox 3 => "Crèche d'entreprise" */}
             <input
               id="company-nursery"
-              name="type"
+              name="company-nursery"
               type="checkbox"
               className="input-checkbox-pro"
             />
@@ -70,7 +70,7 @@ function StructureComponent() {
             {/* ---checkbox 4 => "Halte garderie" */}
             <input
               id="daycare"
-              name="type"
+              name="daycare"
               type="checkbox"
               className="input-checkbox-pro"
             />
@@ -80,7 +80,7 @@ function StructureComponent() {
             {/* ---checkbox 5 => "Crèche collective" */}
             <input
               id="collective-nursery"
-              name="type"
+              name="collective-nursery"
               type="checkbox"
               className="input-checkbox-pro"
             />
@@ -93,7 +93,7 @@ function StructureComponent() {
             {/* ---checkbox 6 => "Crèche écologique" */}
             <input
               id="ecological-nursery"
-              name="type"
+              name="ecological-nursery"
               type="checkbox"
               className="input-checkbox-pro"
             />
@@ -106,7 +106,7 @@ function StructureComponent() {
             {/* ---checkbox 7 => "Multi-Accueil" */}
             <input
               id="multireception-nursery"
-              name="type"
+              name="multireception-nursery"
               type="checkbox"
               className="input-checkbox-pro"
             />
@@ -119,7 +119,7 @@ function StructureComponent() {
             {/* ---checkbox 8 => "Crèche municipale" */}
             <input
               id="municipal-nursery"
-              name="type"
+              name="municipal-nursery"
               type="checkbox"
               className="input-checkbox-pro"
             />
@@ -132,7 +132,7 @@ function StructureComponent() {
             {/* ---checkbox 9 => "Crèche associative" */}
             <input
               id="associatif-nursery"
-              name="type"
+              name="associatif-nursery"
               type="checkbox"
               className="input-checkbox-pro"
             />
