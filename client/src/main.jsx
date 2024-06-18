@@ -17,11 +17,11 @@ const router = createBrowserRouter([
     element: <ConnexionParent />,
   },
   {
-    path: "/pro",
+    path: "pro",
     element: <InscriptionPro />,
     children: [
       {
-        path: "/pro/inscription",
+        path: "inscription",
         element: <InscriptionPro />,
       },
     ],
