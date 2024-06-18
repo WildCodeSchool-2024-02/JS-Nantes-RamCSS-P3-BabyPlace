@@ -4,10 +4,10 @@ import "../styles_components/DetailDescriptionComponent.css";
 
 function DetailDescriptionComponent() {
   return (
-    <section>
+    <section className="adaptatif-global-container-detail">
       {/* ----- Visual indicating the progress of registration => level 3 ----- */}
       <progress
-        className="advanced-line-1"
+        className="adaptatif-advanced-line-1"
         name="Barre de progression"
         max="100"
         value="28"
@@ -16,7 +16,7 @@ function DetailDescriptionComponent() {
       {/* ----- full screen ----- */}
       <section className="global-container-register-pro">
         {/* ----- Left part of the screen ------ */}
-        <section className="left-part-container-register-pro">
+        <section className="left-part-container-register-pro adaptatif-left-part-detail">
           <h2 className="titles">Les petits plus de votre accueil</h2>
           <p className="texts">
             {" "}
@@ -258,7 +258,7 @@ function DetailDescriptionComponent() {
           </section>
 
           {/* Redirection to screen 2 of professional registration */}
-          <nav className="nav-buttons-pro-register">
+          <nav className="nav-buttons-pro-register nav-button-adaptatif-detail">
             <NavLink to="/" className="navlink-prev-pro screen2 texts">
               <p>&lt; Retour</p>
             </NavLink>
@@ -274,7 +274,7 @@ function DetailDescriptionComponent() {
         </section>
 
         {/* ----- Right part of the screen ------ */}
-        <section className="right-part-container-register-pro">
+        <section className="right-part-container-register-pro adaptatif-right-part-detail">
           <section className="descritif-background">
             <h2 className="titles title-descriptif-structure">
               Valorisez votre expérience et vos services
