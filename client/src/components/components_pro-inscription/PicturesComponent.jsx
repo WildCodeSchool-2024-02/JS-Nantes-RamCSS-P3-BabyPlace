@@ -10,7 +10,7 @@ function PicturesComponent() {
         className="advanced-line-1"
         name="Barre de progression"
         max="100"
-        value="20"
+        value="14"
       />
 
       {/* ----- full screen ----- */}

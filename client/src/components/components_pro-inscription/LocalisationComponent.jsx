@@ -10,7 +10,7 @@ function LocalisationComponent() {
         className="advanced-line-1"
         name="Barre de progression"
         max="100"
-        value="10"
+        value="7"
       />
 
       {/* full screen */}
