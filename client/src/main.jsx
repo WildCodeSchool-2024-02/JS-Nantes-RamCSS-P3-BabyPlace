@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import ConnexionParent from "./pages/parents/ConnexionParent";
+import AccesInvite from "./pages/page_parents/AccesInvite";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/connexion",
     element: <ConnexionParent />,
+  },
+  {
+    path: "acces-invite",
+    element: <AccesInvite />,
   },
 ]);
 

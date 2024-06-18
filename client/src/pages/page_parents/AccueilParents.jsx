@@ -9,7 +9,7 @@ function AccueilParents() {
         <img
           src="./src/assets/images/illustration/Mum&baby.png"
           className="mumbaby-login"
-          alt="avatar d'une maman et son bébé"
+          alt="avatar d'une maman et de son bébé"
         />
         <img
           src="./src/assets/images/logos/logo_complet.png"
@@ -24,7 +24,7 @@ function AccueilParents() {
         </p>
       </div>
       <div className="button-navigate texts">
-        <NavLink className="button-navigate" to="/recherche">
+        <NavLink className="button-navigate" to="/acces-invite">
           {" "}
           Passer{" "}
         </NavLink>
