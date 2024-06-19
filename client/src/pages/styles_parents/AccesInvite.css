@@ -1,10 +1,11 @@
 .logo-invite {
-  width: 80px;
+  height: 32px;
+  margin: 20px;
 }
 
 .form-acces-invite {
   min-width: 100vw;
-  min-height: 100vh;
+  min-height: 110vh;
   padding: 10px;
   text-align: center;
   background: linear-gradient(
@@ -20,7 +21,7 @@
 }
 
 .titles-acces-invite {
-  color: var(--light-color-text, rgb(255, 255, 255));
+  color: var(--ligth-color-text, rgb(255, 255, 255));
 }
 
 .form-invite {
@@ -32,5 +33,5 @@
 }
 
 .accesinvite-checkbox-container {
-  color: var(--light-color-text, rgb(255, 255, 255));
+  color: var(--ligth-color-text, rgb(255, 255, 255));
 }
