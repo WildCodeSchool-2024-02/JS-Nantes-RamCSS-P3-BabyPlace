@@ -109,7 +109,7 @@ function ConnexionParent() {
           <NavLink
             to="/accueil"
             // deblocage du bouton en retirent la className --link-connexion-parent-btn-desable--
-            className={`link-connexion-parent-btn btn-global texts ${checkBtnConnexion ? "" : "link-connexion-parent-btn-desable"}`}
+            className={`link-connexion-parent-btn btn-connexion-parent texts ${checkBtnConnexion ? "" : "link-connexion-parent-btn-disable"}`}
           >
             Se connecter
           </NavLink>
