@@ -124,6 +124,14 @@ function ConnexionParent() {
         Accès a votre espace
         <span className="btn-link-pro-connexion">pro</span>
       </NavLink>
+      <div className="nav-bottom">
+        <NavLink to="/accueil" className="btn-nav-bottom texts">
+          accueil
+        </NavLink>
+        <NavLink to="/inscription" className="btn-nav-bottom texts">
+          s'inscrire
+        </NavLink>
+      </div>
     </div>
   );
 }
