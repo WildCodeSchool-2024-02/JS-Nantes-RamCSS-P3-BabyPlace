@@ -35,9 +35,7 @@
 
   /* * text */
   --dark-color-text: rgb(0, 0, 0);
-  /* !attention au non de la variable "light" correction du formateur */
   --light-color-text: rgb(255, 255, 255);
-  /*! ***************************************************************/
 
   /* * Elements */
   --input-light-background: rgb(242, 242, 242);
@@ -190,7 +188,7 @@ html {
 
 .input-checkbox-pro[type="checkbox"]:checked + .label-checkbox-pro {
   background-color: var(--input-purple-background);
-  color: var(--ligth-color-text);
+  color: var(--light-color-text);
 }
 
 /* * Progress bar */
@@ -233,7 +231,7 @@ progress::-moz-progress-bar {
   gap: 10px;
   justify-content: center;
   text-decoration: none;
-  color: var(--ligth-color-text);
+  color: var(--light-color-text);
 }
 
 /* * Button "Retour" professional part */
