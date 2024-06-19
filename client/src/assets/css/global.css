@@ -35,7 +35,7 @@
 
   /* * text */
   --dark-color-text: rgb(0, 0, 0);
-  --ligth-color-text: rgb(255, 255, 255);
+  --light-color-text: rgb(255, 255, 255);
 
   /* * Elements */
   --input-light-background: rgb(242, 242, 242);
@@ -69,6 +69,11 @@
 }
 
 /* * Visual of professional register */
+
+.global-container-screen-register {
+  position: relative;
+  top: 70px;
+}
 
 .global-container-register-pro {
   display: flex;
@@ -183,7 +188,7 @@ html {
 
 .input-checkbox-pro[type="checkbox"]:checked + .label-checkbox-pro {
   background-color: var(--input-purple-background);
-  color: var(--ligth-color-text);
+  color: var(--light-color-text);
 }
 
 /* * Progress bar */
@@ -226,7 +231,7 @@ progress::-moz-progress-bar {
   gap: 10px;
   justify-content: center;
   text-decoration: none;
-  color: var(--ligth-color-text);
+  color: var(--light-color-text);
 }
 
 /* * Button "Retour" professional part */

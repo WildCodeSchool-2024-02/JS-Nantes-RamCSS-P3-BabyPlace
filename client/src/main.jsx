@@ -22,11 +22,12 @@ const router = createBrowserRouter([
     element: <AccesInvite />,
   },
   {
-    path: "/pro",
     // element: <InscriptionPro />, A remplacer par la page de connxion pro quand elle sera réalisée
+    path: "pro",
+    element: <InscriptionPro />,
     children: [
       {
-        path: "/pro/inscription",
+        path: "inscription",
         element: <InscriptionPro />,
       },
     ],

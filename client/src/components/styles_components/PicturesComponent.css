@@ -14,7 +14,7 @@
 
 .button-photos-pro:active {
   background-color: var(--input-purple-background);
-  color: var(--ligth-color-text);
+  color: var(--light-color-text);
   font-weight: normal;
 }
 
