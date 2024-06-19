@@ -1,0 +1,56 @@
+.global-container-input-rules {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rules-text {
+  margin: 0;
+}
+
+.input-radio-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.radiogroup {
+  display: flex;
+  gap: 10px;
+  text-align: center;
+}
+
+/* * A voir l'option la plus probable entre le "Left" et le "display" */
+.input-radio-internal-rules[type="radio"] {
+  opacity: 0;
+  position: absolute;
+  /* left: -1000px; */
+  display: none;
+}
+
+.input-radio-internal-rules[type="radio"] + label {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  border: 2px solid var(--input-purple-background);
+  color: var(--input-purple-background);
+  border-radius: 50%;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.input-radio-internal-rules[type="radio"]:checked + label {
+  background-color: var(--purple-color);
+  color: var(--light-color-text);
+  border: none;
+}
+
+.adaptatif-titles {
+  font-family: var(--primary-font);
+  font-size: 22px;
+}
+
+.screen10 {
+  padding-top: 20px;
+}

@@ -1,0 +1,27 @@
+.image-descriptif-structure {
+  width: 75%;
+}
+
+.checkboxgroup {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.information-name {
+  font-size: 12px;
+  margin-left: 10px;
+  margin-top: -1px;
+}
+
+.adaptatif-nav-buttons {
+  display: flex;
+  justify-content: end;
+}
+
+.global-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}

@@ -1,0 +1,23 @@
+.button-photos-pro {
+  width: 300px;
+  height: 41px;
+  cursor: pointer;
+  background-color: var(--input-light-background);
+  color: var(--input-purple-background);
+  border-radius: 10px;
+  border: 1px solid var(--input-purple-background);
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.button-photos-pro:active {
+  background-color: var(--input-purple-background);
+  color: var(--light-color-text);
+  font-weight: normal;
+}
+
+.adaptatif-button-photos-pro {
+  margin-bottom: 150px;
+}

@@ -1,0 +1,38 @@
+.screen11 {
+  padding: 70px 40px 0px 40px;
+}
+
+.informations-process-global {
+  padding: 0px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.articles-informations-process {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  padding: 15px;
+}
+
+.articles-process-detail {
+  width: 350px;
+  height: 500px;
+  background: var(--background-light-purple);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+.adaptatif-titles {
+  font-family: var(--primary-font);
+  font-size: 22px;
+}
+
+.articles-pictures-process {
+  width: 180px;
+  padding-bottom: 30px;
+}
