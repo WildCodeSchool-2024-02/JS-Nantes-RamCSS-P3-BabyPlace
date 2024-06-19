@@ -9,7 +9,8 @@ import NavbarInscriptionPro from "../../components/components_pro-inscription/Na
 // import UseConditionComponent from "../../components/components_pro-inscription/UseConditionComponent";
 // import InternalRulesComponent from "../../components/components_pro-inscription/InternalRulesComponent";
 // import InformationProcessReservation from "../../components/components_pro-inscription/InformationProcessReservation";
-import AvaibleSeatsComponent from "../../components/components_pro-inscription/AvaibleSeatsComponent";
+// import AvaibleSeatsComponent from "../../components/components_pro-inscription/AvaibleSeatsComponent";
+import PriceComponent from "../../components/components_pro-inscription/PriceComponent";
 
 import "../styles_pro_pages/InscriptionPro.css";
 
@@ -17,7 +18,7 @@ function InscriptionPro() {
   return (
     <div>
       <NavbarInscriptionPro />
-      <AvaibleSeatsComponent />
+      <PriceComponent />
     </div>
   );
 }
