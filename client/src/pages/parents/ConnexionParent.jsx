@@ -3,7 +3,7 @@ import "../../components/styles_components/connexion-parent.css";
 import { useState, useEffect } from "react";
 
 function ConnexionParent() {
-  const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,}$/;
+  const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   // !explication du regex pour la vérification email
   //   ^ : Début de la chaîne.
   // [a-zA-Z0-9._%+-]+ : Un ou plusieurs caractères autorisés dans la partie locale (avant le @). Les caractères autorisés incluent les lettres majuscules et minuscules, les chiffres, ainsi que ._%+-.
@@ -14,7 +14,7 @@ function ConnexionParent() {
   // $ : Fin de la chaîne.
 
   const regexPassword =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{7,}$/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   // !explication du regex pour la validation mot de passe
   //   ^ : Début de la chaîne.
   // (?=.*[a-z]) : Doit contenir au moins une lettre minuscule.
@@ -29,17 +29,19 @@ function ConnexionParent() {
   const [passwordChecked, setPasswordChecked] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  console.warn("%c⧭", "color: #d90000", email);
+  console.warn("%c⧭", "color: #917399", password);
 
   // recuperation de champ email et verification qu il n a pas d erreure en le comparent au REGEX
   const emailCheck = (e) => {
-    setEmail(e.target.value);
-    setEmailChecked(regexEmail.test(email));
+    setEmail(() => e.target.value);
+    setEmailChecked(regexEmail.test(e.target.value));
   };
 
   // recuperation de champ password et verification qu il n a pas d erreure en le comparent au REGEX
   const passwordCheck = (e) => {
-    setPassword(e.target.value);
-    setPasswordChecked(regexPassword.test(password));
+    setPassword(() => e.target.value);
+    setPasswordChecked(regexPassword.test(e.target.value));
   };
 
   // deblocage du bouton connexion
