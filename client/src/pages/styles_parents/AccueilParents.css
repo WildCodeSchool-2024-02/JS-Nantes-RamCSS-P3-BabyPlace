@@ -29,7 +29,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: var(--ligth-color-text, rgb(255, 255, 255));
 }
 
 .mumbaby-login {
@@ -42,7 +42,7 @@
 
 .button-navigate {
   text-decoration: none;
-  color: white;
+  color: var(--ligth-color-text, rgb(255, 255, 255));
   display: flex;
   flex-direction: row;
   justify-content: space-around;
