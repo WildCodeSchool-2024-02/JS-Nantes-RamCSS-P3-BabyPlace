@@ -36,11 +36,14 @@
   /* * text */
   --dark-color-text: rgb(0, 0, 0);
   --light-color-text: rgb(255, 255, 255);
+  --grey-disable-text: rgb(128, 128, 128);
 
   /* * Elements */
   --input-light-background: rgb(242, 242, 242);
   --input-purple-background: rgb(126, 114, 242);
   --input-light-border: rgb(180, 180, 187);
+  --input-transparent-background: rgba(255, 255, 255, 0.144);
+  --input-disable-background: #6a25aa;
 
   --orange-color: rgb(255, 159, 67);
   --purple-color: rgb(126, 114, 242);
@@ -168,6 +171,26 @@ html {
   outline: none;
 }
 
+/* * Input parent part */
+
+.input-connexion {
+  height: 48px;
+  width: 329px;
+  border: none;
+  border-radius: 10px;
+  padding-left: 20px;
+  background-color: var(--input-transparent-background);
+  color: var(--light-color-text);
+}
+
+.input-connexion::placeholder {
+  color: var(--light-color-text);
+}
+
+.input-connexion:focus {
+  outline: 1px solid var(--purple-color);
+}
+
 /* * Checkbox */
 
 .input-checkbox-pro[type="checkbox"] {
@@ -240,6 +263,21 @@ progress::-moz-progress-bar {
   color: var(--purple-color);
 }
 
+/* * Button "connexion/inscription" parent part */
+
+.nav-bottom {
+  position: fixed;
+  bottom: 10px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+.btn-nav-bottom {
+  color: var(--light-color-text);
+}
+
 /* * profil */
 
 .profile-picture-container {
@@ -260,4 +298,12 @@ progress::-moz-progress-bar {
   height: 100px;
   object-fit: cover;
   border-radius: 90%;
+}
+
+@media (width >= 1024px) {
+  .nav-bottom {
+    justify-content: start;
+    gap: 200px;
+    padding: 0 100px;
+  }
 }
