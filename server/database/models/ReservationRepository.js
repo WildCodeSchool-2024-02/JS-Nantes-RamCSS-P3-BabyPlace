@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const AbstractRepository = require("./AbstractRepository");
 
 class ReservationRepository extends AbstractRepository {
@@ -8,24 +9,19 @@ class ReservationRepository extends AbstractRepository {
   }
 
   // The C of CRUD - Create operation
-
-  async create(reservation) {
-    // Execute the SQL INSERT query to add a new nursert to the "reservation" table
-    const [result] = await this.database.query(
-      `insert into ${this.table} (title, user_id) values (?, ?)`,
-      [reservation.title, reservation.user_id]
-    );
-
+  async create( reservation_date, reservation_status, status_date, arriving_date, exit_date, price, nursery_id, child_id ) {
+    const [rows] = await this.database.query(`INSERT INTO ${this.table} (
+      reservation_date, reservation_status, status_date, arriving_date, exit_date, price, nursery_id, child_id) values (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [reservation_date, reservation_status, status_date, arriving_date, exit_date, price, nursery_id, child_id]);
     // Return the ID of the newly inserted reservation
-    return result.insertId;
+    return rows.insertId;
   }
 
   // The Rs of CRUD - Read operations
-
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific reservation by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `SELECT * FROM ${this.table} WHERE id = ?`,
       [id]
     );
 
@@ -42,18 +38,27 @@ class ReservationRepository extends AbstractRepository {
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
+  async update(body) {
+    const { reservation_date, reservation_status, status_date, arriving_date, exit_date, price, nursery_id, child_id, id } = body;
+    const [row] = await this.database.query(
+      `UPDATE ${this.table} SET reservation_date = ?, reservation_status = ?, status_date = ?, arriving_date = ?, exit_date = ?, price = ?, nursery_id = ?, child_id = ? WHERE id = ?`,
+      [ reservation_date, reservation_status, status_date, arriving_date, exit_date, price, nursery_id, child_id, id ]
+    );
 
-  // async update(item) {
-  //   ...
-  // }
+    // Return a boolean indicating whether the deletion was successful
+    return row;
+    }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
-
-  // async delete(id) {
-  //   ...
-  // }
+  async delete(id) {
+    // Execute the SQL DELETE query to remove an item by its ID
+    const [row] = await this.database.query(
+      `DELETE FROM ${this.table} WHERE id = ?`,
+      [id]
+      );
+  // Return a boolean indicating whether the deletion was successful
+  return row;
+}
 }
 
 module.exports = ReservationRepository;

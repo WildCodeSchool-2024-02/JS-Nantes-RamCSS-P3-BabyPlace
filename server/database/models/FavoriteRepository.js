@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const AbstractRepository = require("./AbstractRepository");
 
 class FavoriteRepository extends AbstractRepository {
@@ -8,25 +9,22 @@ class FavoriteRepository extends AbstractRepository {
   }
 
   // The C of CRUD - Create operation
-
-  async create(favorite) {
-    // Execute the SQL INSERT query to add a new nursert to the "favorite" table
-    const [result] = await this.database.query(
-      `insert into ${this.table} (title, user_id) values (?, ?)`,
-      [favorite.title, favorite.user_id]
-    );
+  async create(parent_id, nursery_id) {
+    const [rows] = await this.database.query(`INSERT INTO ${this.table} (
+      parent_id, nursery_id) values (?, ?)`,
+      [parent_id, nursery_id]);
 
     // Return the ID of the newly inserted favorite
-    return result.insertId;
+    return rows;
   }
 
   // The Rs of CRUD - Read operations
 
-  async read(id) {
+  async read(nursery_id) {
     // Execute the SQL SELECT query to retrieve a specific favorite by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
-      [id]
+      `select * from ${this.table} where nursery_id = ?`,
+      [nursery_id]
     );
 
     // Return the first row of the result, which represents the favorite
@@ -41,19 +39,18 @@ class FavoriteRepository extends AbstractRepository {
     return rows;
   }
 
-  // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
-
-  // async update(favorite) {
-  //   ...
-  // }
+  
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
-
-  // async delete(id) {
-  //   ...
-  // }
+  async delete(id) {
+    // Execute the SQL DELETE query to remove an item by its ID
+    const [row] = await this.database.query(
+      `DELETE FROM ${this.table} WHERE id = ?`,
+      [id]
+      );
+  // Return a boolean indicating whether the deletion was successful
+  return row;
+}
 }
 
 module.exports = FavoriteRepository;

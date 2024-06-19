@@ -8,27 +8,15 @@ class NurseryRepository extends AbstractRepository {
     super({ table: "nursery" });
   }
 
-  // The C of CRUD - Create operation
-  // async create(nursery) {
-  //   // Execute the SQL INSERT query to add a new nursery to the "nursery" table
-  //   const [result] = await this.database.query(
-  //     `INSERT INTO ${this.table} (title, user_id) VALUES (?, ?)`,
-  //     [nursery.user_id]
-  //   );
-
-  //   // Return the ID of the newly inserted nursery
-  //   return result.insertId;
-  // }
-
   // Alias for the create method
   async create( siret, name, address, postal_code, city, phone, email, type_of_nursery, capacity,opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
     presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct ) {
-    const [rows] = await this.database.query(`INSERT INTO ${this.table} (
+    const [row] = await this.database.query(`INSERT INTO ${this.table} (
     siret, name, address, postal_code, city, phone, email, type_of_nursery, capacity,opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
     presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
     [siret, name, address, postal_code, city, phone, email, type_of_nursery, capacity,opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
       presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct ]);
-    return rows;
+    return row.insertId;
   }
 
   // The R of CRUD - Read operations
@@ -52,27 +40,30 @@ class NurseryRepository extends AbstractRepository {
   }
 
   // The U of CRUD - Update operation
-  async update(nursery) {
-    // Execute the SQL UPDATE query to modify an existing nursery
-    const [result] = await this.database.query(
-      `UPDATE ${this.table} SET title = ?, user_id = ? WHERE id = ?`,
-      [nursery.title, nursery.user_id, nursery.id]
-    );
-
-    // Return a boolean indicating whether the update was successful
-    return result.affectedRows > 0;
-  }
-
-  // The D of CRUD - Delete operation
-  async delete(id) {
-    // Execute the SQL DELETE query to remove an item by its ID
+  async update(body) {
+    
+    const { siret, name, address, postal_code, city, phone, email, type_of_nursery, capacity, opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
+    presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct, id } = body;
     const [row] = await this.database.query(
-      `DELETE FROM ${this.table} WHERE id = ?`,
-      [id]
+      `UPDATE ${this.table} SET siret = ?, name = ?, address = ?, postal_code = ?, city = ?, phone = ?, email = ?, type_of_nursery = ?, capacity = ?,opening_hours = ?, closing_time = ?, hourly_price = ?, agrement = ?, photo_1 = ?, photo_2 = ?, photo_3 = ?, description_nursery = ?, disabled_children = ?, outdoor_space = ?,
+        presence_of_animals = ?, meal = ?, hygiene_product = ?, music_workshop = ?, artistic_activities = ?, bilingual_international = ?, child_transport = ?, code_of_conduct = ? WHERE id = ?`,
+      [ siret, name, address, postal_code, city, phone, email, type_of_nursery, capacity, opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
+        presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct, id]
     );
 
     // Return a boolean indicating whether the deletion was successful
-    return row.affectedRows;
+    return row;
+    }
+    
+    // The D of CRUD - Delete operation
+    async delete(id) {
+      // Execute the SQL DELETE query to remove an item by its ID
+      const [row] = await this.database.query(
+        `DELETE FROM ${this.table} WHERE id = ?`,
+        [id]
+        );
+    // Return a boolean indicating whether the deletion was successful
+    return row;
   }
 }
 

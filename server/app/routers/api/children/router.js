@@ -7,7 +7,7 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import child-related actions
-const { browse, read, add } = require("../../../controllers/childActions");
+const { browse, read, add, edit, destroy } = require("../../../controllers/childActions");
 
 // Route to get a list of children
 router.get("/", browse);
@@ -17,6 +17,12 @@ router.get("/:id", read);
 
 // Route to add a new child
 router.post("/", add);
+
+// Route to edit an existing child
+router.put("/:id", edit);
+
+// Route to delete a child
+router.delete("/:id", destroy);
 
 /* ************************************************************************* */
 

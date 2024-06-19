@@ -7,7 +7,7 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import favorite-related actions
-const { browse, read, add } = require("../../../controllers/favoriteActions");
+const { browse, read, add, destroy } = require("../../../controllers/favoriteActions");
 
 // Route to get a list of favorites
 router.get("/", browse);
@@ -17,6 +17,9 @@ router.get("/:id", read);
 
 // Route to add a new favorite
 router.post("/", add);
+
+// Route to delete a favorite
+router.delete("/:id", destroy);
 
 /* ************************************************************************* */
 

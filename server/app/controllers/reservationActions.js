@@ -1,14 +1,29 @@
 // Import access to database tables
 const tables = require("../../database/tables");
 
-// The B of BREAD - Browse (Read All) operation
-const browse = async (req, res, next) => {
-  try {
-    // Fetch all reservations from the database
-    const reservations = await tables.reservation.readAll();
+const add = async (req, res, next) => {
+  // Extract the reservation data from the request body
+  const reservation = req.body;
 
-    // Respond with the reservations in JSON format
-    res.json(reservations);
+  try {
+    // Insert the reservation into the database
+    const insertId = await tables.reservation.create(
+      reservation.reservation_date, 
+      reservation.reservation_status, 
+      reservation.status_date, 
+      reservation.arriving_date, 
+      reservation.exit_date, 
+      reservation.price, 
+      reservation.nursery_id, 
+      reservation.child_id 
+    );
+
+    if (insertId > 0) {
+      // Respond with HTTP 201 (Created) and the ID of the newly inserted reservation
+      res.status(201).json({ insertId });
+    } else {
+      res.sendStatus(500)
+    }
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -34,20 +49,44 @@ const read = async (req, res, next) => {
   }
 };
 
-// The E of BREAD - Edit (Update) operation
-// This operation is not yet implemented
-
-// The A of BREAD - Add (Create) operation
-const add = async (req, res, next) => {
-  // Extract the reservation data from the request body
-  const reservation = req.body;
-
+// The B of BREAD - Browse (Read All) operation
+const browse = async (req, res, next) => {
   try {
-    // Insert the reservation into the database
-    const insertId = await tables.reservation.create(reservation);
+    // Fetch all reservations from the database
+    const reservations = await tables.reservation.readAll();
 
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted reservation
-    res.status(201).json({ insertId });
+    // Respond with the reservations in JSON format
+    res.json(reservations);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+const edit = async (req, res, next) => {
+  try {
+
+    const body = {
+      id : req.params.id,
+      reservation_date: req.body.reservation_date, 
+      reservation_status: req.body.reservation_status, 
+      status_date: req.body.status_date, 
+      arriving_date: req.body.arriving_date, 
+      exit_date: req.body.exit_date, 
+      price: req.body.price, 
+      nursery_id: req.body.nursery_id, 
+      child_id: req.body.child_id
+    }
+    // Delete the nursery from the database based on the provided ID
+    const updateReservation = await tables.reservation.update(body);
+
+    // If the deletion was successful, respond with HTTP 200 (OK)
+    // Otherwise, respond with HTTP 404 (Not Found)
+    if (updateReservation.affectedRows > 0) {
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
+    }
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -55,13 +94,30 @@ const add = async (req, res, next) => {
 };
 
 // The D of BREAD - Destroy (Delete) operation
-// This operation is not yet implemented
+const destroy = async (req, res, next) => {
+  try {
+    const {id} = req.params;
+    // Delete the reservation from the database based on the provided ID
+    const success = await tables.reservation.delete(id);
+
+    // If the deletion was successful, respond with HTTP 200 (OK)
+    // Otherwise, respond with HTTP 404 (Not Found)
+    if (success.affectedRows === 1) {
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 
 // Ready to export the controller functions
 module.exports = {
   browse,
   read,
-  // edit,
+  edit,
   add,
-  // destroy,
+  destroy,
 };
