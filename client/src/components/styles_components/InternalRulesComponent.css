@@ -21,9 +21,12 @@
   text-align: center;
 }
 
+/* * A voir l'option la plus probable entre le "Left" et le "display" */
 .input-radio-internal-rules[type="radio"] {
   opacity: 0;
   position: absolute;
+  /* left: -1000px; */
+  display: none;
 }
 
 .input-radio-internal-rules[type="radio"] + label {
@@ -34,6 +37,7 @@
   color: var(--input-purple-background);
   border-radius: 50%;
   font-weight: bold;
+  z-index: 1;
 }
 
 .input-radio-internal-rules[type="radio"]:checked + label {
