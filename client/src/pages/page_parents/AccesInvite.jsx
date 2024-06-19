@@ -4,9 +4,21 @@ import "../styles_parents/AccesInvite.css";
 
 function AccesInvite() {
   const [flexibleHoursAndDates, setFlexibleHoursAndDates] = useState(false);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  console.warn(startDate);
+  console.warn(endDate);
 
   const coche = () => {
     setFlexibleHoursAndDates(!flexibleHoursAndDates);
+  };
+
+  const handleStartDateChange = (event) => {
+    setStartDate(event.target.value);
+  };
+
+  const handleEndDateChange = (event) => {
+    setEndDate(event.target.value);
   };
 
   return (
@@ -38,13 +50,15 @@ function AccesInvite() {
             className="input-parents-invite"
             type="text"
             id="name"
-            placeholder="Date et heure de début"
+            placeholder="Date de début"
+            onSelect={handleStartDateChange}
           />
           <input
             className="input-parents-invite"
             type="text"
             id="name"
-            placeholder="Date et heure de fin"
+            placeholder="Date de fin"
+            onSelect={handleEndDateChange}
           />
           <div className="accesinvite-checkbox-container">
             <label htmlFor="flexibilité-dates-horaires">
@@ -57,6 +71,14 @@ function AccesInvite() {
             className="link-connexion-parent-btn btn-global texts"
           >
             Rechercher
+          </NavLink>
+        </div>
+        <div className="nav-bottom">
+          <NavLink to="/" className="btn-nav-bottom texts">
+            accueil
+          </NavLink>
+          <NavLink to="/inscription" className="btn-nav-bottom texts">
+            s'inscrire
           </NavLink>
         </div>
       </div>
