@@ -60,6 +60,16 @@ function AccesInvite() {
             placeholder="Date de fin"
             onSelect={handleEndDateChange}
           />
+          <label htmlFor="start">Start date:</label>
+          <input
+            type="date"
+            id="start"
+            name="trip-start"
+            value="2024-06-01"
+            min="2024-01-01"
+            max="2018-12-31"
+          />
+          {/* let today = new Date(); */}
           <div className="accesinvite-checkbox-container">
             <label htmlFor="flexibilité-dates-horaires">
               <input type="checkbox" onChange={coche} />
@@ -68,7 +78,7 @@ function AccesInvite() {
           </div>
           <NavLink
             to="/recherche"
-            className="link-connexion-parent-btn btn-global texts"
+            className="link-connexion-parent-btn btn-connexion-parent texts"
           >
             Rechercher
           </NavLink>

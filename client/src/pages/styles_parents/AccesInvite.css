@@ -1,6 +1,6 @@
 .form-acces-invite {
   min-width: 100vw;
-  min-height: 110vh;
+  min-height: 100vh;
   padding: 10px;
   background: linear-gradient(
     179deg,
@@ -26,6 +26,7 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+  padding: 40px;
 }
 
 .input-parents-invite {
@@ -35,13 +36,16 @@
   border-radius: 10px;
   padding-left: 20px;
   background-color: var(--input-transparent-background);
+  color: var(--ligth-color-text, rgb(255, 255, 255));
 }
 .input-parents-invite::placeholder {
+  color: var(--ligth-color-text, rgb(255, 255, 255));
   color: var(--ligth-color-text, rgb(255, 255, 255));
 }
 
 .input-parents-invite:focus {
   outline: 1px solid var(--purple-color);
+  color: var(--ligth-color-text, rgb(255, 255, 255));
 }
 
 .accesinvite-checkbox-container {
