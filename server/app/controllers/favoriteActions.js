@@ -29,7 +29,7 @@ const read = async (req, res, next) => {
 
     // If the favorite is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the favorite in JSON format
-    if (favorite == null) {
+    if (favorite === null) {
       res.sendStatus(404);
     } else {
       res.status(200).json(favorite);

@@ -52,7 +52,7 @@ const read = async (req, res, next) => {
 
     // If the parent is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the parent in JSON format
-    if (parent == null) {
+    if (parent === null) {
       res.sendStatus(404);
     } else {
       res.json(parent);

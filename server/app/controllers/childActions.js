@@ -44,7 +44,7 @@ const read = async (req, res, next) => {
 
     // If the child is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the child in JSON format
-    if (child == null) {
+    if (child === null) {
       res.sendStatus(404);
     } else {
       res.json(child);
