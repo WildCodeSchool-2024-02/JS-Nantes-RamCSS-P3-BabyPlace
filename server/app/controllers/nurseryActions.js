@@ -6,13 +6,13 @@ const tables = require("../../database/tables");
 const add = async (req, res, next) => {
   // Extract the nursery data from the request body
   const {
-    siret, name, address, postal_code, city, phone, email, type_of_nursery, capacity,opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
+    siret, name, address, postcode, city, phone, email, type_of_nursery, capacity,opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
     presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct } = req.body;
 
   try {
     // Insert the nursery into the database
     const insertId = await tables.nursery.create(
-      siret, name, address, postal_code, city, phone, email, type_of_nursery, capacity,opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
+      siret, name, address, postcode, city, phone, email, type_of_nursery, capacity,opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
     presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct );
 
     if (insertId > 0) {
@@ -37,7 +37,7 @@ const read = async (req, res, next) => {
 
     // If the item is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the item in JSON format
-    if (nursery == null) {
+    if (nursery === null) {
       res.sendStatus(404);
     } else {
       res.json(nursery);
@@ -62,42 +62,15 @@ const browse = async (req, res, next) => {
   }
 };
 
-// // The E of BREAD - Edit (Update) operation
-// const edit = async (req, res, next) => {
-//   // Extract the nursery data from the request body
-//   const nursery = req.body;
-
-//   try {
-//     // Update the nursery in the database
-//     const success = await tables.nursery.update(nursery);
-
-//     // If the update was successful, respond with HTTP 200 (OK)
-//     // Otherwise, respond with HTTP 404 (Not Found)
-//     if (success) {
-//       res.sendStatus(200);
-//     } else {
-//       res.sendStatus(404);
-//     }
-//   } catch (err) {
-//     // Pass any errors to the error-handling middleware
-//     next(err);
-//   }
-// };
-
-
-
 const edit = async (req, res, next) => {
   try {
-    // const { id } = req.params;
-    // const { siret, name, address, postal_code, city, phone, email, type_of_nursery, capacity,opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
-    //   presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct } = req.body;
 
     const body = {
       id : req.params,
       siret: req.body.siret, 
       name: req.body.name, 
       address: req.body.address, 
-      postal_code: req.body.postal_code, 
+      postcode: req.body.postcode, 
       city: req.body.city, 
       phone: req.body.phone, 
       email: req.body.email, 

@@ -2,10 +2,6 @@ const express = require("express");
 
 const router = express.Router();
 
-/* ************************************************************************* */
-// Define Your API Routes Here
-/* ************************************************************************* */
-
 // Import reservation-related actions
 const { browse, read, add, edit, destroy } = require("../../../controllers/reservationActions");
 
