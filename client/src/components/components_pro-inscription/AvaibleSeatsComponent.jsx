@@ -1,28 +1,46 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "../styles_components/AvaibleSeatsComponent.css";
 
 function AvaibleSeatsComponent() {
-  // * Function used to add or remove a seat from the "Number of seats" counter
-
+  // * Déclaration des states
   const [countSeats, setCountSeats] = useState(0);
+  const [countDisabilty, setCountDisabilty] = useState(0);
+  const [countYoungBaby, setCountYoungBaby] = useState(0);
 
+  // * Function used to add or remove a seat from the "Number of seats" counter
   const addSeat = () => setCountSeats(countSeats + 1);
   const removeSeat = () => setCountSeats(countSeats - 1);
 
   // * Function used to add or remove a seat from the "disability" counter
+  useEffect(() => {
+    if (countDisabilty > countSeats) {
+      setCountDisabilty(countSeats);
+    }
+  }, [countSeats, countDisabilty]);
 
-  const [countDisabilty, setCountDisabilty] = useState(0);
+  const addDisabilty = () => {
+    if (countDisabilty < countSeats) {
+      setCountDisabilty(countDisabilty + 1);
+    }
+  };
 
-  const addDisabilty = () => setCountDisabilty(countDisabilty + 1);
   const removeDisabilty = () => setCountDisabilty(countDisabilty - 1);
 
   // * Function used to add or remove a seat from the "young baby" counter
+  useEffect(() => {
+    if (countYoungBaby > countSeats) {
+      setCountYoungBaby(countSeats);
+    }
+  }, [countSeats, countDisabilty]);
 
-  const [countYoungBaby, setCountYoungBaby] = useState(0);
+  const addYoungBaby = () => {
+    if (countYoungBaby < countSeats) {
+      setCountYoungBaby(countYoungBaby + 1);
+    }
+  };
 
-  const addYoungBaby = () => setCountYoungBaby(countYoungBaby + 1);
   const removeYoungBaby = () => setCountYoungBaby(countYoungBaby - 1);
 
   return (
@@ -120,7 +138,7 @@ function AvaibleSeatsComponent() {
                 <button
                   type="button"
                   onClick={addYoungBaby}
-                  disabled={countYoungBaby === countSeats}
+                  disabled={countYoungBaby >= countSeats}
                   className="texts count-buttons-seats"
                 >
                   <strong>+</strong>
