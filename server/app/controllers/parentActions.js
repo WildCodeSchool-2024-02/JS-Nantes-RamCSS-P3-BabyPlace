@@ -31,11 +31,10 @@ const add = async (req, res, next) => {
       parent.conditions_of_use
     );
 
-    if(insertId > 0) {
+    if (insertId > 0) {
       // Respond with HTTP 201 (Created) and the ID of the newly inserted parent
       res.status(201).json({ insertId });
-    }
-     else {
+    } else {
       res.sendStatus(500);
     }
   } catch (err) {
@@ -79,10 +78,11 @@ const browse = async (req, res, next) => {
 
 // The B of BREAD - Browse (Read All) operation
 const browseAllFavoritesByParentId = async (req, res, next) => {
-  const { id } = req.params
+  const { id } = req.params;
   try {
     // Fetch all parents from the database
-    const favoritesByParent = await tables.parent.readAllFavoritesByParentId(id);
+    const favoritesByParent =
+      await tables.parent.readAllFavoritesByParentId(id);
 
     // Respond with the parents in JSON format
     res.status(200).json(favoritesByParent);
@@ -95,7 +95,6 @@ const browseAllFavoritesByParentId = async (req, res, next) => {
 
 const edit = async (req, res, next) => {
   try {
-
     const body = {
       id: req.params.id,
       firstname: req.body.firstname,
@@ -117,8 +116,8 @@ const edit = async (req, res, next) => {
       exit_permit: req.body.exit_permit,
       copy_of_family_record_book: req.body.copy_of_family_record_book,
       copy_of_divorce_judgment: req.body.copy_of_divorce_judgment,
-      conditions_of_use: req.body.conditions_of_use
-    }
+      conditions_of_use: req.body.conditions_of_use,
+    };
     // Delete the nursery from the database based on the provided ID
     const updateParent = await tables.parent.update(body);
 
@@ -139,7 +138,7 @@ const edit = async (req, res, next) => {
 const destroy = async (req, res, next) => {
   // Extract the parent ID from the request parameters
   try {
-    const {id} = req.params;
+    const { id } = req.params;
     const success = await tables.parent.delete(id);
 
     if (success.affectedRows === 1) {
@@ -153,11 +152,11 @@ const destroy = async (req, res, next) => {
 };
 
 // Ready to export the controller functions
-module.exports = { 
+module.exports = {
   browse,
   browseAllFavoritesByParentId,
-  read, 
-  edit, 
-  add, 
+  read,
+  edit,
+  add,
   destroy,
 };

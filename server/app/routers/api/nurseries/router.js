@@ -3,7 +3,13 @@ const express = require("express");
 const router = express.Router();
 
 // Import nursery-related actions
-const { browse, read, add, edit, destroy } = require("../../../controllers/nurseryActions");
+const {
+  browse,
+  read,
+  add,
+  edit,
+  destroy,
+} = require("../../../controllers/nurseryActions");
 
 // Route to get a list of nurseries
 router.get("/", browse);

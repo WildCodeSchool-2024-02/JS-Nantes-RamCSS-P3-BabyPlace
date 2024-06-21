@@ -9,13 +9,69 @@ class NurseryRepository extends AbstractRepository {
   }
 
   // Alias for the create method
-  async create( siret, name, address, postcode, city, phone, email, type_of_nursery, capacity,opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
-    presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct ) {
-    const [row] = await this.database.query(`INSERT INTO ${this.table} (
+  async create(
+    siret,
+    name,
+    address,
+    postcode,
+    city,
+    phone,
+    email,
+    type_of_nursery,
+    capacity,
+    opening_hours,
+    closing_time,
+    hourly_price,
+    agrement,
+    photo_1,
+    photo_2,
+    photo_3,
+    description_nursery,
+    disabled_children,
+    outdoor_space,
+    presence_of_animals,
+    meal,
+    hygiene_product,
+    music_workshop,
+    artistic_activities,
+    bilingual_international,
+    child_transport,
+    code_of_conduct
+  ) {
+    const [row] = await this.database.query(
+      `INSERT INTO ${this.table} (
     siret, name, address, postcode, city, phone, email, type_of_nursery, capacity,opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
-    presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
-    [siret, name, address, postcode, city, phone, email, type_of_nursery, capacity,opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
-      presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct ]);
+    presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        siret,
+        name,
+        address,
+        postcode,
+        city,
+        phone,
+        email,
+        type_of_nursery,
+        capacity,
+        opening_hours,
+        closing_time,
+        hourly_price,
+        agrement,
+        photo_1,
+        photo_2,
+        photo_3,
+        description_nursery,
+        disabled_children,
+        outdoor_space,
+        presence_of_animals,
+        meal,
+        hygiene_product,
+        music_workshop,
+        artistic_activities,
+        bilingual_international,
+        child_transport,
+        code_of_conduct,
+      ]
+    );
     return row.insertId;
   }
 
@@ -41,27 +97,82 @@ class NurseryRepository extends AbstractRepository {
 
   // The U of CRUD - Update operation
   async update(body) {
-    
-    const { siret, name, address, postcode, city, phone, email, type_of_nursery, capacity, opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
-    presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct, id } = body;
+    const {
+      siret,
+      name,
+      address,
+      postcode,
+      city,
+      phone,
+      email,
+      type_of_nursery,
+      capacity,
+      opening_hours,
+      closing_time,
+      hourly_price,
+      agrement,
+      photo_1,
+      photo_2,
+      photo_3,
+      description_nursery,
+      disabled_children,
+      outdoor_space,
+      presence_of_animals,
+      meal,
+      hygiene_product,
+      music_workshop,
+      artistic_activities,
+      bilingual_international,
+      child_transport,
+      code_of_conduct,
+      id,
+    } = body;
     const [row] = await this.database.query(
       `UPDATE ${this.table} SET siret = ?, name = ?, address = ?, postcode = ?, city = ?, phone = ?, email = ?, type_of_nursery = ?, capacity = ?,opening_hours = ?, closing_time = ?, hourly_price = ?, agrement = ?, photo_1 = ?, photo_2 = ?, photo_3 = ?, description_nursery = ?, disabled_children = ?, outdoor_space = ?,
         presence_of_animals = ?, meal = ?, hygiene_product = ?, music_workshop = ?, artistic_activities = ?, bilingual_international = ?, child_transport = ?, code_of_conduct = ? WHERE id = ?`,
-      [ siret, name, address, postcode, city, phone, email, type_of_nursery, capacity, opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
-        presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct, id]
+      [
+        siret,
+        name,
+        address,
+        postcode,
+        city,
+        phone,
+        email,
+        type_of_nursery,
+        capacity,
+        opening_hours,
+        closing_time,
+        hourly_price,
+        agrement,
+        photo_1,
+        photo_2,
+        photo_3,
+        description_nursery,
+        disabled_children,
+        outdoor_space,
+        presence_of_animals,
+        meal,
+        hygiene_product,
+        music_workshop,
+        artistic_activities,
+        bilingual_international,
+        child_transport,
+        code_of_conduct,
+        id,
+      ]
     );
 
     // Return a boolean indicating whether the deletion was successful
     return row;
-    }
-    
-    // The D of CRUD - Delete operation
-    async delete(id) {
-      // Execute the SQL DELETE query to remove an item by its ID
-      const [row] = await this.database.query(
-        `DELETE FROM ${this.table} WHERE id = ?`,
-        [id]
-        );
+  }
+
+  // The D of CRUD - Delete operation
+  async delete(id) {
+    // Execute the SQL DELETE query to remove an item by its ID
+    const [row] = await this.database.query(
+      `DELETE FROM ${this.table} WHERE id = ?`,
+      [id]
+    );
     // Return a boolean indicating whether the deletion was successful
     return row;
   }

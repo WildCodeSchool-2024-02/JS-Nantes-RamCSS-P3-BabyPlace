@@ -23,11 +23,10 @@ const add = async (req, res, next) => {
       child.parent_id
     );
 
-    if(insertId > 0){
-
+    if (insertId > 0) {
       // Respond with HTTP 201 (Created) and the ID of the newly inserted child
       res.status(201).json({ insertId });
-    } else{
+    } else {
       res.sendStatus(500);
     }
   } catch (err) {
@@ -71,9 +70,8 @@ const browse = async (req, res, next) => {
 
 const edit = async (req, res, next) => {
   try {
-
     const body = {
-      id : req.params.id,
+      id: req.params.id,
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       birthday: req.body.birthday,
@@ -85,8 +83,8 @@ const edit = async (req, res, next) => {
       birth_certificate: req.body.birth_certificate,
       name_doctor: req.body.name_doctor,
       care_authorization: req.body.care_authorization,
-      parent_id: req.body.parent_id
-    }
+      parent_id: req.body.parent_id,
+    };
     // Delete the nursery from the database based on the provided ID
     const updateChild = await tables.child.update(body);
 
@@ -106,7 +104,7 @@ const edit = async (req, res, next) => {
 // The D of BREAD - Destroy (Delete) operation
 const destroy = async (req, res, next) => {
   try {
-    const {id} = req.params;
+    const { id } = req.params;
     // Delete the child from the database based on the provided ID
     const success = await tables.child.delete(id);
 

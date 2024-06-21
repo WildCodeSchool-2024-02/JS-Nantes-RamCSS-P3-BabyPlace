@@ -9,10 +9,30 @@ class ReservationRepository extends AbstractRepository {
   }
 
   // The C of CRUD - Create operation
-  async create( reservation_date, reservation_status, status_date, arriving_date, exit_date, price, nursery_id, child_id ) {
-    const [rows] = await this.database.query(`INSERT INTO ${this.table} (
+  async create(
+    reservation_date,
+    reservation_status,
+    status_date,
+    arriving_date,
+    exit_date,
+    price,
+    nursery_id,
+    child_id
+  ) {
+    const [rows] = await this.database.query(
+      `INSERT INTO ${this.table} (
       reservation_date, reservation_status, status_date, arriving_date, exit_date, price, nursery_id, child_id) values (?, ?, ?, ?, ?, ?, ?, ?)`,
-      [reservation_date, reservation_status, status_date, arriving_date, exit_date, price, nursery_id, child_id]);
+      [
+        reservation_date,
+        reservation_status,
+        status_date,
+        arriving_date,
+        exit_date,
+        price,
+        nursery_id,
+        child_id,
+      ]
+    );
     // Return the ID of the newly inserted reservation
     return rows.insertId;
   }
@@ -39,15 +59,35 @@ class ReservationRepository extends AbstractRepository {
 
   // The U of CRUD - Update operation
   async update(body) {
-    const { reservation_date, reservation_status, status_date, arriving_date, exit_date, price, nursery_id, child_id, id } = body;
+    const {
+      reservation_date,
+      reservation_status,
+      status_date,
+      arriving_date,
+      exit_date,
+      price,
+      nursery_id,
+      child_id,
+      id,
+    } = body;
     const [row] = await this.database.query(
       `UPDATE ${this.table} SET reservation_date = ?, reservation_status = ?, status_date = ?, arriving_date = ?, exit_date = ?, price = ?, nursery_id = ?, child_id = ? WHERE id = ?`,
-      [ reservation_date, reservation_status, status_date, arriving_date, exit_date, price, nursery_id, child_id, id ]
+      [
+        reservation_date,
+        reservation_status,
+        status_date,
+        arriving_date,
+        exit_date,
+        price,
+        nursery_id,
+        child_id,
+        id,
+      ]
     );
 
     // Return a boolean indicating whether the deletion was successful
     return row;
-    }
+  }
 
   // The D of CRUD - Delete operation
   async delete(id) {
@@ -55,10 +95,10 @@ class ReservationRepository extends AbstractRepository {
     const [row] = await this.database.query(
       `DELETE FROM ${this.table} WHERE id = ?`,
       [id]
-      );
-  // Return a boolean indicating whether the deletion was successful
-  return row;
-}
+    );
+    // Return a boolean indicating whether the deletion was successful
+    return row;
+  }
 }
 
 module.exports = ReservationRepository;

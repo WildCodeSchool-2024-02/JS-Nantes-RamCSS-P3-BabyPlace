@@ -10,9 +10,11 @@ class FavoriteRepository extends AbstractRepository {
 
   // The C of CRUD - Create operation
   async create(parent_id, nursery_id) {
-    const [rows] = await this.database.query(`INSERT INTO ${this.table} (
+    const [rows] = await this.database.query(
+      `INSERT INTO ${this.table} (
       parent_id, nursery_id) values (?, ?)`,
-      [parent_id, nursery_id]);
+      [parent_id, nursery_id]
+    );
 
     // Return the ID of the newly inserted favorite
     return rows;
@@ -39,18 +41,16 @@ class FavoriteRepository extends AbstractRepository {
     return rows;
   }
 
-  
-
   // The D of CRUD - Delete operation
   async delete(id) {
     // Execute the SQL DELETE query to remove an item by its ID
     const [row] = await this.database.query(
       `DELETE FROM ${this.table} WHERE id = ?`,
       [id]
-      );
-  // Return a boolean indicating whether the deletion was successful
-  return row;
-}
+    );
+    // Return a boolean indicating whether the deletion was successful
+    return row;
+  }
 }
 
 module.exports = FavoriteRepository;
