@@ -188,7 +188,7 @@ function InscriptionParent() {
         </form>
       </div>
       <div className="nav-bottom">
-        <NavLink to="/accueil" className="btn-nav-bottom texts">
+        <NavLink to="/" className="btn-nav-bottom texts">
           accueil
         </NavLink>
         <NavLink to="/connexion" className="btn-nav-bottom texts">
