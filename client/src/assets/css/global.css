@@ -163,11 +163,13 @@ html {
   color: var(--purple-color);
 }
 
-.input-text-pro {
+.input-text-pro,
+.input-number-pro {
   border: none;
 }
 
-.input-text-pro:focus {
+.input-text-pro:focus,
+.input-number-pro:focus {
   outline: none;
 }
 
@@ -191,7 +193,7 @@ html {
   outline: 1px solid var(--purple-color);
 }
 
-/* * Checkbox */
+/* * Checkbox type text */
 
 .input-checkbox-pro[type="checkbox"] {
   opacity: 0;
@@ -220,6 +222,7 @@ html {
 progress {
   width: 100%;
   height: 17px;
+  appearance: auto;
   -webkit-appearance: none;
 }
 
