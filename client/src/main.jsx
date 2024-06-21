@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import ConnexionParent from "./pages/parents/ConnexionParent";
+import InscriptionParent from "./pages/parents/InscriptionParent";
 import InscriptionPro from "./pages/pages_pro-inscription/InscriptionPro";
 
 const router = createBrowserRouter([
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/connexion",
     element: <ConnexionParent />,
+  },
+  {
+    path: "/inscription",
+    element: <InscriptionParent />,
   },
   {
     path: "pro",

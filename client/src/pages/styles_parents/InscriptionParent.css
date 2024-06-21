@@ -1,0 +1,257 @@
+.mobile-inscription {
+  background: var(--background-gradient);
+  height: 100vh;
+}
+
+.img-inscription-parent {
+  height: 32px;
+  margin: 20px;
+}
+
+.h1-inscription {
+  text-align: center;
+  color: var(--light-color-text);
+  letter-spacing: 1px;
+}
+
+.h2-inscription-parent {
+  display: none;
+}
+
+.img-h2-desktop {
+  display: none;
+}
+
+.container-label-input-inscription {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.label-inscription {
+  display: none;
+}
+
+.input-inscription {
+  height: 48px;
+  width: 329px;
+  border: none;
+  border-radius: 10px;
+  padding-left: 20px;
+  background-color: var(--input-transparent-background);
+  color: var(--light-color-text);
+}
+
+.input-inscription::placeholder {
+  color: var(--light-color-text);
+}
+
+.input-inscription:focus {
+  outline: 1px solid var(--purple-color);
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* entre la checkbox et le texte */
+}
+
+.checkbox-container input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--light-color-text);
+  border-radius: 4px;
+  background-color: var(--light-color-text);
+  cursor: pointer;
+  position: relative;
+}
+
+.checkbox-container input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%) rotate(45deg);
+  width: 6px;
+  height: 10px;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: none;
+}
+
+.checkbox-container input[type="checkbox"]:checked::before {
+  display: block;
+}
+
+.checkbox-container label {
+  color: var(--light-color-text); /* Définit la couleur du texte en blanc */
+}
+
+.link-inscription-parent {
+  text-decoration: none;
+  color: var(--light-color-text);
+  margin-left: 10px;
+}
+
+/* !important pour etre sur de ne pas rentrer en conflit avec l autre proprietee qui touche l element  */
+.link-inscription-parent-btn-disable {
+  pointer-events: none;
+  background-color: var(--input-disable-background) !important;
+  color: var(--grey-disable-text) !important;
+}
+
+.btn-inscription-parent {
+  text-decoration: none;
+  border-radius: 10px;
+  width: 297px;
+  height: 53.667px;
+  background-color: var(--purple-color);
+  color: var(--light-color-text);
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.link-pro-inscription {
+  display: none;
+}
+
+@media (width >= 1024px) {
+  .mobile-inscription {
+    background-size: 30vw 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-h1-inscription {
+    display: flex;
+  }
+
+  .h1-inscription {
+    text-align: start;
+  }
+
+  .logo-form {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+  }
+
+  .h2-inscription-parent {
+    display: block;
+  }
+
+  .img-h2-desktop {
+    display: flex;
+    flex-direction: column;
+    width: 29vw;
+    padding: 40px;
+  }
+
+  .img-h2-desktop > h2 {
+    margin-top: 100px;
+    color: var(--light-color-text);
+    text-align: center;
+  }
+
+  .container-label-input-inscription {
+    margin-left: 25%;
+  }
+
+  .input-inscription {
+    border: 1px solid var(--input-light-border);
+    border-radius: 4px;
+    color: var(--dark-color-text);
+  }
+
+  .input-inscription::placeholder {
+    color: var(--dark-color-text);
+    padding: 10px;
+  }
+
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Ajoute un espacement entre la checkbox et le texte */
+  }
+
+  .checkbox-container input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--dark-color-text); /* Bordure noire */
+    border-radius: 4px;
+    background-color: transparent; /* Fond transparent */
+    cursor: pointer;
+    position: relative;
+  }
+
+  .checkbox-container input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 6px;
+    height: 10px;
+    border: solid var(--dark-color-text); /* Coche noire */
+    border-width: 0 2px 2px 0;
+    display: none;
+  }
+
+  .checkbox-container input[type="checkbox"]:checked::before {
+    display: block;
+  }
+
+  .checkbox-container label {
+    color: var(
+      --dark-color-text
+    ); /* Définit la couleur du texte du label en noir */
+  }
+
+  .link-inscription-parent {
+    color: var(--dark-color-text);
+    text-align: center;
+  }
+
+  .link-inscription-parent-btn {
+    width: 100%;
+    margin-top: 0px;
+    border-radius: 4px;
+  }
+
+  .link-pro-inscription {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--light-color-text);
+    text-decoration: none;
+    gap: 10px;
+    margin-left: 220px;
+  }
+
+  .btn-link-inscription {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .btn-link-pro-inscription {
+    font-weight: 600;
+    border: 1px solid var(--light-color-text);
+    border-radius: 15px;
+    width: 80px;
+    height: 28px;
+    text-align: center;
+    padding-bottom: 32px;
+  }
+}
