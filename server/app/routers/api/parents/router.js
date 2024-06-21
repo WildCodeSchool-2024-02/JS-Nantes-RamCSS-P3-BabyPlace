@@ -3,7 +3,14 @@ const express = require("express");
 const router = express.Router();
 
 // Import parent-related actions
-const { browse, browseAllFavoritesByParentId, read, add, edit, destroy } = require("../../../controllers/parentActions");
+const {
+  browse,
+  browseAllFavoritesByParentId,
+  read,
+  add,
+  edit,
+  destroy,
+} = require("../../../controllers/parentActions");
 
 // Route to get a list of parents
 router.get("/", browse);

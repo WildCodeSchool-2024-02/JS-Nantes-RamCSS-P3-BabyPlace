@@ -3,7 +3,12 @@ const express = require("express");
 const router = express.Router();
 
 // Import favorite-related actions
-const { browse, read, add, destroy } = require("../../../controllers/favoriteActions");
+const {
+  browse,
+  read,
+  add,
+  destroy,
+} = require("../../../controllers/favoriteActions");
 
 // Route to get a list of favorites
 router.get("/", browse);

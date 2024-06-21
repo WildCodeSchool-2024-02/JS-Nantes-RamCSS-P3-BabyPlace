@@ -3,7 +3,13 @@ const express = require("express");
 const router = express.Router();
 
 // Import child-related actions
-const { browse, read, add, edit, destroy } = require("../../../controllers/childActions");
+const {
+  browse,
+  read,
+  add,
+  edit,
+  destroy,
+} = require("../../../controllers/childActions");
 
 // Route to get a list of children
 router.get("/", browse);

@@ -9,10 +9,37 @@ class ChildRepository extends AbstractRepository {
   }
 
   // The C of CRUD - Create operation
-  async create(firstname, lastname, birthday,is_walker, is_disabled,allergies, insurance_certificate, health_book, birth_certificate, name_doctor, care_authorization, parent_id) {
+  async create(
+    firstname,
+    lastname,
+    birthday,
+    is_walker,
+    is_disabled,
+    allergies,
+    insurance_certificate,
+    health_book,
+    birth_certificate,
+    name_doctor,
+    care_authorization,
+    parent_id
+  ) {
     const [rows] = await this.database.query(
       `insert into ${this.table} (firstname, lastname, birthday, is_walker, is_disabled, allergies, insurance_certificate, health_book, birth_certificate, name_doctor, care_authorization, parent_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [firstname, lastname, birthday,is_walker, is_disabled, allergies, insurance_certificate, health_book, birth_certificate, name_doctor, care_authorization, parent_id]);
+      [
+        firstname,
+        lastname,
+        birthday,
+        is_walker,
+        is_disabled,
+        allergies,
+        insurance_certificate,
+        health_book,
+        birth_certificate,
+        name_doctor,
+        care_authorization,
+        parent_id,
+      ]
+    );
     // Return the ID of the newly inserted child
     return rows.insertId;
   }
@@ -37,28 +64,56 @@ class ChildRepository extends AbstractRepository {
     return rows;
   }
 
-// The U of CRUD - Update operation
-async update(body) {
-  const { firstname, lastname, birthday,is_walker, is_disabled, allergies, insurance_certificate, health_book, birth_certificate, name_doctor, care_authorization, parent_id, id } = body;
-  const [row] = await this.database.query(
-    `UPDATE ${this.table} SET firstname = ?, lastname = ?, birthday = ?, is_walker = ?, is_disabled = ?,allergies = ?, insurance_certificate = ?, health_book = ?, birth_certificate = ?, name_doctor = ?, care_authorization = ?, parent_id = ? WHERE id = ?`,
-    [ firstname, lastname, birthday,is_walker, is_disabled, allergies, insurance_certificate, health_book, birth_certificate, name_doctor, care_authorization, parent_id, id ]
-  );
+  // The U of CRUD - Update operation
+  async update(body) {
+    const {
+      firstname,
+      lastname,
+      birthday,
+      is_walker,
+      is_disabled,
+      allergies,
+      insurance_certificate,
+      health_book,
+      birth_certificate,
+      name_doctor,
+      care_authorization,
+      parent_id,
+      id,
+    } = body;
+    const [row] = await this.database.query(
+      `UPDATE ${this.table} SET firstname = ?, lastname = ?, birthday = ?, is_walker = ?, is_disabled = ?,allergies = ?, insurance_certificate = ?, health_book = ?, birth_certificate = ?, name_doctor = ?, care_authorization = ?, parent_id = ? WHERE id = ?`,
+      [
+        firstname,
+        lastname,
+        birthday,
+        is_walker,
+        is_disabled,
+        allergies,
+        insurance_certificate,
+        health_book,
+        birth_certificate,
+        name_doctor,
+        care_authorization,
+        parent_id,
+        id,
+      ]
+    );
 
-  // Return a boolean indicating whether the deletion was successful
-  return row;
+    // Return a boolean indicating whether the deletion was successful
+    return row;
   }
 
-// The D of CRUD - Delete operation
-async delete(id) {
-  // Execute the SQL DELETE query to remove an item by its ID
-  const [row] = await this.database.query(
-    `DELETE FROM ${this.table} WHERE id = ?`,
-    [id]
+  // The D of CRUD - Delete operation
+  async delete(id) {
+    // Execute the SQL DELETE query to remove an item by its ID
+    const [row] = await this.database.query(
+      `DELETE FROM ${this.table} WHERE id = ?`,
+      [id]
     );
-// Return a boolean indicating whether the deletion was successful
-return row;
-}
+    // Return a boolean indicating whether the deletion was successful
+    return row;
+  }
 }
 
 module.exports = ChildRepository;
