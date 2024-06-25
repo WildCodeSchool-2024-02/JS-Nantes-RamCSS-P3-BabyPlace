@@ -66,12 +66,16 @@
 }
 
 .texts {
-  font-family: "Libre Franklin";
+  font-family: "Libre Franklin" !important;
   font-size: 16px;
   text-decoration: none;
 }
 
 /* * Visual of professional register */
+
+Button {
+  font: "Libre Franklin";
+}
 
 .global-container-screen-register {
   position: relative;
