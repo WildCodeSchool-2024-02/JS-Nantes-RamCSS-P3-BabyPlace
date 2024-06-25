@@ -14,10 +14,12 @@ function AccesInvite() {
   };
 
   const handleStartDateChange = (event) => {
+    console.warn("start");
     setStartDate(event.target.value);
   };
 
   const handleEndDateChange = (event) => {
+    console.warn("end");
     setEndDate(event.target.value);
   };
 
@@ -40,36 +42,29 @@ function AccesInvite() {
             id="name"
             placeholder="Adresse"
           />
+
           <input
             className="input-parents-invite"
-            type="text"
-            id="name"
-            placeholder="Occasionnel"
-          />
-          <input
-            className="input-parents-invite"
-            type="text"
-            id="name"
+            type="date"
+            id="startDate"
             placeholder="Date de début"
+            onChange={(e) => console.warn(e.target.value)}
+            // onFocus={(e) => (e.target.type = "date")}
+            // onBlur={(e) => (e.target.type = "text")}
             onSelect={handleStartDateChange}
           />
+
           <input
             className="input-parents-invite"
             type="text"
-            id="name"
+            id="endDate"
+            onChange={(e) => console.warn(e.target.value)}
+            // onFocus={(e) => (e.target.type = "date")}
+            // onBlur={(e) => (e.target.type = "text")}
             placeholder="Date de fin"
             onSelect={handleEndDateChange}
           />
-          <label htmlFor="start">Start date:</label>
-          <input
-            type="date"
-            id="start"
-            name="trip-start"
-            value="2024-06-01"
-            min="2024-01-01"
-            max="2018-12-31"
-          />
-          {/* let today = new Date(); */}
+
           <div className="accesinvite-checkbox-container">
             <label htmlFor="flexibilité-dates-horaires">
               <input type="checkbox" onChange={coche} />
