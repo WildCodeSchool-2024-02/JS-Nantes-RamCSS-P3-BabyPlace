@@ -1,0 +1,22 @@
+.adaptatif-titles {
+  font-family: var(--primary-font);
+  font-size: 22px;
+}
+
+.complementary-services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 80px;
+}
+
+.left-part-adaptatif-price {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.global-price-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

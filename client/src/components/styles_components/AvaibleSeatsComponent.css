@@ -43,3 +43,20 @@
 .screen12 {
   padding-top: 70px;
 }
+
+.left-part-adaptatif-seats {
+  display: flex;
+  gap: 80px;
+}
+
+.global-seats-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.count-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
