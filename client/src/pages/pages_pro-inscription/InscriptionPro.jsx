@@ -3,7 +3,7 @@
 import NavbarInscriptionPro from "../../components/components_pro-inscription/NavbarInscriptionPro";
 // import StructureComponent from "../../components/components_pro-inscription/StructureComponent";
 // import LocalisationComponent from "../../components/components_pro-inscription/LocalisationComponent";
-import PicturesComponent from "../../components/components_pro-inscription/PicturesComponent";
+// import PicturesComponent from "../../components/components_pro-inscription/PicturesComponent";
 // import DescriptionComponent from "../../components/components_pro-inscription/DescriptionComponent";
 // import DetailDescriptionComponent from "../../components/components_pro-inscription/DetailDescriptionComponent";
 // import UseConditionComponent from "../../components/components_pro-inscription/UseConditionComponent";
@@ -11,6 +11,8 @@ import PicturesComponent from "../../components/components_pro-inscription/Pictu
 // import InformationProcessReservation from "../../components/components_pro-inscription/InformationProcessReservation";
 // import AvaibleSeatsComponent from "../../components/components_pro-inscription/AvaibleSeatsComponent";
 // import PriceComponent from "../../components/components_pro-inscription/PriceComponent";
+// import CongratsComponent from "../../components/components_pro-inscription/CongratsComponent";
+import SummaryComponent from "../../components/components_pro-inscription/SummaryComponent";
 
 import "../styles_pro_pages/InscriptionPro.css";
 
@@ -18,7 +20,7 @@ function InscriptionPro() {
   return (
     <div>
       <NavbarInscriptionPro />
-      <PicturesComponent />
+      <SummaryComponent />
     </div>
   );
 }
