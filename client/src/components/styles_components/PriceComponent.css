@@ -6,5 +6,17 @@
 .complementary-services {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 100px;
+  grid-template-rows: 80px;
+}
+
+.left-part-adaptatif {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.global-price-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

@@ -21,94 +21,67 @@ function PriceComponent() {
       {/* ----- full screen ----- */}
       <section className="global-container-register-pro">
         {/* ----- Left part of the screen ------ */}
-        <section className="left-part-container-register-pro">
-          <h2 className="titles">Le tarif horaire</h2>
-          <p className="texts">
-            Vous pourrez changer ce tarif à tout moment dans votre compte.
-          </p>
-          <Input
-            isRequired
-            type="number"
-            label="Tarif horaire"
-            color="secondary"
-            labelPlacement="inside"
-            className="max-w-lg texts"
-            size="lg"
-            min="0"
-            variant="bordered"
-            placeholder="Indiquez votre tarif"
-            startContent={
-              <div className="pointer-events-none flex items-center">
-                <span className="text-default-400 text-medium">€</span>
-              </div>
-            }
-          />
-          <Input
-            type="number"
-            label="Heures complémentaires majorées"
-            color="secondary"
-            labelPlacement="inside"
-            className="max-w-lg texts"
-            size="lg"
-            min="0"
-            variant="bordered"
-            placeholder="Indiquez votre tarif"
-            startContent={
-              <div className="pointer-events-none flex items-center">
-                <span className="text-default-400 text-medium">€</span>
-              </div>
-            }
-          />
-          <section>
-            <h2 className="titles">Les services d'accueil</h2>
+        <section className="left-part-container-register-pro left-part-adaptatif">
+          <section className="global-price-container">
+            <h2 className="titles">Le tarif horaire</h2>
             <p className="texts">
-              Déterminez les services que vous proposez soit de manière
-              obligatoire (les parents sont obligés de souscrire à ce service),
-              soit de manière optionnelle (les parents peuvent choisir d'y
-              souscrire ou pas).
+              Vous pourrez changer ce tarif à tout moment dans votre compte.
             </p>
-            <section className="complementary-services">
-              <section className="text-complementary-services">
-                <p>
-                  <strong>Indemnités d'entretien</strong>
-                </p>
-                <p>Frais courants</p>
-              </section>
-              <Tabs
-                selectedKey={selected1}
-                onSelectionChange={setSelected1}
-                size="lg"
-                aria-label="Indemnité d'entretien? Oui / Non"
-                variant="bordered"
-                color="secondary"
-              >
-                <Tab key="no" title="Non" />
-                <Tab key="yes" title="Oui" />
-              </Tabs>
-              <Input
-                isDisabled={setSelected1 === "no"}
-                type="number"
-                min="0"
-                color="secondary"
-                label="Indemnités d'entretien"
-                variant="bordered"
-                placeholder="Indiquez votre tarif"
-                className="max-w-[220px]"
-              />
-            </section>
-            <section className="complementary-services-container">
+            <Input
+              isRequired
+              type="number"
+              label="Tarif horaire"
+              color="secondary"
+              labelPlacement="inside"
+              className="max-w-lg texts"
+              size="lg"
+              min="0"
+              variant="bordered"
+              placeholder="Indiquez votre tarif"
+              startContent={
+                <div className="pointer-events-none flex items-center">
+                  <span className="text-default-400 text-medium">€</span>
+                </div>
+              }
+            />
+            <Input
+              type="number"
+              label="Heures complémentaires majorées"
+              color="secondary"
+              labelPlacement="inside"
+              className="max-w-lg texts"
+              size="lg"
+              min="0"
+              variant="bordered"
+              placeholder="Indiquez votre tarif"
+              startContent={
+                <div className="pointer-events-none flex items-center">
+                  <span className="text-default-400 text-medium">€</span>
+                </div>
+              }
+            />
+          </section>
+          <section>
+            <section>
+              <h2 className="titles">Les services d'accueil</h2>
+              <p className="texts">
+                Déterminez les services que vous proposez soit de manière
+                obligatoire (les parents sont obligés de souscrire à ce
+                service), soit de manière optionnelle (les parents peuvent
+                choisir d'y souscrire ou pas).
+              </p>
               <section className="complementary-services">
                 <section className="text-complementary-services">
                   <p>
-                    <strong>Indemnités de repas</strong>
+                    <strong>Indemnités d'entretien</strong>
                   </p>
-                  <p>Lorsque vous préparez les repas</p>
+                  <p>Frais courants</p>
                 </section>
                 <Tabs
-                  selectedKey={selected2}
-                  onSelectionChange={setSelected2}
+                  selectedKey={selected1}
+                  onSelectionChange={setSelected1}
                   size="lg"
-                  aria-label="Indemnité repas? Oui / Non"
+                  aria-label="Indemnité d'entretien? Oui / Non"
                   variant="bordered"
                   color="secondary"
                 >
@@ -116,44 +89,75 @@ function PriceComponent() {
                   <Tab key="yes" title="Oui" />
                 </Tabs>
                 <Input
-                  isDisabled={setSelected2 === "no"}
+                  isDisabled={selected1 === "no"}
                   type="number"
                   min="0"
                   color="secondary"
-                  label="Indemnités de repas"
+                  label="Indemnités d'entretien"
                   variant="bordered"
                   placeholder="Indiquez votre tarif"
                   className="max-w-[220px]"
                 />
               </section>
-              <section className="complementary-services">
-                <section className="text-complementary-services">
-                  <p>
-                    <strong>Indemnités kilométriques</strong>
-                  </p>
-                  <p>Lorsque vous utilisez votre véhicule</p>
+              <section className="complementary-services-container">
+                <section className="complementary-services">
+                  <section className="text-complementary-services">
+                    <p>
+                      <strong>Indemnités de repas</strong>
+                    </p>
+                    <p>Lorsque vous préparez les repas</p>
+                  </section>
+                  <Tabs
+                    selectedKey={selected2}
+                    onSelectionChange={setSelected2}
+                    size="lg"
+                    aria-label="Indemnité repas? Oui / Non"
+                    variant="bordered"
+                    color="secondary"
+                  >
+                    <Tab key="no" title="Non" />
+                    <Tab key="yes" title="Oui" />
+                  </Tabs>
+                  <Input
+                    isDisabled={selected2 === "no"}
+                    type="number"
+                    min="0"
+                    color="secondary"
+                    label="Indemnités de repas"
+                    variant="bordered"
+                    placeholder="Indiquez votre tarif"
+                    className="max-w-[220px]"
+                  />
                 </section>
-                <Tabs
-                  selectedKey={selected3}
-                  onSelectionChange={setSelected3}
-                  size="lg"
-                  aria-label="Indemnité kilométrique? Oui / Non"
-                  variant="bordered"
-                  color="secondary"
-                >
-                  <Tab key="no" title="Non" />
-                  <Tab key="yes" title="Oui" />
-                </Tabs>
-                <Input
-                  isDisabled={setSelected3 === "no"}
-                  type="number"
-                  min="0"
-                  color="secondary"
-                  label="Indemnités kilométriques"
-                  variant="bordered"
-                  placeholder="Indiquez votre tarif"
-                  className="max-w-[220px]"
-                />
+                <section className="complementary-services">
+                  <section className="text-complementary-services">
+                    <p>
+                      <strong>Indemnités kilométriques</strong>
+                    </p>
+                    <p>Lorsque vous utilisez votre véhicule</p>
+                  </section>
+                  <Tabs
+                    selectedKey={selected3}
+                    onSelectionChange={setSelected3}
+                    size="lg"
+                    aria-label="Indemnité kilométrique? Oui / Non"
+                    variant="bordered"
+                    color="secondary"
+                  >
+                    <Tab key="no" title="Non" />
+                    <Tab key="yes" title="Oui" />
+                  </Tabs>
+                  <Input
+                    isDisabled={selected3 === "no"}
+                    type="number"
+                    min="0"
+                    color="secondary"
+                    label="Indemnités kilométriques"
+                    variant="bordered"
+                    placeholder="Indiquez votre tarif"
+                    className="max-w-[220px]"
+                  />
+                </section>
               </section>
             </section>
           </section>
