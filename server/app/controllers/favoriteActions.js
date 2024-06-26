@@ -57,7 +57,7 @@ const browse = async (req, res, next) => {
 // The D of BREAD - Destroy (Delete) operation
 const destroy = async (req, res, next) => {
   try {
-    const {id} = req.params;
+    const { id } = req.params;
     // Delete the reservation from the database based on the provided ID
     const success = await tables.favorite.delete(id);
 

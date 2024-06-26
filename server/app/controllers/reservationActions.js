@@ -8,21 +8,21 @@ const add = async (req, res, next) => {
   try {
     // Insert the reservation into the database
     const insertId = await tables.reservation.create(
-      reservation.reservation_date, 
-      reservation.reservation_status, 
-      reservation.status_date, 
-      reservation.arriving_date, 
-      reservation.exit_date, 
-      reservation.price, 
-      reservation.nursery_id, 
-      reservation.child_id 
+      reservation.reservation_date,
+      reservation.reservation_status,
+      reservation.status_date,
+      reservation.arriving_date,
+      reservation.exit_date,
+      reservation.price,
+      reservation.nursery_id,
+      reservation.child_id
     );
 
     if (insertId > 0) {
       // Respond with HTTP 201 (Created) and the ID of the newly inserted reservation
       res.status(201).json({ insertId });
     } else {
-      res.sendStatus(500)
+      res.sendStatus(500);
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -65,18 +65,17 @@ const browse = async (req, res, next) => {
 
 const edit = async (req, res, next) => {
   try {
-
     const body = {
-      id : req.params.id,
-      reservation_date: req.body.reservation_date, 
-      reservation_status: req.body.reservation_status, 
-      status_date: req.body.status_date, 
-      arriving_date: req.body.arriving_date, 
-      exit_date: req.body.exit_date, 
-      price: req.body.price, 
-      nursery_id: req.body.nursery_id, 
-      child_id: req.body.child_id
-    }
+      id: req.params.id,
+      reservation_date: req.body.reservation_date,
+      reservation_status: req.body.reservation_status,
+      status_date: req.body.status_date,
+      arriving_date: req.body.arriving_date,
+      exit_date: req.body.exit_date,
+      price: req.body.price,
+      nursery_id: req.body.nursery_id,
+      child_id: req.body.child_id,
+    };
     // Delete the nursery from the database based on the provided ID
     const updateReservation = await tables.reservation.update(body);
 
@@ -96,7 +95,7 @@ const edit = async (req, res, next) => {
 // The D of BREAD - Destroy (Delete) operation
 const destroy = async (req, res, next) => {
   try {
-    const {id} = req.params;
+    const { id } = req.params;
     // Delete the reservation from the database based on the provided ID
     const success = await tables.reservation.delete(id);
 

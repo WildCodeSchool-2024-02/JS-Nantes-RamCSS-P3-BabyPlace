@@ -3,7 +3,13 @@ const express = require("express");
 const router = express.Router();
 
 // Import reservation-related actions
-const { browse, read, add, edit, destroy } = require("../../../controllers/reservationActions");
+const {
+  browse,
+  read,
+  add,
+  edit,
+  destroy,
+} = require("../../../controllers/reservationActions");
 
 // Route to get a list of reservations
 router.get("/", browse);

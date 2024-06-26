@@ -1,12 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { NextUIProvider } from "@nextui-org/system";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import ConnexionParent from "./pages/parents/ConnexionParent";
-import AccesInvite from "./pages/page_parents/AccesInvite";
 import InscriptionPro from "./pages/pages_pro-inscription/InscriptionPro";
+import ConnexionPro from "./pages/page_pro_connexion/ConnexionPro";
+import AccesInvite from "./pages/page_parents/AccesInvite";
+import Test from "./components/test";
 
 const router = createBrowserRouter([
   {
@@ -18,17 +21,24 @@ const router = createBrowserRouter([
     element: <ConnexionParent />,
   },
   {
+    path: "/test",
+    element: <Test />,
+  },
+  {
     path: "acces-invite",
     element: <AccesInvite />,
   },
   {
     // element: <InscriptionPro />, A remplacer par la page de connxion pro quand elle sera réalisée
     path: "pro",
-    element: <InscriptionPro />,
     children: [
       {
         path: "inscription",
         element: <InscriptionPro />,
+      },
+      {
+        path: "connexion",
+        element: <ConnexionPro />,
       },
     ],
   },
@@ -38,6 +48,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <NextUIProvider>
+      <RouterProvider router={router} />
+    </NextUIProvider>
   </React.StrictMode>
 );

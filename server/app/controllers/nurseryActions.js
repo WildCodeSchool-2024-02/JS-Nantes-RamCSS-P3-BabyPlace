@@ -6,27 +6,77 @@ const tables = require("../../database/tables");
 const add = async (req, res, next) => {
   // Extract the nursery data from the request body
   const {
-    siret, name, address, postcode, city, phone, email, type_of_nursery, capacity,opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
-    presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct } = req.body;
+    siret,
+    name,
+    address,
+    postcode,
+    city,
+    phone,
+    email,
+    type_of_nursery,
+    capacity,
+    opening_hours,
+    closing_time,
+    hourly_price,
+    agrement,
+    photo_1,
+    photo_2,
+    photo_3,
+    description_nursery,
+    disabled_children,
+    outdoor_space,
+    presence_of_animals,
+    meal,
+    hygiene_product,
+    music_workshop,
+    artistic_activities,
+    bilingual_international,
+    child_transport,
+    code_of_conduct,
+  } = req.body;
 
   try {
     // Insert the nursery into the database
     const insertId = await tables.nursery.create(
-      siret, name, address, postcode, city, phone, email, type_of_nursery, capacity,opening_hours, closing_time, hourly_price, agrement, photo_1, photo_2, photo_3, description_nursery, disabled_children, outdoor_space,
-    presence_of_animals, meal, hygiene_product, music_workshop, artistic_activities, bilingual_international, child_transport, code_of_conduct );
+      siret,
+      name,
+      address,
+      postcode,
+      city,
+      phone,
+      email,
+      type_of_nursery,
+      capacity,
+      opening_hours,
+      closing_time,
+      hourly_price,
+      agrement,
+      photo_1,
+      photo_2,
+      photo_3,
+      description_nursery,
+      disabled_children,
+      outdoor_space,
+      presence_of_animals,
+      meal,
+      hygiene_product,
+      music_workshop,
+      artistic_activities,
+      bilingual_international,
+      child_transport,
+      code_of_conduct
+    );
 
     if (insertId > 0) {
       // Respond with HTTP 201 (Created) and the ID of the newly inserted nursery
-      res.status(201).json( insertId );
+      res.status(201).json(insertId);
     } else {
-      res.sendStatus(500)
+      res.sendStatus(500);
     }
-
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
   }
-
 };
 
 // The R of BREAD - Read operation
@@ -64,37 +114,36 @@ const browse = async (req, res, next) => {
 
 const edit = async (req, res, next) => {
   try {
-
     const body = {
-      id : req.params,
-      siret: req.body.siret, 
-      name: req.body.name, 
-      address: req.body.address, 
-      postcode: req.body.postcode, 
-      city: req.body.city, 
-      phone: req.body.phone, 
-      email: req.body.email, 
-      type_of_nursery: req.body.type_of_nursery, 
+      id: req.params,
+      siret: req.body.siret,
+      name: req.body.name,
+      address: req.body.address,
+      postcode: req.body.postcode,
+      city: req.body.city,
+      phone: req.body.phone,
+      email: req.body.email,
+      type_of_nursery: req.body.type_of_nursery,
       capacity: req.body.capacity,
-      opening_hours: req.body.opening_hours, 
-      closing_time: req.body.closing_time, 
-      hourly_price: req.body.hourly_price, 
-      agrement: req.body.agrement, 
-      photo_1: req.body.photo_1, 
-      photo_2: req.body.photo_2, 
-      photo_3: req.body.photo_3, 
-      description_nursery: req.body.description_nursery, 
-      disabled_children: req.body.disabled_children, 
+      opening_hours: req.body.opening_hours,
+      closing_time: req.body.closing_time,
+      hourly_price: req.body.hourly_price,
+      agrement: req.body.agrement,
+      photo_1: req.body.photo_1,
+      photo_2: req.body.photo_2,
+      photo_3: req.body.photo_3,
+      description_nursery: req.body.description_nursery,
+      disabled_children: req.body.disabled_children,
       outdoor_space: req.body.outdoor_space,
-      presence_of_animals: req.body.presence_of_animals, 
-      meal: req.body.meal, 
-      hygiene_product: req.body.hygiene_product, 
-      music_workshop: req.body.music_workshop, 
-      artistic_activities: req.body.artistic_activities, 
-      bilingual_international: req.body.bilingual_international, 
-      child_transport: req.body.child_transport, 
-      code_of_conduct: req.body.code_of_conduct
-    }
+      presence_of_animals: req.body.presence_of_animals,
+      meal: req.body.meal,
+      hygiene_product: req.body.hygiene_product,
+      music_workshop: req.body.music_workshop,
+      artistic_activities: req.body.artistic_activities,
+      bilingual_international: req.body.bilingual_international,
+      child_transport: req.body.child_transport,
+      code_of_conduct: req.body.code_of_conduct,
+    };
     // Delete the nursery from the database based on the provided ID
     const updateNursery = await tables.nursery.update(body);
 
@@ -114,7 +163,7 @@ const edit = async (req, res, next) => {
 // The D of BREAD - Destroy (Delete) operation
 const destroy = async (req, res, next) => {
   try {
-    const {id} = req.params
+    const { id } = req.params;
     // Delete the nursery from the database based on the provided ID
     const success = await tables.nursery.delete(id);
 
