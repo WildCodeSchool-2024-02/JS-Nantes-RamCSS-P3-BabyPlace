@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Button, Textarea } from "@nextui-org/react";
 
 import "../styles_components/DescriptionComponent.css";
 
@@ -26,29 +26,33 @@ function DescriptionComponent() {
             Décrivez les espaces de jeu, le lieu de sommeil, les équipements
             dont vous disposez.
           </p>
-          <textarea
-            className="description-pro-text-aera texts"
-            name="nursery-description"
-            cols="155"
-            minLength="50"
-            maxLength="155"
-            autoCapitalize="sentences"
+          <Textarea
+            variant="faded"
+            size="lg"
+            color="secondary"
+            label="Description"
             placeholder="Ecrivez votre description ici"
+            description="Ecrivez une description détaillant votre structure."
+            className=" w-full max-h-lg"
           />
 
           {/* Redirection to screen 3 of professional registration */}
-          <nav className="nav-buttons-pro-register">
-            <NavLink to="/" className="navlink-prev-pro screen4 texts">
-              <p>&lt; Retour</p>
-            </NavLink>
-            {/* Redirection to screen 5 of professional registration */}
-            <NavLink to="/" className="navlink-next-pro screen4 texts">
-              <p>Suivant</p>
-              <img
-                src="../src/assets/images/illustration/arrow_right.svg"
-                alt="Arrow"
-              />
-            </NavLink>
+          <nav className="nav-buttons-pro-register screen4">
+            <Button
+              variant="shadow"
+              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+              size="lg"
+            >
+              Retour
+            </Button>
+            {/* Redirection to next screen of professional registration */}
+            <Button
+              variant="shadow"
+              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+              size="lg"
+            >
+              Suivant
+            </Button>
           </nav>
         </section>
 

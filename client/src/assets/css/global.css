@@ -73,10 +73,6 @@
 
 /* * Visual of professional register */
 
-Button {
-  font: "Libre Franklin";
-}
-
 .global-container-screen-register {
   position: relative;
   top: 70px;

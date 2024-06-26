@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Button, Avatar } from "@nextui-org/react";
 
 import "../styles_components/PicturesComponent.css";
 
@@ -16,46 +16,48 @@ function PicturesComponent() {
       {/* ----- full screen ----- */}
       <section className="global-container-register-pro">
         {/* ----- Left part of the screen ------ */}
-        <section className="left-part-container-register-pro">
+        <section className="left-part-container-register-pro adaptatif-left-part-pictures">
           <h2 className="titles">Ajoutez votre photo de profil</h2>
           <section className="profile-picture-container">
-            <img
-              className="profile-picture-pro"
+            <Avatar
               src="../src/assets/images/illustration/avatar.png"
-              alt="avatar du profil professionnel"
+              className="w-20 h-20 text-large"
             />
-            <button type="submit" className="button-photos-pro texts">
+            <Button size="lg" color="secondary">
               Télécharger votre photo
-            </button>
+            </Button>
           </section>
-          <h2 className="titles">Egayer votre annonce avec des photos</h2>
-          <p className="texts">
-            Prenez des photos avec un téléphone ou un appareil photo.
-            <br />
-            Téléchargez au moins une photo pour publier votre annonce.
-            <br />
-            Vous pourrez toujours en ajouter d'autres ou apporter des
-            modifications par la suite.
-          </p>
-          <button
-            type="submit"
-            className="button-photos-pro adaptatif-button-photos-pro texts"
-          >
-            Télécharger vos photos
-          </button>
+          <section className="pictures-description-import">
+            <h2 className="titles">Egayer votre annonce avec des photos</h2>
+            <p className="texts">
+              Prenez des photos avec un téléphone ou un appareil photo.
+              <br />
+              Téléchargez au moins une photo pour publier votre annonce.
+              <br />
+              Vous pourrez toujours en ajouter d'autres ou apporter des
+              modifications par la suite.
+            </p>
+            <Button size="lg" color="secondary">
+              Télécharger vos photos
+            </Button>
+          </section>
           {/* Redirection to screen 2 of professional registration */}
-          <nav className="nav-buttons-pro-register">
-            <NavLink to="/" className="navlink-prev-pro screen2 texts">
-              <p>&lt; Retour</p>
-            </NavLink>
-            {/* Redirection to screen 4 of professional registration */}
-            <NavLink to="/" className="navlink-next-pro screen2 texts">
-              <p>Suivant</p>
-              <img
-                src="../src/assets/images/illustration/arrow_right.svg"
-                alt="Arrow"
-              />
-            </NavLink>
+          <nav className="nav-buttons-pro-register screen4">
+            <Button
+              variant="shadow"
+              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+              size="lg"
+            >
+              Retour
+            </Button>
+            {/* Redirection to next screen of professional registration */}
+            <Button
+              variant="shadow"
+              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+              size="lg"
+            >
+              Suivant
+            </Button>
           </nav>
         </section>
 

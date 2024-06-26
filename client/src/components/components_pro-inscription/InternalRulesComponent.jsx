@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Button } from "@nextui-org/react";
 
 import "../styles_components/InternalRulesComponent.css";
 
@@ -219,18 +219,22 @@ function InternalRulesComponent() {
           </section>
 
           {/* Redirection to next screen of professional registration */}
-          <nav className="nav-buttons-pro-register screen10">
-            <NavLink to="/" className="navlink-prev-pro screen2 texts">
-              <p>&lt; Retour</p>
-            </NavLink>
-            {/* Redirection to prev screen of professional registration */}
-            <NavLink to="/" className="navlink-next-pro screen2 texts">
-              <p>Suivant</p>
-              <img
-                src="../src/assets/images/illustration/arrow_right.svg"
-                alt="Arrow"
-              />
-            </NavLink>
+          <nav className="nav-buttons-pro-register screen11">
+            <Button
+              variant="shadow"
+              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+              size="lg"
+            >
+              Retour
+            </Button>
+            {/* Redirection to next screen of professional registration */}
+            <Button
+              variant="shadow"
+              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+              size="lg"
+            >
+              Suivant
+            </Button>
           </nav>
         </section>
 

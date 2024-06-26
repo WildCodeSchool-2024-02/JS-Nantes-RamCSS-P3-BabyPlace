@@ -1,12 +1,12 @@
-import React from "react";
+import { useState } from "react";
 import { Button, Input, Tabs, Tab } from "@nextui-org/react";
 
 import "../styles_components/PriceComponent.css";
 
 function PriceComponent() {
-  const [selected1, setSelected1] = React.useState("no");
-  const [selected2, setSelected2] = React.useState("no");
-  const [selected3, setSelected3] = React.useState("no");
+  const [selected1, setSelected1] = useState("no");
+  const [selected2, setSelected2] = useState("no");
+  const [selected3, setSelected3] = useState("no");
 
   return (
     <section className="global-container-screen-register">
@@ -21,7 +21,7 @@ function PriceComponent() {
       {/* ----- full screen ----- */}
       <section className="global-container-register-pro">
         {/* ----- Left part of the screen ------ */}
-        <section className="left-part-container-register-pro left-part-adaptatif">
+        <section className="left-part-container-register-pro left-part-adaptatif-price">
           <section className="global-price-container">
             <h2 className="titles">Le tarif horaire</h2>
             <p className="texts">
