@@ -307,3 +307,9 @@ progress::-moz-progress-bar {
     padding: 0 100px;
   }
 }
+
+/* test */
+
+.error-message {
+  color: rgb(0, 242, 254);
+}
