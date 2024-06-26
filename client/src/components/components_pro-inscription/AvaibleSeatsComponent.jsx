@@ -1,9 +1,11 @@
+import PropTypes from "prop-types";
+
 import { Button } from "@nextui-org/react";
 import { useState, useEffect } from "react";
 
 import "../styles_components/AvaibleSeatsComponent.css";
 
-function AvaibleSeatsComponent() {
+function AvaibleSeatsComponent({ setComponent }) {
   // * Déclaration des states
   const [countSeats, setCountSeats] = useState(0);
   const [countDisabilty, setCountDisabilty] = useState(0);
@@ -33,7 +35,7 @@ function AvaibleSeatsComponent() {
     if (countYoungBaby > countSeats) {
       setCountYoungBaby(countSeats);
     }
-  }, [countSeats, countDisabilty]);
+  }, [countSeats, countYoungBaby]);
 
   const addYoungBaby = () => {
     if (countYoungBaby < countSeats) {
@@ -154,6 +156,7 @@ function AvaibleSeatsComponent() {
           {/* Redirection to next screen of professional registration */}
           <nav className="nav-buttons-pro-register adaptatif-nav-buttons-use-conditions">
             <Button
+              onClick={() => setComponent("InformationProcessReservation")}
               variant="shadow"
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
               size="lg"
@@ -162,6 +165,7 @@ function AvaibleSeatsComponent() {
             </Button>
             {/* Redirection to next screen of professional registration */}
             <Button
+              onClick={() => setComponent("PriceReservation")}
               variant="shadow"
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
               size="lg"
@@ -176,5 +180,10 @@ function AvaibleSeatsComponent() {
     </section>
   );
 }
+
+// Validation des props
+AvaibleSeatsComponent.propTypes = {
+  setComponent: PropTypes.func.isRequired,
+};
 
 export default AvaibleSeatsComponent;

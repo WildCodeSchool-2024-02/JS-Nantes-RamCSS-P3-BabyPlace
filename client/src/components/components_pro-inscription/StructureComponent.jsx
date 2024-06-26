@@ -176,18 +176,10 @@ function StructureComponent({ setComponent }) {
             </section>
           </section>
 
-          {/* Redirection to screen 2 of professional registration */}
-          <nav className="nav-buttons-pro-register screen11">
+          {/* Redirection to next screen of professional registration */}
+          <nav className="nav-buttons-pro-register adaptatif-nav-buttons">
             <Button
-              variant="shadow"
-              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-              size="lg"
-              onClick={() => setComponent("PicturesComponent")}
-            >
-              Retour
-            </Button>
-            {/* Redirection to next screen of professional registration */}
-            <Button
+              onClick={() => setComponent("LocalisationComponent")}
               variant="shadow"
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
               size="lg"

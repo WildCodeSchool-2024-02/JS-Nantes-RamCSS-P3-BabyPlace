@@ -71,6 +71,11 @@
   text-decoration: none;
 }
 
+/* * Transition animation */
+.transition {
+  transition: all 0.5s ease-in-out;
+}
+
 /* * Visual of professional register */
 
 .global-container-screen-register {

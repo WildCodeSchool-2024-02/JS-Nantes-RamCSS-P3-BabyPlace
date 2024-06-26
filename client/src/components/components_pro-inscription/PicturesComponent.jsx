@@ -1,8 +1,10 @@
+import PropTypes from "prop-types";
+
 import { Button, Avatar } from "@nextui-org/react";
 
 import "../styles_components/PicturesComponent.css";
 
-function PicturesComponent() {
+function PicturesComponent({ setComponent }) {
   return (
     <section className="global-container-screen-register">
       {/* ----- Visual indicating the progress of registration => level 3 ----- */}
@@ -44,6 +46,7 @@ function PicturesComponent() {
           {/* Redirection to screen 2 of professional registration */}
           <nav className="nav-buttons-pro-register screen4">
             <Button
+              onClick={() => setComponent("LocalisationComponent")}
               variant="shadow"
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
               size="lg"
@@ -52,6 +55,7 @@ function PicturesComponent() {
             </Button>
             {/* Redirection to next screen of professional registration */}
             <Button
+              onClick={() => setComponent("DescriptionComponent")}
               variant="shadow"
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
               size="lg"
@@ -92,5 +96,10 @@ function PicturesComponent() {
     </section>
   );
 }
+
+// Validation des props
+PicturesComponent.propTypes = {
+  setComponent: PropTypes.func.isRequired,
+};
 
 export default PicturesComponent;

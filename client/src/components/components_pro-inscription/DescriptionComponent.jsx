@@ -1,8 +1,10 @@
+import PropTypes from "prop-types";
+
 import { Button, Textarea } from "@nextui-org/react";
 
 import "../styles_components/DescriptionComponent.css";
 
-function DescriptionComponent() {
+function DescriptionComponent({ setComponent }) {
   return (
     <section className="global-container-screen-register">
       {/* ----- Visual indicating the progress of registration => level 3 ----- */}
@@ -39,6 +41,7 @@ function DescriptionComponent() {
           {/* Redirection to screen 3 of professional registration */}
           <nav className="nav-buttons-pro-register screen4">
             <Button
+              onClick={() => setComponent("PicturesComponent")}
               variant="shadow"
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
               size="lg"
@@ -47,6 +50,7 @@ function DescriptionComponent() {
             </Button>
             {/* Redirection to next screen of professional registration */}
             <Button
+              onClick={() => setComponent("DetailDescriptionComponent")}
               variant="shadow"
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
               size="lg"
@@ -92,5 +96,10 @@ function DescriptionComponent() {
     </section>
   );
 }
+
+// Validation des props
+DescriptionComponent.propTypes = {
+  setComponent: PropTypes.func.isRequired,
+};
 
 export default DescriptionComponent;

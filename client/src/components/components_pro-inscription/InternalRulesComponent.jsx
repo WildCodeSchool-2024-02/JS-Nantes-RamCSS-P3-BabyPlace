@@ -1,8 +1,10 @@
+import PropTypes from "prop-types";
+
 import { Button } from "@nextui-org/react";
 
 import "../styles_components/InternalRulesComponent.css";
 
-function InternalRulesComponent() {
+function InternalRulesComponent({ setComponent }) {
   return (
     <section className="global-container-screen-register">
       {/* ----- Visual indicating the progress of registration => level 3 ----- */}
@@ -221,6 +223,7 @@ function InternalRulesComponent() {
           {/* Redirection to next screen of professional registration */}
           <nav className="nav-buttons-pro-register screen11">
             <Button
+              onClick={() => setComponent("UseConditionComponent")}
               variant="shadow"
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
               size="lg"
@@ -229,6 +232,7 @@ function InternalRulesComponent() {
             </Button>
             {/* Redirection to next screen of professional registration */}
             <Button
+              onClick={() => setComponent("InformationProcessReservation")}
               variant="shadow"
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
               size="lg"
@@ -256,5 +260,10 @@ function InternalRulesComponent() {
     </section>
   );
 }
+
+// Validation des props
+InternalRulesComponent.propTypes = {
+  setComponent: PropTypes.func.isRequired,
+};
 
 export default InternalRulesComponent;
