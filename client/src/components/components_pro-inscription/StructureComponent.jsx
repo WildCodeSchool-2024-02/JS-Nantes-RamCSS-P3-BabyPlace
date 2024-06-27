@@ -1,10 +1,47 @@
-import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
+import { Button, Input, CheckboxGroup } from "@nextui-org/react";
 
-import { Button } from "@nextui-org/react";
+import PropTypes from "prop-types";
+import CustomCheckbox from "../../assets/nextUI/CustomCheckbox";
 
 import "../styles_components/StructureComponent.css";
 
 function StructureComponent({ setComponent }) {
+  // * States déclarations
+
+  const [formState, setFormState] = useState({
+    name: "",
+    phone: "",
+    groupSelected: [],
+  });
+
+  const [checkNextButton, setCheckNextButton] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleGroupChange = (value) => {
+    setFormState((prevState) => ({
+      ...prevState,
+      groupSelected: value,
+    }));
+  };
+
+  // * conditions for unlocking the “Next” button
+
+  useEffect(() => {
+    const { name, phone, groupSelected } = formState;
+    const isPhoneValid = /^\d{10}$/.test(phone.trim());
+    const isFormValid =
+      name.trim() !== "" && isPhoneValid && groupSelected.length > 0;
+    setCheckNextButton(isFormValid);
+  }, [formState]);
+
   return (
     <section className="global-container-screen-register">
       {/* ----- Visual indicating the progress of registration => level 0 ----- */}
@@ -18,160 +55,82 @@ function StructureComponent({ setComponent }) {
       {/* ----- full screen ----- */}
       <section className="global-container-register-pro">
         {/* ----- Left part of the screen ------ */}
-        <section className="left-part-container-register-pro">
-          <h2 className="titles">Quel type d'accueil proposez vous?</h2>
-          <input
-            id="nursery-type"
-            name="nursery-type"
-            type="checkbox"
-            className="input-checkbox-pro"
-          />
-          <label htmlFor="nursery-type" className="label-checkbox-pro texts">
-            Crèche
-          </label>
-          <h2 className="titles">Maintenant, précisons les choses...</h2>
-
-          {/* * Types of Nurseries */}
-          <section className="checkboxgroup" aria-label="Type of nursery">
-            {/* ---checkbox 1 => "Crèche parentale" */}
-            <input
-              id="parental-nursery"
-              name="parental-nursery"
-              type="checkbox"
-              className="input-checkbox-pro"
-            />
-            <label
-              htmlFor="parental-nursery"
-              className="label-checkbox-pro texts"
-            >
-              Crèche parentale
-            </label>
-            {/* ---checkbox 2 => "Micro-Crèche" */}
-            <input
-              id="micro-nursery"
-              name="micro-nursery"
-              type="checkbox"
-              className="input-checkbox-pro"
-            />
-            <label htmlFor="micro-nursery" className="label-checkbox-pro texts">
-              Micro-Crèche
-            </label>
-            {/* ---checkbox 3 => "Crèche d'entreprise" */}
-            <input
-              id="company-nursery"
-              name="company-nursery"
-              type="checkbox"
-              className="input-checkbox-pro"
-            />
-            <label
-              htmlFor="company-nursery"
-              className="label-checkbox-pro texts"
-            >
-              Crèche d'entreprise
-            </label>
-            {/* ---checkbox 4 => "Halte garderie" */}
-            <input
-              id="daycare"
-              name="daycare"
-              type="checkbox"
-              className="input-checkbox-pro"
-            />
-            <label htmlFor="daycare" className="label-checkbox-pro texts">
-              Halte garderie
-            </label>
-            {/* ---checkbox 5 => "Crèche collective" */}
-            <input
-              id="collective-nursery"
-              name="collective-nursery"
-              type="checkbox"
-              className="input-checkbox-pro"
-            />
-            <label
-              htmlFor="collective-nursery"
-              className="label-checkbox-pro texts"
-            >
-              Crèche collective
-            </label>
-            {/* ---checkbox 6 => "Crèche écologique" */}
-            <input
-              id="ecological-nursery"
-              name="ecological-nursery"
-              type="checkbox"
-              className="input-checkbox-pro"
-            />
-            <label
-              htmlFor="ecological-nursery"
-              className="label-checkbox-pro texts"
-            >
-              Crèche écologique
-            </label>
-            {/* ---checkbox 7 => "Multi-Accueil" */}
-            <input
-              id="multireception-nursery"
-              name="multireception-nursery"
-              type="checkbox"
-              className="input-checkbox-pro"
-            />
-            <label
-              htmlFor="multireception-nursery"
-              className="label-checkbox-pro texts"
-            >
-              Multi-Accueil
-            </label>
-            {/* ---checkbox 8 => "Crèche municipale" */}
-            <input
-              id="municipal-nursery"
-              name="municipal-nursery"
-              type="checkbox"
-              className="input-checkbox-pro"
-            />
-            <label
-              htmlFor="municipal-nursery"
-              className="label-checkbox-pro texts"
-            >
-              Crèche municipale
-            </label>
-            {/* ---checkbox 9 => "Crèche associative" */}
-            <input
-              id="associatif-nursery"
-              name="associatif-nursery"
-              type="checkbox"
-              className="input-checkbox-pro"
-            />
-            <label
-              htmlFor="associatif-nursery"
-              className="label-checkbox-pro texts"
-            >
-              Crèche associative
-            </label>
-          </section>
-
-          {/* Name & Phone number */}
-          <h2 className="titles">Complétez et vérifiez vos informations</h2>
-          <section className="global-input-container">
-            <section>
-              <section className="input-container-pro">
-                <label htmlFor="name" className="texts text-input-label-pro">
-                  Nom :
-                </label>
-                <input
-                  type="text"
-                  placeholder="Ex : La crèche des petits lutins"
-                  className="texts input-text-pro"
-                />
-              </section>
-              <p className="texts information-name">
-                Ce nom sera celui qui s'affichera en titre de votre annonce.
+        <section className="left-part-container-register-pro global-left-content-structure">
+          <section className="left-part-content-structure">
+            <h2 className="titles">Quel type d'accueil proposez vous?</h2>
+            {/* * Types of Nurseries */}
+            <div className="flex flex-col gap-1 w-full">
+              <CheckboxGroup
+                className="gap-1 texts"
+                color="secondary"
+                label="Sélectionnez au moins un type d'accueil"
+                orientation="horizontal"
+                value={formState.groupSelected}
+                onChange={handleGroupChange}
+              >
+                <CustomCheckbox value="Crèche parentale">
+                  Crèche parentale
+                </CustomCheckbox>
+                <CustomCheckbox value="Micro-Crèche">
+                  Micro-Crèche
+                </CustomCheckbox>
+                <CustomCheckbox value="Crèche d'entreprise">
+                  Crèche d'entreprise
+                </CustomCheckbox>
+                <CustomCheckbox value="Halte garderie">
+                  Halte garderie
+                </CustomCheckbox>
+                <CustomCheckbox value="Crèche collective">
+                  Crèche collective
+                </CustomCheckbox>
+                <CustomCheckbox value="Crèche écologique">
+                  Crèche écologique
+                </CustomCheckbox>
+                <CustomCheckbox value="Multi-Accueil">
+                  Multi-Accueil
+                </CustomCheckbox>
+                <CustomCheckbox value="Crèche municipale">
+                  Crèche municipale
+                </CustomCheckbox>
+                <CustomCheckbox value="Crèche associative">
+                  Crèche associative
+                </CustomCheckbox>
+              </CheckboxGroup>
+              <p className="mt-4 ml-1 text-default-500 texts">
+                Types d'accueils sélectionnés:{" "}
+                {formState.groupSelected.join("  |  ")}
               </p>
-            </section>
-            <section className="input-container-pro">
-              <label htmlFor="name" className="texts text-input-label-pro">
-                N° de téléphone :
-              </label>
-              <input
+            </div>
+          </section>
+          <section className="left-part-content-structure">
+            {/* Name & Phone number */}
+            <h2 className="titles">Complétez et vérifiez vos informations</h2>
+            <section className="global-input-container">
+              <Input
+                isRequired
                 type="text"
+                variant="bordered"
+                color="secondary"
+                label="Nom de votre structure"
+                description="Ce champ est requis pour passer à la suite du formulaire."
+                className="w-[600px] texts"
+                size="lg"
+                placeholder="Ex : La crèche des petits lutins"
+                name="name"
+                onChange={handleInputChange}
+              />
+              <Input
+                isRequired
+                type="text"
+                variant="bordered"
+                color="secondary"
+                label="Numéro de téléphone"
+                description="Ce champ est requis pour passer à la suite du formulaire."
+                className="w-[600px] texts"
+                size="lg"
                 placeholder="Ex : 08.00.00.00.00"
-                className="texts input-text-pro"
+                name="phone"
+                onChange={handleInputChange}
               />
             </section>
           </section>
@@ -179,6 +138,7 @@ function StructureComponent({ setComponent }) {
           {/* Redirection to next screen of professional registration */}
           <nav className="nav-buttons-pro-register adaptatif-nav-buttons">
             <Button
+              isDisabled={!checkNextButton}
               onClick={() => setComponent("LocalisationComponent")}
               variant="shadow"
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
@@ -212,7 +172,7 @@ function StructureComponent({ setComponent }) {
   );
 }
 
-// Validation des props
+// Props Validation
 StructureComponent.propTypes = {
   setComponent: PropTypes.func.isRequired,
 };
