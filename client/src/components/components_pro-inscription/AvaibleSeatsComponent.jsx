@@ -165,7 +165,7 @@ function AvaibleSeatsComponent({ setComponent }) {
             </Button>
             {/* Redirection to next screen of professional registration */}
             <Button
-              onClick={() => setComponent("PriceReservation")}
+              onClick={() => setComponent("PriceComponent")}
               variant="shadow"
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
               size="lg"
