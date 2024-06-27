@@ -1,8 +1,10 @@
+import PropTypes from "prop-types";
+
 import { Button } from "@nextui-org/react";
 
 import "../styles_components/InformationProcessReservation.css";
 
-function InformationProcessReservation() {
+function InformationProcessReservation({ setComponent }) {
   return (
     <section className="global-container-screen-register">
       {/* ----- Visual indicating the progress of registration => level 3 ----- */}
@@ -82,6 +84,7 @@ function InformationProcessReservation() {
       {/* Redirection to next screen of professional registration */}
       <nav className="nav-buttons-pro-register screen11">
         <Button
+          onClick={() => setComponent("InternalRulesComponent")}
           variant="shadow"
           className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
           size="lg"
@@ -90,6 +93,7 @@ function InformationProcessReservation() {
         </Button>
         {/* Redirection to next screen of professional registration */}
         <Button
+          onClick={() => setComponent("AvaibleSeatsComponent")}
           variant="shadow"
           className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
           size="lg"
@@ -100,5 +104,10 @@ function InformationProcessReservation() {
     </section>
   );
 }
+
+// Validation des props
+InformationProcessReservation.propTypes = {
+  setComponent: PropTypes.func.isRequired,
+};
 
 export default InformationProcessReservation;

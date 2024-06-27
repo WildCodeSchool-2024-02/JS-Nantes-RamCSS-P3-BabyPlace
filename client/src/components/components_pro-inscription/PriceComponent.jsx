@@ -1,9 +1,11 @@
+import PropTypes from "prop-types";
+
 import { useState } from "react";
 import { Button, Input, Tabs, Tab } from "@nextui-org/react";
 
 import "../styles_components/PriceComponent.css";
 
-function PriceComponent() {
+function PriceComponent({ setComponent }) {
   const [selected1, setSelected1] = useState("no");
   const [selected2, setSelected2] = useState("no");
   const [selected3, setSelected3] = useState("no");
@@ -165,6 +167,7 @@ function PriceComponent() {
           {/* Redirection to prev screen of professional registration */}
           <nav className="nav-buttons-pro-register adaptatif-nav-buttons-use-conditions">
             <Button
+              onClick={() => setComponent("AvaibleSeatsComponent")}
               variant="shadow"
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
               size="lg"
@@ -173,6 +176,7 @@ function PriceComponent() {
             </Button>
             {/* Redirection to next screen of professional registration */}
             <Button
+              // onClick={() => setComponent("SummaryComponent")}
               variant="shadow"
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
               size="lg"
@@ -207,5 +211,10 @@ function PriceComponent() {
     </section>
   );
 }
+
+// Validation des props
+PriceComponent.propTypes = {
+  setComponent: PropTypes.func.isRequired,
+};
 
 export default PriceComponent;
