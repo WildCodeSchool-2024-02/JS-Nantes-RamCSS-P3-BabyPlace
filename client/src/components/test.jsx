@@ -27,7 +27,7 @@ export default function Test() {
       </div>
       <DatePicker
         label="Birth date"
-        className="max-w-[284px] bg-red"
+        className="max-w-[284px] "
         onChange={(date) => setDateState(date)}
       />
       <div className="flex gap-4">

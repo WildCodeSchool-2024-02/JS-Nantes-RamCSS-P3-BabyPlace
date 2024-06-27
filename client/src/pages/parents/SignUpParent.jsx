@@ -19,6 +19,7 @@ function SignUpParent({ setEmailChecked, setPasswordChecked, setSelected }) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
@@ -43,13 +44,29 @@ function SignUpParent({ setEmailChecked, setPasswordChecked, setSelected }) {
     return !validatePassword(password);
   }, [password, validatePassword]);
 
+  const isConfirmPasswordInvalid = useMemo(() => {
+    if (confirmPassword === "") return false;
+    return confirmPassword !== password;
+  }, [confirmPassword, password]);
+
   useEffect(() => {
     setEmailChecked(email !== "" && !isEmailInvalid);
   }, [email, isEmailInvalid, setEmailChecked]);
 
   useEffect(() => {
-    setPasswordChecked(password !== "" && !isPasswordInvalid);
-  }, [password, isPasswordInvalid, setPasswordChecked]);
+    setPasswordChecked(
+      password !== "" &&
+        !isPasswordInvalid &&
+        confirmPassword !== "" &&
+        !isConfirmPasswordInvalid
+    );
+  }, [
+    password,
+    confirmPassword,
+    isPasswordInvalid,
+    isConfirmPasswordInvalid,
+    setPasswordChecked,
+  ]);
 
   return (
     <form className="flex flex-col gap-4 h-[300px]">
@@ -76,6 +93,11 @@ function SignUpParent({ setEmailChecked, setPasswordChecked, setSelected }) {
         label="Password"
         variant="flat"
         placeholder="Enter your password"
+        type={isVisible ? "text" : "password"}
+        isInvalid={isPasswordInvalid}
+        color={isPasswordInvalid ? "danger" : "success"}
+        onValueChange={setPassword}
+        className="max-w-xs "
         endContent={
           <button
             className="focus:outline-none "
@@ -89,17 +111,17 @@ function SignUpParent({ setEmailChecked, setPasswordChecked, setSelected }) {
             )}
           </button>
         }
-        type={isVisible ? "text" : "password"}
-        isInvalid={isPasswordInvalid}
-        color={isPasswordInvalid ? "danger" : "success"}
-        onValueChange={setPassword}
-        className="max-w-xs "
       />
       <Input
         isRequired
         label="Confirmation de Password"
         variant="flat"
         placeholder="Enter your password"
+        type={isVisible ? "text" : "password"}
+        isInvalid={isConfirmPasswordInvalid}
+        color={isConfirmPasswordInvalid ? "danger" : "success"}
+        onValueChange={setConfirmPassword}
+        className="max-w-xs "
         endContent={
           <button
             className="focus:outline-none "
@@ -113,11 +135,6 @@ function SignUpParent({ setEmailChecked, setPasswordChecked, setSelected }) {
             )}
           </button>
         }
-        type={isVisible ? "text" : "password"}
-        isInvalid={isPasswordInvalid}
-        color={isPasswordInvalid ? "danger" : "success"}
-        onValueChange={setPassword}
-        className="max-w-xs "
       />
       <Checkbox color="secondary" required>
         *J'accepte les conditions d'utilisation
@@ -147,6 +164,11 @@ function SignUpParent({ setEmailChecked, setPasswordChecked, setSelected }) {
         <p className="text-white text-sm ">
           Le mot de passe doit contenir au moins 8 caractères, une majuscule,
           une minuscule, un chiffre et un caractère spécial
+        </p>
+      )}
+      {isConfirmPasswordInvalid && (
+        <p className="text-white text-sm ">
+          Les mots de passe ne correspondent pas
         </p>
       )}
     </form>

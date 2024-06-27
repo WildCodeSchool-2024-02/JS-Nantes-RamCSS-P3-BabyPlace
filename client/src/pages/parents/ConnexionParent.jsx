@@ -8,7 +8,6 @@ import LoginParent from "./LoginParent";
 function ConnexionParent() {
   const [emailChecked, setEmailChecked] = useState(false);
   const [passwordChecked, setPasswordChecked] = useState(false);
-
   const [selected, setSelected] = useState("login");
   const [checkBtnConnexion, setCheckBtnConnexion] = useState(false);
 
@@ -94,7 +93,5 @@ function ConnexionParent() {
     </div>
   );
 }
-
-
 
 export default ConnexionParent;

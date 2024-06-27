@@ -5,7 +5,6 @@ import { Button, Input, Link } from "@nextui-org/react";
 import EyeFilledIcon from "../../assets/nextUI/EyeFilledIcon";
 import EyeSlashFilledIcon from "../../assets/nextUI/EyeSlashFilledIcon";
 
-
 function SignUpParent({
   setEmailChecked,
   setPasswordChecked,
@@ -19,8 +18,8 @@ function SignUpParent({
   const regexEmail = React.useMemo(
     () => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     []
-  );  
-  
+  );
+
   const regexPassword = React.useMemo(
     () =>
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
