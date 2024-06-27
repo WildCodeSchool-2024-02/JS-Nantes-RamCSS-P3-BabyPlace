@@ -5,7 +5,12 @@ import { Button, Input, Link, Checkbox } from "@nextui-org/react";
 import EyeFilledIcon from "../../assets/nextUI/EyeFilledIcon";
 import EyeSlashFilledIcon from "../../assets/nextUI/EyeSlashFilledIcon";
 
-function SignUpParent({ setEmailChecked, setPasswordChecked, setSelected }) {
+function SignUpParent({
+  setEmailChecked,
+  setPasswordChecked,
+  setSelected,
+  checkBtnConnexion,
+}) {
   const regexEmail = useMemo(
     () => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     []
@@ -21,6 +26,7 @@ function SignUpParent({ setEmailChecked, setPasswordChecked, setSelected }) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isVisible, setIsVisible] = useState(false);
+  const [isTermsChecked, setIsTermsChecked] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
@@ -68,6 +74,12 @@ function SignUpParent({ setEmailChecked, setPasswordChecked, setSelected }) {
     setPasswordChecked,
   ]);
 
+  const handleCheckboxClick = () => {
+    // Permet de cocher mais pas de décocher
+
+    setIsTermsChecked(!isTermsChecked);
+  };
+
   return (
     <form className="flex flex-col gap-4 h-[300px]">
       <Input
@@ -113,7 +125,6 @@ function SignUpParent({ setEmailChecked, setPasswordChecked, setSelected }) {
         }
       />
       <Input
-        isRequired
         label="Confirmation de Password"
         variant="flat"
         placeholder="Enter your password"
@@ -136,7 +147,11 @@ function SignUpParent({ setEmailChecked, setPasswordChecked, setSelected }) {
           </button>
         }
       />
-      <Checkbox color="secondary" required>
+      <Checkbox
+        color="secondary"
+        isSelected={isTermsChecked}
+        onClick={handleCheckboxClick}
+      >
         *J'accepte les conditions d'utilisation
       </Checkbox>
       <p className="text-center text-small">
@@ -147,6 +162,7 @@ function SignUpParent({ setEmailChecked, setPasswordChecked, setSelected }) {
       </p>
       <div className="flex gap-2 justify-end">
         <Button
+          isDisabled={!checkBtnConnexion || !isTermsChecked}
           variant="shadow"
           className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
           fullWidth
@@ -179,6 +195,7 @@ SignUpParent.propTypes = {
   setEmailChecked: PropTypes.func.isRequired,
   setPasswordChecked: PropTypes.func.isRequired,
   setSelected: PropTypes.func.isRequired,
+  checkBtnConnexion: PropTypes.bool.isRequired,
 };
 
 export default SignUpParent;
