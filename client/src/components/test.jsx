@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, DatePicker } from "@nextui-org/react";
+import { Button, DatePicker, Switch } from "@nextui-org/react";
 
 export default function Test() {
   const [dateState, setDateState] = useState();
@@ -27,9 +27,29 @@ export default function Test() {
       </div>
       <DatePicker
         label="Birth date"
-        className="max-w-[284px]"
+        className="max-w-[284px] bg-red"
         onChange={(date) => setDateState(date)}
       />
+      <div className="flex gap-4">
+        <Switch defaultSelected color="default">
+          Default
+        </Switch>
+        <Switch defaultSelected color="primary">
+          Primary
+        </Switch>
+        <Switch defaultSelected color="secondary">
+          Secondary
+        </Switch>
+        <Switch defaultSelected color="success">
+          Success
+        </Switch>
+        <Switch defaultSelected color="warning">
+          Warning
+        </Switch>
+        <Switch defaultSelected color="danger">
+          Danger
+        </Switch>
+      </div>
     </>
   );
 }
