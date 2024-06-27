@@ -136,7 +136,7 @@ function StructureComponent({ setComponent }) {
           </section>
 
           {/* Redirection to next screen of professional registration */}
-          <nav className="nav-buttons-pro-register adaptatif-nav-buttons">
+          <nav className="nav-buttons-pro-register adaptatif-structure-nav-buttons">
             <Button
               isDisabled={!checkNextButton}
               onClick={() => setComponent("LocalisationComponent")}

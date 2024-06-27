@@ -1,34 +1,24 @@
-.button-localisation-pro {
-  width: 300px;
-  cursor: pointer;
-  background-color: var(--input-light-background);
-  color: var(--input-purple-background);
-  border-radius: 10px;
-  border: 1px solid var(--input-purple-background);
-  padding: 10px 20px;
-  font-size: 16px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.button-localisation-pro:active {
-  background-color: var(--input-purple-background);
-  color: var(--light-color-text);
-  font-weight: normal;
-}
-
-.global-adaptatif-input-pro {
-  display: flex;
-  gap: 32px;
-}
-
-.adaptatif-input-pro {
-  width: 300px;
-  height: 80px;
+.structure-left-part {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  border-radius: 18px;
-  border: 1px solid var(--purple-color);
-  padding: 0 8px;
+  gap: 40px;
+}
+
+.adress-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.adaptatif-nav-buttons {
+  position: fixed;
+  bottom: 0;
+  bottom: 2%;
+  width: 43%;
+}
+
+.display-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
