@@ -100,7 +100,7 @@ function SignUpParent({
         isRequired
         label="Mot de passe"
         variant="flat"
-        placeholder="Entez votre mot de passe"
+        placeholder="Entrez votre mot de passe"
         type={isVisible ? "text" : "password"}
         isInvalid={isPasswordInvalid}
         color={isPasswordInvalid ? "danger" : "success"}
