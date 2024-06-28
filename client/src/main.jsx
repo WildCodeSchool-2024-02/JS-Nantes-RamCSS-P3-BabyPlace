@@ -9,7 +9,6 @@ import ConnexionParent from "./pages/parents/ConnexionParent";
 import InscriptionPro from "./pages/pages_pro-inscription/InscriptionPro";
 import ConnexionPro from "./pages/page_pro_connexion/ConnexionPro";
 import AccesInvite from "./pages/page_parents/AccesInvite";
-import Test from "./components/test";
 
 const router = createBrowserRouter([
   {
@@ -19,10 +18,6 @@ const router = createBrowserRouter([
   {
     path: "/connexion",
     element: <ConnexionParent />,
-  },
-  {
-    path: "/test",
-    element: <Test />,
   },
   {
     path: "acces-invite",
