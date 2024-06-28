@@ -10,25 +10,18 @@ function PriceComponent({ setComponent }) {
   const [selected2, setSelected2] = useState("no");
   const [selected3, setSelected3] = useState("no");
 
-  const [formState, setFormState] = useState({
-    price: "",
-  });
+  const [priceField, setPriceField] = useState("");
 
   const [checkNextButton, setCheckNextButton] = useState(false);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormState((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    setPriceField(e.target.value);
   };
 
   useEffect(() => {
-    const { price } = formState;
-    const isFormValid = price.trim() !== "";
+    const isFormValid = priceField !== "";
     setCheckNextButton(isFormValid);
-  }, [formState]);
+  }, [priceField]);
 
   return (
     <section className="global-container-screen-register">

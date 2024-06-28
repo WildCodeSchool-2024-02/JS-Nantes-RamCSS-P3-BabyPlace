@@ -128,7 +128,7 @@ function StructureComponent({ setComponent }) {
                 description="Ce champ est requis pour passer à la suite du formulaire."
                 className="w-[600px] texts"
                 size="lg"
-                placeholder="Ex : 08.00.00.00.00"
+                placeholder="Ex : 0102030405"
                 name="phone"
                 onChange={handleInputChange}
               />
