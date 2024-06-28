@@ -1,26 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { Button, Input, DatePicker } from "@nextui-org/react";
 import "../styles_parents/AccesInvite.css";
 
 function AccesInvite() {
   const [flexibleHoursAndDates, setFlexibleHoursAndDates] = useState(false);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  console.warn(startDate);
-  console.warn(endDate);
 
   const coche = () => {
     setFlexibleHoursAndDates(!flexibleHoursAndDates);
-  };
-
-  const handleStartDateChange = (event) => {
-    console.warn("start");
-    setStartDate(event.target.value);
-  };
-
-  const handleEndDateChange = (event) => {
-    console.warn("end");
-    setEndDate(event.target.value);
   };
 
   return (
@@ -36,46 +23,42 @@ function AccesInvite() {
           Garde d'enfant à la demande{" "}
         </h2>
         <div className="form-invite">
-          <input
-            className="input-parents-invite"
-            type="text"
-            id="name"
-            placeholder="Adresse"
-          />
-
-          <input
-            className="input-parents-invite"
-            type="date"
-            id="startDate"
-            placeholder="Date de début"
-            onChange={(e) => console.warn(e.target.value)}
-            // onFocus={(e) => (e.target.type = "date")}
-            // onBlur={(e) => (e.target.type = "text")}
-            onSelect={handleStartDateChange}
-          />
-
-          <input
-            className="input-parents-invite"
-            type="text"
-            id="endDate"
-            onChange={(e) => console.warn(e.target.value)}
-            // onFocus={(e) => (e.target.type = "date")}
-            // onBlur={(e) => (e.target.type = "text")}
-            placeholder="Date de fin"
-            onSelect={handleEndDateChange}
-          />
-
+          <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+            <div className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4 ">
+              <Input
+                type="text"
+                label="Adresse"
+                color="secondary"
+                variant="flat"
+                className="max-w-lg"
+              />
+              <DatePicker
+                label="Date d'entrée"
+                color="secondary"
+                className="max-w-lg"
+              />
+              <DatePicker
+                label="Date de fin"
+                color="secondary"
+                className="max-w-lg"
+              />
+            </div>
+          </div>
           <div className="accesinvite-checkbox-container">
             <label htmlFor="flexibilité-dates-horaires">
-              <input type="checkbox" onChange={coche} />
+              <input className="mr-2" type="checkbox" onChange={coche} />
               Mes dates ou mes horaires sont flexibles
             </label>
           </div>
-          <NavLink
-            to="/recherche"
-            className="link-connexion-parent-btn btn-connexion-parent texts"
-          >
-            Rechercher
+          <NavLink className="w-80">
+            <Button
+              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts w-80"
+              variant="shadow"
+              size="lg"
+              color="primary"
+            >
+              Rechercher
+            </Button>
           </NavLink>
         </div>
         <div className="nav-bottom">

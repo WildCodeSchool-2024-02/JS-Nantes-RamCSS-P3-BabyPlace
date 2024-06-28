@@ -16,16 +16,18 @@
 }
 
 .titles-acces-invite {
+  margin-top: 60px;
   color: var(--ligth-color-text, rgb(255, 255, 255));
   text-align: center;
 }
 
 .form-invite {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
   padding: 40px;
 }
 
@@ -42,21 +44,6 @@
 .input-parents-invite::placeholder {
   color: var(--ligth-color-text, rgb(255, 255, 255));
   color: var(--ligth-color-text, rgb(255, 255, 255));
-}
-
-.input-parents-invite:focus {
-  outline: 1px solid var(--purple-color);
-  color: var(--ligth-color-text, rgb(255, 255, 255));
-}
-
-.input-parents-invite[type="date"]::-webkit-calendar-picker-indicator {
-  color: rgba(0, 0, 0, 0);
-  opacity: 1;
-  display: block;
-  background: var(--ligth-color-text, rgb(255, 255, 255));
-  width: 5px;
-  height: 5px;
-  border-width: thin;
 }
 
 .accesinvite-checkbox-container {

@@ -23,16 +23,16 @@ function AccueilParents() {
           Trouvez un.e professionnel.le de la garde d'enfant
         </p>
       </div>
-      <div className="button-navigate texts">
-        <NavLink className="button-navigate" to="/acces-invite">
+      <div className="nav-bottom texts">
+        <NavLink className="btn-nav-bottom" to="/acces-invite">
           {" "}
           Passer{" "}
         </NavLink>
-        <NavLink className="button-navigate" to="/connexion">
+        <NavLink className="btn-nav-bottom" to="/connexion">
           {" "}
           Se connecter{" "}
         </NavLink>
-        <NavLink className="button-navigate" to="/inscription">
+        <NavLink className="btn-nav-bottom" to="/inscription">
           {" "}
           S'inscrire{" "}
         </NavLink>
