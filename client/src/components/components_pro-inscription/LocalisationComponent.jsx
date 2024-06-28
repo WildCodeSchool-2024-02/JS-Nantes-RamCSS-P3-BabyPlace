@@ -6,8 +6,6 @@ import PropTypes from "prop-types";
 import "../styles_components/LocalisationComponent.css";
 
 function LocalisationComponent({ setComponent }) {
-  // const inputRef = useRef(null); // VERSION DE NICOLAS EN VUE D'UNE OPTIMISATION
-
   const [formState, setFormState] = useState({
     adress: "",
     postCode: "",
@@ -30,10 +28,6 @@ function LocalisationComponent({ setComponent }) {
     const { adress, postCode, city } = formState;
     const isPostCodeValid = /^\d{5}$/.test(postCode.trim());
 
-    // VERSION DE NICOLAS EN VUE D'UNE OPTIMISATION
-    // if (document.activeElement === inputRef.current) {
-    //   console.log("COUCOU", inputRef.current.value.trim() !== "");
-    // }
     const isFormValid =
       adress.trim() !== "" && isPostCodeValid && city.trim() !== "";
     setCheckNextButton(isFormValid);
@@ -66,7 +60,6 @@ function LocalisationComponent({ setComponent }) {
               size="lg"
               placeholder="Ex : 10 rue de la Soif"
               name="adress"
-              // ref={inputRef} // VERSION DE NICOLAS EN VUE D'UNE OPTIMISATION
               onChange={handleInputChange}
             />
           </section>
