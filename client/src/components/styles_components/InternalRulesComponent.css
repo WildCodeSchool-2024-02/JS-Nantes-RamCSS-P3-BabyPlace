@@ -1,7 +1,8 @@
 .global-container-input-rules {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 30px;
+  padding-top: 10px;
 }
 
 .rules-text {

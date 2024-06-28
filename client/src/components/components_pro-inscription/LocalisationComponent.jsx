@@ -1,10 +1,38 @@
-import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
+import { Button, Input } from "@nextui-org/react";
 
-import { Button } from "@nextui-org/react";
+import PropTypes from "prop-types";
 
 import "../styles_components/LocalisationComponent.css";
 
 function LocalisationComponent({ setComponent }) {
+  const [formState, setFormState] = useState({
+    adress: "",
+    postCode: "",
+    city: "",
+  });
+
+  const [checkNextButton, setCheckNextButton] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  // * conditions for unlocking the “Next” button
+
+  useEffect(() => {
+    const { adress, postCode, city } = formState;
+    const isPostCodeValid = /^\d{5}$/.test(postCode.trim());
+
+    const isFormValid =
+      adress.trim() !== "" && isPostCodeValid && city.trim() !== "";
+    setCheckNextButton(isFormValid);
+  }, [formState]);
+
   return (
     <section className="global-container-screen-register">
       {/* ----- Visual indicating the progress of registration => level 1 ----- */}
@@ -18,74 +46,80 @@ function LocalisationComponent({ setComponent }) {
       {/* full screen */}
       <section className="global-container-register-pro">
         {/* ----- Left part of the screen ------ */}
-        <section className="left-part-container-register-pro">
-          <h2 className="titles">Où se situe votre structure?</h2>
-          <p className="texts">
-            Les parents n'obtiendront l'adresse qu'après avoir effectué la
-            réservation
-          </p>
-          <button type="submit" className="button-photos-pro texts">
-            Utiliser l'emplacement actuel
-          </button>
-          <h2 className="titles">Adresse postale</h2>
-          <section className="input-container-pro">
-            <label htmlFor="name" className="texts text-input-label-pro">
-              N° et nom de rue :
-            </label>
-            <input
+        <section className="left-part-container-register-pro  structure-left-part">
+          <section className="adress-content">
+            <h2 className="titles">Adresse postale</h2>
+            <Input
+              isRequired
               type="text"
-              placeholder="Ex : 18 rue Boudet"
-              className="texts input-text-pro"
+              variant="bordered"
+              color="secondary"
+              label="N° et rue"
+              description="Ce champ est requis pour passer à la suite du formulaire."
+              className="w-[600px] texts"
+              size="lg"
+              placeholder="Ex : 10 rue de la Soif"
+              name="adress"
+              onChange={handleInputChange}
             />
           </section>
-          <section className="global-adaptatif-input-pro">
-            <section>
-              <h2 className="titles">Code postal</h2>
-              <section className="adaptatif-input-pro">
-                <label htmlFor="name" className="texts text-input-label-pro">
-                  Code postal :
-                </label>
-                <input
-                  type="text"
-                  placeholder="Ex : 44000"
-                  className="texts input-text-pro"
-                />
-              </section>
-            </section>
-            <section>
-              <h2 className="titles">Ville</h2>
-              <section className="adaptatif-input-pro">
-                <label htmlFor="name" className="texts text-input-label-pro">
-                  Ville :
-                </label>
-                <input
-                  type="text"
-                  placeholder="Ex : Nantes"
-                  className="texts input-text-pro"
-                />
-              </section>
-            </section>
+          {/* <section className="global-adaptatif-input-pro"> */}
+          <section className="adress-content">
+            <h2 className="titles">Code postal</h2>
+            <Input
+              isRequired
+              type="text"
+              variant="bordered"
+              color="secondary"
+              label="Code postal"
+              description="Ce champ est requis pour passer à la suite du formulaire."
+              className="w-[600px] texts"
+              size="lg"
+              placeholder="Ex : 44830"
+              name="postCode"
+              onChange={handleInputChange}
+            />
           </section>
+          <section className="adress-content">
+            <h2 className="titles">Ville</h2>
+            <Input
+              isRequired
+              type="text"
+              variant="bordered"
+              color="secondary"
+              label="Commune"
+              description="Ce champ est requis pour passer à la suite du formulaire."
+              className="w-[600px] texts"
+              size="lg"
+              placeholder="Ex : Bouaye"
+              name="city"
+              onChange={handleInputChange}
+            />
+          </section>
+          {/* </section> */}
 
-          {/* Redirection to prev screen of professional registration */}
-          <nav className="nav-buttons-pro-register adaptatif-nav-buttons-use-conditions">
-            <Button
-              onClick={() => setComponent("StructureComponent")}
-              variant="shadow"
-              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-              size="lg"
-            >
-              Retour
-            </Button>
-            {/* Redirection to next screen of professional registration */}
-            <Button
-              onClick={() => setComponent("PicturesComponent")}
-              variant="shadow"
-              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-              size="lg"
-            >
-              Suivant
-            </Button>
+          <nav className="adaptatif-nav-buttons">
+            <section className="display-buttons">
+              {/* Redirection to prev screen of professional registration */}
+              <Button
+                onClick={() => setComponent("StructureComponent")}
+                variant="shadow"
+                className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+                size="lg"
+              >
+                Retour
+              </Button>
+              {/* Redirection to next screen of professional registration */}
+              <Button
+                isDisabled={!checkNextButton}
+                onClick={() => setComponent("PicturesComponent")}
+                variant="shadow"
+                className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+                size="lg"
+              >
+                Suivant
+              </Button>
+            </section>
           </nav>
         </section>
 

@@ -7,9 +7,12 @@ import "../styles_components/AvaibleSeatsComponent.css";
 
 function AvaibleSeatsComponent({ setComponent }) {
   // * Déclaration des states
+
   const [countSeats, setCountSeats] = useState(0);
   const [countDisabilty, setCountDisabilty] = useState(0);
   const [countYoungBaby, setCountYoungBaby] = useState(0);
+
+  const [checkNextButton, setCheckNextButton] = useState(false);
 
   // * Function used to add or remove a seat from the "Number of seats" counter
   const addSeat = () => setCountSeats(countSeats + 1);
@@ -44,6 +47,11 @@ function AvaibleSeatsComponent({ setComponent }) {
   };
 
   const removeYoungBaby = () => setCountYoungBaby(countYoungBaby - 1);
+
+  useEffect(() => {
+    const isFormValid = countSeats > 0;
+    setCheckNextButton(isFormValid);
+  }, [countSeats]);
 
   return (
     <section className="global-container-screen-register">
@@ -154,24 +162,27 @@ function AvaibleSeatsComponent({ setComponent }) {
           </section>
 
           {/* Redirection to next screen of professional registration */}
-          <nav className="nav-buttons-pro-register adaptatif-nav-buttons-use-conditions">
-            <Button
-              onClick={() => setComponent("InformationProcessReservation")}
-              variant="shadow"
-              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-              size="lg"
-            >
-              Retour
-            </Button>
-            {/* Redirection to next screen of professional registration */}
-            <Button
-              onClick={() => setComponent("PriceComponent")}
-              variant="shadow"
-              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-              size="lg"
-            >
-              Suivant
-            </Button>
+          <nav className="adaptatif-nav-buttons">
+            <section className="display-buttons">
+              <Button
+                onClick={() => setComponent("InformationProcessReservation")}
+                variant="shadow"
+                className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+                size="lg"
+              >
+                Retour
+              </Button>
+              {/* Redirection to next screen of professional registration */}
+              <Button
+                isDisabled={!checkNextButton}
+                onClick={() => setComponent("PriceComponent")}
+                variant="shadow"
+                className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+                size="lg"
+              >
+                Suivant
+              </Button>
+            </section>
           </nav>
         </section>
         {/* ----- Right part of the screen ------ */}

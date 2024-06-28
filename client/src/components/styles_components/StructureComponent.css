@@ -1,5 +1,5 @@
 .image-descriptif-structure {
-  width: 75%;
+  width: 70%;
 }
 
 .checkboxgroup {
@@ -9,20 +9,27 @@
   gap: 16px;
 }
 
-.information-name {
-  font-size: 12px;
-  margin-left: 10px;
-  margin-top: -1px;
-}
-
-.adaptatif-nav-buttons {
-  display: flex;
-  justify-content: end;
-  padding-top: 100px;
+.adaptatif-structure-nav-buttons {
+  position: fixed;
+  bottom: 0;
+  bottom: 2%;
+  left: 40%;
 }
 
 .global-input-container {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
+}
+.global-left-content-structure {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.left-part-content-structure {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
