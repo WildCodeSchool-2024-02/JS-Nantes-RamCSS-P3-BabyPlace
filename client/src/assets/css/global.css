@@ -66,9 +66,14 @@
 }
 
 .texts {
-  font-family: "Libre Franklin";
+  font-family: "Libre Franklin" !important;
   font-size: 16px;
   text-decoration: none;
+}
+
+/* * Transition animation */
+.transition {
+  transition: all 0.5s ease-in-out;
 }
 
 /* * Visual of professional register */
@@ -163,11 +168,13 @@ html {
   color: var(--purple-color);
 }
 
-.input-text-pro {
+.input-text-pro,
+.input-number-pro {
   border: none;
 }
 
-.input-text-pro:focus {
+.input-text-pro:focus,
+.input-number-pro:focus {
   outline: none;
 }
 
@@ -191,7 +198,7 @@ html {
   outline: 1px solid var(--purple-color);
 }
 
-/* * Checkbox */
+/* * Checkbox type text */
 
 .input-checkbox-pro[type="checkbox"] {
   opacity: 0;
@@ -220,7 +227,8 @@ html {
 progress {
   width: 100%;
   height: 17px;
-  /* -webkit-appearance: none; */
+  appearance: auto;
+  -webkit-appearance: none;
 }
 
 progress::-webkit-progress-bar {

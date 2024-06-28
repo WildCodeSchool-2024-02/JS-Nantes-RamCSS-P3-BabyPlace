@@ -1,8 +1,10 @@
-import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
+
+import { Button } from "@nextui-org/react";
 
 import "../styles_components/InformationProcessReservation.css";
 
-function InformationProcessReservation() {
+function InformationProcessReservation({ setComponent }) {
   return (
     <section className="global-container-screen-register">
       {/* ----- Visual indicating the progress of registration => level 3 ----- */}
@@ -81,20 +83,31 @@ function InformationProcessReservation() {
 
       {/* Redirection to next screen of professional registration */}
       <nav className="nav-buttons-pro-register screen11">
-        <NavLink to="/" className="navlink-prev-pro screen2 texts">
-          <p>&lt; Retour</p>
-        </NavLink>
-        {/* Redirection to prev screen of professional registration */}
-        <NavLink to="/" className="navlink-next-pro screen2 texts">
-          <p>Suivant</p>
-          <img
-            src="../src/assets/images/illustration/arrow_right.svg"
-            alt="Arrow"
-          />
-        </NavLink>
+        <Button
+          onClick={() => setComponent("InternalRulesComponent")}
+          variant="shadow"
+          className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+          size="lg"
+        >
+          Retour
+        </Button>
+        {/* Redirection to next screen of professional registration */}
+        <Button
+          onClick={() => setComponent("AvaibleSeatsComponent")}
+          variant="shadow"
+          className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+          size="lg"
+        >
+          Suivant
+        </Button>
       </nav>
     </section>
   );
 }
+
+// Validation des props
+InformationProcessReservation.propTypes = {
+  setComponent: PropTypes.func.isRequired,
+};
 
 export default InformationProcessReservation;
