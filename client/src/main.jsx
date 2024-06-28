@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     element: <ConnexionParent />,
   },
   {
-    path: "/accesinvite",
+    path: "/acces-invite",
     element: <AccesInvite />,
   },
   {
