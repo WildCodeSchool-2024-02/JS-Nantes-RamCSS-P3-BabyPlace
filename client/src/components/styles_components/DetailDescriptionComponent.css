@@ -5,26 +5,37 @@
 .adaptatif-right-part-detail {
   position: fixed;
   right: 0;
-  top: 88px;
-  min-height: calc(100vh - 90px);
+  top: 87px;
+  height: 100%;
 }
 
 .adaptatif-left-part-detail {
-  height: calc(100vh - 70px);
-  top: 88px;
+  position: relative;
+  left: 0;
+  top: 12px;
+  max-height: 750px;
+  width: 72%;
 }
 
 .adaptatif-global-container-detail {
   position: relative;
   top: 70px;
   width: 100%;
+}
+
+.container-without-progress-bar {
   overflow: auto;
+  max-height: calc(100vh - 100px);
 }
 
 .adaptatif-advanced-line-1 {
   position: fixed;
+  opacity: 1;
 }
 
-.nav-button-adaptatif-detail {
-  padding-bottom: 28px;
+.adaptatif-descritif-background {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 455px;
 }

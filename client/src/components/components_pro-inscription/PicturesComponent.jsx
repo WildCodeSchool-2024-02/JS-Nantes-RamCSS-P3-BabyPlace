@@ -125,7 +125,7 @@ function PicturesComponent({ setComponent }) {
           </section>
           <nav className="adaptatif-nav-buttons">
             <section className="display-buttons">
-              {/* Redirection to screen 2 of professional registration */}
+              {/* Redirection to previous screen of professional registration */}
               <Button
                 onClick={() => setComponent("LocalisationComponent")}
                 variant="shadow"
