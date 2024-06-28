@@ -22,6 +22,7 @@ const favoritesRouter = require("./favorites/router");
 
 router.use("/favorites", favoritesRouter);
 
+
 /* ************************************************************************* */
 
 module.exports = router;

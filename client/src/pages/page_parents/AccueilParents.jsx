@@ -9,7 +9,7 @@ function AccueilParents() {
         <img
           src="./src/assets/images/illustration/Mum&baby.png"
           className="mumbaby-login"
-          alt="avatar d'une maman et son bébé"
+          alt="avatar d'une maman et de son bébé"
         />
         <img
           src="./src/assets/images/logos/logo_complet.png"
@@ -23,16 +23,16 @@ function AccueilParents() {
           Trouvez un.e professionnel.le de la garde d'enfant
         </p>
       </div>
-      <div className="button-navigate texts">
-        <NavLink className="button-navigate" to="/recherche">
+      <div className="nav-bottom texts">
+        <NavLink className="btn-nav-bottom" to="/acces-invite">
           {" "}
           Passer{" "}
         </NavLink>
-        <NavLink className="button-navigate" to="/connexion">
+        <NavLink className="btn-nav-bottom" to="/connexion">
           {" "}
           Se connecter{" "}
         </NavLink>
-        <NavLink className="button-navigate" to="/inscription">
+        <NavLink className="btn-nav-bottom" to="/inscription">
           {" "}
           S'inscrire{" "}
         </NavLink>

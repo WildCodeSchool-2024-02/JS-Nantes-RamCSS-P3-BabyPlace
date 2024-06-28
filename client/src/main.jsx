@@ -8,6 +8,7 @@ import App from "./App";
 import ConnexionParent from "./pages/page_parents/ConnexionParent";
 import InscriptionPro from "./pages/pages_pro-inscription/InscriptionPro";
 import ConnexionPro from "./pages/page_pro_connexion/ConnexionPro";
+import AccesInvite from "./pages/page_parents/AccesInvite";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "/connexion",
     element: <ConnexionParent />,
+  },
+  {
+    path: "/acces-invite",
+    element: <AccesInvite />,
   },
   {
     path: "pro",
@@ -37,7 +42,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <NextUIProvider>
+    <NextUIProvider locale="fr-FR">
       <RouterProvider router={router} />
     </NextUIProvider>
   </React.StrictMode>
