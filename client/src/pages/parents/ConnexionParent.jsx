@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import "../../components/styles_components/connexion-parent.css";
+import "../styles_parents/connexion-parent.css";
 import { useState, useEffect } from "react";
 
 function ConnexionParent() {
