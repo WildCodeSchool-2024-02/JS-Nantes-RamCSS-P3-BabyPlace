@@ -1,6 +1,13 @@
-import PropTypes from "prop-types";
+import {
+  Button,
+  Avatar,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+} from "@nextui-org/react";
 
-import { Button, Avatar } from "@nextui-org/react";
+import PropTypes from "prop-types";
 
 import "../styles_components/PicturesComponent.css";
 
@@ -22,12 +29,50 @@ function PicturesComponent({ setComponent }) {
           <h2 className="titles">Ajoutez votre photo de profil</h2>
           <section className="profile-picture-container">
             <Avatar
+              size="lg"
+              radius="full"
+              variant="shadow"
               src="../src/assets/images/illustration/avatar.png"
-              className="w-20 h-20 text-large"
+              style={{ width: "150px", height: "150px" }}
             />
-            <Button size="lg" color="secondary">
-              Télécharger votre photo
-            </Button>
+            <Dropdown>
+              <DropdownTrigger>
+                <Button variant="shadow" size="lg" color="secondary">
+                  Photo de profil
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu aria-label="Action event example">
+                <DropdownItem key="add picture">
+                  <label htmlFor="file-upload" style={{ cursor: "pointer" }}>
+                    Ajouter une photo de profil
+                  </label>
+                  <input
+                    id="file-upload"
+                    type="file"
+                    accept="image/*"
+                    style={{ display: "none" }}
+                  />
+                </DropdownItem>
+                <DropdownItem key="edit picture">
+                  <label htmlFor="file-upload" style={{ cursor: "pointer" }}>
+                    Modifier ma photo de profil
+                  </label>
+                  <input
+                    id="file-upload"
+                    type="file"
+                    accept="image/*"
+                    style={{ display: "none" }}
+                  />
+                </DropdownItem>
+                <DropdownItem
+                  key="delete picture"
+                  className="text-danger"
+                  color="danger"
+                >
+                  Supprimer la photo
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
           </section>
           <section className="pictures-description-import">
             <h2 className="titles">Egayer votre annonce avec des photos</h2>
@@ -39,29 +84,66 @@ function PicturesComponent({ setComponent }) {
               Vous pourrez toujours en ajouter d'autres ou apporter des
               modifications par la suite.
             </p>
-            <Button size="lg" color="secondary">
-              Télécharger vos photos
-            </Button>
+            <Dropdown className="w-80">
+              <DropdownTrigger>
+                <Button variant="shadow" size="lg" color="secondary">
+                  Photos de votre structure
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu aria-label="Action event example">
+                <DropdownItem key="add picture">
+                  <label htmlFor="file-upload" style={{ cursor: "pointer" }}>
+                    Ajouter une/des photo(s)
+                  </label>
+                  <input
+                    id="file-upload"
+                    type="file"
+                    accept="image/*"
+                    style={{ display: "none" }}
+                  />
+                </DropdownItem>
+                <DropdownItem key="edit picture">
+                  <label htmlFor="file-upload" style={{ cursor: "pointer" }}>
+                    Modifier une/des photo(s)
+                  </label>
+                  <input
+                    id="file-upload"
+                    type="file"
+                    accept="image/*"
+                    style={{ display: "none" }}
+                  />
+                </DropdownItem>
+                <DropdownItem
+                  key="delete picture"
+                  className="text-danger"
+                  color="danger"
+                >
+                  Supprimer la photo
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
           </section>
-          {/* Redirection to screen 2 of professional registration */}
-          <nav className="nav-buttons-pro-register screen4">
-            <Button
-              onClick={() => setComponent("LocalisationComponent")}
-              variant="shadow"
-              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-              size="lg"
-            >
-              Retour
-            </Button>
-            {/* Redirection to next screen of professional registration */}
-            <Button
-              onClick={() => setComponent("DescriptionComponent")}
-              variant="shadow"
-              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-              size="lg"
-            >
-              Suivant
-            </Button>
+          <nav className="adaptatif-nav-buttons">
+            <section className="display-buttons">
+              {/* Redirection to screen 2 of professional registration */}
+              <Button
+                onClick={() => setComponent("LocalisationComponent")}
+                variant="shadow"
+                className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+                size="lg"
+              >
+                Retour
+              </Button>
+              {/* Redirection to next screen of professional registration */}
+              <Button
+                onClick={() => setComponent("DescriptionComponent")}
+                variant="shadow"
+                className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+                size="lg"
+              >
+                Suivant
+              </Button>
+            </section>
           </nav>
         </section>
 
