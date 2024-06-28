@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, Input, Tabs, Tab } from "@nextui-org/react";
 
 import "../styles_components/PriceComponent.css";
@@ -9,6 +9,26 @@ function PriceComponent({ setComponent }) {
   const [selected1, setSelected1] = useState("no");
   const [selected2, setSelected2] = useState("no");
   const [selected3, setSelected3] = useState("no");
+
+  const [formState, setFormState] = useState({
+    price: "",
+  });
+
+  const [checkNextButton, setCheckNextButton] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  useEffect(() => {
+    const { price } = formState;
+    const isFormValid = price.trim() !== "";
+    setCheckNextButton(isFormValid);
+  }, [formState]);
 
   return (
     <section className="global-container-screen-register">
@@ -38,8 +58,10 @@ function PriceComponent({ setComponent }) {
               className="max-w-lg texts"
               size="lg"
               min="0"
+              name="price"
               variant="bordered"
               placeholder="Indiquez votre tarif"
+              onChange={handleInputChange}
               startContent={
                 <div className="pointer-events-none flex items-center">
                   <span className="text-default-400 text-medium">€</span>
@@ -164,25 +186,28 @@ function PriceComponent({ setComponent }) {
             </section>
           </section>
 
-          {/* Redirection to prev screen of professional registration */}
-          <nav className="nav-buttons-pro-register adaptatif-nav-buttons-use-conditions">
-            <Button
-              onClick={() => setComponent("AvaibleSeatsComponent")}
-              variant="shadow"
-              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-              size="lg"
-            >
-              Retour
-            </Button>
-            {/* Redirection to next screen of professional registration */}
-            <Button
-              // onClick={() => setComponent("SummaryComponent")}
-              variant="shadow"
-              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-              size="lg"
-            >
-              Suivant
-            </Button>
+          <nav className="adaptatif-nav-buttons">
+            <section className="display-buttons">
+              {/* Redirection to prev screen of professional registration */}
+              <Button
+                onClick={() => setComponent("AvaibleSeatsComponent")}
+                variant="shadow"
+                className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+                size="lg"
+              >
+                Retour
+              </Button>
+              {/* Redirection to next screen of professional registration */}
+              <Button
+                isDisabled={!checkNextButton}
+                // onClick={() => setComponent("SummaryComponent")}
+                variant="shadow"
+                className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+                size="lg"
+              >
+                Suivant
+              </Button>
+            </section>
           </nav>
         </section>
 
