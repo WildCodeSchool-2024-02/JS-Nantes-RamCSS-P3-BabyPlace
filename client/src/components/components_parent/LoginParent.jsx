@@ -59,6 +59,7 @@ function SignUpParent({
         value={email}
         type="email"
         label="Email"
+        placeholder="Entrez votre Email"
         variant="flat"
         isInvalid={isEmailInvalid}
         color={isEmailInvalid ? "danger" : "success"}
@@ -67,9 +68,9 @@ function SignUpParent({
         errorMessageClass="error-message"
       />
       <Input
-        label="Password"
+        label="Mot de passe"
         variant="flat"
-        placeholder="Enter your password"
+        placeholder="Entez votre mot de passe"
         endContent={
           <button
             className="focus:outline-none"

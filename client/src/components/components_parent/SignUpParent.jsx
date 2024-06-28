@@ -82,17 +82,13 @@ function SignUpParent({
 
   return (
     <form className="flex flex-col gap-4 h-[300px]">
-      <Input
-        isRequired
-        label="Name"
-        placeholder="Enter your name"
-        type="text"
-      />
+      <Input isRequired label="Nom" placeholder="Entez votre nom" type="text" />
       <Input
         isRequired
         value={email}
         type="email"
         label="Email"
+        placeholder="Entrez votre Email"
         variant="flat"
         isInvalid={isEmailInvalid}
         color={isEmailInvalid ? "danger" : "success"}
@@ -102,9 +98,9 @@ function SignUpParent({
       />
       <Input
         isRequired
-        label="Password"
+        label="Mot de passe"
         variant="flat"
-        placeholder="Enter your password"
+        placeholder="Entez votre mot de passe"
         type={isVisible ? "text" : "password"}
         isInvalid={isPasswordInvalid}
         color={isPasswordInvalid ? "danger" : "success"}
@@ -125,9 +121,9 @@ function SignUpParent({
         }
       />
       <Input
-        label="Confirmation de Password"
+        label="Mot de passe"
         variant="flat"
-        placeholder="Enter your password"
+        placeholder="Confirmez votre mot de passe"
         type={isVisible ? "text" : "password"}
         isInvalid={isConfirmPasswordInvalid}
         color={isConfirmPasswordInvalid ? "danger" : "success"}

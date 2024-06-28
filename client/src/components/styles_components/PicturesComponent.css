@@ -21,3 +21,15 @@
 .adaptatif-button-photos-pro {
   margin-bottom: 150px;
 }
+
+.adaptatif-left-part-pictures {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.pictures-description-import {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

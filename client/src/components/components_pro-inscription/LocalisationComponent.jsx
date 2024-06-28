@@ -1,8 +1,10 @@
-import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
+
+import { Button } from "@nextui-org/react";
 
 import "../styles_components/LocalisationComponent.css";
 
-function LocalisationComponent() {
+function LocalisationComponent({ setComponent }) {
   return (
     <section className="global-container-screen-register">
       {/* ----- Visual indicating the progress of registration => level 1 ----- */}
@@ -66,18 +68,24 @@ function LocalisationComponent() {
           </section>
 
           {/* Redirection to prev screen of professional registration */}
-          <nav className="nav-buttons-pro-register">
-            <NavLink to="/" className="navlink-prev-pro screen2 texts">
-              <p>&lt; Retour</p>
-            </NavLink>
+          <nav className="nav-buttons-pro-register adaptatif-nav-buttons-use-conditions">
+            <Button
+              onClick={() => setComponent("StructureComponent")}
+              variant="shadow"
+              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+              size="lg"
+            >
+              Retour
+            </Button>
             {/* Redirection to next screen of professional registration */}
-            <NavLink to="/" className="navlink-next-pro screen2 texts">
-              <p>Suivant</p>
-              <img
-                src="../src/assets/images/illustration/arrow_right.svg"
-                alt="Arrow"
-              />
-            </NavLink>
+            <Button
+              onClick={() => setComponent("PicturesComponent")}
+              variant="shadow"
+              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+              size="lg"
+            >
+              Suivant
+            </Button>
           </nav>
         </section>
 
@@ -87,5 +95,10 @@ function LocalisationComponent() {
     </section>
   );
 }
+
+// Validation des props
+LocalisationComponent.propTypes = {
+  setComponent: PropTypes.func.isRequired,
+};
 
 export default LocalisationComponent;

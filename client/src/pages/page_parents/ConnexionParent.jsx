@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import "../../components/styles_components/connexion-parent.css";
+import "../styles_parents/connexion-parent.css";
 import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
-import SignUpParent from "./SignUpParent";
-import LoginParent from "./LoginParent";
+import SignUpParent from "../../components/components_parent/SignUpParent";
+import LoginParent from "../../components/components_parent/LoginParent";
 
 function ConnexionParent() {
   const [emailChecked, setEmailChecked] = useState(false);
@@ -83,11 +83,8 @@ function ConnexionParent() {
         <span className="btn-link-pro-connexion">pro</span>
       </NavLink>
       <div className="nav-bottom">
-        <NavLink to="/accueil" className="btn-nav-bottom texts">
+        <NavLink to="/" className="btn-nav-bottom texts">
           accueil
-        </NavLink>
-        <NavLink to="/inscription" className="btn-nav-bottom texts">
-          s'inscrire
         </NavLink>
       </div>
     </div>
