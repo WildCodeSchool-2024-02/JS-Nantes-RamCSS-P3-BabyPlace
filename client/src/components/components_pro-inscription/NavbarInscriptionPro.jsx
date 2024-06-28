@@ -1,9 +1,11 @@
+import PropTypes from "prop-types";
+
 import { NavLink } from "react-router-dom";
 
 import "../styles_components/NavbarInscriptionPro.css";
 import "../../assets/css/fonts.css";
 
-function NavbarInscriptionPro() {
+function NavbarInscriptionPro({ pageTitle }) {
   return (
     <div className="nav-bar-pro">
       <div className="nav-bar-pro-left-part">
@@ -15,7 +17,7 @@ function NavbarInscriptionPro() {
           />
           <h2 className="nav-bar-pro-text titles">Babyplace</h2>
         </div>
-        <p className="nav-bar-pro-text texts">Structure d'accueil</p>
+        <p className="nav-bar-pro-text texts">{pageTitle}</p>
       </div>
       <div className="nav-bar-pro-right-part">
         <NavLink to="/" className="nav-bar-pro-text texts">
@@ -25,5 +27,9 @@ function NavbarInscriptionPro() {
     </div>
   );
 }
+
+NavbarInscriptionPro.propTypes = {
+  pageTitle: PropTypes.string.isRequired,
+};
 
 export default NavbarInscriptionPro;

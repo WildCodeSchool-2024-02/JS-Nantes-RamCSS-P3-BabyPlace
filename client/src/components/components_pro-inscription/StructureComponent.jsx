@@ -1,8 +1,10 @@
-import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
+
+import { Button } from "@nextui-org/react";
 
 import "../styles_components/StructureComponent.css";
 
-function StructureComponent() {
+function StructureComponent({ setComponent }) {
   return (
     <section className="global-container-screen-register">
       {/* ----- Visual indicating the progress of registration => level 0 ----- */}
@@ -174,15 +176,16 @@ function StructureComponent() {
             </section>
           </section>
 
-          {/* Redirection to screen 2 of professional registration */}
+          {/* Redirection to next screen of professional registration */}
           <nav className="nav-buttons-pro-register adaptatif-nav-buttons">
-            <NavLink to="/" className="navlink-next-pro screen1 texts">
-              <p>Suivant</p>
-              <img
-                src="../src/assets/images/illustration/arrow_right.svg"
-                alt="Arrow"
-              />
-            </NavLink>
+            <Button
+              onClick={() => setComponent("LocalisationComponent")}
+              variant="shadow"
+              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+              size="lg"
+            >
+              Suivant
+            </Button>
           </nav>
         </section>
 
@@ -208,5 +211,10 @@ function StructureComponent() {
     </section>
   );
 }
+
+// Validation des props
+StructureComponent.propTypes = {
+  setComponent: PropTypes.func.isRequired,
+};
 
 export default StructureComponent;

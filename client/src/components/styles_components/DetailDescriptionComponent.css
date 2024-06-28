@@ -2,11 +2,6 @@
   font-size: 24px;
 }
 
-.checkboxgroup-detail {
-  display: flex;
-  flex-direction: column;
-}
-
 .adaptatif-right-part-detail {
   position: fixed;
   right: 0;
@@ -16,7 +11,7 @@
 
 .adaptatif-left-part-detail {
   height: calc(100vh - 70px);
-  float: left;
+  top: 88px;
 }
 
 .adaptatif-global-container-detail {

@@ -18,6 +18,7 @@
 .adaptatif-nav-buttons {
   display: flex;
   justify-content: end;
+  padding-top: 100px;
 }
 
 .global-input-container {
