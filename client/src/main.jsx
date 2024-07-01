@@ -9,6 +9,9 @@ import ConnexionParent from "./pages/parents/ConnexionParent";
 import Test from "./components/test";
 import InscriptionPro from "./pages/pages_pro-inscription/InscriptionPro";
 import ConnexionPro from "./pages/page_pro_connexion/ConnexionPro";
+import ReservationRequest from "./pages/page_reservation_parent/ReservationParent";
+import ChildSelection from "./pages/page_reservation2_parent/ReservationParent2";
+import ReservationConfirmation from "./pages/page_reservation_confirmation/ReservationConfirmation";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +25,18 @@ const router = createBrowserRouter([
   {
     path: "/test",
     element: <Test />,
+  },
+  {
+    path: "/reservation",
+    element: <ReservationRequest />,
+  },
+  {
+    path: "/reservationdeux",
+    element: <ChildSelection />,
+  },
+  {
+    path: "/reservationconfirmation",
+    element: <ReservationConfirmation />,
   },
   {
     path: "pro",
