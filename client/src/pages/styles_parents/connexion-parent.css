@@ -6,7 +6,7 @@
 
 .img-connexion-parent {
   height: 32px;
-  /* margin-top: 20px; */
+  margin-top: 20px;
 }
 
 .h1-connexion {
@@ -131,7 +131,7 @@
 
   .container-label-input-connexion {
     margin-left: 25%;
-    margin-top: 25vh;
+    margin-top: 15vh;
   }
 
   .input-connexion {
@@ -163,11 +163,7 @@
     color: var(--light-color-text);
     text-decoration: none;
     gap: 10px;
-    margin-left: 220px;
-  }
-
-  .btn-link-connexion {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 600;
   }
 
@@ -178,6 +174,6 @@
     width: 80px;
     height: 28px;
     text-align: center;
-    padding-bottom: 32px;
+    padding-bottom: 35px;
   }
 }
