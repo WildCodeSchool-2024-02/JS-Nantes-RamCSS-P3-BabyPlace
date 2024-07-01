@@ -54,7 +54,7 @@ function SignUpParent({
   }, [password, isPasswordInvalid, setPasswordChecked]);
 
   return (
-    <form className="flex flex-col gap-5">
+    <form className="flex flex-col gap-3">
       <Input
         value={email}
         type="email"
@@ -62,7 +62,7 @@ function SignUpParent({
         placeholder="Entrez votre Email"
         variant="flat"
         isInvalid={isEmailInvalid}
-        color={isEmailInvalid ? "danger" : "success"}
+        color={isEmailInvalid ? "danger" : ""}
         onValueChange={setEmail}
         className="max-w-xs text-danger-700"
         errorMessageClass="error-message"
@@ -86,7 +86,7 @@ function SignUpParent({
         }
         type={isVisible ? "text" : "password"}
         isInvalid={isPasswordInvalid}
-        color={isPasswordInvalid ? "danger" : "success"}
+        color={isPasswordInvalid ? "danger" : ""}
         onValueChange={setPassword}
         className="max-w-xs"
       />
@@ -107,15 +107,20 @@ function SignUpParent({
           Connexion
         </Button>
       </div>
-      {isEmailInvalid && (
-        <p className="text-white text-sm">Veuillez entrer un email valide</p>
-      )}
-      {isPasswordInvalid && (
-        <p className="text-white text-sm">
-          Le mot de passe doit contenir au moins 8 caractères, une majuscule,
-          une minuscule, un chiffre et un caractère spécial
-        </p>
-      )}
+
+      <section className="checked-value-form">
+        {isEmailInvalid && (
+          <p className="text-white text-sm md:text-black">
+            Veuillez entrer un email valide
+          </p>
+        )}
+        {isPasswordInvalid && (
+          <p className="text-white text-sm md:text-black">
+            Le mot de passe doit contenir au moins 8 caractères, une majuscule,
+            une minuscule, un chiffre et un caractère spécial
+          </p>
+        )}
+      </section>
     </form>
   );
 }
