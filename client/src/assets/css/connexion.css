@@ -10,14 +10,6 @@
   display: none;
 }
 
-.input-connexion::placeholder {
-  color: var(--light-color-text);
-}
-
-.input-connexion:focus {
-  outline: 1px solid var(--purple-color);
-}
-
 .link-connexion-parent {
   text-decoration: none;
   color: var(--light-color-text);
