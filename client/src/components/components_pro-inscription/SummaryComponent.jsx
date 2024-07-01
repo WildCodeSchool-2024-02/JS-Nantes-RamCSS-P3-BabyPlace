@@ -1,10 +1,19 @@
 import { Button } from "@nextui-org/react";
 
+import PropTypes from "prop-types";
+
 import "../styles_components/SummaryComponent.css";
 
-function SummaryComponent() {
+function SummaryComponent({ setComponent }) {
   return (
     <section className="global-container-screen-register">
+      {/* ----- Visual indicating the progress of registration => level 0 ----- */}
+      <progress
+        className="advanced-line-0"
+        name="Barre de progression"
+        max="100"
+        value="70"
+      />
       {/* ----- full screen ----- */}
       <section className="global-container-register-pro">
         {/* ----- Left part of the screen ------ */}
@@ -73,23 +82,27 @@ function SummaryComponent() {
             </article>
           </section>
 
-          {/* Redirection to prev screen of professional registration */}
-          <nav className="nav-buttons-pro-register adaptatif-nav-buttons-use-conditions">
-            <Button
-              variant="shadow"
-              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-              size="lg"
-            >
-              Retour
-            </Button>
-            {/* Redirection to next screen of professional registration */}
-            <Button
-              variant="shadow"
-              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-              size="lg"
-            >
-              Suivant
-            </Button>
+          <nav className="adaptatif-nav-buttons">
+            <section className="display-buttons">
+              {/* Redirection to prev screen of professional registration */}
+              <Button
+                onClick={() => setComponent("PriceComponent")}
+                variant="shadow"
+                className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+                size="lg"
+              >
+                Retour
+              </Button>
+              {/* Redirection to next screen of professional registration */}
+              <Button
+                onClick={() => setComponent("CongratsComponent")}
+                variant="shadow"
+                className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+                size="lg"
+              >
+                Suivant
+              </Button>
+            </section>
           </nav>
         </section>
         {/* ----- Right part of the screen ------ */}
@@ -105,5 +118,10 @@ function SummaryComponent() {
     </section>
   );
 }
+
+// Props Validation
+SummaryComponent.propTypes = {
+  setComponent: PropTypes.func.isRequired,
+};
 
 export default SummaryComponent;

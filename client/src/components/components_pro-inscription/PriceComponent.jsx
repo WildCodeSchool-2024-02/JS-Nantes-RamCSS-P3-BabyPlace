@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-
 import { useState, useEffect } from "react";
 import { Button, Input, Tabs, Tab } from "@nextui-org/react";
+
+import PropTypes from "prop-types";
 
 import "../styles_components/PriceComponent.css";
 
@@ -193,7 +193,7 @@ function PriceComponent({ setComponent }) {
               {/* Redirection to next screen of professional registration */}
               <Button
                 isDisabled={!checkNextButton}
-                // onClick={() => setComponent("SummaryComponent")}
+                onClick={() => setComponent("SummaryComponent")}
                 variant="shadow"
                 className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
                 size="lg"

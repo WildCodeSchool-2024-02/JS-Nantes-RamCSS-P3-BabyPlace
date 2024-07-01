@@ -1,0 +1,14 @@
+.little-titles-security {
+  font-size: 24px;
+}
+
+.security-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.input-flex-content {
+  display: flex;
+  gap: 10px;
+}
