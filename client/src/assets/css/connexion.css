@@ -1,0 +1,83 @@
+.container-label-input-connexion {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.label-connexion {
+  display: none;
+}
+
+.input-connexion {
+  height: 48px;
+  width: 329px;
+  border: none;
+  border-radius: 10px;
+  padding-left: 20px;
+  background-color: var(--input-transparent-background);
+  color: var(--light-color-text);
+}
+
+.input-connexion::placeholder {
+  color: var(--light-color-text);
+}
+
+.input-connexion:focus {
+  outline: 1px solid var(--purple-color);
+}
+
+.link-connexion-parent {
+  text-decoration: none;
+  color: var(--light-color-text);
+  margin-left: 10px;
+}
+
+/* !important pour etre sur de ne pas rentrer en conflit avec l autre proprietee qui touche l element  */
+.link-connexion-parent-btn-disable {
+  pointer-events: none;
+  background-color: var(--input-disable-background) !important;
+  color: var(--grey-disable-text) !important;
+}
+
+@media (width >= 1024px) {
+  .mobile-connexion {
+    background-size: 30vw 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .h1-connexion {
+    text-align: start;
+  }
+
+  .logo-form {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+  }
+
+  .h2-connexion-parent {
+    display: block;
+  }
+
+  .img-h2-desktop {
+    display: flex;
+    flex-direction: column;
+    width: 29vw;
+    padding: 40px;
+  }
+
+  .img-h2-desktop > h2 {
+    margin-top: 50px;
+    color: var(--light-color-text);
+    text-align: center;
+  }
+
+  .container-label-input-connexion {
+    margin-left: 25%;
+    margin-top: 10vh;
+  }
+}

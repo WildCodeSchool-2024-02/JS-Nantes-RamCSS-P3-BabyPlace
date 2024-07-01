@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles_pro_pages/ConnexionPro.css";
+import "../../assets/css/connexion.css";
 import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
-import SignUpParent from "../../components/components_parent/SignUpParent";
-import LoginParent from "../../components/components_parent/LoginParent";
+import SignUp from "../../components/components_parent/SignUp";
+import Login from "../../components/components_parent/Login";
 
-function ConnexionParent() {
+function ConnexionPro() {
   const [emailChecked, setEmailChecked] = useState(false);
   const [passwordChecked, setPasswordChecked] = useState(false);
   const [selected, setSelected] = useState("login");
@@ -25,7 +26,7 @@ function ConnexionParent() {
       <div className="logo-Pro">
         <img
           src="../src/assets/images/logos/logo_complet_pro.png"
-          className="img-connexion-parent"
+          className="img-connexion-pro"
           alt="logo"
         />
       </div>
@@ -54,14 +55,14 @@ function ConnexionParent() {
                 onSelectionChange={setSelected}
               >
                 <Tab key="login" title="Connexion">
-                  <LoginParent
+                  <Login
                     setEmailChecked={setEmailChecked}
                     checkBtnConnexion={checkBtnConnexion}
                     setPasswordChecked={setPasswordChecked}
                   />
                 </Tab>
                 <Tab key="signup" title="S'inscrire">
-                  <SignUpParent
+                  <SignUp
                     setEmailChecked={setEmailChecked}
                     checkBtnConnexion={checkBtnConnexion}
                     setPasswordChecked={setPasswordChecked}
@@ -82,4 +83,4 @@ function ConnexionParent() {
   );
 }
 
-export default ConnexionParent;
+export default ConnexionPro;
