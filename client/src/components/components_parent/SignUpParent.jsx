@@ -81,7 +81,7 @@ function SignUpParent({
   };
 
   return (
-    <form className="flex flex-col gap-4 h-[300px]">
+    <form className="flex flex-col gap-3 h-[200px]">
       <Input isRequired label="Nom" placeholder="Entez votre nom" type="text" />
       <Input
         isRequired
@@ -91,7 +91,7 @@ function SignUpParent({
         placeholder="Entrez votre Email"
         variant="flat"
         isInvalid={isEmailInvalid}
-        color={isEmailInvalid ? "danger" : "success"}
+        color={isEmailInvalid ? "danger" : ""}
         onValueChange={setEmail}
         className="max-w-xs text-danger-700"
         errorMessageClass="error-message"
@@ -103,7 +103,7 @@ function SignUpParent({
         placeholder="Entrez votre mot de passe"
         type={isVisible ? "text" : "password"}
         isInvalid={isPasswordInvalid}
-        color={isPasswordInvalid ? "danger" : "success"}
+        color={isPasswordInvalid ? "danger" : ""}
         onValueChange={setPassword}
         className="max-w-xs "
         endContent={
@@ -126,7 +126,7 @@ function SignUpParent({
         placeholder="Confirmez votre mot de passe"
         type={isVisible ? "text" : "password"}
         isInvalid={isConfirmPasswordInvalid}
-        color={isConfirmPasswordInvalid ? "danger" : "success"}
+        color={isConfirmPasswordInvalid ? "danger" : ""}
         onValueChange={setConfirmPassword}
         className="max-w-xs "
         endContent={
@@ -167,22 +167,25 @@ function SignUpParent({
           S'inscrire
         </Button>
       </div>
-      {isEmailInvalid && (
-        <p className="text-white text-sm mt-2">
-          Veuillez entrer un email valide
-        </p>
-      )}
-      {isPasswordInvalid && (
-        <p className="text-white text-sm ">
-          Le mot de passe doit contenir au moins 8 caractères, une majuscule,
-          une minuscule, un chiffre et un caractère spécial
-        </p>
-      )}
-      {isConfirmPasswordInvalid && (
-        <p className="text-white text-sm ">
-          Les mots de passe ne correspondent pas
-        </p>
-      )}
+
+      <section className="checked-value-form">
+        {isEmailInvalid && (
+          <p className="text-white text-sm md:text-black">
+            Veuillez entrer un email valide
+          </p>
+        )}
+        {isPasswordInvalid && (
+          <p className="text-white text-sm md:text-black">
+            Le mot de passe doit contenir au moins 8 caractères, une majuscule,
+            une minuscule, un chiffre et un caractère spécial
+          </p>
+        )}
+        {isConfirmPasswordInvalid && (
+          <p className="text-white text-sm md:text-black">
+            Les mots de passe ne correspondent pas
+          </p>
+        )}
+      </section>
     </form>
   );
 }

@@ -276,7 +276,6 @@ progress::-moz-progress-bar {
 .nav-bottom {
   position: fixed;
   bottom: 10px;
-  width: 100vw;
   display: flex;
   justify-content: center;
   gap: 100px;
