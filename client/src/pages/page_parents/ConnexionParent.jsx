@@ -83,7 +83,7 @@ function ConnexionParent() {
           accueil
         </NavLink>
         <NavLink
-          to="/connexionpro"
+          to="/pro/connexion"
           className="btn-link-connexion link-pro-connexion texts"
         >
           Accès a votre espace

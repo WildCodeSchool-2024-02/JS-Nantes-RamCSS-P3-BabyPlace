@@ -32,7 +32,7 @@ function AccueilParents() {
           {" "}
           Se connecter{" "}
         </NavLink>
-        <NavLink className="button-navigate" to="/inscription">
+        <NavLink className="button-navigate" to="/connexion">
           {" "}
           S'inscrire{" "}
         </NavLink>

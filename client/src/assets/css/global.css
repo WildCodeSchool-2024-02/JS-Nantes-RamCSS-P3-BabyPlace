@@ -279,6 +279,8 @@ progress::-moz-progress-bar {
   display: flex;
   justify-content: center;
   gap: 100px;
+  width: 100vw;
+  padding: 15px;
 }
 
 .btn-nav-bottom {
