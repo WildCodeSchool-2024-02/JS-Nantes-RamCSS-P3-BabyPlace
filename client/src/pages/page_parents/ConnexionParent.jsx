@@ -28,7 +28,9 @@ function ConnexionParent() {
           className="img-connexion-parent"
           alt="logo"
         />
-        <h1 className="titles h1-connexion ">Garde d'enfants à la demande</h1>
+        <h1 className="titles h1-connexion md:mt-20">
+          Garde d'enfants à la demande
+        </h1>
       </div>
 
       <div className="logo-form">
@@ -75,16 +77,17 @@ function ConnexionParent() {
           </Card>
         </div>
       </div>
-      <NavLink
-        to="/connexionpro"
-        className="btn-link-connexion link-pro-connexion texts"
-      >
-        Accès a votre espace
-        <span className="btn-link-pro-connexion">pro</span>
-      </NavLink>
+
       <div className="nav-bottom">
         <NavLink to="/" className="btn-nav-bottom texts">
           accueil
+        </NavLink>
+        <NavLink
+          to="/pro/connexion"
+          className="btn-link-connexion link-pro-connexion texts"
+        >
+          Accès a votre espace
+          <span className="btn-link-pro-connexion">pro</span>
         </NavLink>
       </div>
     </div>

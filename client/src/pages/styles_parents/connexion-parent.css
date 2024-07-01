@@ -5,8 +5,9 @@
 }
 
 .img-connexion-parent {
-  height: 32px;
-  /* margin-top: 20px; */
+  height: 52px;
+  margin-left: 20px;
+  padding-top: 20px;
 }
 
 .h1-connexion {
@@ -124,14 +125,14 @@
   }
 
   .img-h2-desktop > h2 {
-    margin-top: 100px;
+    margin-top: 50px;
     color: var(--light-color-text);
     text-align: center;
   }
 
   .container-label-input-connexion {
     margin-left: 25%;
-    margin-top: 25vh;
+    margin-top: 10vh;
   }
 
   .input-connexion {
@@ -163,10 +164,6 @@
     color: var(--light-color-text);
     text-decoration: none;
     gap: 10px;
-    margin-left: 220px;
-  }
-
-  .btn-link-connexion {
     font-size: 1.5rem;
     font-weight: 600;
   }
@@ -178,6 +175,6 @@
     width: 80px;
     height: 28px;
     text-align: center;
-    padding-bottom: 32px;
+    padding-bottom: 35px;
   }
 }

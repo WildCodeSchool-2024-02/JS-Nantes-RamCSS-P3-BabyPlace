@@ -275,10 +275,12 @@ progress::-moz-progress-bar {
 
 .nav-bottom {
   position: fixed;
-  bottom: 10px;
+  bottom: 1.7vh;
   display: flex;
   justify-content: center;
   gap: 100px;
+  width: 100vw;
+  padding: 15px;
 }
 
 .btn-nav-bottom {
@@ -309,8 +311,7 @@ progress::-moz-progress-bar {
 
 @media (width >= 1024px) {
   .nav-bottom {
-    justify-content: start;
-    gap: 200px;
-    padding: 0 100px;
+    width: 29vw;
+    align-items: center;
   }
 }
