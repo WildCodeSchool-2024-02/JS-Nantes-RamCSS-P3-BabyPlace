@@ -124,14 +124,14 @@
   }
 
   .img-h2-desktop > h2 {
-    margin-top: 100px;
+    margin-top: 50px;
     color: var(--light-color-text);
     text-align: center;
   }
 
   .container-label-input-connexion {
     margin-left: 25%;
-    margin-top: 15vh;
+    margin-top: 10vh;
   }
 
   .input-connexion {
@@ -163,7 +163,7 @@
     color: var(--light-color-text);
     text-decoration: none;
     gap: 10px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 600;
   }
 

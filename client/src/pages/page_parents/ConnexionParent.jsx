@@ -28,7 +28,7 @@ function ConnexionParent() {
           className="img-connexion-parent"
           alt="logo"
         />
-        <h1 className="titles h1-connexion md:mt-10">
+        <h1 className="titles h1-connexion md:mt-20">
           Garde d'enfants à la demande
         </h1>
       </div>
