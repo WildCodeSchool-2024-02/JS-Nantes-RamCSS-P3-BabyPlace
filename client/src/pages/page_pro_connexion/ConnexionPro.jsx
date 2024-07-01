@@ -36,7 +36,7 @@ function ConnexionParent() {
           <img
             className="img-desk"
             src="../src/assets/images/illustration/img_structure_desktop_ecran_connexion.png"
-            alt="baby place"
+            alt="illustration d'une femme portant un bébé"
           />
         </div>
 
