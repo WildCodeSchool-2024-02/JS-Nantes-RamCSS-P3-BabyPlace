@@ -5,7 +5,7 @@ import { Button, Input, Link, Checkbox } from "@nextui-org/react";
 import EyeFilledIcon from "../../assets/nextUI/EyeFilledIcon";
 import EyeSlashFilledIcon from "../../assets/nextUI/EyeSlashFilledIcon";
 
-function SignUpParent({
+function SignUp({
   setEmailChecked,
   setPasswordChecked,
   setSelected,
@@ -190,11 +190,11 @@ function SignUpParent({
   );
 }
 
-SignUpParent.propTypes = {
+SignUp.propTypes = {
   setEmailChecked: PropTypes.func.isRequired,
   setPasswordChecked: PropTypes.func.isRequired,
   setSelected: PropTypes.func.isRequired,
   checkBtnConnexion: PropTypes.bool.isRequired,
 };
 
-export default SignUpParent;
+export default SignUp;
