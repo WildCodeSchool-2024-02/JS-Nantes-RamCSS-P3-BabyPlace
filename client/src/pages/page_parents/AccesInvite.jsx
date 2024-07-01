@@ -38,7 +38,7 @@ function AccesInvite() {
                 className="max-w-lg"
               />
               <DatePicker
-                label="Date de fin"
+                label="Date de sortie"
                 color="secondary"
                 className="max-w-lg"
               />
@@ -50,7 +50,7 @@ function AccesInvite() {
               Mes dates ou mes horaires sont flexibles
             </label>
           </div>
-          <NavLink className="w-80">
+          <NavLink to="/recherche" className="w-80">
             <Button
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts w-80"
               variant="shadow"
@@ -65,7 +65,7 @@ function AccesInvite() {
           <NavLink to="/" className="btn-nav-bottom texts">
             accueil
           </NavLink>
-          <NavLink to="/inscription" className="btn-nav-bottom texts">
+          <NavLink to="/connexion" className="btn-nav-bottom texts">
             s'inscrire
           </NavLink>
         </div>
