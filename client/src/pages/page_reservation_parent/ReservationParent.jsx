@@ -7,7 +7,7 @@ function ReservationRequest() {
         <h1>Crèche Picoti Picota</h1>
       </header>
       <img
-        src="path/to/your/image.jpg"
+        src="./src/assets/images/illustration/avatar_lorem.jpg"
         alt="Enfants jouant"
         className="creche-image"
       />
