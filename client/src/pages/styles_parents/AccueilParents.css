@@ -29,7 +29,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: var(--ligth-color-text, rgb(255, 255, 255));
 }
 
 .mumbaby-login {
@@ -38,15 +38,4 @@
 
 .logo-login {
   width: 200px;
-}
-
-.button-navigate {
-  text-decoration: none;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: auto;
-  padding: 10px;
-  width: 100vw;
 }
