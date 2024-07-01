@@ -10,16 +10,6 @@
   display: none;
 }
 
-.input-connexion {
-  height: 48px;
-  width: 329px;
-  border: none;
-  border-radius: 10px;
-  padding-left: 20px;
-  background-color: var(--input-transparent-background);
-  color: var(--light-color-text);
-}
-
 .input-connexion::placeholder {
   color: var(--light-color-text);
 }
