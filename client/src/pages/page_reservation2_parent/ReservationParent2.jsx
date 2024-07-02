@@ -33,9 +33,7 @@ function ChildSelection() {
           <p>75€*</p>
           <small>* 8 h de garde*</small>
         </div>
-        <button type="button">
-          Réserver
-        </button>
+        <button type="button">Réserver</button>
       </div>
     </div>
   );

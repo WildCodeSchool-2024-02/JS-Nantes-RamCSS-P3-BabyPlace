@@ -42,7 +42,10 @@ function ReservationConfirmation() {
           votre demande soit acceptée
         </p>
         <text>
-          Suivant<button type="button" className="round-button">&gt;</button>
+          Suivant
+          <button type="button" className="round-button">
+            &gt;
+          </button>
         </text>
       </div>
     </div>
