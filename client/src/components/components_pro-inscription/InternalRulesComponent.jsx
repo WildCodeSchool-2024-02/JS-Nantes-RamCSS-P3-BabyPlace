@@ -221,24 +221,26 @@ function InternalRulesComponent({ setComponent }) {
           </section>
 
           {/* Redirection to next screen of professional registration */}
-          <nav className="nav-buttons-pro-register screen11">
-            <Button
-              onClick={() => setComponent("UseConditionComponent")}
-              variant="shadow"
-              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-              size="lg"
-            >
-              Retour
-            </Button>
-            {/* Redirection to next screen of professional registration */}
-            <Button
-              onClick={() => setComponent("InformationProcessReservation")}
-              variant="shadow"
-              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-              size="lg"
-            >
-              Suivant
-            </Button>
+          <nav className="adaptatif-nav-buttons">
+            <section className="display-buttons">
+              <Button
+                onClick={() => setComponent("UseConditionComponent")}
+                variant="shadow"
+                className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+                size="lg"
+              >
+                Retour
+              </Button>
+              {/* Redirection to next screen of professional registration */}
+              <Button
+                onClick={() => setComponent("InformationProcessReservation")}
+                variant="shadow"
+                className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+                size="lg"
+              >
+                Suivant
+              </Button>
+            </section>
           </nav>
         </section>
 

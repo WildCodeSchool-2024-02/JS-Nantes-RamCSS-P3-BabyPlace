@@ -5,13 +5,13 @@ import { NextUIProvider } from "@nextui-org/system";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
-import ConnexionParent from "./pages/parents/ConnexionParent";
-import Test from "./components/test";
+import ConnexionParent from "./pages/page_parents/ConnexionParent";
 import InscriptionPro from "./pages/pages_pro-inscription/InscriptionPro";
 import ConnexionPro from "./pages/page_pro_connexion/ConnexionPro";
 import ReservationRequest from "./pages/page_reservation_parent/ReservationParent";
 import ChildSelection from "./pages/page_reservation2_parent/ReservationParent2";
 import ReservationConfirmation from "./pages/page_reservation_confirmation/ReservationConfirmation";
+import AccesInvite from "./pages/page_parents/AccesInvite";
 
 const router = createBrowserRouter([
   {
@@ -23,8 +23,8 @@ const router = createBrowserRouter([
     element: <ConnexionParent />,
   },
   {
-    path: "/test",
-    element: <Test />,
+    path: "/acces-invite",
+    element: <AccesInvite />,
   },
   {
     path: "/reservation",
@@ -57,7 +57,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <NextUIProvider>
+    <NextUIProvider locale="fr-FR">
       <RouterProvider router={router} />
     </NextUIProvider>
   </React.StrictMode>
