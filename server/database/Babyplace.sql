@@ -2,25 +2,26 @@
 CREATE TABLE `parent` (
     `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `firstname` VARCHAR(100) NOT NULL,
-    `lastname` VARCHAR(100) NOT NULL,
-    `occupation` VARCHAR(100) NOT NULL,
-    `phone` VARCHAR(15) NOT NULL,
-    `email` VARCHAR(320) NOT NULL,
-    `address` VARCHAR(150) NOT NULL,
-    `identity_card` BOOL NOT NULL,
-    `photo` VARCHAR(20) NOT NULL,
-    `social_security_number` INT NOT NULL,
-    `caf_number` INT NOT NULL,
-    `proof_of_income` BOOL NOT NULL,
-    `taxe_filling` BOOL NOT NULL,
-    `proof_of_adress` BOOL NOT NULL,
-    `proof_of_professional_status` BOOL NOT NULL,
-    `rib` INT NOT NULL,
-    `photo_and_video_authorization` BOOL NOT NULL,
-    `exit_permit` BOOL NOT NULL,
-    `copy_of_family_record_book` BOOL NOT NULL,
-    `copy_of_divorce_judgment` BOOL NOT NULL,
-    `conditions_of_use` BOOL NOT NULL
+    `password` VARCHAR(100) NOT NULL,
+    `lastname` VARCHAR(100) NULL,
+    `job` VARCHAR(100) NULL,
+    `phone` VARCHAR(15) NULL,
+    `email` VARCHAR(320) UNIQUE NOT NULL,
+    `address` VARCHAR(150) NULL,
+    `identity_card` BOOL NULL,
+    `photo` VARCHAR(20) NULL,
+    `social_security_number` INT NULL,
+    `caf_number` INT NULL,
+    `proof_of_income` BOOL NULL,
+    `taxe_filling` BOOL NULL,
+    `proof_of_adress` BOOL NULL,
+    `proof_of_professional_status` BOOL NULL,
+    `rib` INT NULL,
+    `photo_and_video_authorization` BOOL NULL,
+    `exit_permit` BOOL NULL,
+    `copy_of_family_record_book` BOOL NULL,
+    `copy_of_divorce_judgment` BOOL NULL,
+    `conditions_of_use` BOOL NULL
 );
 
 -- Création de la table child
@@ -102,10 +103,10 @@ CREATE TABLE `favorite` (
 --
 
 -- Insertion des données dans la table parent
-INSERT INTO `parent` ( `firstname`, `lastname`, `occupation`, `phone`, `email`, `address`, `identity_card`, `photo`, `social_security_number`, `caf_number`, `proof_of_income`, `taxe_filling`, `proof_of_adress`, `proof_of_professional_status`, `rib`, `photo_and_video_authorization`, `exit_permit`, `copy_of_family_record_book`, `copy_of_divorce_judgment`, `conditions_of_use`)
+INSERT INTO `parent` ( `firstname`, `lastname`, `password`, `job`, `phone`, `email`, `address`, `identity_card`, `photo`, `social_security_number`, `caf_number`, `proof_of_income`, `taxe_filling`, `proof_of_adress`, `proof_of_professional_status`, `rib`, `photo_and_video_authorization`, `exit_permit`, `copy_of_family_record_book`, `copy_of_divorce_judgment`, `conditions_of_use`)
 VALUES
-( 'John', 'Doe', 'Engineer', 1234567890, 'john.doe@example.com', '123 Main St', TRUE, 'photo1.jpg', 123456789, 987654321, TRUE, TRUE, TRUE, TRUE, 12345678, TRUE, TRUE, TRUE, FALSE, TRUE),
-('Jane', 'Smith', 'Doctor', 2345678901, 'jane.smith@example.com', '456 Elm St', TRUE, 'photo2.jpg', 234567890, 876543210, TRUE, TRUE, TRUE, TRUE, 23456789, TRUE, TRUE, TRUE, FALSE, TRUE);
+( 'John', 'Doe', 'password', 'Engineer', 1234567890, 'john.doe@example.com', '123 Main St', TRUE, 'photo1.jpg', 123456789, 987654321, TRUE, TRUE, TRUE, TRUE, 12345678, TRUE, TRUE, TRUE, FALSE, TRUE),
+('Jane', 'Smith', 'password', 'Doctor', 2345678901, 'jane.smith@example.com', '456 Elm St', TRUE, 'photo2.jpg', 234567890, 876543210, TRUE, TRUE, TRUE, TRUE, 23456789, TRUE, TRUE, TRUE, FALSE, TRUE);
 
 -- Insertion des données dans la table child
 INSERT INTO `child` (`id`, `firstname`, `lastname`, `birthday`, `is_walker`, `is_disabled`, `allergies`, `insurance_certificate`, `health_book`, `birth_certificate`, `name_doctor`, `care_authorization`, `parent_id`)

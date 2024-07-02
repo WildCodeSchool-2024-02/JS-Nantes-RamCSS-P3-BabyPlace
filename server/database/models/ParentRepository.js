@@ -12,7 +12,8 @@ class ParentRepository extends AbstractRepository {
   async create(
     firstname,
     lastname,
-    occupation,
+    password,
+    job,
     phone,
     email,
     address,
@@ -31,15 +32,17 @@ class ParentRepository extends AbstractRepository {
     copy_of_divorce_judgment,
     conditions_of_use
   ) {
+  
     const [rows] = await this.database.query(
       `INSERT INTO ${this.table} (
-      firstname, lastname, occupation, phone, email, address, identity_card, photo, social_security_number, caf_number, proof_of_income, taxe_filling, proof_of_adress, proof_of_professional_status, rib, photo_and_video_authorization, exit_permit, copy_of_family_record_book, copy_of_divorce_judgment, conditions_of_use) values (?, ?, ?, ?, ?,?, ?, ?, ?, ?,?, ?, ?, ?, ?,?, ?, ?, ?, ?)`,
+      firstname, email, password, lastname, job, phone, address, identity_card, photo, social_security_number, caf_number, proof_of_income, taxe_filling, proof_of_adress, proof_of_professional_status, rib, photo_and_video_authorization, exit_permit, copy_of_family_record_book, copy_of_divorce_judgment, conditions_of_use) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         firstname,
-        lastname,
-        occupation,
-        phone,
         email,
+        password,
+        lastname,
+        job,
+        phone,
         address,
         identity_card,
         photo,
@@ -97,7 +100,8 @@ class ParentRepository extends AbstractRepository {
     const {
       firstname,
       lastname,
-      occupation,
+      password,
+      job,
       phone,
       email,
       address,
@@ -118,13 +122,14 @@ class ParentRepository extends AbstractRepository {
       id,
     } = body;
     const [row] = await this.database.query(
-      `UPDATE ${this.table} SET firstname = ?, lastname = ?, occupation = ?, phone = ?, email = ?, address = ?, identity_card = ?, photo = ?, social_security_number = ?, caf_number = ?, proof_of_income = ?, taxe_filling = ?, proof_of_adress = ?, proof_of_professional_status = ?, rib = ?, photo_and_video_authorization = ?, exit_permit = ?, copy_of_family_record_book = ?, copy_of_divorce_judgment = ?, conditions_of_use = ? WHERE id = ?`,
+      `UPDATE ${this.table} SET firstname = ?, password = ?, email = ?, lastname = ?, job = ?, phone = ?, address = ?, identity_card = ?, photo = ?, social_security_number = ?, caf_number = ?, proof_of_income = ?, taxe_filling = ?, proof_of_adress = ?, proof_of_professional_status = ?, rib = ?, photo_and_video_authorization = ?, exit_permit = ?, copy_of_family_record_book = ?, copy_of_divorce_judgment = ?, conditions_of_use = ? WHERE id = ?`,
       [
         firstname,
-        lastname,
-        occupation,
-        phone,
         email,
+        password,
+        lastname,
+        job,
+        phone,
         address,
         identity_card,
         photo,
