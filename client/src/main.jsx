@@ -9,6 +9,7 @@ import ConnexionParent from "./pages/page_parents/ConnexionParent";
 import InscriptionPro from "./pages/pages_pro-inscription/InscriptionPro";
 import ConnexionPro from "./pages/page_pro_connexion/ConnexionPro";
 import AccesInvite from "./pages/page_parents/AccesInvite";
+import DossierParent from "./pages/page_parents/DossierParent";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/acces-invite",
     element: <AccesInvite />,
+  },
+  {
+    path: "/dossier-parent",
+    element: <DossierParent />,
   },
   {
     path: "pro",
