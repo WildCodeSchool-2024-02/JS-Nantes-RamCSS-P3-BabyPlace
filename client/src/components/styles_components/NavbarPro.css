@@ -1,0 +1,46 @@
+.global-navbar-pro-container {
+  width: 25vh;
+  height: 100vh;
+  background: var(--background-gradient);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 100px;
+  padding-top: 10px;
+}
+
+.logo-pro {
+  width: 75%;
+}
+
+.menu-top-navbar-pro {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu-bottom-navbar-pro {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  bottom: 15px;
+}
+
+.menu-item-navbar-pro {
+  display: flex;
+  gap: 5px;
+}
+
+.menu-item-navbar-pro-active {
+  display: flex;
+  gap: 10px;
+  border: 2px solid var(--light-color-text);
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.menu-text-navbar-pro {
+  color: var(--light-color-text);
+}
