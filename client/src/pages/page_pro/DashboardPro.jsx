@@ -104,7 +104,27 @@ function DashboardPro() {
       <NavbarPro />
       <section className="dashboard-component-container">
         <section className="dashboard-component-user-info">
-          <p>Coucou</p>
+          <section className="card-user-decorations">
+            <img
+              src="../src/assets/images/illustration/decore-left.svg"
+              alt="décorations"
+            />
+            <img
+              src="../src/assets/images/illustration/decore-right.svg"
+              alt="décorations"
+            />
+          </section>
+          <img
+            className="card-user-image"
+            src="../src/assets/images/illustration/badge_user.png"
+            alt="badge"
+          />
+          <p className="texts card-user-title">
+            Bienvenue <strong>NOM DE LA STRUCTURE</strong>
+          </p>
+          <p className="texts">
+            Annonce BABYPLACE // Annonce BABYPLACE // Annonce BABYPLACE
+          </p>
         </section>
         <section className="dashboard-component-graph-subscribers">
           <img
