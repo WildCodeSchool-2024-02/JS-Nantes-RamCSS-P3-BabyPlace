@@ -2,3 +2,48 @@
   display: flex;
   flex-direction: row;
 }
+
+.dashboard-component-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.dashboard-component-user-info {
+  grid-column: 1/3;
+  grid-row: 1/2;
+  width: 95%;
+  height: 95%;
+  background: var(--gradient-card);
+  border-radius: 20px;
+  align-self: center;
+  /* justify-self: center; */
+  margin-left: 20px;
+}
+
+.dashboard-component-graph-subscribers {
+  grid-column: 3/4;
+  align-self: end;
+  justify-self: center;
+}
+
+.subscribers-charts {
+  width: 550px;
+}
+
+.dashboard-component-graph-buisness {
+  grid-column: 4/5;
+  align-self: end;
+  justify-self: center;
+}
+
+.buisness-charts {
+  width: 550px;
+}
+
+.dashboard-component-table {
+  grid-column: 1/5;
+  grid-row: 2/4;
+  padding: 20px;
+}
