@@ -130,14 +130,14 @@ function DashboardPro() {
           <img
             className="subscribers-charts"
             src="../src/assets/images/illustration/Subscribers_Card.png"
-            alt=""
+            alt="graphique sur le nombre de réservations"
           />
         </section>
         <section className="dashboard-component-graph-buisness">
           <img
             className="buisness-charts"
             src="../src/assets/images/illustration/Buisness_Card.png"
-            alt=""
+            alt="graphique sur le chiffre d'affaire"
           />
         </section>
         <section className="dashboard-component-table">
