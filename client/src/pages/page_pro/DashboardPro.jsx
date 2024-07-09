@@ -22,14 +22,15 @@ import NavbarPro from "../../components/components_pro/NavbarPro";
 import "../styles_pro_pages/DashboardPro.css";
 
 const statusColorMap = {
-  active: "success",
-  paused: "danger",
-  vacation: "warning",
+  validée: "success",
+  refusée: "danger",
+  "En attente": "warning",
+  annulée: "default",
 };
 
 function DashboardPro() {
   const [page, setPage] = useState(1);
-  const rowsPerPage = 8;
+  const rowsPerPage = 6;
 
   const pages = Math.ceil(users.length / rowsPerPage);
 
@@ -122,7 +123,7 @@ function DashboardPro() {
           <p className="texts card-user-title">
             Bienvenue <strong>NOM DE LA STRUCTURE</strong>
           </p>
-          <p className="texts">
+          <p className="texts card-user-annonces">
             Annonce BABYPLACE // Annonce BABYPLACE // Annonce BABYPLACE
           </p>
         </section>
