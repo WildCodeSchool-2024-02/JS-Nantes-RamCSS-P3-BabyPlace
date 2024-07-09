@@ -10,6 +10,7 @@ import InscriptionPro from "./pages/pages_pro-inscription/InscriptionPro";
 import ConnexionPro from "./pages/page_pro_connexion/ConnexionPro";
 import AccesInvite from "./pages/page_parents/AccesInvite";
 import Faq from "./pages/page_parents/Faq";
+import Mentions from "./pages/page_parents/Mentions";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/faq",
     element: <Faq />,
+  },
+  {
+    path: "/mentions-legales",
+    element: <Mentions />,
   },
   {
     path: "pro",
