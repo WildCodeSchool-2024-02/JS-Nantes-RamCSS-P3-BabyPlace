@@ -12,6 +12,9 @@ import InternalRulesComponent from "../../components/components_pro-inscription/
 import InformationProcessReservation from "../../components/components_pro-inscription/InformationProcessReservation";
 import AvaibleSeatsComponent from "../../components/components_pro-inscription/AvaibleSeatsComponent";
 import PriceComponent from "../../components/components_pro-inscription/PriceComponent";
+import SummaryComponent from "../../components/components_pro-inscription/SummaryComponent";
+import CongratsComponent from "../../components/components_pro-inscription/CongratsComponent";
+import SecurityComponent from "../../components/components_pro-inscription/SecurityComponent";
 
 import "../styles_pro_pages/InscriptionPro.css";
 
@@ -58,6 +61,18 @@ function InscriptionPro() {
     PriceComponent: {
       component: PriceComponent,
       alias: "Tarifs",
+    },
+    SummaryComponent: {
+      component: SummaryComponent,
+      alias: "Récapitulatif",
+    },
+    CongratsComponent: {
+      component: CongratsComponent,
+      alias: "Félicitations",
+    },
+    SecurityComponent: {
+      component: SecurityComponent,
+      alias: "Sécurité",
     },
   };
 

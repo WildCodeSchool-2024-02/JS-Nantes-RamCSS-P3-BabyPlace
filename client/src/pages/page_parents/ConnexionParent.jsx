@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles_parents/connexion-parent.css";
 import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
-import SignUpParent from "../../components/components_parent/SignUpParent";
-import LoginParent from "../../components/components_parent/LoginParent";
+import SignUp from "../../components/components_parent/SignUp";
+import Login from "../../components/components_parent/Login";
 
 function ConnexionParent() {
   const [emailChecked, setEmailChecked] = useState(false);
@@ -28,7 +28,9 @@ function ConnexionParent() {
           className="img-connexion-parent"
           alt="logo"
         />
-        <h1 className="titles h1-connexion ">Garde d'enfants à la demande</h1>
+        <h1 className="titles h1-connexion md:mt-20">
+          Garde d'enfants à la demande
+        </h1>
       </div>
 
       <div className="logo-form">
@@ -39,7 +41,7 @@ function ConnexionParent() {
           <img
             className="img-desk"
             src="./src/assets/images/illustration/img_structure_desktop_ecran_connexion.png"
-            alt="baby place"
+            alt="illustration d'une femme portant un bébé"
           />
         </div>
 
@@ -57,14 +59,14 @@ function ConnexionParent() {
                 onSelectionChange={setSelected}
               >
                 <Tab key="login" title="Connexion">
-                  <LoginParent
+                  <Login
                     setEmailChecked={setEmailChecked}
                     checkBtnConnexion={checkBtnConnexion}
                     setPasswordChecked={setPasswordChecked}
                   />
                 </Tab>
                 <Tab key="signup" title="S'inscrire">
-                  <SignUpParent
+                  <SignUp
                     setEmailChecked={setEmailChecked}
                     checkBtnConnexion={checkBtnConnexion}
                     setPasswordChecked={setPasswordChecked}
@@ -75,16 +77,17 @@ function ConnexionParent() {
           </Card>
         </div>
       </div>
-      <NavLink
-        to="/connexionpro"
-        className="btn-link-connexion link-pro-connexion texts"
-      >
-        Accès a votre espace
-        <span className="btn-link-pro-connexion">pro</span>
-      </NavLink>
+
       <div className="nav-bottom">
         <NavLink to="/" className="btn-nav-bottom texts">
           accueil
+        </NavLink>
+        <NavLink
+          to="/pro/connexion"
+          className="btn-link-connexion link-pro-connexion texts"
+        >
+          Accès a votre espace
+          <span className="btn-link-pro-connexion">pro</span>
         </NavLink>
       </div>
     </div>
