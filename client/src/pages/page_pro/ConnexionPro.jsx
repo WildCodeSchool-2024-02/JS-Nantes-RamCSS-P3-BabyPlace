@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import "../styles_parents/connexion-parent.css";
+import "../styles_pro_pages/ConnexionPro.css";
+import "../../assets/css/connexion.css";
 import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
 import SignUp from "../../components/components_parent/SignUp";
 import Login from "../../components/components_parent/Login";
 
-function ConnexionParent() {
+function ConnexionPro() {
   const [emailChecked, setEmailChecked] = useState(false);
   const [passwordChecked, setPasswordChecked] = useState(false);
   const [selected, setSelected] = useState("login");
@@ -22,25 +23,20 @@ function ConnexionParent() {
 
   return (
     <div className="mobile-connexion">
-      <div className="logo-h1-connexion">
+      <div className="logo-Pro">
         <img
-          src="./src/assets/images/logos/logo_complet.png"
-          className="img-connexion-parent"
+          src="../src/assets/images/logos/logo_complet_pro.png"
+          className="img-connexion-pro"
           alt="logo"
         />
-        <h1 className="titles h1-connexion md:mt-20">
-          Garde d'enfants à la demande
-        </h1>
       </div>
 
       <div className="logo-form">
         <div className="img-h2-desktop">
-          <h2 className="titles h2-connexion">
-            Trouvez un⸱e professionel⸱le de la garde d’enfant
-          </h2>
+          <h2 className="titles h2-connexion">Gérez vos réservations</h2>
           <img
             className="img-desk"
-            src="./src/assets/images/illustration/img_structure_desktop_ecran_connexion.png"
+            src="../src/assets/images/illustration/img_structure_desktop_ecran_connexion.png"
             alt="illustration d'une femme portant un bébé"
           />
         </div>
@@ -82,16 +78,9 @@ function ConnexionParent() {
         <NavLink to="/" className="btn-nav-bottom texts">
           accueil
         </NavLink>
-        <NavLink
-          to="/pro/connexion"
-          className="btn-link-connexion link-pro-connexion texts"
-        >
-          Accès a votre espace
-          <span className="btn-link-pro-connexion">pro</span>
-        </NavLink>
       </div>
     </div>
   );
 }
 
-export default ConnexionParent;
+export default ConnexionPro;

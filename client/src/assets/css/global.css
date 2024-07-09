@@ -13,6 +13,7 @@
     rgba(89, 84, 249, 0.91) 13.34%,
     rgb(227, 122, 204) 99.05%
   );
+  --gradient-card: linear-gradient(225deg, #a59bff 0%, #7e72f2 100%);
   --light-blue-gradient: linear-gradient(
     321deg,
     rgb(0, 242, 254) -19.83%,
