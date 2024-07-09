@@ -9,6 +9,8 @@ import ConnexionParent from "./pages/page_parents/ConnexionParent";
 import InscriptionPro from "./pages/pages_pro-inscription/InscriptionPro";
 import ConnexionPro from "./pages/page_pro/ConnexionPro";
 import AccesInvite from "./pages/page_parents/AccesInvite";
+import Faq from "./pages/page_parents/Faq";
+import Mentions from "./pages/page_parents/Mentions";
 import DashboardPro from "./pages/page_pro/DashboardPro";
 
 const router = createBrowserRouter([
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
   {
     path: "/acces-invite",
     element: <AccesInvite />,
+  },
+  {
+    path: "/faq",
+    element: <Faq />,
+  },
+  {
+    path: "/mentions-legales",
+    element: <Mentions />,
   },
   {
     path: "pro",
