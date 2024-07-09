@@ -1,13 +1,14 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { Button, Input, DatePicker } from "@nextui-org/react";
+import { Button, Input, Checkbox, DatePicker } from "@nextui-org/react";
 import "../styles_parents/AccesInvite.css";
 
 function AccesInvite() {
-  const [flexibleHoursAndDates, setFlexibleHoursAndDates] = useState(false);
+  const [isTermsChecked, setIsTermsChecked] = useState(false);
 
-  const coche = () => {
-    setFlexibleHoursAndDates(!flexibleHoursAndDates);
+  const handleCheckboxClick = () => {
+    // Permet de cocher mais pas de décocher
+    setIsTermsChecked(!isTermsChecked);
   };
 
   return (
@@ -44,12 +45,13 @@ function AccesInvite() {
               />
             </div>
           </div>
-          <div className="accesinvite-checkbox-container">
-            <label htmlFor="flexibilité-dates-horaires">
-              <input className="mr-2" type="checkbox" onChange={coche} />
-              Mes dates ou mes horaires sont flexibles
-            </label>
-          </div>
+          <Checkbox
+            color="secondary"
+            isSelected={isTermsChecked}
+            onClick={handleCheckboxClick}
+          >
+            Mes dates ou mes horaires sont flexibles
+          </Checkbox>
           <NavLink to="/recherche" className="w-80">
             <Button
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts w-80"
@@ -63,10 +65,10 @@ function AccesInvite() {
         </div>
         <div className="nav-bottom">
           <NavLink to="/" className="btn-nav-bottom texts">
-            accueil
+            Accueil
           </NavLink>
           <NavLink to="/connexion" className="btn-nav-bottom texts">
-            s'inscrire
+            S'inscrire
           </NavLink>
         </div>
       </div>
