@@ -36,7 +36,6 @@
 }
 
 button {
-  background-color: purple;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -44,6 +43,3 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: darkpurple;
-}

@@ -82,22 +82,28 @@ function SignUp({
 
   //* Function handleSubmit for registration
 
-  const handleSubmit= (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const body = Object.fromEntries(formData)
+    const body = Object.fromEntries(formData);
     fetch("http://localhost:3310/api/parents", {
       method: "POST",
-      headers : {
-        "Content-Type": "application/json"
+      headers: {
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(body)
-    })
-  }
+      body: JSON.stringify(body),
+    });
+  };
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-3 h-[200px]">
-      <Input name="firstname" label="Prénom" isRequired placeholder="Entrez votre Prénom" type="text" />
+      <Input
+        name="firstname"
+        label="Prénom"
+        isRequired
+        placeholder="Entrez votre Prénom"
+        type="text"
+      />
       <Input
         name="email"
         value={email}

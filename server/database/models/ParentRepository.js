@@ -84,6 +84,14 @@ class ParentRepository extends AbstractRepository {
     return rows;
   }
 
+  async readByEmail(email) {
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE email = ?`,
+      [email]
+    );
+    return rows[0];
+  }
+
   async readAllFavoritesByParentId(id) {
     // Execute the SQL SELECT query to retrieve all children from the "parent" table
     const [rows] = await this.database.query(

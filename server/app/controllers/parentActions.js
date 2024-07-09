@@ -1,5 +1,85 @@
 // Import access to database tables
+const argon2 = require("argon2");
+const jwt = require("jsonwebtoken");
 const tables = require("../../database/tables");
+
+const hashingOptions = {
+  type: argon2.argon2id,
+  memoryCost: 2 ** 16,
+  timeCost: 5,
+  parallelism: 1,
+};
+
+const hashPassword = (req, res, next) => {
+  if (req.body.password) {
+    argon2
+      .hash(req.body.password, hashingOptions)
+      .then((hashedPassword) => {
+        req.body.password = hashedPassword;
+        next();
+      })
+      .catch((err) => {
+        console.error(err.message);
+        res.sendStatus(500);
+      });
+  } else {
+    res.sendStatus(401);
+  }
+};
+
+let isPasswordValid = async (password, hashPassword) => {
+  try {
+    return await argon2.verify(hashPassword, password);
+  } catch (err) {
+    console.error(err);
+    return false;
+  }
+};
+
+
+
+const login = async (req, res) => {
+  try {
+    const parent = await tables.nursery.readByEmail(req.body.email);
+    if (!parent) {
+      res.sendStatus(401);
+      return;
+    }
+
+    isPasswordValid = await password(req.body.password, parent.password);
+    if (!isPasswordValid) {
+      res.sendStatus(401);
+      return;
+    }
+
+    const payload = { sub: parent.id }
+    const token = jwt.sign(payload, process.env.APP_SECRET, {
+      expiresIn: "1h"
+    }) 
+    
+    if (token) {
+      delete parent.password
+      res.status(200).json({ token, parent});
+    }
+  } catch (error) {
+    console.error();
+  }
+};
+
+
+
+const credentialsValidation = (req, res, next) => {
+  const { email, password } = req.body;
+  const isEmailValid = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email);
+  isPasswordValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(password);
+
+  if (!isEmailValid || !isPasswordValid) {
+    res.sendStatus(401);
+    return;
+  }
+
+  next();
+};
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
@@ -161,4 +241,8 @@ module.exports = {
   edit,
   add,
   destroy,
+  hashPassword,
+  isPasswordValid,
+  login,
+  credentialsValidation,
 };
