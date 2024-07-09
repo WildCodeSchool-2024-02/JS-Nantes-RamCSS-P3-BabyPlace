@@ -3,30 +3,64 @@ import DossierEnfant from "../../components/components_parent/DossierEnfant";
 import DossierInscriptionParent from "../../components/components_parent/DossierInscriptionParent";
 import DossierInscription from "../../components/components_parent/DossierInscription";
 import NavParentDossier from "../../components/components_parent/NavParentDossier";
+import "../styles_parents/parent-dossier.css";
 
 function DossierParent() {
+  // const[user, setUser]=useState("Alexie Guillon")
+  const user = "Alexie Guillon";
+
   const components = {
-    StructureComponent: {
+    "": {
+      component: null,
+      alias: "",
+    },
+    DossierEnfant: {
       component: DossierEnfant,
       alias: "DossierEnfant",
     },
-    LocalisationComponent: {
+    DossierInscriptionParent: {
       component: DossierInscriptionParent,
       alias: "DossierInscriptionParent",
     },
-    PicturesComponent: {
+    DossierInscription: {
       component: DossierInscription,
       alias: "DossierInscription",
     },
   };
-  
-  const [component, setComponent] = useState("StructureComponent");
+
+  const [component, setComponent] = useState("");
   const ComponentToRender = components[component].component;
-  
+
   return (
-    <main>
-      <NavParentDossier setComponent={setComponent} />
-      {ComponentToRender && <ComponentToRender setComponent={setComponent} />}
+    <main className="main-dossier-parent">
+      {component === "" ? (
+        <>
+          <section>
+            <img src="" alt="" />
+            <h1>{user}</h1>
+            <p>
+              Mettez toutes les chances de votre côté Un profil complet est
+              nécessaire pour un accueil en crèche !
+            </p>
+          </section>
+          <section>
+            <NavParentDossier setComponent={setComponent} />
+          </section>
+        </>
+      ) : null}
+
+      {component !== "" && (
+        <section>
+          <section>
+            <h1>{user}</h1>
+
+            <NavParentDossier setComponent={setComponent} />
+          </section>
+          {ComponentToRender && (
+            <ComponentToRender setComponent={setComponent} />
+          )}
+        </section>
+      )}
     </main>
   );
 }
