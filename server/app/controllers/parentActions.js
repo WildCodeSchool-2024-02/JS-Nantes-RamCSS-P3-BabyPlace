@@ -39,7 +39,7 @@ const resultIsPasswordValid = async (password, hashedPassword) => {
 
 const login = async (req, res) => {
   try {
-    const parent = await tables.nursery.readByEmail(req.body.email);
+    const parent = await tables.parent.readByEmail(req.body.email);
     if (!parent) {
       res.sendStatus(401);
       return;

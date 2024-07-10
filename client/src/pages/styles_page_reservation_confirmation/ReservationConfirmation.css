@@ -121,8 +121,8 @@ article {
 .round-button {
   background-color: #882aff;
   border-radius: 100%;
-  width: 5vh; /* Ajuste la largeur selon ton besoin */
-  height: 5vh; /* Ajuste la hauteur selon ton besoin */
+  width: 5vh;
+  height: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -249,8 +249,8 @@ article {
   .round-button {
     background-color: #882aff;
     border-radius: 100%;
-    width: 5vh; /* Ajuste la largeur selon ton besoin */
-    height: 5vh; /* Ajuste la hauteur selon ton besoin */
+    width: 5vh;
+    height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -14,7 +14,7 @@
 }
 
 .child-selection-details h2 {
-  color: purple;
+  color: var(--background-gradient);
 }
 
 .child {

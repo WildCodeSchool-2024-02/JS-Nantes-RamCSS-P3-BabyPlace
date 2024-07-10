@@ -1,3 +1,4 @@
+import { Button } from "@nextui-org/react";
 import "../styles_page_reservation2_parent/ReservationParent2.css";
 
 function ChildSelection() {
@@ -33,7 +34,15 @@ function ChildSelection() {
           <p>75€*</p>
           <small>* 8 h de garde*</small>
         </div>
-        <button type="button">Réserver</button>
+        <Button
+          type="button"
+          className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+          variant="shadow"
+          fullWidth
+          color="primary"
+        >
+          Reservé
+        </Button>
       </div>
     </div>
   );
