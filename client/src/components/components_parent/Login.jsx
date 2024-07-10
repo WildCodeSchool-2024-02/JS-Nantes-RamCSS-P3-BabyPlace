@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import PropTypes from "prop-types";
 import { Button, Input, Link } from "@nextui-org/react";
 import EyeFilledIcon from "../../assets/nextUI/EyeFilledIcon";
@@ -96,8 +96,9 @@ function Login({
   };
 
   return (
-    <form className="flex flex-col gap-3">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
       <Input
+        onFocus={() => !isEmail && setIsEmail(true)}
         value={email}
         type="email"
         label="Email"
@@ -110,6 +111,7 @@ function Login({
         errorMessageClass="error-message"
       />
       <Input
+        onFocus={() => !isPassword && setIsPassword(true)}
         label="Mot de passe"
         variant="flat"
         placeholder="Entez votre mot de passe"
