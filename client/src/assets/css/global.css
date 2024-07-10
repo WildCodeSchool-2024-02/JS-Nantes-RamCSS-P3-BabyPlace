@@ -316,3 +316,7 @@ progress::-moz-progress-bar {
     align-items: center;
   }
 }
+
+.global-parent-desktop-page {
+  display: flex;
+}
