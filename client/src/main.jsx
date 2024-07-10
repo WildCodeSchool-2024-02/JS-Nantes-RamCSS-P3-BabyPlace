@@ -12,6 +12,7 @@ import AccesInvite from "./pages/page_parents/AccesInvite";
 import Faq from "./pages/page_parents/Faq";
 import Mentions from "./pages/page_parents/Mentions";
 import DashboardPro from "./pages/page_pro/DashboardPro";
+import LayoutPro from "./pages/page_pro/LayoutPro";
 
 const router = createBrowserRouter([
   {
@@ -19,23 +20,24 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/connexion",
+    path: "connexion",
     element: <ConnexionParent />,
   },
   {
-    path: "/acces-invite",
+    path: "acces-invite",
     element: <AccesInvite />,
   },
   {
-    path: "/faq",
+    path: "faq",
     element: <Faq />,
   },
   {
-    path: "/mentions-legales",
+    path: "mentions-legales",
     element: <Mentions />,
   },
   {
-    path: "pro",
+    path: "pro/",
+    element: <LayoutPro />,
     children: [
       {
         path: "inscription",
