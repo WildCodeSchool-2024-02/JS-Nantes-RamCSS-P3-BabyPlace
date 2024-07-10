@@ -36,23 +36,23 @@ const router = createBrowserRouter([
     element: <Mentions />,
   },
   {
-    path: "pro/",
+    path: "/pro",
     element: <LayoutPro />,
     children: [
       {
-        path: "inscription",
+        path: "/pro/inscription",
         element: <InscriptionPro />,
       },
       {
-        path: "connexion",
+        path: "/pro/connexion",
         element: <ConnexionPro />,
       },
       {
-        path: "dashboard",
+        path: "/pro/dashboard",
         element: <DashboardPro />,
       },
       {
-        path: "modification-du-profil",
+        path: "/pro/modification-du-profil",
         element: <InscriptionPro />,
       },
       // {
