@@ -1,4 +1,7 @@
-import { Button, Input, DatePicker, Checkbox } from "@nextui-org/react";
+import { Checkbox } from "@nextui-org/checkbox";
+import { Button } from "@nextui-org/button";
+import { DatePicker } from "@nextui-org/date-picker";
+import { Input } from "@nextui-org/input";
 import { useState, useEffect } from "react";
 
 import PropTypes from "prop-types";

@@ -1,11 +1,8 @@
 import PropTypes from "prop-types";
 
-import {
-  Button,
-  CheckboxGroup,
-  Checkbox,
-  ScrollShadow,
-} from "@nextui-org/react";
+import { ScrollShadow } from "@nextui-org/scroll-shadow";
+import { CheckboxGroup, Checkbox } from "@nextui-org/checkbox";
+import { Button } from "@nextui-org/button";
 
 import "../styles_components/DetailDescriptionComponent.css";
 
