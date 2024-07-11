@@ -8,6 +8,9 @@ import App from "./App";
 import ConnexionParent from "./pages/page_parents/ConnexionParent";
 import InscriptionPro from "./pages/pages_pro-inscription/InscriptionPro";
 import ConnexionPro from "./pages/page_pro/ConnexionPro";
+import ReservationRequest from "./pages/page_reservation_parent/ReservationParent";
+import ChildSelection from "./pages/page_reservation2_parent/ReservationParent2";
+import ReservationConfirmation from "./pages/page_reservation_confirmation/ReservationConfirmation";
 import AccesInvite from "./pages/page_parents/AccesInvite";
 import DossierParent from "./pages/page_parents/DossierParent";
 import Faq from "./pages/page_parents/Faq";
@@ -31,6 +34,18 @@ const router = createBrowserRouter([
   {
     path: "/dossier-parent",
     element: <DossierParent />,
+  },
+  {
+    path: "reservation",
+    element: <ReservationRequest />,
+  },
+  {
+    path: "reservationdeux",
+    element: <ChildSelection />,
+  },
+  {
+    path: "reservationconfirmation",
+    element: <ReservationConfirmation />,
   },
   {
     path: "faq",

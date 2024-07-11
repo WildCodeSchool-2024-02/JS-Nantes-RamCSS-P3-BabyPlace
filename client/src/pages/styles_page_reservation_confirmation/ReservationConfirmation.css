@@ -1,0 +1,260 @@
+.reservation-confirmation {
+  background: var(--background-gradient);
+  padding: 18px;
+  margin: auto;
+  text-align: center;
+  color: var(--light-color-text);
+  max-width: 100vh;
+  overflow: hidden;
+}
+
+.header-reservation-confirmation {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.logo-babyplace {
+  width: 62px;
+  height: 32px;
+}
+
+.article-reservation-confirmation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.images-row {
+  margin-top: 4vh;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.client-img,
+.nursery-img {
+  width: 20vh;
+  height: 20vh;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.point-interrogation {
+  margin-top: -10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #fcb92c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5em;
+}
+
+.question-mark {
+  font-size: 1.5em;
+}
+
+.confirmation-details > h2 {
+  font-size: 5vh;
+  font-weight: 500;
+}
+
+.confirmation-details > p {
+  font-size: 3vh;
+  margin-left: 1vh;
+  margin-right: 1vh;
+  font-weight: 600;
+}
+
+.status {
+  margin-top: 5vh;
+}
+
+.status > p {
+  font-size: 3vh;
+  margin-left: 1vh;
+  margin-right: 1vh;
+  font-weight: 600;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #fcb92c;
+  border-radius: 15px;
+  padding-left: 0vh;
+  padding-right: 0vh;
+}
+
+.pending {
+  color: white;
+  font-weight: bold;
+  font-size: 3vh;
+  margin-left: 0vh;
+  margin-right: 0vh;
+  font-weight: 600;
+}
+.confirmation-details > .info {
+  margin-top: 1vh;
+  font-size: 2vh;
+  font-weight: lighter;
+  margin-bottom: 2vh;
+  margin-left: 5vh;
+  margin-right: 5vh;
+}
+
+.confirmation-details text {
+  display: flex;
+  justify-content: flex-end;
+  margin: auto;
+  align-items: center;
+  font-weight: 500;
+  margin-bottom: 7vh;
+  font-size: 2.5vh;
+}
+
+.round-button {
+  background-color: #882aff;
+  border-radius: 100%;
+  width: 5vh;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1vh;
+  padding-bottom: 2vh;
+}
+
+@media (width >= 1024px) {
+  .reservation-confirmation {
+    background: var(--background-gradient);
+    margin: auto;
+    text-align: center;
+    color: var(--light-color-text);
+  }
+
+  .header-reservation-confirmation {
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo-babyplace {
+    margin-top: 36px;
+    width: 16vh;
+    height: 8vh;
+  }
+
+  .article-reservation-confirmation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 5vh;
+  }
+
+  .images-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .client-img,
+  .nursery-img {
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .point-interrogation {
+    margin-top: -10vh;
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+    background-color: #fcb92c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5em;
+  }
+
+  .question-mark {
+    font-size: 1.5em;
+  }
+
+  .confirmation-details > h2 {
+    font-size: 5vh;
+    font-weight: 500;
+  }
+
+  .confirmation-details > p {
+    font-size: 3vh;
+    margin-left: 1vh;
+    margin-right: 1vh;
+    font-weight: 600;
+  }
+
+  .status {
+    margin-top: 5vh;
+  }
+
+  .status > p {
+    font-size: 3vh;
+    margin-left: 1vh;
+    margin-right: 1vh;
+    font-weight: 600;
+  }
+
+  .status-badge {
+    display: inline-block;
+    background-color: #fcb92c;
+    border-radius: 15px;
+    padding-left: 0vh;
+    padding-right: 0vh;
+  }
+
+  .pending {
+    color: white;
+    font-weight: bold;
+    font-size: 3vh;
+    margin-left: 0vh;
+    margin-right: 0vh;
+    font-weight: 600;
+  }
+  .confirmation-details > .info {
+    margin-top: 1vh;
+    font-size: 2vh;
+    font-weight: lighter;
+    margin-bottom: 2vh;
+    margin-left: 5vh;
+    margin-right: 5vh;
+  }
+
+  .confirmation-details text {
+    display: flex;
+    justify-content: flex-end;
+    margin: auto;
+    align-items: center;
+    font-weight: 500;
+    margin-bottom: 7vh;
+    font-size: 2.5vh;
+  }
+
+  .round-button {
+    background-color: #882aff;
+    border-radius: 100%;
+    width: 5vh;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1vh;
+    padding-bottom: 2vh;
+  }
+}

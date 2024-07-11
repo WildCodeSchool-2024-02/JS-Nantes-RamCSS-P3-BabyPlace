@@ -80,14 +80,36 @@ function SignUp({
     setIsTermsChecked(!isTermsChecked);
   };
 
+  //* Function handleSubmit for registration
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const body = Object.fromEntries(formData);
+    fetch("http://localhost:3310/api/parents", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+  };
+
   return (
-    <form className="flex flex-col gap-3 h-[200px]">
-      <Input isRequired label="Nom" placeholder="Entez votre nom" type="text" />
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 h-[200px]">
       <Input
+        name="firstname"
+        label="Prénom"
         isRequired
+        placeholder="Entrez votre Prénom"
+        type="text"
+      />
+      <Input
+        name="email"
         value={email}
         type="email"
-        label="Email"
+        label="email"
+        isRequired
         placeholder="Entrez votre Email"
         variant="flat"
         isInvalid={isEmailInvalid}
@@ -97,8 +119,9 @@ function SignUp({
         errorMessageClass="error-message"
       />
       <Input
-        isRequired
+        name="password"
         label="Mot de passe"
+        isRequired
         variant="flat"
         placeholder="Entrez votre mot de passe"
         type={isVisible ? "text" : "password"}
@@ -121,7 +144,8 @@ function SignUp({
         }
       />
       <Input
-        label="Mot de passe"
+        label="Confirmation mot de passe"
+        isRequired
         variant="flat"
         placeholder="Confirmez votre mot de passe"
         type={isVisible ? "text" : "password"}
@@ -158,6 +182,7 @@ function SignUp({
       </p>
       <div className="flex gap-2 justify-end">
         <Button
+          type="submit"
           isDisabled={!checkBtnConnexion || !isTermsChecked}
           variant="shadow"
           className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
