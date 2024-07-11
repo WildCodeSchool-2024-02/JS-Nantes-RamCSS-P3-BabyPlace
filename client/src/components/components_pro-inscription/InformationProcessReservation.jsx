@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import { Button } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
 
 import "../styles_components/InformationProcessReservation.css";
 

@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 
-import { Button, Textarea, User } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
+import { User } from "@nextui-org/user";
+import { Textarea } from "@nextui-org/input";
 
 import "../styles_components/DescriptionComponent.css";
 

@@ -1,3 +1,7 @@
+import { User } from "@nextui-org/user";
+import { Chip } from "@nextui-org/chip";
+import { Tooltip } from "@nextui-org/tooltip";
+import { Pagination } from "@nextui-org/pagination";
 import {
   Table,
   TableHeader,
@@ -5,11 +9,7 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  User,
-  Chip,
-  Tooltip,
-  Pagination,
-} from "@nextui-org/react";
+} from "@nextui-org/table";
 import { useCallback, useMemo, useState } from "react";
 import { columns, users } from "../../../data";
 

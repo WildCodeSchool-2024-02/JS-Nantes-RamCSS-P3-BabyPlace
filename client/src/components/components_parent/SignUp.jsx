@@ -1,7 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect, useCallback, useMemo } from "react";
 import PropTypes from "prop-types";
-import { Button, Input, Link, Checkbox } from "@nextui-org/react";
+import { Link } from "@nextui-org/link";
+import { Input } from "@nextui-org/input";
+import { Button } from "@nextui-org/button";
+import { Checkbox } from "@nextui-org/checkbox";
 import EyeFilledIcon from "../../assets/nextUI/EyeFilledIcon";
 import EyeSlashFilledIcon from "../../assets/nextUI/EyeSlashFilledIcon";
 

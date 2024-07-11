@@ -1,4 +1,4 @@
-import { Accordion, AccordionItem } from "@nextui-org/react";
+import { Accordion, AccordionItem } from "@nextui-org/accordion";
 
 import NavbarParentDesktop from "../../components/components_parent/NavbarParentDesktop";
 

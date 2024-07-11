@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Button, Input, CheckboxGroup } from "@nextui-org/react";
+import { Input } from "@nextui-org/input";
+import { CheckboxGroup, Checkbox } from "@nextui-org/checkbox";
+import { Button } from "@nextui-org/button";
 
 import PropTypes from "prop-types";
-import CustomCheckbox from "../../assets/nextUI/CustomCheckbox";
 
 import "../styles_components/StructureComponent.css";
 
@@ -68,33 +69,19 @@ function StructureComponent({ setComponent }) {
                 value={formState.groupSelected}
                 onChange={handleGroupChange}
               >
-                <CustomCheckbox value="Crèche parentale">
-                  Crèche parentale
-                </CustomCheckbox>
-                <CustomCheckbox value="Micro-Crèche">
-                  Micro-Crèche
-                </CustomCheckbox>
-                <CustomCheckbox value="Crèche d'entreprise">
+                <Checkbox value="Crèche parentale">Crèche parentale</Checkbox>
+                <Checkbox value="Micro-Crèche">Micro-Crèche</Checkbox>
+                <Checkbox value="Crèche d'entreprise">
                   Crèche d'entreprise
-                </CustomCheckbox>
-                <CustomCheckbox value="Halte garderie">
-                  Halte garderie
-                </CustomCheckbox>
-                <CustomCheckbox value="Crèche collective">
-                  Crèche collective
-                </CustomCheckbox>
-                <CustomCheckbox value="Crèche écologique">
-                  Crèche écologique
-                </CustomCheckbox>
-                <CustomCheckbox value="Multi-Accueil">
-                  Multi-Accueil
-                </CustomCheckbox>
-                <CustomCheckbox value="Crèche municipale">
-                  Crèche municipale
-                </CustomCheckbox>
-                <CustomCheckbox value="Crèche associative">
+                </Checkbox>
+                <Checkbox value="Halte garderie">Halte garderie</Checkbox>
+                <Checkbox value="Crèche collective">Crèche collective</Checkbox>
+                <Checkbox value="Crèche écologique">Crèche écologique</Checkbox>
+                <Checkbox value="Multi-Accueil">Multi-Accueil</Checkbox>
+                <Checkbox value="Crèche municipale">Crèche municipale</Checkbox>
+                <Checkbox value="Crèche associative">
                   Crèche associative
-                </CustomCheckbox>
+                </Checkbox>
               </CheckboxGroup>
               <p className="mt-4 ml-1 text-default-500 texts">
                 Types d'accueils sélectionnés:{" "}
