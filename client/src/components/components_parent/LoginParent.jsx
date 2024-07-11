@@ -7,7 +7,7 @@ import { Button } from "@nextui-org/button";
 import EyeFilledIcon from "../../assets/nextUI/EyeFilledIcon";
 import EyeSlashFilledIcon from "../../assets/nextUI/EyeSlashFilledIcon";
 
-function Login({
+function LoginParent({
   setEmailChecked,
   setPasswordChecked,
   checkBtnConnexion,
@@ -171,11 +171,11 @@ function Login({
   );
 }
 
-Login.propTypes = {
+LoginParent.propTypes = {
   setEmailChecked: PropTypes.func.isRequired,
   setPasswordChecked: PropTypes.func.isRequired,
   checkBtnConnexion: PropTypes.bool.isRequired,
   setSelected: PropTypes.func.isRequired,
 };
 
-export default Login;
+export default LoginParent;

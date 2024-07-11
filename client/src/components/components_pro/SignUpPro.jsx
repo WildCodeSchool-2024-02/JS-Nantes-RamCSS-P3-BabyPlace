@@ -8,7 +8,7 @@ import { Checkbox } from "@nextui-org/checkbox";
 import EyeFilledIcon from "../../assets/nextUI/EyeFilledIcon";
 import EyeSlashFilledIcon from "../../assets/nextUI/EyeSlashFilledIcon";
 
-function SignUp({
+function SignUpPro({
   setEmailChecked,
   setPasswordChecked,
   setSelected,
@@ -218,11 +218,11 @@ function SignUp({
   );
 }
 
-SignUp.propTypes = {
+SignUpPro.propTypes = {
   setEmailChecked: PropTypes.func.isRequired,
   setPasswordChecked: PropTypes.func.isRequired,
   setSelected: PropTypes.func.isRequired,
   checkBtnConnexion: PropTypes.bool.isRequired,
 };
 
-export default SignUp;
+export default SignUpPro;

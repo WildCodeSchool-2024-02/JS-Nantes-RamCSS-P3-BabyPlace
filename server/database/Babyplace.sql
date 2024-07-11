@@ -116,10 +116,10 @@ VALUES
 (2, 'Bob', 'Smith', '2017-09-23', FALSE, FALSE, 'Peanuts', TRUE, TRUE, TRUE, 'Dr. Green', TRUE, 2);
 
 -- Insertion des données dans la table nursery
-INSERT INTO `nursery` (`id`, `siret`, `name`, `address`, `postcode`, `city`, `phone`, `email`, `type_of_nursery`, `capacity`, `opening_hours`, `closing_time`, `hourly_price`, `agrement`, `photo_1`, `photo_2`, `photo_3`, `description_nursery`, `disabled_children`, `outdoor_space`, `presence_of_animals`, `meal`, `hygiene_product`, `music_workshop`, `artistic_activities`, `bilingual_international`, `child_transport`, `code_of_conduct`)
+INSERT INTO `nursery` (`id`,`name`, `email`, `password`, `siret`,  `address`, `postcode`, `city`, `phone`, `type_of_nursery`, `capacity`, `opening_hours`, `closing_time`, `hourly_price`, `agrement`, `photo_1`, `photo_2`, `photo_3`, `description_nursery`, `disabled_children`, `outdoor_space`, `presence_of_animals`, `meal`, `hygiene_product`, `music_workshop`, `artistic_activities`, `bilingual_international`, `child_transport`, `code_of_conduct`)
 VALUES
-(1, 123456789, 'Happy Kids', '789 Pine St', 12345, 'Cityville', 3456789012, 'contact@happykids.com', 'Private', 50, '08:00:00', '18:00:00', 10.5, 1234, 'nursery1_1.jpg', 'nursery1_2.jpg', 'nursery1_3.jpg', 'A wonderful place for kids', TRUE, TRUE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE),
-(2, 987654321, 'Little Stars', '321 Oak St', 67890, 'Townsville', 4567890123, 'info@littlestars.com', 'Public', 30, '07:00:00', '17:00:00', 9.5, 5678, 'nursery2_1.jpg', 'nursery2_2.jpg', 'nursery2_3.jpg', 'A nurturing environment for children', TRUE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, TRUE);
+(1, 'Happy Kids', 'contact@happykids.com', 'COUCOU LES LOULOUS', 123456789, '789 Pine St', 12345, 'Cityville', 3456789012, 'Private', 50, '08:00:00', '18:00:00', 10.5, 1234, 'nursery1_1.jpg', 'nursery1_2.jpg', 'nursery1_3.jpg', 'A wonderful place for kids', TRUE, TRUE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE),
+(2, 'Little Stars', 'info@littlestars.com', 'COUCOU LES LOULOUS', 987654321, '321 Oak St', 67890, 'Townsville', 4567890123, 'Public', 30, '07:00:00', '17:00:00', 9.5, 5678, 'nursery2_1.jpg', 'nursery2_2.jpg', 'nursery2_3.jpg', 'A nurturing environment for children', TRUE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, TRUE);
 
 -- Insertion des données dans la table reservation
 INSERT INTO `reservation` (`id`, `reservation_date`, `reservation_status`, `status_date`, `arriving_date`, `exit_date`, `price`, `nursery_id`, `child_id`)
