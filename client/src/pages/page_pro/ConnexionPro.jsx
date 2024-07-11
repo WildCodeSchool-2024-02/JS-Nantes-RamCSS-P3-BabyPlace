@@ -4,8 +4,8 @@ import "../styles_pro_pages/ConnexionPro.css";
 import "../../assets/css/connexion.css";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import { Card, CardBody } from "@nextui-org/card";
-import SignUp from "../../components/components_parent/SignUp";
-import Login from "../../components/components_parent/Login";
+import SignUpPro from "../../components/components_pro/SignUpPro";
+import LoginPro from "../../components/components_pro/LoginPro";
 
 function ConnexionPro() {
   const [emailChecked, setEmailChecked] = useState(false);
@@ -56,14 +56,14 @@ function ConnexionPro() {
                 onSelectionChange={setSelected}
               >
                 <Tab key="login" title="Connexion">
-                  <Login
+                  <LoginPro
                     setEmailChecked={setEmailChecked}
                     checkBtnConnexion={checkBtnConnexion}
                     setPasswordChecked={setPasswordChecked}
                   />
                 </Tab>
                 <Tab key="signup" title="S'inscrire">
-                  <SignUp
+                  <SignUpPro
                     setEmailChecked={setEmailChecked}
                     checkBtnConnexion={checkBtnConnexion}
                     setPasswordChecked={setPasswordChecked}

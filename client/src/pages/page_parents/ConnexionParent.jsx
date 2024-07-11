@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import "../styles_parents/connexion-parent.css";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import { Card, CardBody } from "@nextui-org/card";
-import SignUp from "../../components/components_parent/SignUp";
-import Login from "../../components/components_parent/Login";
+import SignUpParent from "../../components/components_parent/SignUpParent";
+import LoginParent from "../../components/components_parent/LoginParent";
 
 function ConnexionParent() {
   const [emailChecked, setEmailChecked] = useState(false);
@@ -60,14 +60,14 @@ function ConnexionParent() {
                 onSelectionChange={setSelected}
               >
                 <Tab key="login" title="Connexion">
-                  <Login
+                  <LoginParent
                     setEmailChecked={setEmailChecked}
                     checkBtnConnexion={checkBtnConnexion}
                     setPasswordChecked={setPasswordChecked}
                   />
                 </Tab>
                 <Tab key="signup" title="S'inscrire">
-                  <SignUp
+                  <SignUpParent
                     setEmailChecked={setEmailChecked}
                     checkBtnConnexion={checkBtnConnexion}
                     setPasswordChecked={setPasswordChecked}
