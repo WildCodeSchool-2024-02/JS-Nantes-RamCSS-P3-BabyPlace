@@ -36,10 +36,6 @@ const router = createBrowserRouter([
     element: <Mentions />,
   },
   {
-    path: "dashboard",
-    element: <DashboardPro />,
-  },
-  {
     path: "/pro",
     element: <LayoutPro />,
     children: [

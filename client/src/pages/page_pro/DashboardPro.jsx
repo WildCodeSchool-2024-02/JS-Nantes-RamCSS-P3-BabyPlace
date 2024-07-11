@@ -1,104 +1,104 @@
-import {
-  Table,
-  TableHeader,
-  TableColumn,
-  TableBody,
-  TableRow,
-  TableCell,
-  User,
-  Chip,
-  Tooltip,
-  Pagination,
-} from "@nextui-org/react";
-import { useCallback, useMemo, useState } from "react";
-import { columns, users } from "../../../data";
+// import {
+//   Table,
+//   TableHeader,
+//   TableColumn,
+//   TableBody,
+//   TableRow,
+//   TableCell,
+//   User,
+//   Chip,
+//   Tooltip,
+//   Pagination,
+// } from "@nextui-org/react";
+// import { useCallback, useMemo, useState } from "react";
+// import { columns, users } from "../../../data";
 
-import DeleteIcon from "../../assets/nextUI/DeleteIcon";
-import EditIcon from "../../assets/nextUI/EditIcon";
-import EyeIcon from "../../assets/nextUI/EyeIcon";
+// import DeleteIcon from "../../assets/nextUI/DeleteIcon";
+// import EditIcon from "../../assets/nextUI/EditIcon";
+// import EyeIcon from "../../assets/nextUI/EyeIcon";
 
 import NavbarPro from "../../components/components_pro/NavbarPro";
 
 import "../styles_pro_pages/DashboardPro.css";
 
-const statusColorMap = {
-  validée: "success",
-  refusée: "danger",
-  "En attente": "warning",
-  annulée: "default",
-};
+// const statusColorMap = {
+//   validée: "success",
+//   refusée: "danger",
+//   "En attente": "warning",
+//   annulée: "default",
+// };
 
 function DashboardPro() {
-  const [page, setPage] = useState(1);
-  const rowsPerPage = 6;
+  // const [page, setPage] = useState(1);
+  // const rowsPerPage = 6;
 
-  const pages = Math.ceil(users.length / rowsPerPage);
+  // const pages = Math.ceil(users.length / rowsPerPage);
 
-  const items = useMemo(() => {
-    const start = (page - 1) * rowsPerPage;
-    const end = start + rowsPerPage;
+  // const items = useMemo(() => {
+  //   const start = (page - 1) * rowsPerPage;
+  //   const end = start + rowsPerPage;
 
-    return users.slice(start, end);
-  }, [page, rowsPerPage]);
+  //   return users.slice(start, end);
+  // }, [page, rowsPerPage]);
 
-  const renderCell = useCallback((user, columnKey) => {
-    const cellValue = user[columnKey];
+  // const renderCell = useCallback((user, columnKey) => {
+  //   const cellValue = user[columnKey];
 
-    switch (columnKey) {
-      case "name":
-        return (
-          <User
-            avatarProps={{ radius: "md", src: user.avatar }}
-            description={user.email}
-            name={cellValue}
-          >
-            {user.email}
-          </User>
-        );
-      case "role":
-        return (
-          <div className="flex flex-col">
-            <p className="text-bold text-lg capitalize">{cellValue}</p>
-            <p className="text-bold text-lg capitalize text-default-400">
-              {user.team}
-            </p>
-          </div>
-        );
-      case "status":
-        return (
-          <Chip
-            className="capitalize"
-            color={statusColorMap[user.status]}
-            size="lg"
-            variant="flat"
-          >
-            {cellValue}
-          </Chip>
-        );
-      case "actions":
-        return (
-          <div className="relative flex items-center justify-center gap-2">
-            <Tooltip content="Détail">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <EyeIcon />
-              </span>
-            </Tooltip>
-            <Tooltip content="Edit user">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-100">
-                <EditIcon />
-              </span>
-            </Tooltip>
-            <Tooltip color="danger" content="Supprimer la réservation">
-              <span className="text-lg text-danger cursor-pointer active:opacity-50">
-                <DeleteIcon />
-              </span>
-            </Tooltip>
-          </div>
-        );
-      default:
-        return cellValue;
-    }
-  }, []);
+  //   switch (columnKey) {
+  //     case "name":
+  //       return (
+  //         <User
+  //           avatarProps={{ radius: "md", src: user.avatar }}
+  //           description={user.email}
+  //           name={cellValue}
+  //         >
+  //           {user.email}
+  //         </User>
+  //       );
+  //     case "role":
+  //       return (
+  //         <div className="flex flex-col">
+  //           <p className="text-bold text-lg capitalize">{cellValue}</p>
+  //           <p className="text-bold text-lg capitalize text-default-400">
+  //             {user.team}
+  //           </p>
+  //         </div>
+  //       );
+  //     case "status":
+  //       return (
+  //         <Chip
+  //           className="capitalize"
+  //           color={statusColorMap[user.status]}
+  //           size="lg"
+  //           variant="flat"
+  //         >
+  //           {cellValue}
+  //         </Chip>
+  //       );
+  //     case "actions":
+  //       return (
+  //         <div className="relative flex items-center justify-center gap-2">
+  //           <Tooltip content="Détail">
+  //             <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+  //               <EyeIcon />
+  //             </span>
+  //           </Tooltip>
+  //           <Tooltip content="Edit user">
+  //             <span className="text-lg text-default-400 cursor-pointer active:opacity-100">
+  //               <EditIcon />
+  //             </span>
+  //           </Tooltip>
+  //           <Tooltip color="danger" content="Supprimer la réservation">
+  //             <span className="text-lg text-danger cursor-pointer active:opacity-50">
+  //               <DeleteIcon />
+  //             </span>
+  //           </Tooltip>
+  //         </div>
+  //       );
+  //     default:
+  //       return cellValue;
+  //   }
+  // }, []);
 
   return (
     <section className="dashboard-page-container">
@@ -141,7 +141,7 @@ function DashboardPro() {
             alt="graphique sur le chiffre d'affaire"
           />
         </section>
-        <section className="dashboard-component-table">
+        {/* <section className="dashboard-component-table">
           <Table
             aria-label="Example table with custom cells"
             bottomContent={
@@ -181,7 +181,7 @@ function DashboardPro() {
               )}
             </TableBody>
           </Table>
-        </section>
+        </section> */}
       </section>
     </section>
   );
