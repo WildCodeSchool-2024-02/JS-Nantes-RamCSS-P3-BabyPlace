@@ -46,13 +46,14 @@ CREATE TABLE `child` (
 -- Création de la table nursery
 CREATE TABLE `nursery` (
     `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `siret` INT NOT NULL,
     `name` VARCHAR(50) NOT NULL,
+    `email` VARCHAR(320) UNIQUE NOT NULL,
+    `password` VARCHAR(100) NOT NULL,
+    `siret` INT NOT NULL,
     `address` VARCHAR(150) NOT NULL,
     `postcode` INT NOT NULL,
     `city` VARCHAR(100) NOT NULL,
     `phone` VARCHAR(15) NOT NULL,
-    `email` VARCHAR(320) NOT NULL,
     `type_of_nursery` VARCHAR(150) NOT NULL,
     `capacity` INT NOT NULL,
     `opening_hours` TIME NOT NULL,
