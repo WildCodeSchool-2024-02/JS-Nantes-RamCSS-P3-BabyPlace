@@ -1,5 +1,4 @@
 import AccueilParents from "./pages/page_parents/AccueilParents";
-
 import "./assets/css/global.css";
 import "./App.css";
 import "./input.css";
