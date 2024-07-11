@@ -39,10 +39,10 @@ const router = createBrowserRouter([
     path: "/pro",
     element: <LayoutPro />,
     children: [
-      {
-        path: "/pro/inscription",
-        element: <InscriptionPro />,
-      },
+      // {
+      //   path: "/pro/inscription",
+      //   element: <InscriptionPro />,
+      // },
       {
         path: "/pro/connexion",
         element: <ConnexionPro />,
