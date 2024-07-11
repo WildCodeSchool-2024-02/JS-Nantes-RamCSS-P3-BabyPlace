@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import { Button } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
 import { useState, useEffect } from "react";
 
 import "../styles_components/AvaibleSeatsComponent.css";

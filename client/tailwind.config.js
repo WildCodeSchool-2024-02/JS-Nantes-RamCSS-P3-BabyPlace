@@ -1,4 +1,4 @@
-import { nextui } from "@nextui-org/react";
+const { nextui } = require("@nextui-org/theme");
 
 const importNextUi =
   process.env.NODE_ENV === "development"
