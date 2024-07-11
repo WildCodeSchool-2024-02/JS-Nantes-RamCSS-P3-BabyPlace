@@ -144,7 +144,6 @@ function SignUp({
         }
       />
       <Input
-        // name="password"
         label="Confirmation mot de passe"
         isRequired
         variant="flat"

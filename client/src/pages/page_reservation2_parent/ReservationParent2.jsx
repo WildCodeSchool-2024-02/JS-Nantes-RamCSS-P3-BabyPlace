@@ -32,7 +32,7 @@ function ChildSelection() {
         </div>
         <div className="total-cost">
           <p>75€*</p>
-          <small>* 8 h de garde*</small>
+          <small>8h de garde</small>
         </div>
         <Button
           type="button"

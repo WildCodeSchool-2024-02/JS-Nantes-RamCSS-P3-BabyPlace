@@ -3,14 +3,14 @@ import "../styles_page_reservation_confirmation/ReservationConfirmation.css";
 function ReservationConfirmation() {
   return (
     <div className="reservation-confirmation">
-      <header>
+      <header className="header-reservation-confirmation">
         <img
           className="logo-babyplace"
           src="./src/assets/images/logos/logo_complet.png"
           alt="logo"
         />
       </header>
-      <article>
+      <article className="article-reservation-confirmation">
         <div className="images-row">
           <img
             className="client-img"

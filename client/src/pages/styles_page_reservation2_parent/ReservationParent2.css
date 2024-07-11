@@ -43,11 +43,3 @@ textarea {
 .total-cost {
   margin: 20px 0;
 }
-
-button {
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
