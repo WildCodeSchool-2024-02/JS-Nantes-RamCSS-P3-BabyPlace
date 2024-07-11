@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import PropTypes from "prop-types";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
@@ -16,25 +16,30 @@ function Login({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isVisible, setIsVisible] = useState(false);
+  const [isEmail, setIsEmail] = useState(true);
+  const [isPassword, setIsPassword] = useState(true);
 
-  const regexEmail = React.useMemo(
+  const regexEmail = useMemo(
     () => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     []
   );
 
-  const regexPassword = React.useMemo(
+  const regexPassword = useMemo(
     () =>
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
     []
   );
+
   const validateEmail = useCallback(
     (value) => regexEmail.test(value),
     [regexEmail]
   );
+
   const validatePassword = useCallback(
     (value) => regexPassword.test(value),
     [regexPassword]
   );
+
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   const isEmailInvalid = useMemo(() => {
@@ -55,9 +60,47 @@ function Login({
     setPasswordChecked(password !== "" && !isPasswordInvalid);
   }, [password, isPasswordInvalid, setPasswordChecked]);
 
+  const handleFetch = async (data) => {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      setIsEmail(false);
+      setIsPassword(false);
+    } else {
+      const res = await response.json();
+      localStorage.setItem("token", res.token);
+      console.info("Logged", res);
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    try {
+      event.preventDefault();
+
+      const isEmailValid = validateEmail(email);
+      const isPasswordValid = validatePassword(password);
+
+      setIsEmail(isEmailValid);
+      setIsPassword(isPasswordValid);
+
+      if (isEmailValid && isPasswordValid) {
+        await handleFetch({ email, password });
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   return (
-    <form className="flex flex-col gap-3">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
       <Input
+        onFocus={() => !isEmail && setIsEmail(true)}
         value={email}
         type="email"
         label="Email"
@@ -70,6 +113,7 @@ function Login({
         errorMessageClass="error-message"
       />
       <Input
+        onFocus={() => !isPassword && setIsPassword(true)}
         label="Mot de passe"
         variant="flat"
         placeholder="Entez votre mot de passe"
@@ -130,7 +174,8 @@ function Login({
 Login.propTypes = {
   setEmailChecked: PropTypes.func.isRequired,
   setPasswordChecked: PropTypes.func.isRequired,
-  checkBtnConnexion: PropTypes.func.isRequired,
+  checkBtnConnexion: PropTypes.bool.isRequired,
   setSelected: PropTypes.func.isRequired,
 };
+
 export default Login;
