@@ -7,9 +7,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import ConnexionParent from "./pages/page_parents/ConnexionParent";
 import InscriptionPro from "./pages/pages_pro-inscription/InscriptionPro";
-import ConnexionPro from "./pages/page_pro_connexion/ConnexionPro";
+import ConnexionPro from "./pages/page_pro/ConnexionPro";
 import AccesInvite from "./pages/page_parents/AccesInvite";
 import DossierParent from "./pages/page_parents/DossierParent";
+import Faq from "./pages/page_parents/Faq";
+import Mentions from "./pages/page_parents/Mentions";
+import DashboardPro from "./pages/page_pro/DashboardPro";
+import LayoutPro from "./pages/page_pro/LayoutPro";
 
 const router = createBrowserRouter([
   {
@@ -17,11 +21,11 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/connexion",
+    path: "connexion",
     element: <ConnexionParent />,
   },
   {
-    path: "/acces-invite",
+    path: "acces-invite",
     element: <AccesInvite />,
   },
   {
@@ -29,16 +33,37 @@ const router = createBrowserRouter([
     element: <DossierParent />,
   },
   {
-    path: "pro",
+    path: "faq",
+    element: <Faq />,
+  },
+  {
+    path: "mentions-legales",
+    element: <Mentions />,
+  },
+  {
+    path: "/pro",
+    element: <LayoutPro />,
     children: [
       {
-        path: "inscription",
+        path: "/pro/inscription",
         element: <InscriptionPro />,
       },
       {
-        path: "connexion",
+        path: "/pro/connexion",
         element: <ConnexionPro />,
       },
+      {
+        path: "/pro/dashboard",
+        element: <DashboardPro />,
+      },
+      {
+        path: "/pro/modification-du-profil",
+        element: <InscriptionPro />,
+      },
+      // {
+      //   path: "reservations",
+      //   element: <ReservationsPro />,
+      // },
     ],
   },
 ]);
