@@ -43,9 +43,8 @@
 }
 .input-parents-invite::placeholder {
   color: var(--ligth-color-text, rgb(255, 255, 255));
-  color: var(--ligth-color-text, rgb(255, 255, 255));
 }
 
-.accesinvite-checkbox-container {
-  color: var(--ligth-color-text, rgb(255, 255, 255));
+.acces-invite-text {
+  color: var(--ligth-color-text, rgb(255, 255, 255)) !important;
 }

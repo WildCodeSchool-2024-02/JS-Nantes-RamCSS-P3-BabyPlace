@@ -1,9 +1,4 @@
-.toolbar {
-  border: solid 1px;
-  border-radius: 10px;
-  bottom: 0;
-  position: fixed;
-  width: 100vw;
+.city-date-container {
   padding: 15px;
   display: flex;
   flex-direction: row;

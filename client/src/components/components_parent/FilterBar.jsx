@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "../styles_components/FilterBar.css";
 
 function FilterBar({ city, setCity, date, setDate, handleFilterChange }) {
   const handleCityChange = (e) => {
@@ -14,18 +15,22 @@ function FilterBar({ city, setCity, date, setDate, handleFilterChange }) {
   return (
     <div className="filter-bar">
       <div className="filter-item">
-        <label htmlFor="city">Ville:</label>
         <input
           type="text"
-          id="city"
-          placeholder="Entrez une ville"
+          id=""
+          placeholder="Filtrer"
           value={city}
           onChange={handleCityChange}
         />
       </div>
       <div className="filter-item">
-        <label htmlFor="date">Date:</label>
-        <input type="date" id="date" value={date} onChange={handleDateChange} />
+        <input
+          type="text"
+          id=""
+          value={date}
+          placeholder="Trier"
+          onChange={handleDateChange}
+        />
       </div>
     </div>
   );

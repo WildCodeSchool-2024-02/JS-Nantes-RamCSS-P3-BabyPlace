@@ -1,8 +1,9 @@
 import { useState } from "react";
 import CityDatePicker from "../../components/components_parent/CityDatePicker";
-// import FilterBar from "../../components/components_parent/FilterBar";
 import Toolbar from "../../components/components_parent/Toolbar";
 import NurseryCard from "../../components/components_parent/NurseryCard";
+import FilterBar from "../../components/components_parent/FilterBar";
+import "../styles_parents/HomeSearch.css";
 
 function HomeSearch() {
   // correspond à la barre de recherche pour la ville et la date
@@ -11,15 +12,15 @@ function HomeSearch() {
 
   // correspond à la barre pour filtrer, trier
   const [filters, setFilters] = useState({ city: "", date: null });
+  console.warn(filters);
 
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
   };
 
   return (
-    <>
-      <div>
-        <h1>Recherche par Ville et Date</h1>
+    <div className="home-search-container">
+      <div className="home-search-city-date">
         <CityDatePicker
           city={city}
           date={date}
@@ -27,27 +28,19 @@ function HomeSearch() {
           onDateChange={setDate}
           handleFilterChange={handleFilterChange}
         />
-        <div>
-          <h1>Application de Filtres</h1>
+      </div>
 
-          {/* <FilterBar
-            date={date}
-            setDate={setDate}
-            city={city}
-            setCity={setCity}
-          /> */}
-          <p>Ville sélectionnée: {filters.city}</p>
-          <p>
-            Date sélectionnée:{" "}
-            {filters.date
-              ? new Date(filters.date).toLocaleDateString()
-              : "Aucune date sélectionnée"}
-          </p>
+      <div className="home-search-filter">
+        <FilterBar />
+      </div>
+      <div className="home-search-nursery-card pt-8 flex-col flex gap-8">
+        <NurseryCard />
+        <NurseryCard />
+        <div className="home-search-toolbar">
+          <Toolbar />
         </div>
       </div>
-      <Toolbar />
-      <NurseryCard />
-    </>
+    </div>
   );
 }
 

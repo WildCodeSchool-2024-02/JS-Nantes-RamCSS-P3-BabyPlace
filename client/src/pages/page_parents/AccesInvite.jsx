@@ -45,13 +45,15 @@ function AccesInvite() {
               />
             </div>
           </div>
-          <Checkbox
-            color="secondary"
-            isSelected={isTermsChecked}
-            onClick={handleCheckboxClick}
-          >
-            Mes dates ou mes horaires sont flexibles
-          </Checkbox>
+          <div className="acces-invite-text texts">
+            <Checkbox
+              color="secondary"
+              isSelected={isTermsChecked}
+              onClick={handleCheckboxClick}
+            >
+              Mes dates ou mes horaires sont flexibles
+            </Checkbox>
+          </div>
           <NavLink to="/recherche" className="w-80">
             <Button
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts w-80"
