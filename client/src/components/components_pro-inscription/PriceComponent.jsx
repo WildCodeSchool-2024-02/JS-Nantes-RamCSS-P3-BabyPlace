@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { Button, Input, Tabs, Tab } from "@nextui-org/react";
+import { Tabs, Tab } from "@nextui-org/tabs";
+import { Input } from "@nextui-org/input";
+import { Button } from "@nextui-org/button";
 
 import PropTypes from "prop-types";
 

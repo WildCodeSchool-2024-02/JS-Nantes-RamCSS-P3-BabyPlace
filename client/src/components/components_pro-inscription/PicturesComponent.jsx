@@ -1,11 +1,11 @@
+import { Avatar } from "@nextui-org/avatar";
+import { Button } from "@nextui-org/button";
 import {
-  Button,
-  Avatar,
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-} from "@nextui-org/react";
+} from "@nextui-org/dropdown";
 
 import PropTypes from "prop-types";
 

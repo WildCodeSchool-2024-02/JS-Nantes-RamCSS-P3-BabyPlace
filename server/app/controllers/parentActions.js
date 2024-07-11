@@ -1,5 +1,84 @@
 // Import access to database tables
+const argon2 = require("argon2");
+const jwt = require("jsonwebtoken");
 const tables = require("../../database/tables");
+
+
+const hashingOptions = {
+  type: argon2.argon2id,
+  memoryCost: 2 ** 16,
+  timeCost: 5,
+  parallelism: 1,
+};
+
+const hashPassword = (req, res, next) => {
+  if (req.body.password) {
+    argon2
+      .hash(req.body.password, hashingOptions)
+      .then((hashedPassword) => {
+        req.body.password = hashedPassword;
+        next();
+      })
+      .catch((err) => {
+        console.error(err.message);
+        res.sendStatus(500);
+      });
+  } else {
+    res.sendStatus(401);
+  }
+};
+
+const resultIsPasswordValid = async (password, hashedPassword) => {
+  try {
+    return await argon2.verify(hashedPassword, password);
+  } catch (err) {
+    console.error(err);
+    return false;
+  }
+};
+
+const login = async (req, res) => {
+  try {
+    const parent = await tables.parent.readByEmail(req.body.email);
+    if (!parent) {
+      res.sendStatus(401);
+      return;
+    }
+
+    const resultPasswordValid = await (req.body.password, parent.password);
+    if (!resultPasswordValid) {
+      res.sendStatus(401);
+      return;
+    }
+
+    const payload = { sub: parent.id };
+    const token = jwt.sign(payload, process.env.APP_SECRET, {
+      expiresIn: "1h",
+    });
+
+    if (token) {
+      delete parent.password;
+      res.status(200).json({ token, parent });
+    }
+  } catch (error) {
+    console.error();
+  }
+};
+
+const credentialsValidation = (req, res, next) => {
+  const { email, password } = req.body;
+  const isEmailValid = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(
+    email
+  );
+  const isPasswordValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(password);
+
+  if (!isEmailValid || !isPasswordValid) {
+    res.sendStatus(401);
+    return;
+  }
+
+  next();
+};
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
@@ -11,7 +90,8 @@ const add = async (req, res, next) => {
     const insertId = await tables.parent.create(
       parent.firstname,
       parent.lastname,
-      parent.occupation,
+      parent.password,
+      parent.job,
       parent.phone,
       parent.email,
       parent.address,
@@ -98,10 +178,11 @@ const edit = async (req, res, next) => {
     const body = {
       id: req.params.id,
       firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      occupation: req.body.occupation,
-      phone: req.body.phone,
+      password: req.body.password,
       email: req.body.email,
+      lastname: req.body.lastname,
+      job: req.body.job,
+      phone: req.body.phone,
       address: req.body.address,
       identity_card: req.body.identity_card,
       photo: req.body.photo,
@@ -159,4 +240,8 @@ module.exports = {
   edit,
   add,
   destroy,
+  hashPassword,
+  resultIsPasswordValid,
+  login,
+  credentialsValidation,
 };

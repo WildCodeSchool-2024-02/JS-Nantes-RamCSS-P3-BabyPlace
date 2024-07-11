@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles_pro_pages/ConnexionPro.css";
 import "../../assets/css/connexion.css";
-import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
+import { Tabs, Tab } from "@nextui-org/tabs";
+import { Card, CardBody } from "@nextui-org/card";
 import SignUp from "../../components/components_parent/SignUp";
 import Login from "../../components/components_parent/Login";
 
