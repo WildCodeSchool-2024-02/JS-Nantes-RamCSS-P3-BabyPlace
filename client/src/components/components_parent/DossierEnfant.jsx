@@ -2,7 +2,7 @@ import { Input, DatePicker, Checkbox } from "@nextui-org/react";
 
 function DossierEnfant() {
   return (
-    <section className="h-[75vh] bg-white">
+    <section className="h-[75vh] bg-white flex flex-center flex-col items-center justify-center gap-2">
       <Input
         isRequired
         type="text"
@@ -29,10 +29,6 @@ function DossierEnfant() {
         name=""
         onChange=""
       />
-
-      <Checkbox value="Crèche parentale">Sait il parler</Checkbox>
-      <Checkbox value="Micro-Crèche">A t il un handicape</Checkbox>
-      <Checkbox value="Crèche d'entreprise">Crèche d'entreprise</Checkbox>
 
       <DatePicker label="Birth date" className="max-w-[284px]" />
 
@@ -80,9 +76,14 @@ function DossierEnfant() {
         size="lg"
         placeholder="Nom du médecin traitent"
         name=""
-
       />
-      <Checkbox value="autorisation de soins">autorisation de soins</Checkbox>
+      <section className="flex flex-col items-start justify-start gap-5 w-[280px]">
+        <Checkbox value="Crèche parentale">Sait il parler</Checkbox>
+        <Checkbox value="Micro-Crèche">A t il un handicape</Checkbox>
+        <Checkbox value="autorisation de soins" className="w-[280px]">
+          autorisation de soins
+        </Checkbox>
+      </section>
     </section>
   );
 }

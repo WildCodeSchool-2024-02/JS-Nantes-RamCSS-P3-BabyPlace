@@ -50,8 +50,8 @@ function DossierParent() {
       ) : null}
 
       {component !== "" && (
-        <section>
-          <section>
+        <section className="">
+          <section className="flex-col">
             <h1>{user}</h1>
 
             <NavParentDossier setComponent={setComponent} />
