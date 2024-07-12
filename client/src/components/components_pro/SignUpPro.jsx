@@ -112,22 +112,13 @@ function SignUpPro({ setSelected }) {
       <Input
         label="Confirmation mot de passe"
         isRequired
-        id="confirm-password"
         variant="flat"
         title="Les mots de passe doivent correspondre"
         placeholder="Confirmez votre mot de passe"
         type={isVisible ? "text" : "password"}
-        isInvalid={
-          document.activeElement ===
-            document.getElementById("confirm-password") &&
-          confirmPassword !== password
-        }
+        isInvalid={confirmPassword !== "" && confirmPassword !== password}
         color={
-          document.activeElement ===
-            document.getElementById("confirm-password") &&
-          confirmPassword !== password
-            ? "danger"
-            : ""
+          confirmPassword !== "" && confirmPassword !== password ? "danger" : ""
         }
         onValueChange={setConfirmPassword}
         className="max-w-xs "
@@ -187,13 +178,11 @@ function SignUpPro({ setSelected }) {
             une minuscule, un chiffre et un caractère spécial
           </p>
         )}
-        {document.activeElement ===
-          document.getElementById("confirm-password") &&
-          confirmPassword !== password && (
-            <p className="text-white text-sm md:text-black">
-              Les mots de passe ne correspondent pas
-            </p>
-          )}
+        {confirmPassword !== "" && confirmPassword !== password && (
+          <p className="text-white text-sm md:text-black">
+            Les mots de passe ne correspondent pas
+          </p>
+        )}
       </section>
     </form>
   );
