@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useState, useEffect, useCallback, useMemo } from "react";
-import PropTypes from "prop-types";
+import { useState, useMemo } from "react";
+// import { useEffect, useCallback} from "react";
+// import PropTypes from "prop-types";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
@@ -8,22 +9,23 @@ import { Checkbox } from "@nextui-org/checkbox";
 import EyeFilledIcon from "../../assets/nextUI/EyeFilledIcon";
 import EyeSlashFilledIcon from "../../assets/nextUI/EyeSlashFilledIcon";
 
-function SignUpPro({
-  setEmailChecked,
-  setPasswordChecked,
-  setSelected,
-  checkBtnConnexion,
-}) {
-  const regexEmail = useMemo(
-    () => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-    []
-  );
+function SignUpPro() {
+  // {
+  // setEmailChecked,
+  // setPasswordChecked,
+  // setSelected,
+  // checkBtnConnexion,
+  // }
+  // const regexEmail = useMemo(
+  //   () => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+  //   []
+  // );
 
-  const regexPassword = useMemo(
-    () =>
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-    []
-  );
+  // const regexPassword = useMemo(
+  //   () =>
+  //     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+  //   []
+  // );
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,49 +35,69 @@ function SignUpPro({
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
-  const validateEmail = useCallback(
-    (value) => regexEmail.test(value),
-    [regexEmail]
-  );
+  const validateEmail = (value) =>
+    value.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
 
-  const validatePassword = useCallback(
-    (value) => regexPassword.test(value),
-    [regexPassword]
-  );
-
-  const isEmailInvalid = useMemo(() => {
+  const isInvalidEmail = useMemo(() => {
     if (email === "") return false;
+
     return !validateEmail(email);
-  }, [email, validateEmail]);
+  }, [email]);
 
-  const isPasswordInvalid = useMemo(() => {
-    if (password === "") return false;
-    return !validatePassword(password);
-  }, [password, validatePassword]);
-
-  const isConfirmPasswordInvalid = useMemo(() => {
-    if (confirmPassword === "") return false;
-    return confirmPassword !== password;
-  }, [confirmPassword, password]);
-
-  useEffect(() => {
-    setEmailChecked(email !== "" && !isEmailInvalid);
-  }, [email, isEmailInvalid, setEmailChecked]);
-
-  useEffect(() => {
-    setPasswordChecked(
-      password !== "" &&
-        !isPasswordInvalid &&
-        confirmPassword !== "" &&
-        !isConfirmPasswordInvalid
+  const validatePassword = (value) =>
+    value.match(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
     );
-  }, [
-    password,
-    confirmPassword,
-    isPasswordInvalid,
-    isConfirmPasswordInvalid,
-    setPasswordChecked,
-  ]);
+
+  const isInvalidPassword = useMemo(() => {
+    if (password === "") return false;
+
+    return !validatePassword(password);
+  }, [password]);
+
+  // const validateEmail = useCallback(
+  //   (value) => regexEmail.test(value),
+  //   [regexEmail]
+  // );
+
+  // const validatePassword = useCallback(
+  //   (value) => regexPassword.test(value),
+  //   [regexPassword]
+  // );
+
+  // const isEmailInvalid = useMemo(() => {
+  //   if (email === "") return false;
+  //   return !validateEmail(email);
+  // }, [email, validateEmail]);
+
+  // const isPasswordInvalid = useMemo(() => {
+  //   if (password === "") return false;
+  //   return !validatePassword(password);
+  // }, [password, validatePassword]);
+
+  // const isConfirmPasswordInvalid = useMemo(() => {
+  //   if (confirmPassword === "") return false;
+  //   return confirmPassword !== password;
+  // }, [confirmPassword, password]);
+
+  // useEffect(() => {
+  //   setEmailChecked(email !== "" && !isEmailInvalid);
+  // }, [email, isEmailInvalid, setEmailChecked]);
+
+  // useEffect(() => {
+  //   setPasswordChecked(
+  //     password !== "" &&
+  //       !isPasswordInvalid &&
+  //       confirmPassword !== "" &&
+  //       !isConfirmPasswordInvalid
+  //   );
+  // }, [
+  //   password,
+  //   confirmPassword,
+  //   isPasswordInvalid,
+  //   isConfirmPasswordInvalid,
+  //   setPasswordChecked,
+  // ]);
 
   const handleCheckboxClick = () => {
     // Permet de cocher mais pas de décocher
@@ -115,11 +137,12 @@ function SignUpPro({
         isRequired
         placeholder="Entrez votre Email"
         variant="flat"
-        isInvalid={isEmailInvalid}
-        color={isEmailInvalid ? "danger" : ""}
+        isInvalid={isInvalidEmail}
+        color={isInvalidEmail ? "danger" : ""}
         onValueChange={setEmail}
         className="max-w-xs text-danger-700"
         errorMessageClass="error-message"
+        title="Veuillez entrer un email valide"
       />
       <Input
         name="password"
@@ -128,9 +151,10 @@ function SignUpPro({
         variant="flat"
         placeholder="Entrez votre mot de passe"
         type={isVisible ? "text" : "password"}
-        isInvalid={isPasswordInvalid}
-        color={isPasswordInvalid ? "danger" : ""}
+        isInvalid={isInvalidPassword}
+        color={isInvalidPassword ? "danger" : ""}
         onValueChange={setPassword}
+        title="Veuillez entrer un email valide"
         className="max-w-xs "
         endContent={
           <button
@@ -149,11 +173,23 @@ function SignUpPro({
       <Input
         label="Confirmation mot de passe"
         isRequired
+        id="confirm-password"
         variant="flat"
         placeholder="Confirmez votre mot de passe"
         type={isVisible ? "text" : "password"}
-        isInvalid={isConfirmPasswordInvalid}
-        color={isConfirmPasswordInvalid ? "danger" : ""}
+        // pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/"
+        isInvalid={
+          document.activeElement ===
+            document.getElementById("confirm-password") &&
+          confirmPassword !== password
+        }
+        color={
+          document.activeElement ===
+            document.getElementById("confirm-password") &&
+          confirmPassword !== password
+            ? "danger"
+            : ""
+        }
         onValueChange={setConfirmPassword}
         className="max-w-xs "
         endContent={
@@ -179,14 +215,16 @@ function SignUpPro({
       </Checkbox>
       <p className="text-center text-small">
         Vous avez déjà un compte ?{" "}
-        <Link size="sm" onPress={() => setSelected("login")}>
+        <Link
+          size="sm" // onPress={() => setSelected("login")}
+        >
           Connexion
         </Link>
       </p>
       <div className="flex gap-2 justify-end">
         <Button
           type="submit"
-          isDisabled={!checkBtnConnexion || !isTermsChecked}
+          // isDisabled={!checkBtnConnexion || !isTermsChecked}
           variant="shadow"
           className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
           fullWidth
@@ -197,32 +235,34 @@ function SignUpPro({
       </div>
 
       <section className="checked-value-form">
-        {isEmailInvalid && (
+        {isInvalidEmail && (
           <p className="text-white text-sm md:text-black">
             Veuillez entrer un email valide
           </p>
         )}
-        {isPasswordInvalid && (
+        {isInvalidPassword && (
           <p className="text-white text-sm md:text-black">
             Le mot de passe doit contenir au moins 8 caractères, une majuscule,
             une minuscule, un chiffre et un caractère spécial
           </p>
         )}
-        {isConfirmPasswordInvalid && (
-          <p className="text-white text-sm md:text-black">
-            Les mots de passe ne correspondent pas
-          </p>
-        )}
+        {document.activeElement ===
+          document.getElementById("confirm-password") &&
+          confirmPassword !== password && (
+            <p className="text-white text-sm md:text-black">
+              Les mots de passe ne correspondent pas
+            </p>
+          )}
       </section>
     </form>
   );
 }
 
-SignUpPro.propTypes = {
-  setEmailChecked: PropTypes.func.isRequired,
-  setPasswordChecked: PropTypes.func.isRequired,
-  setSelected: PropTypes.func.isRequired,
-  checkBtnConnexion: PropTypes.bool.isRequired,
-};
+// SignUpPro.propTypes = {
+// setEmailChecked: PropTypes.func.isRequired,
+// setPasswordChecked: PropTypes.func.isRequired,
+// setSelected: PropTypes.func.isRequired,
+// checkBtnConnexion: PropTypes.bool.isRequired,
+// };
 
 export default SignUpPro;
