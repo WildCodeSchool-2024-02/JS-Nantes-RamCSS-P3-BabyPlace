@@ -2,7 +2,6 @@ import { useState } from "react";
 import CityDatePicker from "../../components/components_parent/CityDatePicker";
 import Toolbar from "../../components/components_parent/Toolbar";
 import NurseryCard from "../../components/components_parent/NurseryCard";
-import FilterBar from "../../components/components_parent/FilterBar";
 import "../styles_parents/HomeSearch.css";
 
 function HomeSearch() {
@@ -30,10 +29,7 @@ function HomeSearch() {
         />
       </div>
 
-      <div className="home-search-filter">
-        <FilterBar />
-      </div>
-      <div className="home-search-nursery-card pt-8 flex-col flex gap-8">
+      <div className="home-search-nursery-card pt-5 flex-col flex gap-5">
         <NurseryCard />
         <NurseryCard />
         <div className="home-search-toolbar">

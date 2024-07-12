@@ -5,7 +5,7 @@ import "../styles_components/CityDatePicker.css";
 function CityDatePicker({ city, date, onCityChange, onDateChange }) {
   return (
     <section>
-      <div className="city-date-container">
+      <div className="city-date-container texts">
         <label htmlFor="city"> Ville: </label>
         <input
           type="text"
@@ -16,6 +16,7 @@ function CityDatePicker({ city, date, onCityChange, onDateChange }) {
         <label htmlFor="date"> Date: </label>
         <DatePicker
           value={date}
+          color="secondary"
           onChange={onDateChange}
           placeholder="Choisissez une date"
         />

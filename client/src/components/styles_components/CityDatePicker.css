@@ -1,5 +1,6 @@
 .city-date-container {
-  padding: 15px;
+  background-color: var(--background-light);
+  padding: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

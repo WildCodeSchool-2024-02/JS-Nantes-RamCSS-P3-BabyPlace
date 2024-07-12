@@ -17,7 +17,6 @@ function FilterBar({ city, setCity, date, setDate, handleFilterChange }) {
       <div className="filter-item">
         <input
           type="text"
-          id=""
           placeholder="Filtrer"
           value={city}
           onChange={handleCityChange}
@@ -26,7 +25,6 @@ function FilterBar({ city, setCity, date, setDate, handleFilterChange }) {
       <div className="filter-item">
         <input
           type="text"
-          id=""
           value={date}
           placeholder="Trier"
           onChange={handleDateChange}

@@ -1,10 +1,9 @@
 .toolbar {
-  border: solid 1px;
-  border-radius: 10px;
+  background-color: var(--background-light);
   bottom: 0;
   position: fixed;
   width: 100vw;
-  padding: 15px;
+  padding: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -6,10 +6,22 @@
 }
 
 .nursery-card {
-  background-color: white;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-light);
   border: solid 1px;
   border-radius: 10px;
-  padding: 20px;
-  width: 90vw;
-  height: 30vh;
+  width: 85vw;
+  height: 35vh;
+}
+
+.nursery-photo {
+  max-height: 50%;
+  width: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.coeur-favoris {
+  margin-left: auto;
 }

@@ -14,6 +14,7 @@
     rgb(227, 122, 204) 99.05%
   );
   --gradient-card: linear-gradient(225deg, #a59bff 0%, #7e72f2 100%);
+
   --light-blue-gradient: linear-gradient(
     321deg,
     rgb(0, 242, 254) -19.83%,
@@ -33,6 +34,7 @@
   --background-grey: rgb(232, 232, 232);
   --background-light-purple: rgba(226, 105, 221, 0.15);
   --background-light: rgb(255, 255, 255);
+  --background-light-purple-pink: rgb(241, 228, 255);
 
   /* * text */
   --dark-color-text: rgb(0, 0, 0);

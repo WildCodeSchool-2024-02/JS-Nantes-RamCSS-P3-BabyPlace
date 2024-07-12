@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { Button, Input, Checkbox, DatePicker } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
+import { Input } from "@nextui-org/input";
+import { Checkbox } from "@nextui-org/checkbox";
+import { DatePicker } from "@nextui-org/date-picker";
 import "../styles_parents/AccesInvite.css";
 
 function AccesInvite() {

@@ -1,8 +1,5 @@
-.home-search-nursery-card {
-  background-color: #f1e4ff;
-  height: 73vh;
-}
-
-.home-search-filter {
-  background-color: #ece7e7;
+.home-search-container {
+  background-color: var(--background-light-purple-pink);
+  min-width: 100vw;
+  min-height: 100vh;
 }
