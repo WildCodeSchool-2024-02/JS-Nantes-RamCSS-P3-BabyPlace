@@ -1,5 +1,5 @@
-import {Button} from "@nextui-org/button";
-import "../styles_page_reservation2_parent/ReservationParent2.css";
+import { Button } from "@nextui-org/button";
+import "../styles_parents/ReservationParent2.css";
 
 function ChildSelection() {
   return (

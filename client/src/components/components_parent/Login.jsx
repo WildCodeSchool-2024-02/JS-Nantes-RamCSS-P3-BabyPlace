@@ -70,8 +70,8 @@ function Login({
     });
 
     if (!response.ok) {
-      setIsEmail(false);
-      setIsPassword(false);
+      setIsEmail(() => false);
+      setIsPassword(() => false);
     } else {
       const res = await response.json();
       localStorage.setItem("token", res.token);
@@ -86,8 +86,8 @@ function Login({
       const isEmailValid = validateEmail(email);
       const isPasswordValid = validatePassword(password);
 
-      setIsEmail(isEmailValid);
-      setIsPassword(isPasswordValid);
+      setIsEmail(() => isEmailValid);
+      setIsPassword(() => isPasswordValid);
 
       if (isEmailValid && isPasswordValid) {
         await handleFetch({ email, password });
@@ -116,7 +116,7 @@ function Login({
         onFocus={() => !isPassword && setIsPassword(true)}
         label="Mot de passe"
         variant="flat"
-        placeholder="Entez votre mot de passe"
+        placeholder="Entrez votre mot de passe"
         endContent={
           <button
             className="focus:outline-none"
@@ -144,6 +144,7 @@ function Login({
       </p>
       <div className="flex gap-2 justify-end">
         <Button
+          type="submit"
           isDisabled={!checkBtnConnexion}
           className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
           variant="shadow"
@@ -179,3 +180,4 @@ Login.propTypes = {
 };
 
 export default Login;
+

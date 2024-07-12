@@ -8,14 +8,14 @@ import App from "./App";
 import ConnexionParent from "./pages/page_parents/ConnexionParent";
 import InscriptionPro from "./pages/pages_pro-inscription/InscriptionPro";
 import ConnexionPro from "./pages/page_pro/ConnexionPro";
-import ReservationRequest from "./pages/page_reservation_parent/ReservationParent";
-import ChildSelection from "./pages/page_reservation2_parent/ReservationParent2";
-import ReservationConfirmation from "./pages/page_reservation_confirmation/ReservationConfirmation";
 import AccesInvite from "./pages/page_parents/AccesInvite";
 import Faq from "./pages/page_parents/Faq";
 import Mentions from "./pages/page_parents/Mentions";
 import DashboardPro from "./pages/page_pro/DashboardPro";
 import LayoutPro from "./pages/page_pro/LayoutPro";
+import ReservationConfirmation from "./pages/page_parents/ReservationConfirmation";
+import ReservationRequest from "./pages/page_parents/ReservationParent";
+import ChildSelection from "./pages/page_parents/ReservationParent2";
 
 const router = createBrowserRouter([
   {

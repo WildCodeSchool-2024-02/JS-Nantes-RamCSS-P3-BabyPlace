@@ -1,4 +1,4 @@
-import "../styles_page_reservation_confirmation/ReservationConfirmation.css";
+import "../styles_parents/ReservationConfirmation.css";
 
 function ReservationConfirmation() {
   return (

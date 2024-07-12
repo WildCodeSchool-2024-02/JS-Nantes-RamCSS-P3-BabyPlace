@@ -1,4 +1,4 @@
-import "../styles_page_reservation_parent/ReservationParent.css";
+import "../styles_parents/ReservationParent.css";
 
 function ReservationRequest() {
   return (

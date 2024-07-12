@@ -11,9 +11,9 @@ const {
   edit,
   destroy,
   hashPassword,
+  verifyPassword,
+  login,
   credentialsValidation,
-  // isPasswordValid,
-  // login,
 } = require("../../../controllers/parentActions");
 
 // Route to get a list of parents
@@ -28,10 +28,13 @@ router.get("/:id/favorites", browseAllFavoritesByParentId);
 // Route to add a new parent
 router.post(
   "/",
-  credentialsValidation,
   hashPassword,
+  credentialsValidation,
   add
 );
+
+// Route to edit an existing parent
+router.post("/login", login, verifyPassword);
 
 // Route to edit an existing parent
 router.put("/:id", edit);
