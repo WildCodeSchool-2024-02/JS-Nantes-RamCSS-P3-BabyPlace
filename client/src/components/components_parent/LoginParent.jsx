@@ -24,12 +24,8 @@ function LoginParent({ setSelected }) {
     });
 
     if (!response.ok) {
-      setEmail(false);
-      setPassword(false);
-    } else {
       const res = await response.json();
       localStorage.setItem("token", res.token);
-      console.info("Logged", res);
     }
   };
 
@@ -37,7 +33,7 @@ function LoginParent({ setSelected }) {
     try {
       event.preventDefault();
 
-      if (setEmail && setPassword) {
+      if (email && password) {
         await handleFetch({ email, password });
       }
     } catch (error) {
