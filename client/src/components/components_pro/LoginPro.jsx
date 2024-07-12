@@ -113,7 +113,7 @@ function LoginPro({ setSelected }) {
         // isInvalid={isEmailInvalid}
         // color={isEmailInvalid ? "danger" : ""}
         onValueChange={setEmail}
-        className="max-w-xs text-danger-700"
+        className="max-w-xs"
         errorMessageClass="error-message"
       />
       <Input

@@ -66,6 +66,7 @@ function SignUpPro({ setSelected }) {
         isRequired
         placeholder="Entrez le nom de votre structure"
         type="text"
+        title="Veuillez entrer le nom de votre structure"
       />
       <Input
         name="email"
@@ -78,7 +79,7 @@ function SignUpPro({ setSelected }) {
         isInvalid={isInvalidEmail}
         color={isInvalidEmail ? "danger" : ""}
         onValueChange={setEmail}
-        className="max-w-xs text-danger-700"
+        className="max-w-xs"
         errorMessageClass="error-message"
         title="Veuillez entrer un email valide"
       />
