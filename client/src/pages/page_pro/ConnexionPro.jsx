@@ -9,19 +9,7 @@ import SignUpPro from "../../components/components_pro/SignUpPro";
 import LoginPro from "../../components/components_pro/LoginPro";
 
 function ConnexionPro() {
-  // const [emailChecked, setEmailChecked] = useState(false);
-  // const [passwordChecked, setPasswordChecked] = useState(false);
   const [selected, setSelected] = useState("login");
-  // const [checkBtnConnexion, setCheckBtnConnexion] = useState(false);
-
-  // deblocage du bouton connexion
-  // useEffect(() => {
-  //   if (emailChecked && passwordChecked) {
-  //     setCheckBtnConnexion(true);
-  //   } else {
-  //     setCheckBtnConnexion(false);
-  //   }
-  // }, [emailChecked, passwordChecked]);
 
   return (
     <div className="mobile-connexion">
@@ -57,20 +45,10 @@ function ConnexionPro() {
                 onSelectionChange={setSelected}
               >
                 <Tab key="login" title="Connexion">
-                  <LoginPro
-                    // setEmailChecked={setEmailChecked}
-                    // checkBtnConnexion={checkBtnConnexion}
-                    // setPasswordChecked={setPasswordChecked}
-                    setSelected={setSelected}
-                  />
+                  <LoginPro setSelected={setSelected} />
                 </Tab>
                 <Tab key="signup" title="S'inscrire">
-                  <SignUpPro
-                    // setEmailChecked={setEmailChecked}
-                    // checkBtnConnexion={checkBtnConnexion}
-                    // setPasswordChecked={setPasswordChecked}
-                    setSelected={setSelected}
-                  />
+                  <SignUpPro setSelected={setSelected} />
                 </Tab>
               </Tabs>
             </CardBody>

@@ -8,19 +8,7 @@ import SignUpParent from "../../components/components_parent/SignUpParent";
 import LoginParent from "../../components/components_parent/LoginParent";
 
 function ConnexionParent() {
-  // const [emailChecked, setEmailChecked] = useState(false);
-  // const [passwordChecked, setPasswordChecked] = useState(false);
   const [selected, setSelected] = useState("login");
-  // const [checkBtnConnexion, setCheckBtnConnexion] = useState(false);
-
-  // deblocage du bouton connexion
-  // useEffect(() => {
-  //   if (emailChecked && passwordChecked) {
-  //     setCheckBtnConnexion(true);
-  //   } else {
-  //     setCheckBtnConnexion(false);
-  //   }
-  // }, [emailChecked, passwordChecked]);
 
   return (
     <div className="mobile-connexion">
@@ -61,20 +49,10 @@ function ConnexionParent() {
                 onSelectionChange={setSelected}
               >
                 <Tab key="login" title="Connexion">
-                  <LoginParent
-                    // setEmailChecked={setEmailChecked}
-                    // checkBtnConnexion={checkBtnConnexion}
-                    // setPasswordChecked={setPasswordChecked}
-                    setSelected={setSelected}
-                  />
+                  <LoginParent setSelected={setSelected} />
                 </Tab>
                 <Tab key="signup" title="S'inscrire">
-                  <SignUpParent
-                    // setEmailChecked={setEmailChecked}
-                    // checkBtnConnexion={checkBtnConnexion}
-                    // setPasswordChecked={setPasswordChecked}
-                    setSelected={setSelected}
-                  />
+                  <SignUpParent setSelected={setSelected} />
                 </Tab>
               </Tabs>
             </CardBody>
