@@ -1,32 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+
 import { useState, useMemo } from "react";
-// import { useEffect, useCallback} from "react";
-// import PropTypes from "prop-types";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import { Checkbox } from "@nextui-org/checkbox";
+
+import PropTypes from "prop-types";
 import EyeFilledIcon from "../../assets/nextUI/EyeFilledIcon";
 import EyeSlashFilledIcon from "../../assets/nextUI/EyeSlashFilledIcon";
 
-function SignUpPro() {
-  // {
-  // setEmailChecked,
-  // setPasswordChecked,
-  // setSelected,
-  // checkBtnConnexion,
-  // }
-  // const regexEmail = useMemo(
-  //   () => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-  //   []
-  // );
-
-  // const regexPassword = useMemo(
-  //   () =>
-  //     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-  //   []
-  // );
-
+function SignUpPro({ setSelected }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -55,53 +39,7 @@ function SignUpPro() {
     return !validatePassword(password);
   }, [password]);
 
-  // const validateEmail = useCallback(
-  //   (value) => regexEmail.test(value),
-  //   [regexEmail]
-  // );
-
-  // const validatePassword = useCallback(
-  //   (value) => regexPassword.test(value),
-  //   [regexPassword]
-  // );
-
-  // const isEmailInvalid = useMemo(() => {
-  //   if (email === "") return false;
-  //   return !validateEmail(email);
-  // }, [email, validateEmail]);
-
-  // const isPasswordInvalid = useMemo(() => {
-  //   if (password === "") return false;
-  //   return !validatePassword(password);
-  // }, [password, validatePassword]);
-
-  // const isConfirmPasswordInvalid = useMemo(() => {
-  //   if (confirmPassword === "") return false;
-  //   return confirmPassword !== password;
-  // }, [confirmPassword, password]);
-
-  // useEffect(() => {
-  //   setEmailChecked(email !== "" && !isEmailInvalid);
-  // }, [email, isEmailInvalid, setEmailChecked]);
-
-  // useEffect(() => {
-  //   setPasswordChecked(
-  //     password !== "" &&
-  //       !isPasswordInvalid &&
-  //       confirmPassword !== "" &&
-  //       !isConfirmPasswordInvalid
-  //   );
-  // }, [
-  //   password,
-  //   confirmPassword,
-  //   isPasswordInvalid,
-  //   isConfirmPasswordInvalid,
-  //   setPasswordChecked,
-  // ]);
-
   const handleCheckboxClick = () => {
-    // Permet de cocher mais pas de décocher
-
     setIsTermsChecked(!isTermsChecked);
   };
 
@@ -154,7 +92,7 @@ function SignUpPro() {
         isInvalid={isInvalidPassword}
         color={isInvalidPassword ? "danger" : ""}
         onValueChange={setPassword}
-        title="Veuillez entrer un email valide"
+        title="Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial"
         className="max-w-xs "
         endContent={
           <button
@@ -175,9 +113,9 @@ function SignUpPro() {
         isRequired
         id="confirm-password"
         variant="flat"
+        title="Les mots de passe doivent correspondre"
         placeholder="Confirmez votre mot de passe"
         type={isVisible ? "text" : "password"}
-        // pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/"
         isInvalid={
           document.activeElement ===
             document.getElementById("confirm-password") &&
@@ -216,7 +154,9 @@ function SignUpPro() {
       <p className="text-center text-small">
         Vous avez déjà un compte ?{" "}
         <Link
-          size="sm" // onPress={() => setSelected("login")}
+          className="cursor-pointer"
+          size="sm"
+          onPress={() => setSelected("login")}
         >
           Connexion
         </Link>
@@ -224,7 +164,7 @@ function SignUpPro() {
       <div className="flex gap-2 justify-end">
         <Button
           type="submit"
-          // isDisabled={!checkBtnConnexion || !isTermsChecked}
+          isDisabled={!isTermsChecked || !validatePassword || !validateEmail}
           variant="shadow"
           className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
           fullWidth
@@ -258,11 +198,8 @@ function SignUpPro() {
   );
 }
 
-// SignUpPro.propTypes = {
-// setEmailChecked: PropTypes.func.isRequired,
-// setPasswordChecked: PropTypes.func.isRequired,
-// setSelected: PropTypes.func.isRequired,
-// checkBtnConnexion: PropTypes.bool.isRequired,
-// };
+SignUpPro.propTypes = {
+  setSelected: PropTypes.func.isRequired,
+};
 
 export default SignUpPro;

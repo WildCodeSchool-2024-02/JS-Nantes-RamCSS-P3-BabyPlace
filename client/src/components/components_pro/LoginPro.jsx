@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from "react";
 // import { useEffect, useCallback, useMemo } from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import EyeFilledIcon from "../../assets/nextUI/EyeFilledIcon";
 import EyeSlashFilledIcon from "../../assets/nextUI/EyeSlashFilledIcon";
 
-function LoginPro() {
+function LoginPro({ setSelected }) {
   // {
   // setEmailChecked,
   // setPasswordChecked,
@@ -143,7 +143,9 @@ function LoginPro() {
       <p className="text-center text-small">
         Besoin de créer un compte ?{" "}
         <Link
-          size="sm" // onPress={() => setSelected("sign-up")}
+          className="cursor-pointer"
+          size="sm"
+          onPress={() => setSelected("signup")}
         >
           S'inscrire
         </Link>
@@ -177,11 +179,11 @@ function LoginPro() {
   );
 }
 
-// LoginPro.propTypes = {
-// setEmailChecked: PropTypes.func.isRequired,
-// setPasswordChecked: PropTypes.func.isRequired,
-// checkBtnConnexion: PropTypes.bool.isRequired,
-// setSelected: PropTypes.func.isRequired,
-// };
+LoginPro.propTypes = {
+  // setEmailChecked: PropTypes.func.isRequired,
+  // setPasswordChecked: PropTypes.func.isRequired,
+  // checkBtnConnexion: PropTypes.bool.isRequired,
+  setSelected: PropTypes.func.isRequired,
+};
 
 export default LoginPro;

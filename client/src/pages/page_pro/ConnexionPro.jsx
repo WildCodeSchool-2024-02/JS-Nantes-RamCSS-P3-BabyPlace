@@ -1,4 +1,5 @@
-// import { useState, useEffect } from "react";
+// import { useEffect } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles_pro_pages/ConnexionPro.css";
 import "../../assets/css/connexion.css";
@@ -10,7 +11,7 @@ import LoginPro from "../../components/components_pro/LoginPro";
 function ConnexionPro() {
   // const [emailChecked, setEmailChecked] = useState(false);
   // const [passwordChecked, setPasswordChecked] = useState(false);
-  // const [selected, setSelected] = useState("login");
+  const [selected, setSelected] = useState("login");
   // const [checkBtnConnexion, setCheckBtnConnexion] = useState(false);
 
   // deblocage du bouton connexion
@@ -52,21 +53,23 @@ function ConnexionPro() {
                 fullWidth
                 size="lg"
                 aria-label="Tabs form"
-                // selectedKey={selected}
-                // onSelectionChange={setSelected}
+                selectedKey={selected}
+                onSelectionChange={setSelected}
               >
                 <Tab key="login" title="Connexion">
                   <LoginPro
-                  // setEmailChecked={setEmailChecked}
-                  // checkBtnConnexion={checkBtnConnexion}
-                  // setPasswordChecked={setPasswordChecked}
+                    // setEmailChecked={setEmailChecked}
+                    // checkBtnConnexion={checkBtnConnexion}
+                    // setPasswordChecked={setPasswordChecked}
+                    setSelected={setSelected}
                   />
                 </Tab>
                 <Tab key="signup" title="S'inscrire">
                   <SignUpPro
-                  // setEmailChecked={setEmailChecked}
-                  // checkBtnConnexion={checkBtnConnexion}
-                  // setPasswordChecked={setPasswordChecked}
+                    // setEmailChecked={setEmailChecked}
+                    // checkBtnConnexion={checkBtnConnexion}
+                    // setPasswordChecked={setPasswordChecked}
+                    setSelected={setSelected}
                   />
                 </Tab>
               </Tabs>
