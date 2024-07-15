@@ -1,25 +1,14 @@
-import { useState, useEffect } from "react";
+// import { useEffect } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles_parents/connexion-parent.css";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import { Card, CardBody } from "@nextui-org/card";
-import SignUp from "../../components/components_parent/SignUp";
-import Login from "../../components/components_parent/Login";
+import SignUpParent from "../../components/components_parent/SignUpParent";
+import LoginParent from "../../components/components_parent/LoginParent";
 
 function ConnexionParent() {
-  const [emailChecked, setEmailChecked] = useState(false);
-  const [passwordChecked, setPasswordChecked] = useState(false);
   const [selected, setSelected] = useState("login");
-  const [checkBtnConnexion, setCheckBtnConnexion] = useState(false);
-
-  // deblocage du bouton connexion
-  useEffect(() => {
-    if (emailChecked && passwordChecked) {
-      setCheckBtnConnexion(true);
-    } else {
-      setCheckBtnConnexion(false);
-    }
-  }, [emailChecked, passwordChecked]);
 
   return (
     <div className="mobile-connexion">
@@ -60,18 +49,10 @@ function ConnexionParent() {
                 onSelectionChange={setSelected}
               >
                 <Tab key="login" title="Connexion">
-                  <Login
-                    setEmailChecked={setEmailChecked}
-                    checkBtnConnexion={checkBtnConnexion}
-                    setPasswordChecked={setPasswordChecked}
-                  />
+                  <LoginParent setSelected={setSelected} />
                 </Tab>
                 <Tab key="signup" title="S'inscrire">
-                  <SignUp
-                    setEmailChecked={setEmailChecked}
-                    checkBtnConnexion={checkBtnConnexion}
-                    setPasswordChecked={setPasswordChecked}
-                  />
+                  <SignUpParent setSelected={setSelected} />
                 </Tab>
               </Tabs>
             </CardBody>
