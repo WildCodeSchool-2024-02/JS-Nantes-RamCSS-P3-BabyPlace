@@ -1,70 +1,121 @@
-/* eslint-disable camelcase */
+const argon2 = require("argon2");
+const jwt = require("jsonwebtoken");
+
 // Import access to database tables
 const tables = require("../../database/tables");
+
+const hashingOptions = {
+  type: argon2.argon2id,
+  memoryCost: 2 ** 16,
+  timeCost: 5,
+  parallelism: 1,
+};
+
+const hashPassword = (req, res, next) => {
+  if (req.body.password) {
+    argon2
+      .hash(req.body.password, hashingOptions)
+      .then((hashedPassword) => {
+        req.body.password = hashedPassword;
+        next();
+      })
+      .catch((err) => {
+        console.error(err.message);
+        res.sendStatus(500);
+      });
+  } else {
+    res.sendStatus(401);
+  }
+};
+
+const resultIsPasswordValid = async (password, hashedPassword) => {
+  try {
+    return await argon2.verify(hashedPassword, password);
+  } catch (err) {
+    console.error(err);
+    return false;
+  }
+};
+
+const login = async (req, res) => {
+  try {
+    const nursery = await tables.nursery.readByEmail(req.body.email);
+    if (!nursery) {
+      res.sendStatus(401);
+      return;
+    }
+
+    const resultPasswordValid = await (req.body.password, nursery.password);
+    if (!resultPasswordValid) {
+      res.sendStatus(401);
+      return;
+    }
+
+    const payload = { sub: nursery.id };
+    const token = jwt.sign(payload, process.env.APP_SECRET, {
+      expiresIn: "1h",
+    });
+
+    if (token) {
+      delete nursery.password;
+      res.status(200).json({ token, nursery });
+    }
+  } catch (error) {
+    console.error();
+  }
+};
+
+const credentialsValidation = (req, res, next) => {
+  const { email, password } = req.body;
+  const isEmailValid = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(
+    email
+  );
+  const isPasswordValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(password);
+
+  if (!isEmailValid || !isPasswordValid) {
+    res.sendStatus(401);
+    return;
+  }
+
+  next();
+};
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
   // Extract the nursery data from the request body
-  const {
-    siret,
-    name,
-    address,
-    postcode,
-    city,
-    phone,
-    email,
-    type_of_nursery,
-    capacity,
-    opening_hours,
-    closing_time,
-    hourly_price,
-    agrement,
-    photo_1,
-    photo_2,
-    photo_3,
-    description_nursery,
-    disabled_children,
-    outdoor_space,
-    presence_of_animals,
-    meal,
-    hygiene_product,
-    music_workshop,
-    artistic_activities,
-    bilingual_international,
-    child_transport,
-    code_of_conduct,
-  } = req.body;
+  const nursery = req.body;
 
   try {
     // Insert the nursery into the database
     const insertId = await tables.nursery.create(
-      siret,
-      name,
-      address,
-      postcode,
-      city,
-      phone,
-      email,
-      type_of_nursery,
-      capacity,
-      opening_hours,
-      closing_time,
-      hourly_price,
-      agrement,
-      photo_1,
-      photo_2,
-      photo_3,
-      description_nursery,
-      disabled_children,
-      outdoor_space,
-      presence_of_animals,
-      meal,
-      hygiene_product,
-      music_workshop,
-      artistic_activities,
-      bilingual_international,
-      child_transport,
-      code_of_conduct
+      nursery.name,
+      nursery.email,
+      nursery.password,
+      nursery.siret,
+      nursery.address,
+      nursery.postcode,
+      nursery.city,
+      nursery.phone,
+      nursery.type_of_nursery,
+      nursery.capacity,
+      nursery.opening_hours,
+      nursery.closing_time,
+      nursery.hourly_price,
+      nursery.agrement,
+      nursery.photo_1,
+      nursery.photo_2,
+      nursery.photo_3,
+      nursery.description_nursery,
+      nursery.disabled_children,
+      nursery.outdoor_space,
+      nursery.presence_of_animals,
+      nursery.meal,
+      nursery.hygiene_product,
+      nursery.music_workshop,
+      nursery.artistic_activities,
+      nursery.bilingual_international,
+      nursery.child_transport,
+      nursery.code_of_conduct
     );
 
     if (insertId > 0) {
@@ -116,13 +167,14 @@ const edit = async (req, res, next) => {
   try {
     const body = {
       id: req.params,
-      siret: req.body.siret,
       name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      siret: req.body.siret,
       address: req.body.address,
       postcode: req.body.postcode,
       city: req.body.city,
       phone: req.body.phone,
-      email: req.body.email,
       type_of_nursery: req.body.type_of_nursery,
       capacity: req.body.capacity,
       opening_hours: req.body.opening_hours,
@@ -187,4 +239,8 @@ module.exports = {
   add,
   edit,
   destroy,
+  hashPassword,
+  resultIsPasswordValid,
+  login,
+  credentialsValidation,
 };
