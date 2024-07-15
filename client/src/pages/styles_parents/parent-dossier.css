@@ -14,7 +14,7 @@
 }
 
 .section-radio-inscription input[type="radio"] {
-  display: none; /* Masque le bouton radio natif */
+  display: none;
 }
 
 .section-radio-inscription label {
@@ -63,11 +63,6 @@
 .section-radio-inscription input[type="radio"]:checked + span {
   text-decoration: underline;
   transition: 0.2s;
-}
-
-/* Effet hover */
-.section-radio-inscription label:hover {
-  background-color: #e0e0e0;
 }
 
 .section-radio-inscription span {

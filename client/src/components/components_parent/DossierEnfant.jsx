@@ -9,51 +9,42 @@ function DossierEnfant() {
         isRequired
         type="text"
         color="secondary"
-        label=""
-        description=""
+        label="Prénom"
+        description="Prénom de votre l'enfant"
         className="max-w-[284px] texts"
         size="lg"
-        placeholder="Prénom"
-        name=""
+        name="firstname"
         onChange=""
       />
       <Input
         isRequired
         type="text"
         color="secondary"
-        label=""
-        description=""
+        label="Nom"
+        description="Nom de votre l'enfant"
         className="max-w-[284px] texts"
         size="lg"
-        placeholder="Nom"
-        name=""
+        name="lastname"
         onChange=""
       />
 
       <DatePicker label="Birth date" className="max-w-[284px]" />
 
       <section className="flex flex-col items-start justify-start gap-5 w-[280px]">
-        <Checkbox value="Crèche parentale" color="secondary">
-          Marche t-il ?
+        <Checkbox color="secondary" name="is_walker">
+          Marchet-il ?
         </Checkbox>
-        <Checkbox value="Crèche parentale" color="secondary">
-          Sait il parler
+        <Checkbox color="secondary" name="is_disabled">
+          A-t-il un handicap reconnu ?
         </Checkbox>
-        <Checkbox value="Micro-Crèche" color="secondary">
-          A t il un handicape
+        <Checkbox color="secondary" name="allergies">
+          A-t-il des allergies ?
         </Checkbox>
-        <Checkbox value="autorisation de soins" color="secondary">
-          A t-il des allergies
+        <Checkbox color="secondary" name="health_book">
+          Carnet de santé ?
         </Checkbox>
-        <Checkbox value="Micro-Crèche" color="secondary">
-          Carnet de santée
-        </Checkbox>
-        <Checkbox value="autorisation de soins" color="secondary">
-          {/* <Checkbox value="autorisation de soins" color="secondary" onChange={handleChange}> */}
-          autorisation de soins
-        </Checkbox>
-        <Checkbox value="Micro-Crèche" color="secondary">
-          Carnet de santée
+        <Checkbox color="secondary" name="care_authorization">
+          autorisation de soins ?
         </Checkbox>
       </section>
       <Input
@@ -62,16 +53,16 @@ function DossierEnfant() {
         description=""
         className="max-w-[284px] texts"
         size="lg"
-        placeholder="Nom du medecin traitent"
-        name=""
+        placeholder="Nom du medecin traitant"
+        name="Rentrez le nom de votre médecin traitant"
         onChange=""
       />
 
       <button
-        type="button"
+        type="submit"
         className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
       >
-        soumettre
+        Soumettre
       </button>
     </form>
   );

@@ -7,7 +7,7 @@ import "../styles_parents/parent-dossier.css";
 
 function DossierParent() {
   // const[user, setUser]=useState("Alexie Guillon")
-  const user = "Alexie Guillon";
+  const user = "Alexis Guillon";
 
   const components = {
     "": {
