@@ -1,7 +1,13 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import "../styles_components/NurseryCard.css";
 
 function NurseryCard({ NameNursery, City, DescriptionNursery }) {
+  const [isFilled, setIsFilled] = useState(false);
+
+  const toggleHeart = () => {
+    setIsFilled(!isFilled);
+  };
 
   return (
     <div className="nursery-card-container texts">
@@ -11,11 +17,16 @@ function NurseryCard({ NameNursery, City, DescriptionNursery }) {
           src="src/assets/images/photos/Crèche 1.jpg"
           alt="creche"
         />
-        <img
-          className="coeur-favoris"
-          src="/src/assets/images/icônes/Icone coeur vide.svg"
-          alt="coeur favoris"
-        />
+        <button type="button" className="heart-button" onClick={toggleHeart} >
+          <img
+            src={
+              isFilled
+                ? "/src/assets/images/icônes/Icone-coeur-vide.svg"
+                : "/src/assets/images/icônes/Icone-coeur-favoris.svg"
+            }
+            alt="coeur favoris"
+          />
+        </button>
         <p> Image de la crèche </p>
         <p> Nom de la crèche {NameNursery} </p>
         <p> Une partie de la description de la crèche {DescriptionNursery} </p>

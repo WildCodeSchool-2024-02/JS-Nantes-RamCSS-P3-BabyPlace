@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "../styles_components/Toolbar.css";
 
 function Toolbar() {
@@ -6,9 +7,9 @@ function Toolbar() {
       <div className="nav-toolbar">
         <img src="src/assets/images/icônes/Icône menu.png" alt="Menu" />
       </div>
-      <div className="nav-toolbar">
+      <NavLink to="/recherche" className="nav-toolbar">
         <img src="src/assets/images/icônes/Icône search.png" alt="Search" />
-      </div>
+      </NavLink>
       <div className="nav-toolbar">
         <img src="src/assets/images/icônes/Icône user.png" alt="User" />
       </div>
