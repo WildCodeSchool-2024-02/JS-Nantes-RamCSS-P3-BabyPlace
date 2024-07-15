@@ -138,7 +138,7 @@ function Login({
       />
       <p className="text-center text-small">
         Besoin de créer un compte ?{" "}
-        <Link size="sm" onPress={() => setSelected("sign-up")}>
+        <Link size="sm" onPress={() => setSelected("signup")}>
           S'inscrire
         </Link>
       </p>

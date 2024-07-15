@@ -61,6 +61,7 @@ function ConnexionParent() {
               >
                 <Tab key="login" title="Connexion">
                   <Login
+                    setSelected={setSelected}
                     setEmailChecked={setEmailChecked}
                     checkBtnConnexion={checkBtnConnexion}
                     setPasswordChecked={setPasswordChecked}
@@ -68,6 +69,7 @@ function ConnexionParent() {
                 </Tab>
                 <Tab key="signup" title="S'inscrire">
                   <SignUp
+                    setSelected={setSelected}
                     setEmailChecked={setEmailChecked}
                     checkBtnConnexion={checkBtnConnexion}
                     setPasswordChecked={setPasswordChecked}
