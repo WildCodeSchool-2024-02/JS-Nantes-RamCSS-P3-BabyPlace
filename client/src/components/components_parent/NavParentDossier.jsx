@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function NavParentDossier({ setComponent }) {
+function NavParentDossier({ setComponent, component }) {
   const selectDossier = (e) => {
     setComponent(e.target.value);
   };
@@ -26,7 +26,11 @@ function NavParentDossier({ setComponent }) {
       <fieldset
         aria-labelledby="radiogroup-label"
         onChange={selectDossier}
-        className="section-radio-inscription"
+        className={
+          component === ""
+            ? "flex flex-col section-radio-inscription"
+            : "section-radio-inscription"
+        }
       >
         <label htmlFor="structure-dossier" className="form-enfant">
           <input
@@ -64,6 +68,7 @@ function NavParentDossier({ setComponent }) {
 }
 NavParentDossier.propTypes = {
   setComponent: PropTypes.func.isRequired,
+  component: PropTypes.string.isRequired,
 };
 
 export default NavParentDossier;

@@ -18,7 +18,7 @@
 }
 
 .section-radio-inscription label {
-  clip-path: url(#roundedPolygon);
+  /* clip-path: url(#roundedPolygon); */
   width: 80px;
   height: 80px;
   max-width: 80px;

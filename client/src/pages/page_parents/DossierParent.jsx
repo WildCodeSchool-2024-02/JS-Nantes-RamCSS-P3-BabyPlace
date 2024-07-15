@@ -29,20 +29,31 @@ function DossierParent() {
   const [component, setComponent] = useState("");
   const ComponentToRender = components[component].component;
 
+  const selectDossier = () => {
+    setComponent("");
+  };
+
   return (
     <main className="main-dossier-parent">
       {component === "" ? (
         <>
-          <section className="text-white">
-            <img src="" alt="" />
+          <section className="text-white flex flex-col items-center">
+            <img
+              src="../src/assets/images/illustration/Team-memeber-01 1.png"
+              className="w-[100px] h-[100px] rounded-full"
+              alt=""
+            />
             <h1 className="text-center ">{userParent}</h1>
             <p>
               Mettez toutes les chances de votre côté. Un profil complet est
               nécessaire pour un accueil en crèche !
             </p>
           </section>
-          <section>
-            <NavParentDossier setComponent={setComponent} />
+          <section className="">
+            <NavParentDossier
+              component={component}
+              setComponent={setComponent}
+            />
           </section>
         </>
       ) : null}
@@ -50,7 +61,13 @@ function DossierParent() {
       {component !== "" && (
         <section className="">
           <section className="flex-col">
-          <h1 className="text-center text-white ">{userParent}</h1>
+            <button
+              type="button"
+              onClick={selectDossier}
+              className="text-center text-white btn-style w-[100%]"
+            >
+              <h1>{userParent}</h1>
+            </button>
 
             <NavParentDossier setComponent={setComponent} />
           </section>
