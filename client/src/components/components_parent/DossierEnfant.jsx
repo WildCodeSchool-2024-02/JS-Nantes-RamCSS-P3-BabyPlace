@@ -30,7 +30,7 @@ function DossierEnfant() {
 
       <section className="flex flex-col items-start justify-start gap-5 w-[280px]">
         <Checkbox color="secondary" name="is_walker">
-          Marchet-il ?
+          Marche t-il ?
         </Checkbox>
         <Checkbox color="secondary" name="is_disabled">
           A-t-il un handicap reconnu ?
