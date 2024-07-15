@@ -1,30 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useState, useEffect, useCallback, useMemo } from "react";
-import PropTypes from "prop-types";
+
+import { useState, useMemo } from "react";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import { Checkbox } from "@nextui-org/checkbox";
+
+import PropTypes from "prop-types";
 import EyeFilledIcon from "../../assets/nextUI/EyeFilledIcon";
 import EyeSlashFilledIcon from "../../assets/nextUI/EyeSlashFilledIcon";
 
-function SignUp({
-  setEmailChecked,
-  setPasswordChecked,
-  setSelected,
-  checkBtnConnexion,
-}) {
-  const regexEmail = useMemo(
-    () => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-    []
-  );
-
-  const regexPassword = useMemo(
-    () =>
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-    []
-  );
-
+function SignUpPro({ setSelected }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -33,53 +19,27 @@ function SignUp({
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
-  const validateEmail = useCallback(
-    (value) => regexEmail.test(value),
-    [regexEmail]
-  );
+  const validateEmail = (value) =>
+    value.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
 
-  const validatePassword = useCallback(
-    (value) => regexPassword.test(value),
-    [regexPassword]
-  );
-
-  const isEmailInvalid = useMemo(() => {
+  const isInvalidEmail = useMemo(() => {
     if (email === "") return false;
+
     return !validateEmail(email);
-  }, [email, validateEmail]);
+  }, [email]);
 
-  const isPasswordInvalid = useMemo(() => {
-    if (password === "") return false;
-    return !validatePassword(password);
-  }, [password, validatePassword]);
-
-  const isConfirmPasswordInvalid = useMemo(() => {
-    if (confirmPassword === "") return false;
-    return confirmPassword !== password;
-  }, [confirmPassword, password]);
-
-  useEffect(() => {
-    setEmailChecked(email !== "" && !isEmailInvalid);
-  }, [email, isEmailInvalid, setEmailChecked]);
-
-  useEffect(() => {
-    setPasswordChecked(
-      password !== "" &&
-        !isPasswordInvalid &&
-        confirmPassword !== "" &&
-        !isConfirmPasswordInvalid
+  const validatePassword = (value) =>
+    value.match(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
     );
-  }, [
-    password,
-    confirmPassword,
-    isPasswordInvalid,
-    isConfirmPasswordInvalid,
-    setPasswordChecked,
-  ]);
+
+  const isInvalidPassword = useMemo(() => {
+    if (password === "") return false;
+
+    return !validatePassword(password);
+  }, [password]);
 
   const handleCheckboxClick = () => {
-    // Permet de cocher mais pas de décocher
-
     setIsTermsChecked(!isTermsChecked);
   };
 
@@ -89,7 +49,7 @@ function SignUp({
     e.preventDefault();
     const formData = new FormData(e.target);
     const body = Object.fromEntries(formData);
-    fetch("http://localhost:3310/api/parents", {
+    fetch("http://localhost:3310/api/nurseries", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -101,11 +61,12 @@ function SignUp({
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-3 h-[200px]">
       <Input
-        name="firstname"
-        label="Prénom"
+        name="name"
+        label="Nom de la structure"
         isRequired
-        placeholder="Entrez votre Prénom"
+        placeholder="Entrez le nom de votre structure"
         type="text"
+        title="Veuillez entrer le nom de votre structure"
       />
       <Input
         name="email"
@@ -115,11 +76,12 @@ function SignUp({
         isRequired
         placeholder="Entrez votre Email"
         variant="flat"
-        isInvalid={isEmailInvalid}
-        color={isEmailInvalid ? "danger" : ""}
+        isInvalid={isInvalidEmail}
+        color={isInvalidEmail ? "danger" : ""}
         onValueChange={setEmail}
-        className="max-w-xs text-danger-700"
+        className="max-w-xs"
         errorMessageClass="error-message"
+        title="Veuillez entrer un email valide"
       />
       <Input
         name="password"
@@ -128,9 +90,10 @@ function SignUp({
         variant="flat"
         placeholder="Entrez votre mot de passe"
         type={isVisible ? "text" : "password"}
-        isInvalid={isPasswordInvalid}
-        color={isPasswordInvalid ? "danger" : ""}
+        isInvalid={isInvalidPassword}
+        color={isInvalidPassword ? "danger" : ""}
         onValueChange={setPassword}
+        title="Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial"
         className="max-w-xs "
         endContent={
           <button
@@ -150,10 +113,13 @@ function SignUp({
         label="Confirmation mot de passe"
         isRequired
         variant="flat"
+        title="Les mots de passe doivent correspondre"
         placeholder="Confirmez votre mot de passe"
         type={isVisible ? "text" : "password"}
-        isInvalid={isConfirmPasswordInvalid}
-        color={isConfirmPasswordInvalid ? "danger" : ""}
+        isInvalid={confirmPassword !== "" && confirmPassword !== password}
+        color={
+          confirmPassword !== "" && confirmPassword !== password ? "danger" : ""
+        }
         onValueChange={setConfirmPassword}
         className="max-w-xs "
         endContent={
@@ -179,14 +145,18 @@ function SignUp({
       </Checkbox>
       <p className="text-center text-small">
         Vous avez déjà un compte ?{" "}
-        <Link size="sm" onPress={() => setSelected("login")}>
+        <Link
+          className="cursor-pointer"
+          size="sm"
+          onPress={() => setSelected("login")}
+        >
           Connexion
         </Link>
       </p>
       <div className="flex gap-2 justify-end">
         <Button
           type="submit"
-          isDisabled={!checkBtnConnexion || !isTermsChecked}
+          isDisabled={!isTermsChecked || !validatePassword || !validateEmail}
           variant="shadow"
           className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
           fullWidth
@@ -197,18 +167,18 @@ function SignUp({
       </div>
 
       <section className="checked-value-form">
-        {isEmailInvalid && (
+        {isInvalidEmail && (
           <p className="text-white text-sm md:text-black">
             Veuillez entrer un email valide
           </p>
         )}
-        {isPasswordInvalid && (
+        {isInvalidPassword && (
           <p className="text-white text-sm md:text-black">
             Le mot de passe doit contenir au moins 8 caractères, une majuscule,
             une minuscule, un chiffre et un caractère spécial
           </p>
         )}
-        {isConfirmPasswordInvalid && (
+        {confirmPassword !== "" && confirmPassword !== password && (
           <p className="text-white text-sm md:text-black">
             Les mots de passe ne correspondent pas
           </p>
@@ -218,11 +188,8 @@ function SignUp({
   );
 }
 
-SignUp.propTypes = {
-  setEmailChecked: PropTypes.func.isRequired,
-  setPasswordChecked: PropTypes.func.isRequired,
+SignUpPro.propTypes = {
   setSelected: PropTypes.func.isRequired,
-  checkBtnConnexion: PropTypes.bool.isRequired,
 };
 
-export default SignUp;
+export default SignUpPro;
