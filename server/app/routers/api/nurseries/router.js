@@ -9,6 +9,8 @@ const {
   add,
   edit,
   destroy,
+  hashPassword,
+  credentialsValidation,
 } = require("../../../controllers/nurseryActions");
 
 // Route to get a list of nurseries
@@ -18,7 +20,11 @@ router.get("/", browse);
 router.get("/:id", read);
 
 // Route to add a new nursery
-router.post("/", add);
+router.post("/",
+  credentialsValidation,
+  hashPassword, 
+  add
+);
 
 // Route to update an existing nursery
 router.put("/:id", edit);

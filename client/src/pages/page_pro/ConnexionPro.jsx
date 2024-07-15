@@ -1,26 +1,15 @@
-import { useState, useEffect } from "react";
+// import { useEffect } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles_pro_pages/ConnexionPro.css";
 import "../../assets/css/connexion.css";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import { Card, CardBody } from "@nextui-org/card";
-import SignUp from "../../components/components_parent/SignUp";
-import Login from "../../components/components_parent/Login";
+import SignUpPro from "../../components/components_pro/SignUpPro";
+import LoginPro from "../../components/components_pro/LoginPro";
 
 function ConnexionPro() {
-  const [emailChecked, setEmailChecked] = useState(false);
-  const [passwordChecked, setPasswordChecked] = useState(false);
   const [selected, setSelected] = useState("login");
-  const [checkBtnConnexion, setCheckBtnConnexion] = useState(false);
-
-  // deblocage du bouton connexion
-  useEffect(() => {
-    if (emailChecked && passwordChecked) {
-      setCheckBtnConnexion(true);
-    } else {
-      setCheckBtnConnexion(false);
-    }
-  }, [emailChecked, passwordChecked]);
 
   return (
     <div className="mobile-connexion">
@@ -56,18 +45,10 @@ function ConnexionPro() {
                 onSelectionChange={setSelected}
               >
                 <Tab key="login" title="Connexion">
-                  <Login
-                    setEmailChecked={setEmailChecked}
-                    checkBtnConnexion={checkBtnConnexion}
-                    setPasswordChecked={setPasswordChecked}
-                  />
+                  <LoginPro setSelected={setSelected} />
                 </Tab>
                 <Tab key="signup" title="S'inscrire">
-                  <SignUp
-                    setEmailChecked={setEmailChecked}
-                    checkBtnConnexion={checkBtnConnexion}
-                    setPasswordChecked={setPasswordChecked}
-                  />
+                  <SignUpPro setSelected={setSelected} />
                 </Tab>
               </Tabs>
             </CardBody>
