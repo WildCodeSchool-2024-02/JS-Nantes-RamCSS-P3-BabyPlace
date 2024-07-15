@@ -1,22 +1,13 @@
 import { Input } from "@nextui-org/input";
 import { Checkbox } from "@nextui-org/checkbox";
 import { DatePicker } from "@nextui-org/date-picker";
-// import { useState } from "react";
 
 function DossierEnfant() {
-  // const[test, setTest] = useState(false);
-  // console.log('%c⧭', 'color: #364cd9', test);
-
-  // const handleChange = () =>{
-  //   setTest(!test);
-  // }
-
   return (
-    <form className="h-[75vh] bg-white flex flex-center flex-col items-center justify-center gap-2">
+    <form className="h-[72vh] bg-white flex flex-center flex-col items-center justify-center gap-2">
       <Input
         isRequired
         type="text"
-        variant=""
         color="secondary"
         label=""
         description=""
@@ -29,7 +20,6 @@ function DossierEnfant() {
       <Input
         isRequired
         type="text"
-        variant=""
         color="secondary"
         label=""
         description=""
@@ -68,7 +58,6 @@ function DossierEnfant() {
       </section>
       <Input
         type="text"
-        variant=""
         color="secondary"
         description=""
         className="max-w-[284px] texts"
@@ -77,7 +66,13 @@ function DossierEnfant() {
         name=""
         onChange=""
       />
-      {/* <button >soumettre</button> */}
+
+      <button
+        type="button"
+        className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+      >
+        soumettre
+      </button>
     </form>
   );
 }
