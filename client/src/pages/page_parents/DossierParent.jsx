@@ -33,9 +33,9 @@ function DossierParent() {
     <main className="main-dossier-parent">
       {component === "" ? (
         <>
-          <section>
+          <section className="text-white">
             <img src="" alt="" />
-            <h1>{userParent}</h1>
+            <h1 className="text-center ">{userParent}</h1>
             <p>
               Mettez toutes les chances de votre côté. Un profil complet est
               nécessaire pour un accueil en crèche !
@@ -50,7 +50,7 @@ function DossierParent() {
       {component !== "" && (
         <section className="">
           <section className="flex-col">
-            <h1>{userParent}</h1>
+          <h1 className="text-center text-white ">{userParent}</h1>
 
             <NavParentDossier setComponent={setComponent} />
           </section>

@@ -1,9 +1,52 @@
+import { Checkbox } from "@nextui-org/checkbox";
+
 function DossierInscription() {
   return (
-    <section>
-      {/* // en attente de creation du formulaire */}
-      <p>je suis DossierInscription</p>
-    </section>
+    <form className="h-[72vh] bg-white flex flex-center flex-col items-center justify-center gap-2">
+      <section className="flex flex-col items-start justify-start gap-5 w-[280px]">
+        <Checkbox color="secondary" name="taxe_filling">
+          Justificatif de revenu (moins de 3 mois)
+        </Checkbox>
+        <Checkbox color="secondary" name="proof_of_income">
+          Déclaration de revenu (année en cours)
+        </Checkbox>
+        <Checkbox color="secondary" name="allergies">
+          Numéro Allocataire CAF
+        </Checkbox>
+
+        <Checkbox color="secondary" name="social_security_number">
+          Numéro de sécurité sociale{" "}
+        </Checkbox>
+        <Checkbox color="secondary" name="caf_number">
+          Justificatif de deomicile{" "}
+        </Checkbox>
+        <Checkbox color="secondary" name="job">
+          Justificatif de situation professionnelles{" "}
+        </Checkbox>
+        <Checkbox color="secondary" name="rib">
+          RIB{" "}
+        </Checkbox>
+        <Checkbox color="secondary" name="photo_and_video_authorization">
+          Autorisation photo et vidéo{" "}
+        </Checkbox>
+        <Checkbox color="secondary" name="exit_permit">
+          Autorisation de sortie{" "}
+        </Checkbox>
+        <Checkbox color="secondary" name="copy_of_family_record_book">
+          Copie livret de famille{" "}
+        </Checkbox>
+        <Checkbox color="secondary" name="copy_of_divorce_judgment">
+          Copie du jugement de divorce (si divorce){" "}
+        </Checkbox>
+      </section>
+
+      <button
+        type="submit"
+        className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+      >
+        Soumettre
+      </button>
+    </form>
   );
 }
 
