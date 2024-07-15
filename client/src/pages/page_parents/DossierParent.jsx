@@ -6,13 +6,11 @@ import NavParentDossier from "../../components/components_parent/NavParentDossie
 import "../styles_parents/parent-dossier.css";
 
 function DossierParent() {
-  // const[user, setUser]=useState("Alexie Guillon")
-  const user = "Alexis Guillon";
+  const userParent = "Alexis Guillon";
 
   const components = {
     "": {
       component: null,
-      alias: "",
     },
     DossierEnfant: {
       component: DossierEnfant,
@@ -37,9 +35,9 @@ function DossierParent() {
         <>
           <section>
             <img src="" alt="" />
-            <h1>{user}</h1>
+            <h1>{userParent}</h1>
             <p>
-              Mettez toutes les chances de votre côté Un profil complet est
+              Mettez toutes les chances de votre côté. Un profil complet est
               nécessaire pour un accueil en crèche !
             </p>
           </section>
@@ -52,7 +50,7 @@ function DossierParent() {
       {component !== "" && (
         <section className="">
           <section className="flex-col">
-            <h1>{user}</h1>
+            <h1>{userParent}</h1>
 
             <NavParentDossier setComponent={setComponent} />
           </section>

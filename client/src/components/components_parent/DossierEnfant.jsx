@@ -10,7 +10,6 @@ function DossierEnfant() {
         type="text"
         color="secondary"
         label="Prénom"
-        description="Prénom de votre l'enfant"
         className="max-w-[284px] texts"
         size="lg"
         name="firstname"
@@ -21,7 +20,6 @@ function DossierEnfant() {
         type="text"
         color="secondary"
         label="Nom"
-        description="Nom de votre l'enfant"
         className="max-w-[284px] texts"
         size="lg"
         name="lastname"
@@ -50,7 +48,6 @@ function DossierEnfant() {
       <Input
         type="text"
         color="secondary"
-        description=""
         className="max-w-[284px] texts"
         size="lg"
         placeholder="Nom du medecin traitant"
