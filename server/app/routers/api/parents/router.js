@@ -26,12 +26,7 @@ router.get("/:id", read);
 router.get("/:id/favorites", browseAllFavoritesByParentId);
 
 // Route to add a new parent
-router.post(
-  "/",
-  hashPassword,
-  credentialsValidation,
-  add
-);
+router.post("/", hashPassword, credentialsValidation, add);
 
 // Route to edit an existing parent
 router.post("/login", login, verifyPassword);

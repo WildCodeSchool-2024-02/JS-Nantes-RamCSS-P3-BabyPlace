@@ -36,7 +36,9 @@ const credentialsValidation = (req, res, next) => {
   const isEmailValid = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(
     email
   );
-  const isPasswordValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(password);
+  const isPasswordValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(
+    password
+  );
 
   if (!isEmailValid || !isPasswordValid) {
     res.sendStatus(401);
@@ -55,7 +57,7 @@ const verifyPassword = async (password, hashedPassword) => {
     console.error(err);
     return false;
   }
-}
+};
 
 const login = async (req, res, next) => {
   try {
@@ -66,7 +68,10 @@ const login = async (req, res, next) => {
       return;
     }
 
-    const isPasswordVerified = await verifyPassword(req.body.password, parent.password);
+    const isPasswordVerified = await verifyPassword(
+      req.body.password,
+      parent.password
+    );
     if (!isPasswordVerified) {
       res.sendStatus(401);
       return;
@@ -81,7 +86,6 @@ const login = async (req, res, next) => {
 
     if (token) res.status(200).send({ token, parent });
     else throw new Error("Token not created");
-
   } catch (err) {
     next(err);
   }
@@ -101,13 +105,13 @@ const authorize = (req, res, next) => {
   }
 
   jwt.verify(token, process.env.APP_SECRET, (err) => {
-    if(err) {
+    if (err) {
       res.sendStatus(401);
     } else {
-      next()
+      next();
     }
-  })
-}
+  });
+};
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {

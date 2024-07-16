@@ -22,9 +22,9 @@ const favoritesRouter = require("./favorites/router");
 
 router.use("/favorites", favoritesRouter);
 
-const { login } = require("../../controllers/parentActions")
+const { login } = require("../../controllers/parentActions");
 
-router.use("/login", login)
+router.use("/login", login);
 
 /* ************************************************************************* */
 
