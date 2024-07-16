@@ -103,104 +103,103 @@ function DashboardPro() {
   }, []);
 
   //* Blocage de la page en cas de non connexion
-  const [authenticated, setAuthenticated] = useState(null);
+  const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
-    const loggedInNusery = localStorage.getItem("authentificated");
-    if (loggedInNusery) {
-      setAuthenticated(loggedInNusery);
+    const loggedInNursery = localStorage.getItem("token");
+
+    if (loggedInNursery === "true") {
+      setAuthenticated(true);
+      if (!authenticated) {
+        return <Navigate replace to="/pro/connexion" />;
+      }
     }
-  }, []);
-
-  if (!authenticated) {
-    return <Navigate replace to="/pro/connexion" />;
-  }
-
-  return (
-    <section className="dashboard-page-container">
-      <NavbarPro />
-      <section className="dashboard-component-container">
-        <section className="dashboard-component-user-info">
-          <section className="card-user-decorations">
+    return (
+      <section className="dashboard-page-container">
+        <NavbarPro />
+        <section className="dashboard-component-container">
+          <section className="dashboard-component-user-info">
+            <section className="card-user-decorations">
+              <img
+                src="../src/assets/images/illustration/decore-left.svg"
+                alt="décorations"
+              />
+              <img
+                src="../src/assets/images/illustration/decore-right.svg"
+                alt="décorations"
+              />
+            </section>
             <img
-              src="../src/assets/images/illustration/decore-left.svg"
-              alt="décorations"
+              className="card-user-image"
+              src="../src/assets/images/illustration/badge_user.png"
+              alt="badge"
             />
+            <p className="texts card-user-title">
+              Bienvenue <strong>NOM DE LA STRUCTURE</strong>
+            </p>
+            <p className="texts card-user-annonces">
+              Annonce BABYPLACE // Annonce BABYPLACE // Annonce BABYPLACE
+            </p>
+          </section>
+          <section className="dashboard-component-graph-subscribers">
             <img
-              src="../src/assets/images/illustration/decore-right.svg"
-              alt="décorations"
+              className="subscribers-charts"
+              src="../src/assets/images/illustration/Subscribers_Card.png"
+              alt="graphique sur le nombre de réservations"
             />
           </section>
-          <img
-            className="card-user-image"
-            src="../src/assets/images/illustration/badge_user.png"
-            alt="badge"
-          />
-          <p className="texts card-user-title">
-            Bienvenue <strong>NOM DE LA STRUCTURE</strong>
-          </p>
-          <p className="texts card-user-annonces">
-            Annonce BABYPLACE // Annonce BABYPLACE // Annonce BABYPLACE
-          </p>
-        </section>
-        <section className="dashboard-component-graph-subscribers">
-          <img
-            className="subscribers-charts"
-            src="../src/assets/images/illustration/Subscribers_Card.png"
-            alt="graphique sur le nombre de réservations"
-          />
-        </section>
-        <section className="dashboard-component-graph-buisness">
-          <img
-            className="buisness-charts"
-            src="../src/assets/images/illustration/Buisness_Card.png"
-            alt="graphique sur le chiffre d'affaire"
-          />
-        </section>
-        <section className="dashboard-component-table">
-          <Table
-            aria-label="Example table with custom cells"
-            bottomContent={
-              <div className="flex w-full justify-center">
-                <Pagination
-                  isCompact
-                  showControls
-                  showShadow
-                  color="secondary"
-                  page={page}
-                  total={pages}
-                  onChange={setPage}
-                />
-              </div>
-            }
-            classNames={{
-              wrapper: "min-h-[222px]",
-            }}
-          >
-            <TableHeader columns={columns}>
-              {(column) => (
-                <TableColumn
-                  key={column.uid}
-                  align={column.uid === "actions" ? "center" : "start"}
-                >
-                  {column.name}
-                </TableColumn>
-              )}
-            </TableHeader>
-            <TableBody items={items}>
-              {(item) => (
-                <TableRow key={item?.name}>
-                  {(columnKey) => (
-                    <TableCell>{renderCell(item, columnKey)}</TableCell>
-                  )}
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
+          <section className="dashboard-component-graph-buisness">
+            <img
+              className="buisness-charts"
+              src="../src/assets/images/illustration/Buisness_Card.png"
+              alt="graphique sur le chiffre d'affaire"
+            />
+          </section>
+          <section className="dashboard-component-table">
+            <Table
+              aria-label="Example table with custom cells"
+              bottomContent={
+                <div className="flex w-full justify-center">
+                  <Pagination
+                    isCompact
+                    showControls
+                    showShadow
+                    color="secondary"
+                    page={page}
+                    total={pages}
+                    onChange={setPage}
+                  />
+                </div>
+              }
+              classNames={{
+                wrapper: "min-h-[222px]",
+              }}
+            >
+              <TableHeader columns={columns}>
+                {(column) => (
+                  <TableColumn
+                    key={column.uid}
+                    align={column.uid === "actions" ? "center" : "start"}
+                  >
+                    {column.name}
+                  </TableColumn>
+                )}
+              </TableHeader>
+              <TableBody items={items}>
+                {(item) => (
+                  <TableRow key={item?.name}>
+                    {(columnKey) => (
+                      <TableCell>{renderCell(item, columnKey)}</TableCell>
+                    )}
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </section>
         </section>
       </section>
-    </section>
-  );
+    );
+  }, [authenticated]);
 }
 
 export default DashboardPro;

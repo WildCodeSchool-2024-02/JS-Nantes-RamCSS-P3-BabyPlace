@@ -40,7 +40,11 @@ function LoginPro({ setSelected }) {
 
       if (email && password) {
         await handleFetch({ email, password });
-        navigate("/pro/dashboard");
+        localStorage.setItem("token", true);
+
+        if (localStorage.getItem("token")) {
+          navigate("/pro/dashboard");
+        }
       }
     } catch (error) {
       console.error(error.message);
