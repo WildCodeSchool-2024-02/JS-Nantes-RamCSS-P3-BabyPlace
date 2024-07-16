@@ -7,6 +7,8 @@ import "../styles_parents/parent-dossier.css";
 
 function DossierParent() {
   const userParent = "Alexis Guillon";
+  const userParentPicture =
+    "../src/assets/images/illustration/Team-memeber-01 1.png";
 
   const components = {
     "": {
@@ -14,35 +16,47 @@ function DossierParent() {
     },
     DossierEnfant: {
       component: DossierEnfant,
-      alias: "DossierEnfant",
     },
     DossierInscriptionParent: {
       component: DossierInscriptionParent,
-      alias: "DossierInscriptionParent",
     },
     DossierInscription: {
       component: DossierInscription,
-      alias: "DossierInscription",
     },
   };
 
   const [component, setComponent] = useState("");
   const ComponentToRender = components[component].component;
 
+  const selectDossier = () => {
+    setComponent("");
+  };
+
   return (
     <main className="main-dossier-parent">
       {component === "" ? (
         <>
-          <section>
-            <img src="" alt="" />
-            <h1>{userParent}</h1>
-            <p>
-              Mettez toutes les chances de votre côté. Un profil complet est
-              nécessaire pour un accueil en crèche !
-            </p>
+          <section className="text-white flex flex-col items-center ">
+            <img
+              src={userParentPicture}
+              className="w-[300px] h-[300px] p-[50px] rounded-full"
+              alt="profile"
+            />
+            <h1 className="text-center text-xl ">{userParent}</h1>
+            <section className="p-[20px] text-center">
+              <p className=" font-bold ">
+                Mettez toutes les chances de votre côté.
+              </p>
+              <p className=" text-center">
+                Un profil complet est nécessaire pour un accueil en crèche !
+              </p>
+            </section>
           </section>
-          <section>
-            <NavParentDossier setComponent={setComponent} />
+          <section className="flex justify-center ">
+            <NavParentDossier
+              component={component}
+              setComponent={setComponent}
+            />
           </section>
         </>
       ) : null}
@@ -50,7 +64,13 @@ function DossierParent() {
       {component !== "" && (
         <section className="">
           <section className="flex-col">
-            <h1>{userParent}</h1>
+            <button
+              type="button"
+              onClick={selectDossier}
+              className="text-center text-white btn-style w-[100%]"
+            >
+              <h1 className="text-xl font-bold">{userParent}</h1>
+            </button>
 
             <NavParentDossier setComponent={setComponent} />
           </section>
