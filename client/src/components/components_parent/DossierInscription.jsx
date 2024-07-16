@@ -3,7 +3,7 @@ import { Checkbox } from "@nextui-org/checkbox";
 function DossierInscription() {
   return (
     <form className="h-[72vh] bg-white flex flex-center flex-col items-center justify-center gap-2">
-      <section className="flex flex-col items-start justify-start gap-5 w-[280px]">
+      <section className="flex flex-col items-start justify-start gap-5 w-[280px] texts">
         <Checkbox color="secondary" name="taxe_filling">
           Justificatif de revenu (moins de 3 mois)
         </Checkbox>
@@ -18,7 +18,7 @@ function DossierInscription() {
           Numéro de sécurité sociale{" "}
         </Checkbox>
         <Checkbox color="secondary" name="caf_number">
-          Justificatif de deomicile{" "}
+          Justificatif de domicile{" "}
         </Checkbox>
         <Checkbox color="secondary" name="job">
           Justificatif de situation professionnelles{" "}
