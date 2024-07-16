@@ -29,7 +29,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--ligth-color-text, rgb(255, 255, 255));
+  color: var(--light-color-text);
 }
 
 .mumbaby-login {

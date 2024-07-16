@@ -1,0 +1,6 @@
+.filter-bar {
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

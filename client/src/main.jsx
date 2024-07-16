@@ -12,6 +12,7 @@ import ReservationRequest from "./pages/page_reservation_parent/ReservationParen
 import ChildSelection from "./pages/page_reservation2_parent/ReservationParent2";
 import ReservationConfirmation from "./pages/page_reservation_confirmation/ReservationConfirmation";
 import AccesInvite from "./pages/page_parents/AccesInvite";
+import HomeSearch from "./pages/page_parents/HomeSearch";
 import DossierParent from "./pages/page_parents/DossierParent";
 import Faq from "./pages/page_parents/Faq";
 import Mentions from "./pages/page_parents/Mentions";
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "acces-invite",
     element: <AccesInvite />,
+  },
+  {
+    path: "/recherche",
+    element: <HomeSearch />,
   },
   {
     path: "/dossier-parent",
