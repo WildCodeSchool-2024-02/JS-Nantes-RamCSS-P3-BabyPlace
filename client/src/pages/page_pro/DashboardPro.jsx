@@ -2,6 +2,7 @@ import { User } from "@nextui-org/user";
 import { Chip } from "@nextui-org/chip";
 import { Tooltip } from "@nextui-org/tooltip";
 import { Pagination } from "@nextui-org/pagination";
+import { Navigate } from "react-router-dom";
 import {
   Table,
   TableHeader,
@@ -10,7 +11,7 @@ import {
   TableRow,
   TableCell,
 } from "@nextui-org/table";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState, useEffect } from "react";
 import { columns, users } from "../../../data";
 
 import DeleteIcon from "../../assets/nextUI/DeleteIcon";
@@ -29,6 +30,7 @@ const statusColorMap = {
 };
 
 function DashboardPro() {
+  //* Calcul de la table servant à la réservation
   const [page, setPage] = useState(1);
   const rowsPerPage = 6;
 
@@ -99,6 +101,20 @@ function DashboardPro() {
         return cellValue;
     }
   }, []);
+
+  //* Blocage de la page en cas de non connexion
+  const [authenticated, setAuthenticated] = useState(null);
+
+  useEffect(() => {
+    const loggedInNusery = localStorage.getItem("authentificated");
+    if (loggedInNusery) {
+      setAuthenticated(loggedInNusery);
+    }
+  }, []);
+
+  if (!authenticated) {
+    return <Navigate replace to="/pro/connexion" />;
+  }
 
   return (
     <section className="dashboard-page-container">
