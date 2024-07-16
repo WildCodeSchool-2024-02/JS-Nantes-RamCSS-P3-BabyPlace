@@ -4,7 +4,7 @@ function DossierInscriptionParent() {
   return (
     <section>
       {/* en attente de creation du formulaire */}
-      <form className="h-[72vh] bg-white flex flex-center flex-col items-center justify-center gap-2">
+      <form className="h-[72vh] bg-white flex flex-center flex-col items-center justify-center gap-2 texts">
         <select className="" id="" label="">
           <option value="">qui êtes vous</option>
           <option value="parent1">parent 1</option>

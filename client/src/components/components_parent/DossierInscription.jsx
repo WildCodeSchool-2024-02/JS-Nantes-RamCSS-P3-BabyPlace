@@ -21,13 +21,13 @@ function DossierInscription() {
           Justificatif de domicile{" "}
         </Checkbox>
         <Checkbox color="secondary" name="job">
-          Justificatif de situation professionnelles{" "}
+          Justificatif de situation professionnelle{" "}
         </Checkbox>
         <Checkbox color="secondary" name="rib">
           RIB{" "}
         </Checkbox>
         <Checkbox color="secondary" name="photo_and_video_authorization">
-          Autorisation photo et vidéo{" "}
+          Autorisation photos et vidéos{" "}
         </Checkbox>
         <Checkbox color="secondary" name="exit_permit">
           Autorisation de sortie{" "}
