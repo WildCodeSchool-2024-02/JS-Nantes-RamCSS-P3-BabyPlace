@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import "../styles_components/NurseryCard.css";
 
-function NurseryCard({ NameNursery, City, DescriptionNursery }) {
+function NurseryCard({ nameNursery, city, descriptionNursery }) {
   const [isFilled, setIsFilled] = useState(false);
 
   const toggleHeart = () => {
@@ -17,7 +17,7 @@ function NurseryCard({ NameNursery, City, DescriptionNursery }) {
           src="src/assets/images/photos/Crèche 1.jpg"
           alt="creche"
         />
-        <button type="button" className="heart-button" onClick={toggleHeart} >
+        <button type="button" className="heart-button" onClick={toggleHeart}>
           <img
             src={
               isFilled
@@ -28,18 +28,18 @@ function NurseryCard({ NameNursery, City, DescriptionNursery }) {
           />
         </button>
         <p> Image de la crèche </p>
-        <p> Nom de la crèche {NameNursery} </p>
-        <p> Une partie de la description de la crèche {DescriptionNursery} </p>
-        <p> Ville {City} </p>
+        <p> Nom de la crèche {nameNursery} </p>
+        <p> Une partie de la description de la crèche {descriptionNursery} </p>
+        <p> Ville {city} </p>
       </section>
     </div>
   );
 }
 
 NurseryCard.propTypes = {
-  NameNursery: PropTypes.string.isRequired,
-  City: PropTypes.string.isRequired,
-  DescriptionNursery: PropTypes.string.isRequired,
+  nameNursery: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  descriptionNursery: PropTypes.string.isRequired,
 };
 
 export default NurseryCard;
