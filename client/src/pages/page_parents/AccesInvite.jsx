@@ -2,14 +2,16 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
+import { Checkbox } from "@nextui-org/checkbox";
 import { DatePicker } from "@nextui-org/date-picker";
 import "../styles_parents/AccesInvite.css";
 
 function AccesInvite() {
-  const [flexibleHoursAndDates, setFlexibleHoursAndDates] = useState(false);
+  const [isTermsChecked, setIsTermsChecked] = useState(false);
 
-  const coche = () => {
-    setFlexibleHoursAndDates(!flexibleHoursAndDates);
+  const handleCheckboxClick = () => {
+    // Permet de cocher mais pas de décocher
+    setIsTermsChecked(!isTermsChecked);
   };
 
   return (
@@ -40,19 +42,22 @@ function AccesInvite() {
                 className="max-w-lg"
               />
               <DatePicker
-                label="Date de fin"
+                label="Date de sortie"
                 color="secondary"
                 className="max-w-lg"
               />
             </div>
           </div>
-          <div className="accesinvite-checkbox-container">
-            <label htmlFor="flexibilité-dates-horaires">
-              <input className="mr-2" type="checkbox" onChange={coche} />
+          <div className="acces-invite-text texts">
+            <Checkbox
+              color="secondary"
+              isSelected={isTermsChecked}
+              onClick={handleCheckboxClick}
+            >
               Mes dates ou mes horaires sont flexibles
-            </label>
+            </Checkbox>
           </div>
-          <NavLink className="w-80">
+          <NavLink to="/recherche" className="w-80">
             <Button
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts w-80"
               variant="shadow"
@@ -65,10 +70,10 @@ function AccesInvite() {
         </div>
         <div className="nav-bottom">
           <NavLink to="/" className="btn-nav-bottom texts">
-            accueil
+            Accueil
           </NavLink>
-          <NavLink to="/inscription" className="btn-nav-bottom texts">
-            s'inscrire
+          <NavLink to="/connexion" className="btn-nav-bottom texts">
+            S'inscrire
           </NavLink>
         </div>
       </div>

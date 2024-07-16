@@ -1,0 +1,85 @@
+.main-dossier-parent-form {
+  background: var(--background-gradient);
+}
+
+.main-dossier-parent {
+  width: 100vw;
+  height: 100vh;
+  background: var(--background-gradient);
+}
+
+.section-radio-inscription {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.section-radio-inscription input[type="radio"],
+.section-radio-inscription-home input[type="radio"] {
+  display: none;
+}
+
+.section-radio-inscription label {
+  clip-path: url(#roundedPolygon);
+  width: 80px;
+  height: 80px;
+  max-width: 80px;
+  max-height: 80px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-block;
+  padding: 20px 0px;
+  margin: 5px;
+  border: 1px solid var(--grey-color);
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--background-light);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  align-content: center;
+  text-align: center;
+}
+
+.section-radio-inscription-home label {
+  width: 80px;
+  height: 80px;
+  align-content: center;
+  text-align: center;
+  color: var(--light-color-text);
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* Cible le premier label */
+.section-radio-inscription label:first-of-type,
+.section-radio-inscription-home label:first-of-type {
+  background: var(--light-blue-gradient);
+}
+
+/* Cible le deuxième label */
+.section-radio-inscription label:nth-of-type(2),
+.section-radio-inscription-home label:nth-of-type(2) {
+  background: var(--light-green-gradient);
+}
+
+/* Cible le troisième label */
+.section-radio-inscription label:nth-of-type(3),
+.section-radio-inscription-home label:nth-of-type(3) {
+  background: var(--light-orange-gradient);
+}
+
+/* Applique le flou aux labels non sélectionnés */
+.section-radio-inscription input[type="radio"]:not(:checked) + span {
+  transition: 0.2s;
+}
+
+/* Applique un style différent aux labels sélectionnés */
+.section-radio-inscription input[type="radio"]:checked + span {
+  text-decoration: underline;
+  transition: 0.2s;
+}
+
+.section-radio-inscription span {
+  display: block;
+  text-align: center;
+}

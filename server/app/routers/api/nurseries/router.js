@@ -9,6 +9,7 @@ const {
   add,
   edit,
   destroy,
+  login,
   hashPassword,
   credentialsValidation,
 } = require("../../../controllers/nurseryActions");
@@ -20,7 +21,15 @@ router.get("/", browse);
 router.get("/:id", read);
 
 // Route to add a new nursery
+
 router.post("/", credentialsValidation, hashPassword, add);
+
+// Route to connect an nursery
+
+router.post("/login",
+  credentialsValidation,
+  login
+);
 
 // Route to update an existing nursery
 router.put("/:id", edit);

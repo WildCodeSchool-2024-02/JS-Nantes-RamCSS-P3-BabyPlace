@@ -17,7 +17,7 @@
 
 .titles-acces-invite {
   margin-top: 60px;
-  color: var(--ligth-color-text, rgb(255, 255, 255));
+  color: var(--light-color-text);
   text-align: center;
 }
 
@@ -39,13 +39,12 @@
   border-radius: 10px;
   padding-left: 20px;
   background-color: var(--input-transparent-background);
-  color: var(--ligth-color-text, rgb(255, 255, 255));
+  color: var(--ligth-color-text);
 }
 .input-parents-invite::placeholder {
-  color: var(--ligth-color-text, rgb(255, 255, 255));
-  color: var(--ligth-color-text, rgb(255, 255, 255));
+  color: var(--ligth-color-text);
 }
 
-.accesinvite-checkbox-container {
-  color: var(--ligth-color-text, rgb(255, 255, 255));
+.acces-invite-text {
+  color: var(--light-color-text);
 }

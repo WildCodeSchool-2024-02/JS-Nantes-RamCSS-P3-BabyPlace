@@ -89,6 +89,17 @@ class NurseryRepository extends AbstractRepository {
     return rows[0];
   }
 
+  // * Principe de connexion
+
+  async readByEmail(email) {
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE email = ?`,
+      [email]
+    );
+
+    return rows[0];
+  }
+
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "nursery" table
     const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);

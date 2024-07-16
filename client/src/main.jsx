@@ -9,6 +9,8 @@ import ConnexionParent from "./pages/page_parents/ConnexionParent";
 import InscriptionPro from "./pages/pages_pro-inscription/InscriptionPro";
 import ConnexionPro from "./pages/page_pro/ConnexionPro";
 import AccesInvite from "./pages/page_parents/AccesInvite";
+import HomeSearch from "./pages/page_parents/HomeSearch";
+import DossierParent from "./pages/page_parents/DossierParent";
 import Faq from "./pages/page_parents/Faq";
 import Mentions from "./pages/page_parents/Mentions";
 import DashboardPro from "./pages/page_pro/DashboardPro";
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
   {
     path: "acces-invite",
     element: <AccesInvite />,
+  },
+  {
+    path: "/recherche",
+    element: <HomeSearch />,
+  },
+  {
+    path: "/dossier-parent",
+    element: <DossierParent />,
   },
   {
     path: "reservation",
