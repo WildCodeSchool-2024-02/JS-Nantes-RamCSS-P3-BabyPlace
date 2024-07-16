@@ -29,11 +29,6 @@ function LoginPro({ setSelected }) {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-
-    const res = await response.json();
-
-    const {token} = res.token;
-    localStorage.setItem("token", token);
   };
 
   const handleSubmit = async (event) => {
@@ -44,7 +39,7 @@ function LoginPro({ setSelected }) {
         await handleFetch({ email, password });
       }
     } catch (error) {
-      console.error(error)
+      console.error(error.message);
     }
   };
 

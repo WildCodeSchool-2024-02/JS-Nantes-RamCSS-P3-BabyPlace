@@ -28,7 +28,6 @@ router.post("/",
 );
 
 // Route to connect an nursery
-
 router.post("/login",
   credentialsValidation,
   login
