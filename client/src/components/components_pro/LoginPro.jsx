@@ -15,18 +15,25 @@ function LoginPro({ setSelected }) {
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   const handleFetch = async (data) => {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/nurseries/login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     if (!response.ok) {
-      const res = await response.json();
-      localStorage.setItem("token", res.token);
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
+
+    const res = await response.json();
+
+    const {token} = res.token;
+    localStorage.setItem("token", token);
   };
 
   const handleSubmit = async (event) => {
@@ -37,7 +44,7 @@ function LoginPro({ setSelected }) {
         await handleFetch({ email, password });
       }
     } catch (error) {
-      console.error(error.message);
+      console.error(error)
     }
   };
 
@@ -92,6 +99,7 @@ function LoginPro({ setSelected }) {
           variant="shadow"
           fullWidth
           color="primary"
+          type="submit"
         >
           Connexion
         </Button>
