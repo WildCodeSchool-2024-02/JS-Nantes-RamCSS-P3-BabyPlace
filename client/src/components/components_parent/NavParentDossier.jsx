@@ -28,17 +28,16 @@ function NavParentDossier({ setComponent, component }) {
         onChange={selectDossier}
         className={
           component === ""
-            ? "flex flex-col section-radio-inscription"
-            : "section-radio-inscription"
+            ? "flex flex-col w-[300px] gap-5 section-radio-inscription-home font-bold"
+            : "section-radio-inscription "
         }
       >
-        <label htmlFor="structure-dossier" className="form-enfant">
+        <label htmlFor="structure-dossier" className="form-enfant font-bold">
           <input
             type="radio"
             id="structure-dossier"
             name="dossier_parent"
             value="DossierEnfant"
-            className="form-enfant"
           />
           <span className="form-enfant">Enfants</span>
         </label>

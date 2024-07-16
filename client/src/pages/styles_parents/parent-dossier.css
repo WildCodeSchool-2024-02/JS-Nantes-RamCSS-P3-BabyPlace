@@ -13,12 +13,13 @@
   justify-content: space-evenly;
 }
 
-.section-radio-inscription input[type="radio"] {
+.section-radio-inscription input[type="radio"],
+.section-radio-inscription-home input[type="radio"] {
   display: none;
 }
 
 .section-radio-inscription label {
-  /* clip-path: url(#roundedPolygon); */
+  clip-path: url(#roundedPolygon);
   width: 80px;
   height: 80px;
   max-width: 80px;
@@ -39,18 +40,31 @@
   text-align: center;
 }
 
+.section-radio-inscription-home label {
+  width: 80px;
+  height: 80px;
+  align-content: center;
+  text-align: center;
+  color: var(--light-color-text);
+  width: 100%;
+  border-radius: 20px;
+}
+
 /* Cible le premier label */
-.section-radio-inscription label:first-of-type {
+.section-radio-inscription label:first-of-type,
+.section-radio-inscription-home label:first-of-type {
   background: var(--light-blue-gradient);
 }
 
 /* Cible le deuxième label */
-.section-radio-inscription label:nth-of-type(2) {
+.section-radio-inscription label:nth-of-type(2),
+.section-radio-inscription-home label:nth-of-type(2) {
   background: var(--light-green-gradient);
 }
 
 /* Cible le troisième label */
-.section-radio-inscription label:nth-of-type(3) {
+.section-radio-inscription label:nth-of-type(3),
+.section-radio-inscription-home label:nth-of-type(3) {
   background: var(--light-orange-gradient);
 }
 
