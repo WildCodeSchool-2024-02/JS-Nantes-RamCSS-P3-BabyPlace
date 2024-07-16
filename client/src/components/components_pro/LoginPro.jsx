@@ -32,7 +32,7 @@ function LoginPro({ setSelected }) {
 
     const res = await response.json();
 
-    const {token} = res.token;
+    const { token } = res.token;
     localStorage.setItem("token", token);
   };
 
@@ -44,7 +44,7 @@ function LoginPro({ setSelected }) {
         await handleFetch({ email, password });
       }
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   };
 
