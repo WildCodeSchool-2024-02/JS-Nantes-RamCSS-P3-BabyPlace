@@ -7,8 +7,8 @@ function DossierInscriptionParent() {
       <form className="h-[72vh] bg-white flex flex-center flex-col items-center justify-center gap-2">
         <select className="" id="" label="">
           <option value="">qui êtes vous</option>
-          <option value="papa">papa</option>
-          <option value="maman">maman</option>
+          <option value="parent1">parent 1</option>
+          <option value="parent2">parent 2</option>
         </select>
 
         <Input
@@ -36,7 +36,7 @@ function DossierInscriptionParent() {
           label="n° et nom de rue"
           className="max-w-[284px] texts"
           size="lg"
-          name="firstname"
+          name="street"
           onChange=""
         />
         <Input
@@ -45,7 +45,7 @@ function DossierInscriptionParent() {
           label="Code postal"
           className="max-w-[284px] texts"
           size="lg"
-          name="lastname"
+          name="postal_code"
           onChange=""
         />
         <Input
@@ -54,7 +54,7 @@ function DossierInscriptionParent() {
           label="Commune"
           className="max-w-[284px] texts"
           size="lg"
-          name="firstname"
+          name="commune"
           onChange=""
         />
         <Input
@@ -63,16 +63,7 @@ function DossierInscriptionParent() {
           label="numéro de téléphone"
           className="max-w-[284px] texts"
           size="lg"
-          name="lastname"
-          onChange=""
-        />
-        <Input
-          type="text"
-          color="secondary"
-          label="Nom"
-          className="max-w-[284px] texts"
-          size="lg"
-          name="lastname"
+          name="phone"
           onChange=""
         />
 
