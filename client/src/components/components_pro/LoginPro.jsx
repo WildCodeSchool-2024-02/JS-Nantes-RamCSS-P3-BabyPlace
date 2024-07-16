@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
@@ -13,6 +14,8 @@ function LoginPro({ setSelected }) {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
+
+  const navigate = useNavigate();
 
   const handleFetch = async (data) => {
     const response = await fetch(
@@ -37,6 +40,7 @@ function LoginPro({ setSelected }) {
 
       if (email && password) {
         await handleFetch({ email, password });
+        navigate("/pro/dashboard");
       }
     } catch (error) {
       console.error(error.message);
