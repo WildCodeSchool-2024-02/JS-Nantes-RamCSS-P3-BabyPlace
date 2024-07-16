@@ -1,7 +1,7 @@
 function HeaderReservvationParent() {
   const userName = "Alexis Guillon";
   return (
-    <header className="w-[50vw] h-[20vh] shadow-lg flex flex-col justify-end p-[10px]">
+    <header className="bg-white z-10 w-[100vw] h-[20vh] shadow-lg flex flex-col justify-end p-[10px] fixed top-0">
       <h1 className="text-center texts font-semibold  text-2xl">Réservation</h1>
 
       <section className="flex texts items-center justify-center end-0">

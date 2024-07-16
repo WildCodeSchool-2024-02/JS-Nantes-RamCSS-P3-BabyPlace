@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 
 function UserValidationParent({ status }) {
   return (
-    <article className="w-[50%] flex items-center texts">
+    <article className="w-[100%] flex justify-between items-center texts">
       <User
-        name="Jane Doe"
+        name="Crêche des Loulous"
         description="Nom de la crêche"
         avatarProps={{
           src: "https://i.pravatar.cc/150?u=a04258114e29026702d",

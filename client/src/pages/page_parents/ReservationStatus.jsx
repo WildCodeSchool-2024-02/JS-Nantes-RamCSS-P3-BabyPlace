@@ -4,16 +4,16 @@ import UserValidationParent from "../../components/components_parent/UserValidat
 
 const status = [
   {
+    color: "default",
+    valeur: "en court",
+  },
+  {
     color: "success",
     valeur: "validée",
   },
   {
     color: "warning",
     valeur: "attente",
-  },
-  {
-    color: "default",
-    valeur: "en court",
   },
   {
     color: "danger",
@@ -25,11 +25,21 @@ function ReservationStatus() {
   return (
     <>
       <HeaderReservvationParent />
-      <section className="p-10 w-[50vw]">
+      <section className="p-6 w-[100vw] flex flex-col justify-center itens-center mt-48">
+        <UserValidationParent status={status[0]} />
+        <UserValidationParent status={status[3]} />
+        <UserValidationParent status={status[2]} />
         <UserValidationParent status={status[0]} />
         <UserValidationParent status={status[1]} />
-        <UserValidationParent status={status[2]} />
         <UserValidationParent status={status[3]} />
+        <UserValidationParent status={status[1]} />
+        <UserValidationParent status={status[1]} />
+        <UserValidationParent status={status[1]} />
+        <UserValidationParent status={status[1]} />
+        <UserValidationParent status={status[1]} />
+        <UserValidationParent status={status[1]} />
+        <UserValidationParent status={status[1]} />
+        <UserValidationParent status={status[1]} />
       </section>
       <Toolbar />
     </>
