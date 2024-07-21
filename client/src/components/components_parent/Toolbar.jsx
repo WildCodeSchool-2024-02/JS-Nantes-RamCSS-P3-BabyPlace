@@ -4,7 +4,7 @@ import "../styles_components/Toolbar.css";
 function Toolbar() {
   return (
     <div className="toolbar">
-      <NavLink to="/" className="nav-toolbar">
+      <NavLink to="/menu" className="nav-toolbar">
         <img src="src/assets/images/icônes/Icône menu.png" alt="Menu" />
       </NavLink>
       <NavLink to="/recherche" className="nav-toolbar">
