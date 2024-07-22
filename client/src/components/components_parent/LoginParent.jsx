@@ -15,17 +15,19 @@ function LoginParent({ setSelected }) {
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   const handleFetch = async (data) => {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/parents/login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     if (!response.ok) {
-      const res = await response.json();
-      localStorage.setItem("token", res.token);
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
   };
 
