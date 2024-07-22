@@ -15,7 +15,7 @@ function Toolbar() {
       </NavLink>
       <NavLink to="/reservation-status" className="nav-toolbar">
         <img
-          src="src/assets/images/icônes/Icône notifications.png"
+          src="src/assets/images/icônes/Icone reservation.png"
           alt="Notifications"
         />
       </NavLink>
