@@ -32,7 +32,7 @@ function HomeSearch() {
         />
       </div>
 
-      <div className="home-search-nursery-card pt-5 flex-col flex gap-5">
+      <div className="home-search-nursery-card pt-10 flex-col flex gap-10">
         {nurseries.map((nursery) => (
           <NurseryCard
             key={nursery.id}

@@ -3,7 +3,7 @@ import "../styles_components/Toolbar.css";
 
 function Toolbar() {
   return (
-    <div className="toolbar">
+    <div className="toolbar shadow-[02px_60px-15px_rgba(0,0,0,0.3)]">
       <NavLink to="/menu" className="nav-toolbar">
         <img src="src/assets/images/icones/icone-menu.png" alt="Menu" />
       </NavLink>

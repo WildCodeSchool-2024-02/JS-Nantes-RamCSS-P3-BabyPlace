@@ -27,8 +27,8 @@ function NurseryCard({ nameNursery, city, descriptionNursery }) {
             <img
               src={
                 isFilled
-                  ? "/src/assets/images/icônes/Icone-coeur-favoris.svg"
-                  : "/src/assets/images/icônes/Icone-coeur-vide.svg"
+                  ? "/src/assets/images/icones/icone-coeur-favoris.svg"
+                  : "/src/assets/images/icones/icone-coeur-vide.svg"
               }
               alt="coeur favoris"
             />
