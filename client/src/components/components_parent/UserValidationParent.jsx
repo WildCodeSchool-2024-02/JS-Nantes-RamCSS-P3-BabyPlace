@@ -7,7 +7,7 @@ function UserValidationParent({ status }) {
     <article className="w-[100%] flex justify-between items-center texts">
       <User
         name="Crêche des Loulous"
-        description="Nom de la crêche"
+        description="Nom de la crèche"
         avatarProps={{
           src: "https://i.pravatar.cc/150?u=a04258114e29026702d",
         }}

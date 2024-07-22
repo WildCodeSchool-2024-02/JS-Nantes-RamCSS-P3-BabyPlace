@@ -5,7 +5,7 @@ import UserValidationParent from "../../components/components_parent/UserValidat
 const status = [
   {
     color: "default",
-    valeur: "en court",
+    valeur: "en cours",
   },
   {
     color: "success",
