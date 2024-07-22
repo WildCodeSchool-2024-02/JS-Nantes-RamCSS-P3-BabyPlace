@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import ConnexionParent from "./pages/page_parents/ConnexionParent";
+import ReservationStatus from "./pages/page_parents/ReservationStatus";
 import InscriptionPro from "./pages/pages_pro-inscription/InscriptionPro";
 import ConnexionPro from "./pages/page_pro/ConnexionPro";
 import ReservationRequest from "./pages/page_reservation_parent/ReservationParent";
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: "/dossier-parent",
     element: <DossierParent />,
+  },
+  {
+    path: "/reservation-status",
+    element: <ReservationStatus />,
   },
   {
     path: "reservation",
