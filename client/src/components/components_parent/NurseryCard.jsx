@@ -17,20 +17,23 @@ function NurseryCard({ nameNursery, city, descriptionNursery }) {
           src="src/assets/images/photos/Crèche 1.jpg"
           alt="creche"
         />
-        <button type="button" className="heart-button" onClick={toggleHeart}>
-          <img
-            src={
-              isFilled
-                ? "/src/assets/images/icônes/Icone-coeur-favoris.svg"
-                : "/src/assets/images/icônes/Icone-coeur-vide.svg"
-            }
-            alt="coeur favoris"
-          />
-        </button>
-        <p> Image de la crèche </p>
-        <p> Nom de la crèche {nameNursery} </p>
-        <p> Une partie de la description de la crèche {descriptionNursery} </p>
-        <p> Ville {city} </p>
+        <section className="flex">
+          <section>
+            <p> {nameNursery} </p>
+            <p> {descriptionNursery} </p>
+            <p> {city} </p>
+          </section>
+          <button type="button" className="heart-button" onClick={toggleHeart}>
+            <img
+              src={
+                isFilled
+                  ? "/src/assets/images/icônes/Icone-coeur-favoris.svg"
+                  : "/src/assets/images/icônes/Icone-coeur-vide.svg"
+              }
+              alt="coeur favoris"
+            />
+          </button>
+        </section>
       </section>
     </div>
   );

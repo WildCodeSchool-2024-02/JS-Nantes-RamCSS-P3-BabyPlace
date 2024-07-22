@@ -36,6 +36,7 @@ const router = createBrowserRouter([
   {
     path: "/recherche",
     element: <HomeSearch />,
+    loader: () => fetch("http://localhost:3310/api/nurseries"),
   },
   {
     path: "/dossier-parent",
