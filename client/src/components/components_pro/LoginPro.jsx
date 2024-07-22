@@ -31,6 +31,10 @@ function LoginPro({ setSelected }) {
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
+    } else {
+      const res = await response.json();
+
+      console.warn("Ma res : ", res);
     }
   };
 

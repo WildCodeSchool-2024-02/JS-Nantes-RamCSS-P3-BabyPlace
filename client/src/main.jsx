@@ -18,6 +18,8 @@ import Faq from "./pages/page_parents/Faq";
 import Mentions from "./pages/page_parents/Mentions";
 import DashboardPro from "./pages/page_pro/DashboardPro";
 import LayoutPro from "./pages/page_pro/LayoutPro";
+import { AuthProvider } from "./contexts/AuthContext";
+import ProtectedRoutePro from "./contexts/ProtectedRoutePro";
 
 const router = createBrowserRouter([
   {
@@ -65,24 +67,39 @@ const router = createBrowserRouter([
     element: <LayoutPro />,
     children: [
       {
-        path: "/pro/inscription",
-        element: <InscriptionPro />,
-      },
-      {
         path: "/pro/connexion",
         element: <ConnexionPro />,
       },
       {
+        path: "/pro/inscription",
+        element: (
+          <ProtectedRoutePro>
+            <InscriptionPro />
+          </ProtectedRoutePro>
+        ),
+      },
+      {
         path: "/pro/dashboard",
-        element: <DashboardPro />,
+        element: (
+          <ProtectedRoutePro>
+            <DashboardPro />
+          </ProtectedRoutePro>
+        ),
       },
       {
         path: "/pro/modification-du-profil",
-        element: <InscriptionPro />,
+        element: (
+          <ProtectedRoutePro>
+            <InscriptionPro />
+          </ProtectedRoutePro>
+        ),
       },
       // {
       //   path: "reservations",
-      //   element: <ReservationsPro />,
+      //   element:
+      //     <ProtectedRoutePro>
+      //       <ReservationsPro />
+      //     </ProtectedRoutePro>,
       // },
     ],
   },
@@ -92,8 +109,10 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <NextUIProvider locale="fr-FR">
-      <RouterProvider router={router} />
-    </NextUIProvider>
+    <AuthProvider isSignedIn={false}>
+      <NextUIProvider locale="fr-FR">
+        <RouterProvider router={router} />
+      </NextUIProvider>
+    </AuthProvider>
   </React.StrictMode>
 );

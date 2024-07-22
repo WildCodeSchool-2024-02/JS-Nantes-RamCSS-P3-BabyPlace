@@ -2,7 +2,7 @@ import { User } from "@nextui-org/user";
 import { Chip } from "@nextui-org/chip";
 import { Tooltip } from "@nextui-org/tooltip";
 import { Pagination } from "@nextui-org/pagination";
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 import {
   Table,
   TableHeader,
@@ -11,7 +11,8 @@ import {
   TableRow,
   TableCell,
 } from "@nextui-org/table";
-import { useCallback, useMemo, useState, useEffect } from "react";
+import { useCallback, useMemo, useState } from "react";
+// import { useEffect } from "react";
 import { columns, users } from "../../../data";
 
 import DeleteIcon from "../../assets/nextUI/DeleteIcon";
@@ -102,104 +103,108 @@ function DashboardPro() {
     }
   }, []);
 
-  //* Blocage de la page en cas de non connexion
-  const [authenticated, setAuthenticated] = useState(false);
+  //   //* Blocage de la page en cas de non connexion
 
-  useEffect(() => {
-    const loggedInNursery = localStorage.getItem("token");
+  // const [authenticated, setAuthenticated] = useState(false);
 
-    if (loggedInNursery === "true") {
-      setAuthenticated(true);
-      if (!authenticated) {
-        return <Navigate replace to="/pro/connexion" />;
-      }
-    }
-    return (
-      <section className="dashboard-page-container">
-        <NavbarPro />
-        <section className="dashboard-component-container">
-          <section className="dashboard-component-user-info">
-            <section className="card-user-decorations">
-              <img
-                src="../src/assets/images/illustration/decore-left.svg"
-                alt="décorations"
-              />
-              <img
-                src="../src/assets/images/illustration/decore-right.svg"
-                alt="décorations"
-              />
-            </section>
+  // useEffect(() => {
+  //   const loggedInUser = localStorage.getItem("token");
+  //   if (loggedInUser) {
+  // setAuthenticated(loggedInUser);
+  // }
+  // }, []);
+
+  // if (!authenticated) {
+  //   console.log('FJFJFJFJF', authenticated);
+  //   return <Navigate replace to="/pro/connexion" />;
+  // } else {
+
+  return (
+    <section className="dashboard-page-container">
+      <NavbarPro />
+      <section className="dashboard-component-container">
+        <section className="dashboard-component-user-info">
+          <section className="card-user-decorations">
             <img
-              className="card-user-image"
-              src="../src/assets/images/illustration/badge_user.png"
-              alt="badge"
+              src="../src/assets/images/illustration/decore-left.svg"
+              alt="décorations"
             />
-            <p className="texts card-user-title">
-              Bienvenue <strong>NOM DE LA STRUCTURE</strong>
-            </p>
-            <p className="texts card-user-annonces">
-              Annonce BABYPLACE // Annonce BABYPLACE // Annonce BABYPLACE
-            </p>
-          </section>
-          <section className="dashboard-component-graph-subscribers">
             <img
-              className="subscribers-charts"
-              src="../src/assets/images/illustration/Subscribers_Card.png"
-              alt="graphique sur le nombre de réservations"
+              src="../src/assets/images/illustration/decore-right.svg"
+              alt="décorations"
             />
           </section>
-          <section className="dashboard-component-graph-buisness">
-            <img
-              className="buisness-charts"
-              src="../src/assets/images/illustration/Buisness_Card.png"
-              alt="graphique sur le chiffre d'affaire"
-            />
-          </section>
-          <section className="dashboard-component-table">
-            <Table
-              aria-label="Example table with custom cells"
-              bottomContent={
-                <div className="flex w-full justify-center">
-                  <Pagination
-                    isCompact
-                    showControls
-                    showShadow
-                    color="secondary"
-                    page={page}
-                    total={pages}
-                    onChange={setPage}
-                  />
-                </div>
-              }
-              classNames={{
-                wrapper: "min-h-[222px]",
-              }}
-            >
-              <TableHeader columns={columns}>
-                {(column) => (
-                  <TableColumn
-                    key={column.uid}
-                    align={column.uid === "actions" ? "center" : "start"}
-                  >
-                    {column.name}
-                  </TableColumn>
-                )}
-              </TableHeader>
-              <TableBody items={items}>
-                {(item) => (
-                  <TableRow key={item?.name}>
-                    {(columnKey) => (
-                      <TableCell>{renderCell(item, columnKey)}</TableCell>
-                    )}
-                  </TableRow>
-                )}
-              </TableBody>
-            </Table>
-          </section>
+          <img
+            className="card-user-image"
+            src="../src/assets/images/illustration/badge_user.png"
+            alt="badge"
+          />
+          <p className="texts card-user-title">
+            Bienvenue <strong>NOM DE LA STRUCTURE</strong>
+          </p>
+          <p className="texts card-user-annonces">
+            Annonce BABYPLACE // Annonce BABYPLACE // Annonce BABYPLACE
+          </p>
+        </section>
+        <section className="dashboard-component-graph-subscribers">
+          <img
+            className="subscribers-charts"
+            src="../src/assets/images/illustration/Subscribers_Card.png"
+            alt="graphique sur le nombre de réservations"
+          />
+        </section>
+        <section className="dashboard-component-graph-buisness">
+          <img
+            className="buisness-charts"
+            src="../src/assets/images/illustration/Buisness_Card.png"
+            alt="graphique sur le chiffre d'affaire"
+          />
+        </section>
+        <section className="dashboard-component-table">
+          <Table
+            aria-label="Example table with custom cells"
+            bottomContent={
+              <div className="flex w-full justify-center">
+                <Pagination
+                  isCompact
+                  showControls
+                  showShadow
+                  color="secondary"
+                  page={page}
+                  total={pages}
+                  onChange={setPage}
+                />
+              </div>
+            }
+            classNames={{
+              wrapper: "min-h-[222px]",
+            }}
+          >
+            <TableHeader columns={columns}>
+              {(column) => (
+                <TableColumn
+                  key={column.uid}
+                  align={column.uid === "actions" ? "center" : "start"}
+                >
+                  {column.name}
+                </TableColumn>
+              )}
+            </TableHeader>
+            <TableBody items={items}>
+              {(item) => (
+                <TableRow key={item?.name}>
+                  {(columnKey) => (
+                    <TableCell>{renderCell(item, columnKey)}</TableCell>
+                  )}
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
         </section>
       </section>
-    );
-  }, [authenticated]);
+    </section>
+  );
 }
+// }
 
 export default DashboardPro;
