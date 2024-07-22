@@ -1,22 +1,39 @@
-import { createContext, useContext, useState, useMemo } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 export const AuthContext = createContext();
 
-export function AuthProvider({ children, isSignedIn }) {
-  const [user, setUser] = useState(
-    isSignedIn && localStorage.getItem("token") ? { id: 1 } : null
-  );
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState(null);
+  // const [isSignedIn, setIsSignedIn] = useState(false)
 
-  // Utilisation de useMemo pour mémoriser la valeur du contexte
-  const value = useMemo(() => ({ user, setUser }), [user, setUser]);
+  useEffect(() => {
+    // console.log('useEffect est làààààà');
+    // console.log('lolo', localStorage)
+    // console.log('token:', localStorage.getItem("token"));
+    // console.log('nurseryId dans localStorage:', localStorage.getItem("userId"))
+    // console.log('isSignedIn:', isSignedIn);
+    if (localStorage.getItem("token")) {
+      const userId = localStorage.getItem("userId");
+      // console.log('userId:', userId);
+      setUser(userId);
+      // if (userId !== null) {
+      //   setIsSignedIn(true)
+      // } else {
+      //   setIsSignedIn(false)
+      // }
+    } else {
+      setUser(null);
+    }
+  }, []);
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
 }
+
+// Validation des props
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -26,10 +43,4 @@ export const useAuth = () => {
   }
 
   return context;
-};
-
-// Validation des props
-AuthProvider.propTypes = {
-  children: PropTypes.func.isRequired,
-  isSignedIn: PropTypes.func.isRequired,
 };

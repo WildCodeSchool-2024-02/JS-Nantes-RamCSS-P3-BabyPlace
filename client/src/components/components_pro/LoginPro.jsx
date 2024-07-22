@@ -44,8 +44,7 @@ function LoginPro({ setSelected }) {
 
       if (email && password) {
         await handleFetch({ email, password });
-        localStorage.setItem("token", true);
-
+        localStorage.setItem("token", JSON.stringify(true));
         if (localStorage.getItem("token")) {
           navigate("/pro/dashboard");
         }

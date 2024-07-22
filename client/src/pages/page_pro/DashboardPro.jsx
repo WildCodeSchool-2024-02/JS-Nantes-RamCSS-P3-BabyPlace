@@ -2,7 +2,6 @@ import { User } from "@nextui-org/user";
 import { Chip } from "@nextui-org/chip";
 import { Tooltip } from "@nextui-org/tooltip";
 import { Pagination } from "@nextui-org/pagination";
-// import { Navigate } from "react-router-dom";
 import {
   Table,
   TableHeader,
@@ -12,7 +11,6 @@ import {
   TableCell,
 } from "@nextui-org/table";
 import { useCallback, useMemo, useState } from "react";
-// import { useEffect } from "react";
 import { columns, users } from "../../../data";
 
 import DeleteIcon from "../../assets/nextUI/DeleteIcon";
@@ -102,22 +100,6 @@ function DashboardPro() {
         return cellValue;
     }
   }, []);
-
-  //   //* Blocage de la page en cas de non connexion
-
-  // const [authenticated, setAuthenticated] = useState(false);
-
-  // useEffect(() => {
-  //   const loggedInUser = localStorage.getItem("token");
-  //   if (loggedInUser) {
-  // setAuthenticated(loggedInUser);
-  // }
-  // }, []);
-
-  // if (!authenticated) {
-  //   console.log('FJFJFJFJF', authenticated);
-  //   return <Navigate replace to="/pro/connexion" />;
-  // } else {
 
   return (
     <section className="dashboard-page-container">
