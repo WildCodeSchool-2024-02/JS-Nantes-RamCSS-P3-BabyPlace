@@ -17,6 +17,8 @@ function LoginPro({ setSelected }) {
 
   const navigate = useNavigate();
 
+  let res = {};
+
   const handleFetch = async (data) => {
     const response = await fetch(
       `${import.meta.env.VITE_API_URL}/api/nurseries/login`,
@@ -32,9 +34,7 @@ function LoginPro({ setSelected }) {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     } else {
-      const res = await response.json();
-
-      console.warn("Ma res : ", res);
+      res = await response.json();
     }
   };
 
@@ -44,10 +44,9 @@ function LoginPro({ setSelected }) {
 
       if (email && password) {
         await handleFetch({ email, password });
-        localStorage.setItem("token", JSON.stringify(true));
-        if (localStorage.getItem("token")) {
-          navigate("/pro/dashboard");
-        }
+        localStorage.setItem("token", res.token);
+        localStorage.setItem("nursery_id", res.nursery.id);
+        navigate("/pro/dashboard");
       }
     } catch (error) {
       console.error(error.message);

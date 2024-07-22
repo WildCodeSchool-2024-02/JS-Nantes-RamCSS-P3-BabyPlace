@@ -1,31 +1,14 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 import PropTypes from "prop-types";
 
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
-  // const [isSignedIn, setIsSignedIn] = useState(false)
+  const [user, setUser] = useState(localStorage.getItem("nursery_id"));
 
-  useEffect(() => {
-    // console.log('useEffect est làààààà');
-    // console.log('lolo', localStorage)
-    // console.log('token:', localStorage.getItem("token"));
-    // console.log('nurseryId dans localStorage:', localStorage.getItem("userId"))
-    // console.log('isSignedIn:', isSignedIn);
-    if (localStorage.getItem("token")) {
-      const userId = localStorage.getItem("userId");
-      // console.log('userId:', userId);
-      setUser(userId);
-      // if (userId !== null) {
-      //   setIsSignedIn(true)
-      // } else {
-      //   setIsSignedIn(false)
-      // }
-    } else {
-      setUser(null);
-    }
-  }, []);
+  if (user === null) {
+    setUser(localStorage.getItem("nursery_id"));
+  }
 
   return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
 }

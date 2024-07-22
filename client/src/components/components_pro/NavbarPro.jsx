@@ -7,6 +7,7 @@ function NavbarPro() {
 
   const handleLogOut = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("nursery_id");
     sessionStorage.removeItem("token");
 
     navigate("/pro/connexion");

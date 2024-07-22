@@ -5,7 +5,6 @@ import { useAuth } from "./AuthContext";
 
 export default function ProtectedRoutePro({ children }) {
   const user = useAuth();
-  // console.log('je suis user', user)
   const navigate = useNavigate();
 
   useEffect(() => {
