@@ -1,8 +1,17 @@
 import "../styles_parents/ReservationParent.css";
 import { Checkbox } from "@nextui-org/checkbox";
 import { Button } from "@nextui-org/button";
+// import React, { useState } from 'react';
 
 function ReservationRequest() {
+  // État pour gérer le statut du like
+  // const [liked, setLiked] = useState(false);
+
+  // // Fonction pour gérer le clic sur le bouton
+  // const handleLike = () => {
+  //   setLiked(!liked);
+  // };
+
   return (
     <div className="reservation-request">
       <header>
@@ -19,20 +28,35 @@ function ReservationRequest() {
         </Button>
         <h1>Crèche Picoti Picota</h1>
       </header>
-      <section className="card-nuresery">
+      <section className="card-nursery">
         <img
           src="./src/assets/images/illustration/avatar_lorem.jpg"
           alt="Enfants jouant"
           className="creche-image"
         />
+        {/* <button
+            onClick={handleLike}
+            className={`like-button ${liked ? 'liked' : ''}`}
+            variant="shadow"
+            color={liked ? "success" : "primary"}
+          >
+            {liked ? 'Liked' : 'Like'}
+          </button> */}
         <div className="reservation-details">
-          <h2>Demande de réservation</h2>
-          <p>
-            <strong>Date :</strong> lundi 14 septembre
-          </p>
-          <p>
-            <strong>Horaires :</strong> 9h-16h
-          </p>
+          <div className="bloc-one">
+            <h2>Demande de réservation Crèche Picoti Picota</h2>
+            <img
+              src="./src/assets/images/icônes/Pricing.png"
+              alt="Pricing Icon"
+            />
+          </div>
+
+          <div className="more-info-container">
+            <h3 className="more-information">Date : lundi 14 septembre</h3>
+            <img src="./src/assets/images/icônes/params.png" alt="Param " />
+            {/* <h3 className="more-information">Horaires : 9h-16h</h3>
+          <img src="./src/assets/images/icônes/params.png" alt="Param "/> */}
+          </div>
           <div className="services">
             <p>
               <span>🥗</span> Repas bio
@@ -41,7 +65,7 @@ function ReservationRequest() {
               <span>♿</span> Accueil Handicap
             </p>
             <p>
-              <span>⏰</span> Horaires tarifés
+              <span>⏰</span> Horaires tardif
             </p>
           </div>
           <div className="indemnities">
@@ -52,14 +76,15 @@ function ReservationRequest() {
           </div>
           <div className="total-cost">
             <p>75€*</p>
-            <small>
-              * En complétant mon profil, je peux obtenir une tarification
-              personnalisée en fonction de mes revenus
-            </small>
+            <p>8h de garde*</p>
           </div>
           <button type="button">Suivant</button>
         </div>
       </section>
+      <small>
+        * En complétant mon profil, je peux obtenir une tarification
+        personnalisée en fonction de mes revenus
+      </small>
     </div>
   );
 }
