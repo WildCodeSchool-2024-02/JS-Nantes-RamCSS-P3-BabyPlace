@@ -45,7 +45,8 @@ function ReservationConfirmation() {
 
         <div className="flex justify-end">
           <Button
-            to="/page_parent"
+            // Rajouter redirection vers page Menu || Add redirection to Menu page
+            // to="/page_parent/.....MENU...."
             className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
             variant="shadow"
             color="primary"

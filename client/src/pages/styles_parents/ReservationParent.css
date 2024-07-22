@@ -1,44 +1,14 @@
 .reservation-request {
-  background-color: #d7b1f9;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 400px;
+  background: var(--background-gradient);
+  padding: 18px;
   margin: auto;
-  text-align: left;
-}
-
-.creche-image {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.reservation-details {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.reservation-details h2 {
-  color: purple;
-}
-
-.services span {
-  margin-right: 10px;
-}
-
-.indemnities label {
+  text-align: center;
+  color: var(--light-color-text);
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
-}
-
-.total-cost {
-  margin: 20px 0;
-}
-
-button {
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
 }
