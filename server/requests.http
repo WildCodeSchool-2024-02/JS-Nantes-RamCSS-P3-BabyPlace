@@ -1,0 +1,5 @@
+# requette pour reccuperer les donnees de la table nursery
+
+Get http://localhost:3310/api/nurseries HTTP/1.1
+content-type: application/json
+
