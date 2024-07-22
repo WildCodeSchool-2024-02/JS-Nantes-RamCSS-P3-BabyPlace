@@ -3,29 +3,41 @@ import DossierEnfant from "../../components/components_parent/DossierEnfant";
 import DossierInscriptionParent from "../../components/components_parent/DossierInscriptionParent";
 import DossierInscription from "../../components/components_parent/DossierInscription";
 import NavParentDossier from "../../components/components_parent/NavParentDossier";
+import Toolbar from "../../components/components_parent/Toolbar";
 import "../styles_parents/parent-dossier.css";
 
 function DossierParent() {
+  // *variable dynamique pour afficher le perent en fonction de la BDD
   const userParent = "Alexis Guillon";
   const userParentPicture =
     "../src/assets/images/illustration/Team-memeber-01 1.png";
 
+  // Définition d'un objet `components` contenant différentes configurations de composants
   const components = {
+    // Clé vide associée à un objet avec un `component` null
     "": {
       component: null,
     },
+    // Clé `DossierEnfant` associée au composant `DossierEnfant`
     DossierEnfant: {
       component: DossierEnfant,
     },
+    // Clé `DossierInscriptionParent` associée au composant `DossierInscriptionParent`
     DossierInscriptionParent: {
       component: DossierInscriptionParent,
     },
+    // Clé `DossierInscription` associée au composant `DossierInscription`
     DossierInscription: {
       component: DossierInscription,
     },
   };
 
+  // Déclaration d'un état `component` avec une valeur initiale vide ("")
+  // `setComponent` est une fonction pour mettre à jour cet état
   const [component, setComponent] = useState("");
+
+  // Récupération du composant à rendre en fonction de la valeur actuelle de `component`
+  // `ComponentToRender` sera soit `null` soit un des composants définis dans l'objet `components`
   const ComponentToRender = components[component].component;
 
   const selectDossier = () => {
@@ -79,6 +91,7 @@ function DossierParent() {
           )}
         </section>
       )}
+      <Toolbar />
     </main>
   );
 }
