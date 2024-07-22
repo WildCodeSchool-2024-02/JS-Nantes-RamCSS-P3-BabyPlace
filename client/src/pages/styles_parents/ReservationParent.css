@@ -10,7 +10,7 @@
   flex-direction: column;
 }
 
-.reservation-request header {
+.header-reservation-parent {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,14 +77,21 @@
   display: flex;
   align-items: center; /* Aligne les éléments verticalement au centre */
   gap: 10px; /* Espace entre le texte et l'image, ajustez selon vos besoins */
+  border: 1px solid red; /* Bordure de débogage */
 }
 
 .more-information {
   margin: 0; /* Supprime les marges par défaut */
   font-size: 1.2rem; /* Ajustez la taille du texte si nécessaire */
+  border: 1px solid blue; /* Bordure de débogage */
 }
 
-.more-info-container img {
-  width: 24px; /* Ajustez la taille de l'image selon vos besoins */
-  height: auto; /* Maintient le ratio de l'image */
+.more-information-picture {
+  width: 5px; /* Ajustez cette valeur selon vos besoins */
+  height: 5px; /* Ajustez cette valeur selon vos besoins */
+  border: 1px solid green; /* Bordure de débogage */
+}
+
+small {
+  color: black;
 }

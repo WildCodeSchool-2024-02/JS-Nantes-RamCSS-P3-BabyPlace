@@ -14,7 +14,7 @@ function ReservationRequest() {
 
   return (
     <div className="reservation-request">
-      <header>
+      <header className="header-reservation-parent">
         <Button
           // Rajouter redirection vers page REcherche de creche || Add redirection to Recherche de creche page
           // to="/page_parent/.....Recherche de creche...."
@@ -52,10 +52,22 @@ function ReservationRequest() {
           </div>
 
           <div className="more-info-container">
-            <h3 className="more-information">Date : lundi 14 septembre</h3>
-            <img src="./src/assets/images/icônes/params.png" alt="Param " />
-            {/* <h3 className="more-information">Horaires : 9h-16h</h3>
-          <img src="./src/assets/images/icônes/params.png" alt="Param "/> */}
+            <p>
+              <h3 className="more-information">Date : lundi 14 septembre</h3>
+              <img
+                className="more-information-picture"
+                src="./src/assets/images/icônes/params.png"
+                alt="Param "
+              />
+            </p>
+            <p>
+              <h3 className="more-information">Horaires : 9h-16h</h3>
+              <img
+                className="more-information-picture"
+                src="./src/assets/images/icônes/params.png"
+                alt="Param "
+              />
+            </p>
           </div>
           <div className="services">
             <p>
@@ -78,8 +90,16 @@ function ReservationRequest() {
             <p>75€*</p>
             <p>8h de garde*</p>
           </div>
-          <button type="button">Suivant</button>
         </div>
+        <Button
+          className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+          variant="shadow"
+          color="primary"
+          type="submit"
+        >
+          {" "}
+          Suivant;
+        </Button>
       </section>
       <small>
         * En complétant mon profil, je peux obtenir une tarification
