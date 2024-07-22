@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
 
-import HeaderReservvationParent from "../../components/components_parent/HeaderReservationParent";
+import HeaderReservationParent from "../../components/components_parent/HeaderReservationParent";
 import Toolbar from "../../components/components_parent/Toolbar";
 
 function OptionMenuParent() {
   return (
     <>
-      <HeaderReservvationParent />
+      <HeaderReservationParent />
       <section className="mt-[200px] flex flex-col justify-between h-[60vh] texts font-bold">
         <section className="flex flex-col p-3 gap-5">
           <NavLink

@@ -1,4 +1,4 @@
-function HeaderReservvationParent() {
+function HeaderReservationParent() {
   const userName = "Alexis Guillon";
   return (
     <header className="bg-white z-10 w-[100vw] h-[20vh] shadow-lg flex flex-col justify-end p-[10px] fixed top-0">
@@ -16,4 +16,4 @@ function HeaderReservvationParent() {
   );
 }
 
-export default HeaderReservvationParent;
+export default HeaderReservationParent;
