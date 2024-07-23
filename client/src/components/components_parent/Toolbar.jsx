@@ -27,5 +27,3 @@ function Toolbar() {
 }
 
 export default Toolbar;
-
-// ReservationStatus
