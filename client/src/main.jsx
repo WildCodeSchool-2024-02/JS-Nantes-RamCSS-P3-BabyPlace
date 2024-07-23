@@ -21,6 +21,7 @@ import Mentions from "./pages/page_parents/Mentions";
 import DashboardPro from "./pages/page_pro/DashboardPro";
 import LayoutPro from "./pages/page_pro/LayoutPro";
 import { AuthProvider } from "./contexts/AuthContext";
+import { NurseryLoggedContextProvider } from "./contexts/NurseryDataContext";
 import ProtectedRoutePro from "./contexts/ProtectedRoutePro";
 
 const router = createBrowserRouter([
@@ -121,9 +122,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <AuthProvider>
-      <NextUIProvider locale="fr-FR">
-        <RouterProvider router={router} />
-      </NextUIProvider>
+      <NurseryLoggedContextProvider>
+        <NextUIProvider locale="fr-FR">
+          <RouterProvider router={router} />
+        </NextUIProvider>
+      </NurseryLoggedContextProvider>
     </AuthProvider>
   </React.StrictMode>
 );

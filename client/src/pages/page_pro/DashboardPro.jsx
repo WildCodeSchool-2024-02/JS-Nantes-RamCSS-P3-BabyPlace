@@ -29,6 +29,8 @@ const statusColorMap = {
 };
 
 function DashboardPro() {
+  // * Vérification de l'état du formulaire d'inscription pour le message d'accueil
+
   //* Calcul de la table servant à la réservation
   const [page, setPage] = useState(1);
   const rowsPerPage = 6;

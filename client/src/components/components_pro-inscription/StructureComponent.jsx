@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { Input } from "@nextui-org/input";
 import { CheckboxGroup, Checkbox } from "@nextui-org/checkbox";
 import { Button } from "@nextui-org/button";
-
 import PropTypes from "prop-types";
+import { useNurseryLogged } from "../../contexts/NurseryDataContext";
+
 
 import "../styles_components/StructureComponent.css";
 
 function StructureComponent({ setComponent }) {
+  const { nurseryData } = useNurseryLogged();
   // * States déclarations
 
   const [formState, setFormState] = useState({
@@ -102,6 +104,7 @@ function StructureComponent({ setComponent }) {
                 description="Ce champ est requis pour passer à la suite du formulaire."
                 className="w-[600px] texts"
                 size="lg"
+                defaultValue={nurseryData.name || ""}
                 placeholder="Ex : La crèche des petits lutins"
                 name="name"
                 onChange={handleInputChange}
