@@ -1,22 +1,33 @@
 import { DatePicker } from "@nextui-org/date-picker";
-import { Input } from "@nextui-org/input";
+import { Select, SelectItem } from "@nextui-org/select";
+import { useLoaderData } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../styles_components/CityDatePicker.css";
 
-function CityDatePicker({ city, date, onCityChange, onDateChange }) {
+function CityDatePicker({ setCity, date, onDateChange }) {
+  const cities = useLoaderData();
+  const onCityChange = (event) => {
+    setCity(event.target.value);
+  };
+
   return (
     <section>
-      <div className="city-date-container flex space-x-8">
-        <Input
-          type="text"
+      <div className="city-date-container flex space-x-8 shadow-[0_2px_60px_-15px_rgba(0,0,0,0.3)]">
+        <Select
+          items={cities}
           label="Ville"
+          placeholder="Selectionner une ville"
           color="secondary"
-          variant="flat"
-          className="max-w-lg"
-          value={city}
-          onChange={(e) => onCityChange(e.target.value)}
-          placeholder="Entrez une ville"
-        />
+          className="max-w-xs"
+          onChange={onCityChange}
+        >
+          {(e) => (
+            <SelectItem value={e.city} key={e.city}>
+              {e.city}
+            </SelectItem>
+          )}
+        </Select>
+
         <DatePicker
           value={date}
           label="Date"
@@ -31,8 +42,7 @@ function CityDatePicker({ city, date, onCityChange, onDateChange }) {
 }
 
 CityDatePicker.propTypes = {
-  city: PropTypes.string.isRequired,
-  onCityChange: PropTypes.func.isRequired,
+  setCity: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   onDateChange: PropTypes.func.isRequired,
 };
