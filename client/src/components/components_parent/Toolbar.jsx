@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import "../styles_components/Toolbar.css";
 
 function Toolbar() {
-  return (
     <div className="toolbar shadow-[0_2px_60px_-15px_rgba(0,0,0,0.3)]">
       <NavLink to="/menu" className="nav-toolbar">
         <img src="src/assets/images/icones/icone-menu.png" alt="Menu" />

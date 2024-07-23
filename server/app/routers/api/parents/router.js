@@ -12,8 +12,7 @@ const {
   destroy,
   hashPassword,
   credentialsValidation,
-  // isPasswordValid,
-  // login,
+  login,
 } = require("../../../controllers/parentActions");
 
 // Route to get a list of parents
@@ -31,6 +30,12 @@ router.post(
   credentialsValidation,
   hashPassword,
   add
+);
+
+// Route to connect an nursery
+router.post("/login",
+  credentialsValidation,
+  login
 );
 
 // Route to edit an existing parent

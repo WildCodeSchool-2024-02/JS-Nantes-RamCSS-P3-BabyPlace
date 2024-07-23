@@ -1,8 +1,18 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import "../styles_components/NavbarPro.css";
 
 function NavbarPro() {
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("nursery_id");
+    sessionStorage.removeItem("token");
+
+    navigate("/pro/connexion");
+  };
+
   return (
     <nav className="global-navbar-pro-container">
       <img
@@ -47,7 +57,7 @@ function NavbarPro() {
           />
           <p className="texts menu-text-navbar-pro">Modification du profil</p>
         </NavLink>
-        <NavLink className="menu-item-navbar-pro">
+        <NavLink onClick={handleLogOut} className="menu-item-navbar-pro">
           <img
             src="../src/assets/images/illustration/account-circle-line.svg"
             alt="icone d'un utilisateur"

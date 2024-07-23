@@ -37,7 +37,7 @@ const resultIsPasswordValid = async (password, hashedPassword) => {
   }
 };
 
-const login = async (req, res) => {
+const login = async (req, res, next) => {
   try {
     const parent = await tables.parent.readByEmail(req.body.email);
     if (!parent) {
@@ -45,7 +45,7 @@ const login = async (req, res) => {
       return;
     }
 
-    const resultPasswordValid = await (req.body.password, parent.password);
+    const resultPasswordValid = await resultIsPasswordValid(req.body.password, parent.password);
     if (!resultPasswordValid) {
       res.sendStatus(401);
       return;
@@ -55,13 +55,14 @@ const login = async (req, res) => {
     const token = jwt.sign(payload, process.env.APP_SECRET, {
       expiresIn: "1h",
     });
+    
+    delete parent.password;
 
-    if (token) {
-      delete parent.password;
-      res.status(200).json({ token, parent });
-    }
+    if (token) res.status(200).send({ token, parent });
+    else throw new Error("Token not created");
+
   } catch (error) {
-    console.error();
+    next(error);
   }
 };
 
