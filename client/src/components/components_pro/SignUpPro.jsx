@@ -5,6 +5,7 @@ import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import { Checkbox } from "@nextui-org/checkbox";
+import { useNavigate } from "react-router-dom";
 
 import PropTypes from "prop-types";
 import EyeFilledIcon from "../../assets/nextUI/EyeFilledIcon";
@@ -18,6 +19,8 @@ function SignUpPro({ setSelected }) {
   const [isTermsChecked, setIsTermsChecked] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
+
+  const navigate = useNavigate();
 
   const validateEmail = (value) =>
     value.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
@@ -56,6 +59,7 @@ function SignUpPro({ setSelected }) {
       },
       body: JSON.stringify(body),
     });
+    navigate("/pro/connexion");
   };
 
   return (

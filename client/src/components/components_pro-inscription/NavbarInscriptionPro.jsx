@@ -20,7 +20,7 @@ function NavbarInscriptionPro({ pageTitle }) {
         <p className="nav-bar-pro-text texts">{pageTitle}</p>
       </div>
       <div className="nav-bar-pro-right-part">
-        <NavLink to="/" className="nav-bar-pro-text texts">
+        <NavLink to="/pro/dashboard" className="nav-bar-pro-text texts">
           Enregistrer et quitter
         </NavLink>
       </div>
