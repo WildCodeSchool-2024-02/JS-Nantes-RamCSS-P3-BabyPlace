@@ -52,6 +52,7 @@ const router = createBrowserRouter([
   {
     path: "/reservation-status",
     element: <ReservationStatus />,
+    loader: () => fetch(`${import.meta.env.VITE_API_URL}/api/reservations`),
   },
   {
     path: "reservation",
