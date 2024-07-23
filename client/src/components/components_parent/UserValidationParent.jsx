@@ -5,28 +5,53 @@ import PropTypes from "prop-types";
 
 function UserValidationParent({
   reservationStatus,
-  crecheId,
+  nurseryId,
   reservationDate,
 }) {
-  const [nurseryInfo, setNurseryInfo] = useState(null);
+  const [nurseryInfo, setNurseryInfo] = useState("");
 
   useEffect(() => {
-    const fetchCrecheInfo = async () => {
-      try {
-        const url = `${import.meta.env.VITE_API_URL}/api/nurseries/${crecheId}`;
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const nursery = await response.json();
-        setNurseryInfo(nursery);
-      } catch (error) {
-        console.error("There was a problem with the fetch operation:", error);
-      }
-    };
+    const url = `${import.meta.env.VITE_API_URL}/api/nurseries/${nurseryId}`;
 
-    fetchCrecheInfo();
-  }, [crecheId]);
+    fetch(url, {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => setNurseryInfo(data));
+  }, [nurseryId]);
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const days = [
+      "dimanche",
+      "lundi",
+      "mardi",
+      "mercredi",
+      "jeudi",
+      "vendredi",
+      "samedi",
+    ];
+    const months = [
+      "janvier",
+      "février",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "août",
+      "septembre",
+      "octobre",
+      "novembre",
+      "décembre",
+    ];
+
+    const dayName = days[date.getDay()];
+    const dayNumber = date.getDate();
+    const monthName = months[date.getMonth()];
+
+    return `${dayName} ${dayNumber} ${monthName}`;
+  };
 
   let color = "";
   let valeur = "";
@@ -53,7 +78,7 @@ function UserValidationParent({
         avatarProps={{
           src: "https://i.pravatar.cc/150?u=a04258114e29026702d",
         }}
-        reservationName={crecheId}
+        reservationName={nurseryId}
       />
       <Chip
         className="border rounded-full p-2 text-xs text-white w-[30%]"
@@ -62,9 +87,7 @@ function UserValidationParent({
         {valeur}
       </Chip>
       <section className="flex flex-col justify-center items-center text-center text-xs  p-5 ">
-        <p>vendredi</p>
-        <p>{reservationDate}</p>
-        <p>juillet</p>
+        <p>{formatDate(reservationDate)}</p>
       </section>
     </article>
   );
@@ -74,6 +97,6 @@ export default UserValidationParent;
 
 UserValidationParent.propTypes = {
   reservationStatus: PropTypes.number.isRequired,
-  crecheId: PropTypes.number.isRequired,
+  nurseryId: PropTypes.number.isRequired,
   reservationDate: PropTypes.string.isRequired,
 };

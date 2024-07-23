@@ -13,7 +13,7 @@ function ReservationStatus() {
         {reservation.map((e) => (
           <UserValidationParent
             key={e}
-            crecheId={e.nursery_id}
+            nurseryId={e.nursery_id}
             reservationDate={e.reservation_date}
             reservationStatus={e.reservation_status}
           />
