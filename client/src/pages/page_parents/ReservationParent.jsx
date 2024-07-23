@@ -26,7 +26,7 @@ function ReservationRequest() {
           {" "}
           &#x3008;
         </Button>
-        <h1>Crèche Picoti Picota</h1>
+        <h1 className="reservation-h1">Crèche Picoti Picota</h1>
       </header>
       <section className="card-nursery">
         <img
@@ -51,23 +51,21 @@ function ReservationRequest() {
             />
           </div>
 
-          <div className="more-info-container">
-            <p>
-              <h3 className="more-information">Date : lundi 14 septembre</h3>
-              <img
-                className="more-information-picture"
-                src="./src/assets/images/icônes/params.png"
-                alt="Param "
-              />
-            </p>
-            <p>
-              <h3 className="more-information">Horaires : 9h-16h</h3>
-              <img
-                className="more-information-picture"
-                src="./src/assets/images/icônes/params.png"
-                alt="Param "
-              />
-            </p>
+          <div className="more-info-container1">
+            <h3 className="more-information1">Date : lundi 14 septembre</h3>
+            <img
+              className="more-information-picture1"
+              src="./src/assets/images/icônes/params.png"
+              alt="Param "
+            />
+          </div>
+          <div className="more-info-container2">
+            <h3 className="more-information2">Horaires : 9h-16h</h3>
+            <img
+              className="more-information-picture2"
+              src="./src/assets/images/icônes/params.png"
+              alt="Param "
+            />
           </div>
           <div className="services">
             <p>
@@ -81,27 +79,33 @@ function ReservationRequest() {
             </p>
           </div>
           <div className="indemnities">
-            <p>Indemnité kilométrique (0,50€)</p>
-            <p>Indemnité d’entretien (3,5€)</p>
-            <p>Indemnité de repas (7€)</p>
-            <Checkbox color="secondary">7</Checkbox>
+            <p className="indemnite">Indemnité kilométrique (0,50€)</p>
+            <p className="indemnite">
+              Indemnité d’entretien (3,5€)
+              <Checkbox color="secondary" />
+            </p>
+            <p className="indemnite">
+              Indemnité de repas (7€)
+              <Checkbox color="secondary" />
+            </p>
           </div>
           <div className="total-cost">
-            <p>75€*</p>
-            <p>8h de garde*</p>
+            <div className="cost-time-container">
+              <h5 className="cost">75€*</h5>
+              <h5 className="time">8h de garde*</h5>
+            </div>
+            <Button
+              type="button"
+              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+              variant="shadow"
+              color="primary"
+            >
+              Suivant
+            </Button>
           </div>
         </div>
-        <Button
-          className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-          variant="shadow"
-          color="primary"
-          type="submit"
-        >
-          {" "}
-          Suivant;
-        </Button>
       </section>
-      <small>
+      <small className="bonus-information">
         * En complétant mon profil, je peux obtenir une tarification
         personnalisée en fonction de mes revenus
       </small>
