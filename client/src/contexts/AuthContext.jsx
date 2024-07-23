@@ -4,18 +4,27 @@ import PropTypes from "prop-types";
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(localStorage.getItem("nursery_id"));
+  const [userPro, setUserPro] = useState(localStorage.getItem("nursery_id"));
+  const [userParent, setUserParent] = useState(
+    localStorage.getItem("parent_id")
+  );
 
   useEffect(() => {
-    if (user === null) {
-      const userChange = localStorage.getItem("nursery_id");
-      if (userChange) {
-        setUser(userChange);
+    if (userPro === null || userParent === null) {
+      const userProChange = localStorage.getItem("nursery_id");
+      const userParentChange = localStorage.getItem("parent_id");
+      if (userProChange || userParentChange) {
+        setUserPro(userProChange);
+        setUserParent(userParentChange);
       }
     }
-  }, [user]);
+  }, [userPro, userParent]);
 
-  return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={userPro !== null ? userPro : userParent}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 // Validation des props

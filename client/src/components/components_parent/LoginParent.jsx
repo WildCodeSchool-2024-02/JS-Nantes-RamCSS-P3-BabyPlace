@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
@@ -13,6 +14,10 @@ function LoginParent({ setSelected }) {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
+
+  const navigate = useNavigate();
+
+  let res = {};
 
   const handleFetch = async (data) => {
     const response = await fetch(
@@ -28,6 +33,8 @@ function LoginParent({ setSelected }) {
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
+    } else {
+      res = await response.json();
     }
   };
 
@@ -37,6 +44,9 @@ function LoginParent({ setSelected }) {
 
       if (email && password) {
         await handleFetch({ email, password });
+        localStorage.setItem("token", res.token);
+        localStorage.setItem("parent_id", res.parent.id);
+        navigate("/reservation-status");
       }
     } catch (error) {
       console.error(error.message);
@@ -93,6 +103,7 @@ function LoginParent({ setSelected }) {
           variant="shadow"
           fullWidth
           color="primary"
+          type="submit"
         >
           Connexion
         </Button>
