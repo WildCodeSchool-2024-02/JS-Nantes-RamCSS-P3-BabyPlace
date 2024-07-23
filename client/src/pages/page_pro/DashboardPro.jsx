@@ -29,6 +29,7 @@ const statusColorMap = {
 };
 
 function DashboardPro() {
+  //* Calcul de la table servant à la réservation
   const [page, setPage] = useState(1);
   const rowsPerPage = 6;
 
@@ -186,5 +187,6 @@ function DashboardPro() {
     </section>
   );
 }
+// }
 
 export default DashboardPro;

@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
@@ -13,6 +14,10 @@ function LoginPro({ setSelected }) {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
+
+  const navigate = useNavigate();
+
+  let res = {};
 
   const handleFetch = async (data) => {
     const response = await fetch(
@@ -28,12 +33,9 @@ function LoginPro({ setSelected }) {
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
+    } else {
+      res = await response.json();
     }
-
-    const res = await response.json();
-
-    const { token } = res.token;
-    localStorage.setItem("token", token);
   };
 
   const handleSubmit = async (event) => {
@@ -42,9 +44,12 @@ function LoginPro({ setSelected }) {
 
       if (email && password) {
         await handleFetch({ email, password });
+        localStorage.setItem("token", res.token);
+        localStorage.setItem("nursery_id", res.nursery.id);
+        navigate("/pro/dashboard");
       }
     } catch (error) {
-      console.error(error);
+      console.error(error.message);
     }
   };
 
