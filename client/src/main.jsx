@@ -22,7 +22,7 @@ import ReservationRequest from "./pages/page_parents/ReservationParent";
 import ChildSelection from "./pages/page_parents/ReservationParent2";
 
 import { AuthProvider } from "./contexts/AuthContext";
-// import { AuthProviderParent } from "./contexts/AuthContextParent";
+import { NurseryLoggedContextProvider } from "./contexts/NurseryDataContext";
 import ProtectedRoutePro from "./contexts/ProtectedRoutePro";
 import ProtectedRouteParent from "./contexts/ProtectedRouteParent";
 
@@ -145,12 +145,12 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    {/* <AuthProviderParent>  */}
     <AuthProvider>
-      <NextUIProvider locale="fr-FR">
-        <RouterProvider router={router} />
-      </NextUIProvider>
+      <NurseryLoggedContextProvider>
+        <NextUIProvider locale="fr-FR">
+          <RouterProvider router={router} />
+        </NextUIProvider>
+      </NurseryLoggedContextProvider>
     </AuthProvider>
-    {/* </AuthProviderParent> */}
   </React.StrictMode>
 );

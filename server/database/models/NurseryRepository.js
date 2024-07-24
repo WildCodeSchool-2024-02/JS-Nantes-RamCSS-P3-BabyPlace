@@ -112,8 +112,6 @@ class NurseryRepository extends AbstractRepository {
   async update(body) {
     const {
       name,
-      email,
-      password,
       siret,
       address,
       postcode,
@@ -142,12 +140,10 @@ class NurseryRepository extends AbstractRepository {
       id,
     } = body;
     const [row] = await this.database.query(
-      `UPDATE ${this.table} SET name = ?, email = ?, password = ?, siret = ?, address = ?, postcode = ?, city = ?, phone = ?, type_of_nursery = ?, capacity = ?,opening_hours = ?, closing_time = ?, hourly_price = ?, agrement = ?, photo_1 = ?, photo_2 = ?, photo_3 = ?, description_nursery = ?, disabled_children = ?, outdoor_space = ?,
+      `UPDATE ${this.table} SET name = ?, siret = ?, address = ?, postcode = ?, city = ?, phone = ?, type_of_nursery = ?, capacity = ?,opening_hours = ?, closing_time = ?, hourly_price = ?, agrement = ?, photo_1 = ?, photo_2 = ?, photo_3 = ?, description_nursery = ?, disabled_children = ?, outdoor_space = ?,
         presence_of_animals = ?, meal = ?, hygiene_product = ?, music_workshop = ?, artistic_activities = ?, bilingual_international = ?, child_transport = ?, code_of_conduct = ? WHERE id = ?`,
       [
         name,
-        email,
-        password,
         siret,
         address,
         postcode,
