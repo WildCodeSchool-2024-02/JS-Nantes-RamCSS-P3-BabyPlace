@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Input } from "@nextui-org/input";
 import { CheckboxGroup, Checkbox } from "@nextui-org/checkbox";
 import { Button } from "@nextui-org/button";
@@ -8,7 +8,7 @@ import { useNurseryLogged } from "../../contexts/NurseryDataContext";
 import "../styles_components/StructureComponent.css";
 
 function StructureComponent({ setComponent }) {
-  const { nurseryData } = useNurseryLogged();
+  const { nurseryData, fetchNursery } = useNurseryLogged();
   // * States déclarations
 
   const [formState, setFormState] = useState({
@@ -17,7 +17,7 @@ function StructureComponent({ setComponent }) {
     groupSelected: [],
   });
 
-  const [checkNextButton, setCheckNextButton] = useState(false);
+  const [isInvalid, setIsInvalid] = React.useState(true);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,21 +34,37 @@ function StructureComponent({ setComponent }) {
     }));
   };
 
-  // * conditions for unlocking the “Next” button
-
-  useEffect(() => {
-    const { name, phone, groupSelected } = formState;
-    const isPhoneValid = /^\d{10}$/.test(phone.trim());
-    const isFormValid =
-      name.trim() !== "" && isPhoneValid && groupSelected.length > 0;
-    setCheckNextButton(isFormValid);
-  }, [formState]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData(e.target);
-    const body = Object.fromEntries(formData);
+    const body = {
+      name: formState.name === "" ? nurseryData.name : formState.name,
+      phone: formState.phone === "" ? nurseryData.phone : formState.phone,
+      type_of_nursery: formState.groupSelected,
+      siret: nurseryData.siret,
+      address: nurseryData.adress,
+      postcode: nurseryData.postcode,
+      city: nurseryData.city,
+      capacity: nurseryData.capacity,
+      opening_hours: nurseryData.opening_hours,
+      closing_time: nurseryData.closing_time,
+      hourly_price: nurseryData.hourly_price,
+      agrement: nurseryData.agrement,
+      photo_1: nurseryData.photo_1,
+      photo_2: nurseryData.photo_2,
+      photo_3: nurseryData.photo_3,
+      description_nursery: nurseryData.description_nursery,
+      disabled_children: nurseryData.disabled_children,
+      outdoor_space: nurseryData.outdoor_space,
+      presence_of_animals: nurseryData.presence_of_animals,
+      meal: nurseryData.meal,
+      hygiene_product: nurseryData.hygiene_product,
+      music_workshop: nurseryData.music_workshop,
+      artistic_activities: nurseryData.artistic_activities,
+      bilingual_international: nurseryData.bilingual_international,
+      child_transport: nurseryData.child_transport,
+      code_of_conduct: nurseryData.code_of_conduct,
+    };
 
     try {
       const response = await fetch(
@@ -65,15 +81,14 @@ function StructureComponent({ setComponent }) {
       if (!response.ok) {
         const errorData = await response.json();
         console.error("Erreur lors de la mise à jour de la crèche:", errorData);
-        alert(`Erreur: ${errorData.message || response.statusText}`);
+        console.warn(`Erreur: ${errorData.message || response.statusText}`);
         return;
       }
-
-      alert("La crèche a été mise à jour avec succès");
+      fetchNursery();
       setComponent("LocalisationComponent");
     } catch (error) {
       console.error("Erreur réseau ou autre:", error);
-      alert("Erreur réseau, veuillez réessayer plus tard.");
+      console.warn("Tous les champs requis n'ont pas été renseignés.");
     }
   };
 
@@ -100,12 +115,16 @@ function StructureComponent({ setComponent }) {
               {/* * Types of Nurseries */}
               <div className="flex flex-col gap-1 w-full">
                 <CheckboxGroup
+                  isInvalid={isInvalid}
                   className="gap-1 texts"
                   color="secondary"
                   label="Sélectionnez au moins un type d'accueil"
                   orientation="horizontal"
                   value={formState.groupSelected}
                   onChange={handleGroupChange}
+                  onValueChange={(value) => {
+                    setIsInvalid(value.length < 1);
+                  }}
                 >
                   <Checkbox value="Crèche parentale">Crèche parentale</Checkbox>
                   <Checkbox value="Micro-Crèche">Micro-Crèche</Checkbox>
@@ -146,7 +165,7 @@ function StructureComponent({ setComponent }) {
                   description="Ce champ est requis pour passer à la suite du formulaire."
                   className="w-[600px] texts"
                   size="lg"
-                  defaultValue={nurseryData.name}
+                  defaultValue={nurseryData.name || ""}
                   placeholder="Ex : La crèche des petits lutins"
                   name="name"
                   onChange={handleInputChange}
@@ -160,7 +179,7 @@ function StructureComponent({ setComponent }) {
                   description="Ce champ est requis pour passer à la suite du formulaire."
                   className="w-[600px] texts"
                   size="lg"
-                  defaultValue={nurseryData.phone}
+                  defaultValue={nurseryData.phone || ""}
                   placeholder="Ex : 0102030405"
                   name="phone"
                   onChange={handleInputChange}
@@ -171,7 +190,6 @@ function StructureComponent({ setComponent }) {
             {/* Redirection to next screen of professional registration */}
             <nav className="nav-buttons-pro-register adaptatif-structure-nav-buttons">
               <Button
-                isDisabled={!checkNextButton}
                 variant="shadow"
                 type="submit"
                 className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"

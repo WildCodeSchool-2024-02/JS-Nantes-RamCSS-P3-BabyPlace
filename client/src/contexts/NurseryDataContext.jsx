@@ -5,7 +5,7 @@ import { useAuth } from "./AuthContext";
 export const NurseryLoggedContext = createContext();
 const nurseryId = localStorage.getItem("nursery_id");
 
-const ConnectNursery = async () => {
+const fetchNurseryData = async () => {
   try {
     const response = await fetch(
       `${import.meta.env.VITE_API_URL}/api/nurseries/${nurseryId}`
@@ -25,19 +25,23 @@ export function NurseryLoggedContextProvider({ children }) {
   const userPro = useAuth();
   const [nurseryData, setNurseryData] = useState(null);
 
-  const value = useMemo(
-    () => ({ nurseryData, setNurseryData }),
-    [nurseryData, setNurseryData]
-  );
+  const fetchNursery = async () => {
+    try {
+      const data = await fetchNurseryData();
+      setNurseryData(data);
+    } catch (error) {
+      console.error("Failed to fetch nursery data", error);
+    }
+  };
 
   useEffect(() => {
-    ConnectNursery(userPro)
-      .then((data) => {
-        console.info("je suis data", data);
-        setNurseryData(data);
-      })
-      .catch((error) => console.info(error));
+    fetchNursery();
   }, [userPro]);
+
+  const value = useMemo(
+    () => ({ nurseryData, setNurseryData, fetchNursery }),
+    [nurseryData, setNurseryData]
+  );
 
   return (
     <NurseryLoggedContext.Provider value={value}>
