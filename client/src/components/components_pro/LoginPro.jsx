@@ -39,6 +39,10 @@ function LoginPro({ setSelected }) {
   };
 
   const handleSubmit = async (event) => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("parent_id");
+    localStorage.removeItem("nursery_id");
+    sessionStorage.removeItem("token");
     try {
       event.preventDefault();
 

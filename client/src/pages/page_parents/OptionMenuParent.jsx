@@ -1,9 +1,19 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate  } from "react-router-dom";
 
 import HeaderReservationParent from "../../components/components_parent/HeaderReservationParent";
 import Toolbar from "../../components/components_parent/Toolbar";
 
 function OptionMenuParent() {
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("parent_id");
+    sessionStorage.removeItem("token");
+
+    navigate("/connexion");
+  };
+
   return (
     <>
       <HeaderReservationParent />
@@ -39,6 +49,7 @@ function OptionMenuParent() {
         </section>
         <section>
           <button
+            onClick={handleLogOut}
             type="button"
             className="text-black flex gap-2 justify-start items-center font-bold"
           >
