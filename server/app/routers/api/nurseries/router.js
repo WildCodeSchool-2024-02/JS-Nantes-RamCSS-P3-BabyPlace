@@ -27,7 +27,7 @@ router.post("/", credentialsValidation, hashPassword, add);
 router.post("/login", credentialsValidation, login);
 
 // Route to update an existing nursery
-router.put("/:id", edit);
+router.patch("/:id", edit);
 
 // Route to delete a specific nursery by ID
 router.delete("/:id", destroy);

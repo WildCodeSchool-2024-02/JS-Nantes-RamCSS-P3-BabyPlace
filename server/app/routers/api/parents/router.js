@@ -11,8 +11,8 @@ const {
   edit,
   destroy,
   hashPassword,
-  credentialsValidation,
   login,
+  credentialsValidation,
 } = require("../../../controllers/parentActions");
 
 // Route to get a list of parents
