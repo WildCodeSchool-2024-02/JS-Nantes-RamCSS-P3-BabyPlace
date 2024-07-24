@@ -2,17 +2,8 @@ import "../styles_parents/ReservationParent.css";
 import { Checkbox } from "@nextui-org/checkbox";
 import { Button } from "@nextui-org/button";
 import { NavLink } from "react-router-dom";
-// import React, { useState } from 'react';
 
 function ReservationRequest() {
-  // État pour gérer le statut du like
-  // const [liked, setLiked] = useState(false);
-
-  // // Fonction pour gérer le clic sur le bouton
-  // const handleLike = () => {
-  //   setLiked(!liked);
-  // };
-
   return (
     <div className="reservation-request">
       <header className="header-reservation-parent">
@@ -21,7 +12,7 @@ function ReservationRequest() {
             // Rajouter redirection vers page REcherche de creche || Add redirection to Recherche de creche page
             className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
             variant="shadow"
-            color="primary"
+            color="secondary"
             type="submit"
           >
             {" "}
@@ -36,14 +27,6 @@ function ReservationRequest() {
           alt="Enfants jouant"
           className="creche-image"
         />
-        {/* <button
-            onClick={handleLike}
-            className={`like-button ${liked ? 'liked' : ''}`}
-            variant="shadow"
-            color={liked ? "success" : "primary"}
-          >
-            {liked ? 'Liked' : 'Like'}
-          </button> */}
         <div className="reservation-details">
           <div className="bloc-one">
             <h2>Demande de réservation Crèche Picoti Picota</h2>
@@ -90,7 +73,6 @@ function ReservationRequest() {
           </div>
           <div className="total-cost">
             <div className="cost-time-container">
-              <h5 className="cost">75€*</h5>
               <h5 className="time">8h de garde*</h5>
             </div>
             <NavLink to="/reservationdeux">
@@ -98,7 +80,7 @@ function ReservationRequest() {
                 type="button"
                 className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
                 variant="shadow"
-                color="primary"
+                color="secondary"
               >
                 Suivant
               </Button>
@@ -106,10 +88,6 @@ function ReservationRequest() {
           </div>
         </div>
       </section>
-      <small className="bonus-information">
-        * En complétant mon profil, je peux obtenir une tarification
-        personnalisée en fonction de mes revenus
-      </small>
     </div>
   );
 }

@@ -68,11 +68,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/reservation",
-    element: <ReservationRequest />,
+    element: (
+      <ProtectedRouteParent>
+        <ReservationRequest />
+      </ProtectedRouteParent>
+    ),
   },
   {
     path: "/reservationdeux",
-    element: <ChildSelection />,
+    element: (
+      <ProtectedRouteParent>
+        <ChildSelection />,
+      </ProtectedRouteParent>
+    ),
   },
   {
     path: "/reservationconfirmation",

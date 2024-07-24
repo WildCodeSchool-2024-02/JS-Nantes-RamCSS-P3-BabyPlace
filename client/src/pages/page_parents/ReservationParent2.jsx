@@ -5,9 +5,9 @@ import { Checkbox } from "@nextui-org/checkbox";
 function ChildSelection() {
   return (
     <div className="child-selection">
-      <h1>Crèche Picoti Picota</h1>
+      <h1 className="child-selection-h1">Crèche Picoti Picota</h1>
       <div className="child-selection-details">
-        <h2>Enfant à garder</h2>
+        <h2 className="child-selection-h2">Enfant à garder</h2>
         <div className="child">
           <Checkbox>Bébé Cannan 1 (18 mois)</Checkbox>
         </div>
@@ -28,7 +28,6 @@ function ChildSelection() {
         </div>
         <div className="total-cost-container">
           <div className="total-buy">
-            <p>75€*</p>
             <small>8h de garde</small>
           </div>
           <div className="button-container">
@@ -36,9 +35,9 @@ function ChildSelection() {
               type="button"
               className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
               variant="shadow"
-              color="primary"
+              color="secondary"
             >
-              Reserver
+              Réserver
             </Button>
           </div>
         </div>

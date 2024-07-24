@@ -7,7 +7,7 @@
   text-align: left;
 }
 
-h1 {
+.child-selection-h1 {
   margin: 0;
   text-align: center;
   flex-grow: 1;
@@ -22,7 +22,7 @@ h1 {
   border-radius: 10px;
 }
 
-.child-selection-details h2 {
+.child-selection-h2 {
   color: var(--background-gradient);
 }
 
@@ -36,7 +36,7 @@ h1 {
   font-weight: 600;
 }
 
-textarea {
+.textarea-message {
   width: 100%;
   height: 150px;
   padding: 10px;

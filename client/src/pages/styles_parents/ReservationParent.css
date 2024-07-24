@@ -120,16 +120,7 @@
   align-items: flex-start;
 }
 
-.cost {
-  font-weight: 700;
-  font-size: 3.5vh;
-}
-
 .time {
   font-size: 15px;
   margin-bottom: 4vh;
-}
-
-.bonus-information {
-  color: black;
 }
