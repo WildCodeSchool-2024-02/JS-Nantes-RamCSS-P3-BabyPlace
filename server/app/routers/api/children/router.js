@@ -17,6 +17,9 @@ router.get("/", browse);
 // Route to get a specific child by ID
 router.get("/:id", read);
 
+// !Route to get all children for a specific parent
+router.get("/children/:parentId", browse);
+
 // Route to add a new child
 router.post("/", add);
 

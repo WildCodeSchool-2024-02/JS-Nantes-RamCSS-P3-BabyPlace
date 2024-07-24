@@ -25,18 +25,10 @@ router.get("/:id", read);
 router.get("/:id/favorites", browseAllFavoritesByParentId);
 
 // Route to add a new parent
-router.post(
-  "/",
-  credentialsValidation,
-  hashPassword,
-  add
-);
+router.post("/", credentialsValidation, hashPassword, add);
 
 // Route to connect an nursery
-router.post("/login",
-  credentialsValidation,
-  login
-);
+router.post("/login", credentialsValidation, login);
 
 // Route to edit an existing parent
 router.put("/:id", edit);

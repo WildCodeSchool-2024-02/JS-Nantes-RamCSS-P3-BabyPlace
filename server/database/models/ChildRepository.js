@@ -48,7 +48,7 @@ class ChildRepository extends AbstractRepository {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific child by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `select * from ${this.table} where parent_id = ?`,
       [id]
     );
 
@@ -56,11 +56,22 @@ class ChildRepository extends AbstractRepository {
     return rows[0];
   }
 
-  async readAll() {
-    // Execute the SQL SELECT query to retrieve all children from the "child" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+  // async readAll() {
+  //   // Execute the SQL SELECT query to retrieve all children from the "child" table
+  //   const [rows] = await this.database.query(`select * from ${this.table}`);
 
-    // Return the array of items
+  //   // Return the array of items
+  //   return rows;
+  // }
+  // !lire tout les enfants en fonction du parent
+  async readAll(parentId) {
+    // Execute the SQL SELECT query to retrieve all children by parent ID
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE parent_id = ?`,
+      [parentId]
+    );
+
+    // Return all rows of the result, which represent the children
     return rows;
   }
 
