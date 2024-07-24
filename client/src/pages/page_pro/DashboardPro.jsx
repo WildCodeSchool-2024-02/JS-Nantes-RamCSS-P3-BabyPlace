@@ -12,6 +12,7 @@ import {
 } from "@nextui-org/table";
 import { useCallback, useMemo, useState } from "react";
 import { columns, users } from "../../../data";
+import { useNurseryLogged } from "../../contexts/NurseryDataContext";
 
 import DeleteIcon from "../../assets/nextUI/DeleteIcon";
 import EditIcon from "../../assets/nextUI/EditIcon";
@@ -29,6 +30,9 @@ const statusColorMap = {
 };
 
 function DashboardPro() {
+  const { nurseryData } = useNurseryLogged();
+  // * Vérification de l'état du formulaire d'inscription pour le message d'accueil
+
   //* Calcul de la table servant à la réservation
   const [page, setPage] = useState(1);
   const rowsPerPage = 6;
@@ -101,91 +105,92 @@ function DashboardPro() {
     }
   }, []);
 
-  return (
-    <section className="dashboard-page-container">
-      <NavbarPro />
-      <section className="dashboard-component-container">
-        <section className="dashboard-component-user-info">
-          <section className="card-user-decorations">
+  if (nurseryData)
+    return (
+      <section className="dashboard-page-container">
+        <NavbarPro />
+        <section className="dashboard-component-container">
+          <section className="dashboard-component-user-info">
+            <section className="card-user-decorations">
+              <img
+                src="../src/assets/images/illustration/decore-left.svg"
+                alt="décorations"
+              />
+              <img
+                src="../src/assets/images/illustration/decore-right.svg"
+                alt="décorations"
+              />
+            </section>
             <img
-              src="../src/assets/images/illustration/decore-left.svg"
-              alt="décorations"
+              className="card-user-image"
+              src="../src/assets/images/illustration/badge_user.png"
+              alt="badge"
             />
+            <p className="texts card-user-title">
+              Bienvenue <strong>{nurseryData.name}</strong>
+            </p>
+            <p className="texts card-user-annonces">
+              Annonce BABYPLACE // Annonce BABYPLACE // Annonce BABYPLACE
+            </p>
+          </section>
+          <section className="dashboard-component-graph-subscribers">
             <img
-              src="../src/assets/images/illustration/decore-right.svg"
-              alt="décorations"
+              className="subscribers-charts"
+              src="../src/assets/images/illustration/Subscribers_Card.png"
+              alt="graphique sur le nombre de réservations"
             />
           </section>
-          <img
-            className="card-user-image"
-            src="../src/assets/images/illustration/badge_user.png"
-            alt="badge"
-          />
-          <p className="texts card-user-title">
-            Bienvenue <strong>NOM DE LA STRUCTURE</strong>
-          </p>
-          <p className="texts card-user-annonces">
-            Annonce BABYPLACE // Annonce BABYPLACE // Annonce BABYPLACE
-          </p>
-        </section>
-        <section className="dashboard-component-graph-subscribers">
-          <img
-            className="subscribers-charts"
-            src="../src/assets/images/illustration/Subscribers_Card.png"
-            alt="graphique sur le nombre de réservations"
-          />
-        </section>
-        <section className="dashboard-component-graph-buisness">
-          <img
-            className="buisness-charts"
-            src="../src/assets/images/illustration/Buisness_Card.png"
-            alt="graphique sur le chiffre d'affaire"
-          />
-        </section>
-        <section className="dashboard-component-table">
-          <Table
-            aria-label="Example table with custom cells"
-            bottomContent={
-              <div className="flex w-full justify-center">
-                <Pagination
-                  isCompact
-                  showControls
-                  showShadow
-                  color="secondary"
-                  page={page}
-                  total={pages}
-                  onChange={setPage}
-                />
-              </div>
-            }
-            classNames={{
-              wrapper: "min-h-[222px]",
-            }}
-          >
-            <TableHeader columns={columns}>
-              {(column) => (
-                <TableColumn
-                  key={column.uid}
-                  align={column.uid === "actions" ? "center" : "start"}
-                >
-                  {column.name}
-                </TableColumn>
-              )}
-            </TableHeader>
-            <TableBody items={items}>
-              {(item) => (
-                <TableRow key={item?.name}>
-                  {(columnKey) => (
-                    <TableCell>{renderCell(item, columnKey)}</TableCell>
-                  )}
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
+          <section className="dashboard-component-graph-buisness">
+            <img
+              className="buisness-charts"
+              src="../src/assets/images/illustration/Buisness_Card.png"
+              alt="graphique sur le chiffre d'affaire"
+            />
+          </section>
+          <section className="dashboard-component-table">
+            <Table
+              aria-label="Example table with custom cells"
+              bottomContent={
+                <div className="flex w-full justify-center">
+                  <Pagination
+                    isCompact
+                    showControls
+                    showShadow
+                    color="secondary"
+                    page={page}
+                    total={pages}
+                    onChange={setPage}
+                  />
+                </div>
+              }
+              classNames={{
+                wrapper: "min-h-[222px]",
+              }}
+            >
+              <TableHeader columns={columns}>
+                {(column) => (
+                  <TableColumn
+                    key={column.uid}
+                    align={column.uid === "actions" ? "center" : "start"}
+                  >
+                    {column.name}
+                  </TableColumn>
+                )}
+              </TableHeader>
+              <TableBody items={items}>
+                {(item) => (
+                  <TableRow key={item?.name}>
+                    {(columnKey) => (
+                      <TableCell>{renderCell(item, columnKey)}</TableCell>
+                    )}
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </section>
         </section>
       </section>
-    </section>
-  );
+    );
 }
 // }
 

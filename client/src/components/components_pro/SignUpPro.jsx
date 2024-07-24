@@ -5,6 +5,7 @@ import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import { Checkbox } from "@nextui-org/checkbox";
+import { useNavigate } from "react-router-dom";
 
 import PropTypes from "prop-types";
 import EyeFilledIcon from "../../assets/nextUI/EyeFilledIcon";
@@ -18,6 +19,8 @@ function SignUpPro({ setSelected }) {
   const [isTermsChecked, setIsTermsChecked] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
+
+  const navigate = useNavigate();
 
   const validateEmail = (value) =>
     value.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
@@ -49,13 +52,14 @@ function SignUpPro({ setSelected }) {
     e.preventDefault();
     const formData = new FormData(e.target);
     const body = Object.fromEntries(formData);
-    fetch("http://localhost:3310/api/nurseries", {
+    fetch(`${import.meta.env.VITE_API_URL}/api/nurseries`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
     });
+    navigate("/pro/connexion");
   };
 
   return (
