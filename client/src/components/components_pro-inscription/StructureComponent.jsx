@@ -44,17 +44,37 @@ function StructureComponent({ setComponent }) {
     setCheckNextButton(isFormValid);
   }, [formState]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     const formData = new FormData(e.target);
     const body = Object.fromEntries(formData);
-    fetch(`${import.meta.env.VITE_API_URL}/api/nurseries/${nurseryData.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    });
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/nurseries/${nurseryData.id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(body),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Erreur lors de la mise à jour de la crèche:", errorData);
+        alert(`Erreur: ${errorData.message || response.statusText}`);
+        return;
+      }
+
+      alert("La crèche a été mise à jour avec succès");
+      setComponent("LocalisationComponent");
+    } catch (error) {
+      console.error("Erreur réseau ou autre:", error);
+      alert("Erreur réseau, veuillez réessayer plus tard.");
+    }
   };
 
   if (nurseryData)
@@ -152,8 +172,8 @@ function StructureComponent({ setComponent }) {
             <nav className="nav-buttons-pro-register adaptatif-structure-nav-buttons">
               <Button
                 isDisabled={!checkNextButton}
-                onClick={() => setComponent("LocalisationComponent")}
                 variant="shadow"
+                type="submit"
                 className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
                 size="lg"
               >
