@@ -32,11 +32,11 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "connexion",
+    path: "/connexion",
     element: <ConnexionParent />,
   },
   {
-    path: "acces-invite",
+    path: "/acces-invite",
     element: <AccesInvite />,
   },
   {
@@ -67,15 +67,15 @@ const router = createBrowserRouter([
     loader: () => fetch(`${import.meta.env.VITE_API_URL}/api/reservations`),
   },
   {
-    path: "reservation",
+    path: "/reservation",
     element: <ReservationRequest />,
   },
   {
-    path: "reservationdeux",
+    path: "/reservationdeux",
     element: <ChildSelection />,
   },
   {
-    path: "reservationconfirmation",
+    path: "/reservationconfirmation",
     element: (
       <ProtectedRouteParent>
         <ReservationConfirmation />
@@ -83,11 +83,11 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "faq",
+    path: "/faq",
     element: <Faq />,
   },
   {
-    path: "mentions-legales",
+    path: "/mentions-legales",
     element: <Mentions />,
   },
   {

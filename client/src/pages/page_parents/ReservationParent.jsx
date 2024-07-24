@@ -1,6 +1,7 @@
 import "../styles_parents/ReservationParent.css";
 import { Checkbox } from "@nextui-org/checkbox";
 import { Button } from "@nextui-org/button";
+import { NavLink } from "react-router-dom";
 // import React, { useState } from 'react';
 
 function ReservationRequest() {
@@ -15,18 +16,18 @@ function ReservationRequest() {
   return (
     <div className="reservation-request">
       <header className="header-reservation-parent">
-        <Button
-          // Rajouter redirection vers page REcherche de creche || Add redirection to Recherche de creche page
-          // to="/page_parent/.....Recherche de creche...."
-          className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-          variant="shadow"
-          color="primary"
-          type="submit"
-          to="/page_parent/recherche_de_creche"
-        >
-          {" "}
-          &#x3008;
-        </Button>
+        <NavLink to="/recherche">
+          <Button
+            // Rajouter redirection vers page REcherche de creche || Add redirection to Recherche de creche page
+            className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+            variant="shadow"
+            color="primary"
+            type="submit"
+          >
+            {" "}
+            &#x3008;
+          </Button>
+        </NavLink>
         <h1 className="reservation-h1">Crèche Picoti Picota</h1>
       </header>
       <section className="card-nursery">
@@ -92,14 +93,16 @@ function ReservationRequest() {
               <h5 className="cost">75€*</h5>
               <h5 className="time">8h de garde*</h5>
             </div>
-            <Button
-              type="button"
-              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-              variant="shadow"
-              color="primary"
-            >
-              Suivant
-            </Button>
+            <NavLink to="/reservationdeux">
+              <Button
+                type="button"
+                className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+                variant="shadow"
+                color="primary"
+              >
+                Suivant
+              </Button>
+            </NavLink>
           </div>
         </div>
       </section>
