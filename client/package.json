@@ -24,6 +24,7 @@
     "@nextui-org/link": "^2.0.32",
     "@nextui-org/pagination": "^2.0.33",
     "@nextui-org/scroll-shadow": "^2.1.17",
+    "@nextui-org/select": "^2.2.5",
     "@nextui-org/switch": "^2.0.31",
     "@nextui-org/system": "^2.2.2",
     "@nextui-org/table": "^2.0.36",

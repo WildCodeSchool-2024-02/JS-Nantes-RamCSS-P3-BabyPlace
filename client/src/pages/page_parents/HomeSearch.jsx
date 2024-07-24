@@ -12,35 +12,24 @@ function HomeSearch() {
   const [city, setCity] = useState("");
   const [date, setDate] = useState(null);
 
-  // correspond à la barre pour filtrer, trier
-  const [filters, setFilters] = useState({ city: "", date: null });
-  console.warn(filters);
-
-  const handleFilterChange = (newFilters) => {
-    setFilters(newFilters);
-  };
-
   return (
     <div className="home-search-container">
       <div className="home-search-city-date">
-        <CityDatePicker
-          city={city}
-          date={date}
-          onCityChange={setCity}
-          onDateChange={setDate}
-          handleFilterChange={handleFilterChange}
-        />
+        <CityDatePicker date={date} setCity={setCity} onDateChange={setDate} />
       </div>
 
-      <div className="home-search-nursery-card pt-5 flex-col flex gap-5">
-        {nurseries.map((nursery) => (
-          <NurseryCard
-            key={nursery.id}
-            nameNursery={nursery.name}
-            city={nursery.city}
-            descriptionNursery={nursery.description_nursery}
-          />
-        ))}
+      <div className="home-search-nursery-card pt-10 flex-col flex gap-10">
+        {nurseries
+          .filter((nursery) => (city ? nursery.city === city : true))
+          .map((e) => (
+            <NurseryCard
+              key={e.id}
+              nameNursery={e.name}
+              address={e.address}
+              city={e.city}
+              descriptionNursery={e.description_nursery}
+            />
+          ))}
 
         <div className="home-search-toolbar">
           <Toolbar />

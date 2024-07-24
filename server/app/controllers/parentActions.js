@@ -3,7 +3,6 @@ const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
 const tables = require("../../database/tables");
 
-
 const hashingOptions = {
   type: argon2.argon2id,
   memoryCost: 2 ** 16,
@@ -46,7 +45,10 @@ const login = async (req, res, next) => {
       return;
     }
 
-    const resultPasswordValid = await resultIsPasswordValid(req.body.password, parent.password);
+    const resultPasswordValid = await resultIsPasswordValid(
+      req.body.password,
+      parent.password
+    );
     if (!resultPasswordValid) {
       res.sendStatus(401);
       return;
@@ -56,12 +58,11 @@ const login = async (req, res, next) => {
     const token = jwt.sign(payload, process.env.APP_SECRET, {
       expiresIn: "1h",
     });
-    
+
     delete parent.password;
 
     if (token) res.status(200).send({ token, parent });
     else throw new Error("Token not created");
-
   } catch (error) {
     next(error);
   }
@@ -72,7 +73,9 @@ const credentialsValidation = (req, res, next) => {
   const isEmailValid = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(
     email
   );
-  const isPasswordValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(password);
+  const isPasswordValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(
+    password
+  );
 
   if (!isEmailValid || !isPasswordValid) {
     res.sendStatus(401);
