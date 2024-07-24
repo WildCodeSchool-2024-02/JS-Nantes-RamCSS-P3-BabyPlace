@@ -44,18 +44,18 @@ function StructureComponent({ setComponent }) {
     setCheckNextButton(isFormValid);
   }, [formState]);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData(e.target);
-  //   const body = Object.fromEntries(formData);
-  //   fetch(`${import.meta.env.VITE_API_URL}/api/nurseries/${nurseryData.id}`, {
-  //       method: "PUT",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(body),
-  //     });
-  // }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const body = Object.fromEntries(formData);
+    fetch(`${import.meta.env.VITE_API_URL}/api/nurseries/${nurseryData.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+  };
 
   if (nurseryData)
     return (
@@ -72,7 +72,7 @@ function StructureComponent({ setComponent }) {
         <section className="global-container-register-pro">
           {/* ----- Left part of the screen ------ */}
           <form
-            // onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
             className="left-part-container-register-pro global-left-content-structure"
           >
             <section className="left-part-content-structure">
@@ -140,6 +140,7 @@ function StructureComponent({ setComponent }) {
                   description="Ce champ est requis pour passer à la suite du formulaire."
                   className="w-[600px] texts"
                   size="lg"
+                  defaultValue={nurseryData.phone}
                   placeholder="Ex : 0102030405"
                   name="phone"
                   onChange={handleInputChange}

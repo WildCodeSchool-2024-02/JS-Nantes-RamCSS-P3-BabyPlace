@@ -168,10 +168,8 @@ const browse = async (req, res, next) => {
 const edit = async (req, res, next) => {
   try {
     const body = {
-      id: req.params,
+      id: req.params.id,
       name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
       siret: req.body.siret,
       address: req.body.address,
       postcode: req.body.postcode,

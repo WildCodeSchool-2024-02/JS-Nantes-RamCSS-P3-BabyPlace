@@ -34,7 +34,7 @@ router.post("/login",
 );
 
 // Route to update an existing nursery
-router.put("/:id", edit);
+router.patch("/:id", edit);
 
 // Route to delete a specific nursery by ID
 router.delete("/:id", destroy);
