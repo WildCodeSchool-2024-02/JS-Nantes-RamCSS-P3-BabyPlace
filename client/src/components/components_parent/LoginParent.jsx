@@ -39,6 +39,10 @@ function LoginParent({ setSelected }) {
   };
 
   const handleSubmit = async (event) => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("parent_id");
+    localStorage.removeItem("nursery_id");
+    sessionStorage.removeItem("token");
     try {
       event.preventDefault();
 
@@ -46,7 +50,7 @@ function LoginParent({ setSelected }) {
         await handleFetch({ email, password });
         localStorage.setItem("token", res.token);
         localStorage.setItem("parent_id", res.parent.id);
-        navigate("/reservation-status");
+        navigate("/dossier-parent");
       }
     } catch (error) {
       console.error(error.message);
