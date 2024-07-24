@@ -42,7 +42,7 @@ function StructureComponent({ setComponent }) {
       phone: formState.phone === "" ? nurseryData.phone : formState.phone,
       type_of_nursery: formState.groupSelected,
       siret: nurseryData.siret,
-      address: nurseryData.adress,
+      address: nurseryData.address,
       postcode: nurseryData.postcode,
       city: nurseryData.city,
       capacity: nurseryData.capacity,
