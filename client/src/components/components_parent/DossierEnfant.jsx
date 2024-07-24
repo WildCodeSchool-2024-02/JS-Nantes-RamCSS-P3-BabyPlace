@@ -188,10 +188,11 @@ function DossierEnfant() {
     const fetchChildren = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/children/${userId}`
+          `${import.meta.env.VITE_API_URL}/api/children/parent/${userId}`
         );
         if (response.ok) {
           const data = await response.json();
+          console.warn("Données reçues de l'API:", data);
           if (Array.isArray(data)) {
             setChildren(data); // Assurez-vous que data est un tableau
           } else {
