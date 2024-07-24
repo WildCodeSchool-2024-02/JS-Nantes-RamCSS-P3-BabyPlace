@@ -12,6 +12,7 @@ import {
 } from "@nextui-org/table";
 import { useCallback, useMemo, useState } from "react";
 import { columns, users } from "../../../data";
+import { useNurseryLogged } from "../../contexts/NurseryDataContext";
 
 import DeleteIcon from "../../assets/nextUI/DeleteIcon";
 import EditIcon from "../../assets/nextUI/EditIcon";
@@ -29,6 +30,7 @@ const statusColorMap = {
 };
 
 function DashboardPro() {
+  const { nurseryData } = useNurseryLogged();
   // * Vérification de l'état du formulaire d'inscription pour le message d'accueil
 
   //* Calcul de la table servant à la réservation
@@ -124,7 +126,7 @@ function DashboardPro() {
             alt="badge"
           />
           <p className="texts card-user-title">
-            Bienvenue <strong>NOM DE LA STRUCTURE</strong>
+            Bienvenue <strong>{nurseryData.name}</strong>
           </p>
           <p className="texts card-user-annonces">
             Annonce BABYPLACE // Annonce BABYPLACE // Annonce BABYPLACE

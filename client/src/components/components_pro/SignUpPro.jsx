@@ -52,7 +52,7 @@ function SignUpPro({ setSelected }) {
     e.preventDefault();
     const formData = new FormData(e.target);
     const body = Object.fromEntries(formData);
-    fetch("http://localhost:3310/api/nurseries", {
+    fetch(`${import.meta.env.VITE_API_URL}/api/nurseries`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -2,7 +2,6 @@ import { createContext, useEffect, useState, useContext, useMemo } from "react";
 import PropTypes from "prop-types";
 import { useAuth } from "./AuthContext";
 
-
 export const NurseryLoggedContext = createContext();
 const nurseryId = localStorage.getItem("nursery_id");
 
@@ -23,8 +22,8 @@ const ConnectNursery = async () => {
 };
 
 export function NurseryLoggedContextProvider({ children }) {
-  const user = useAuth();
-  const [nurseryData, setNurseryData] = useState({});
+  const userPro = useAuth();
+  const [nurseryData, setNurseryData] = useState(null);
 
   const value = useMemo(
     () => ({ nurseryData, setNurseryData }),
@@ -32,13 +31,13 @@ export function NurseryLoggedContextProvider({ children }) {
   );
 
   useEffect(() => {
-    ConnectNursery(user)
+    ConnectNursery(userPro)
       .then((data) => {
         console.info("je suis data", data);
         setNurseryData(data);
       })
       .catch((error) => console.info(error));
-  }, [user]);
+  }, [userPro]);
 
   return (
     <NurseryLoggedContext.Provider value={value}>
