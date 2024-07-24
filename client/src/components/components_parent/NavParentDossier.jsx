@@ -67,7 +67,10 @@ function NavParentDossier({ setComponent, component }) {
 }
 NavParentDossier.propTypes = {
   setComponent: PropTypes.func.isRequired,
-  component: PropTypes.string.isRequired,
+  component: PropTypes.string,
 };
 
+NavParentDossier.defaultProps = {
+  component: "",
+};
 export default NavParentDossier;

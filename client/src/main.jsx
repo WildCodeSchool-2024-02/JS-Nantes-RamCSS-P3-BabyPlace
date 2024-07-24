@@ -20,9 +20,11 @@ import Faq from "./pages/page_parents/Faq";
 import Mentions from "./pages/page_parents/Mentions";
 import DashboardPro from "./pages/page_pro/DashboardPro";
 import LayoutPro from "./pages/page_pro/LayoutPro";
+
 import { AuthProvider } from "./contexts/AuthContext";
 import { NurseryLoggedContextProvider } from "./contexts/NurseryDataContext";
 import ProtectedRoutePro from "./contexts/ProtectedRoutePro";
+import ProtectedRouteParent from "./contexts/ProtectedRouteParent";
 
 const router = createBrowserRouter([
   {
@@ -44,7 +46,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dossier-parent",
-    element: <DossierParent />,
+    element: (
+      <ProtectedRouteParent>
+        <DossierParent />
+      </ProtectedRouteParent>
+    ),
   },
   {
     path: "/menu",
@@ -52,7 +58,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/reservation-status",
-    element: <ReservationStatus />,
+    element: (
+      <ProtectedRouteParent>
+        <ReservationStatus />,
+      </ProtectedRouteParent>
+    ),
+
+    loader: () => fetch(`${import.meta.env.VITE_API_URL}/api/reservations`),
   },
   {
     path: "reservation",
@@ -64,7 +76,11 @@ const router = createBrowserRouter([
   },
   {
     path: "reservationconfirmation",
-    element: <ReservationConfirmation />,
+    element: (
+      <ProtectedRouteParent>
+        <ReservationConfirmation />
+      </ProtectedRouteParent>
+    ),
   },
   {
     path: "faq",

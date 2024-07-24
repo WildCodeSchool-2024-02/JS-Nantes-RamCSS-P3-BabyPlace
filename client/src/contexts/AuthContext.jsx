@@ -18,7 +18,7 @@ export function AuthProvider({ children }) {
         setUserParent(userParentChange);
       }
     }
-  }, [userPro]);
+  }, [userPro, userParent]);
 
   return (
     <AuthContext.Provider value={userPro !== null ? userPro : userParent}>
