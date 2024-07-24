@@ -10,9 +10,6 @@ import ReservationStatus from "./pages/page_parents/ReservationStatus";
 import OptionMenuParent from "./pages/page_parents/OptionMenuParent";
 import InscriptionPro from "./pages/pages_pro-inscription/InscriptionPro";
 import ConnexionPro from "./pages/page_pro/ConnexionPro";
-import ReservationRequest from "./pages/page_reservation_parent/ReservationParent";
-import ChildSelection from "./pages/page_reservation2_parent/ReservationParent2";
-import ReservationConfirmation from "./pages/page_reservation_confirmation/ReservationConfirmation";
 import AccesInvite from "./pages/page_parents/AccesInvite";
 import HomeSearch from "./pages/page_parents/HomeSearch";
 import DossierParent from "./pages/page_parents/DossierParent";
@@ -20,6 +17,9 @@ import Faq from "./pages/page_parents/Faq";
 import Mentions from "./pages/page_parents/Mentions";
 import DashboardPro from "./pages/page_pro/DashboardPro";
 import LayoutPro from "./pages/page_pro/LayoutPro";
+import ReservationConfirmation from "./pages/page_parents/ReservationConfirmation";
+import ReservationRequest from "./pages/page_parents/ReservationParent";
+import ChildSelection from "./pages/page_parents/ReservationParent2";
 
 import { AuthProvider } from "./contexts/AuthContext";
 import { NurseryLoggedContextProvider } from "./contexts/NurseryDataContext";
@@ -32,11 +32,11 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "connexion",
+    path: "/connexion",
     element: <ConnexionParent />,
   },
   {
-    path: "acces-invite",
+    path: "/acces-invite",
     element: <AccesInvite />,
   },
   {
@@ -67,15 +67,23 @@ const router = createBrowserRouter([
     loader: () => fetch(`${import.meta.env.VITE_API_URL}/api/reservations`),
   },
   {
-    path: "reservation",
-    element: <ReservationRequest />,
+    path: "/reservation",
+    element: (
+      <ProtectedRouteParent>
+        <ReservationRequest />
+      </ProtectedRouteParent>
+    ),
   },
   {
-    path: "reservationdeux",
-    element: <ChildSelection />,
+    path: "/reservationdeux",
+    element: (
+      <ProtectedRouteParent>
+        <ChildSelection />,
+      </ProtectedRouteParent>
+    ),
   },
   {
-    path: "reservationconfirmation",
+    path: "/reservationconfirmation",
     element: (
       <ProtectedRouteParent>
         <ReservationConfirmation />
@@ -83,11 +91,11 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "faq",
+    path: "/faq",
     element: <Faq />,
   },
   {
-    path: "mentions-legales",
+    path: "/mentions-legales",
     element: <Mentions />,
   },
   {
