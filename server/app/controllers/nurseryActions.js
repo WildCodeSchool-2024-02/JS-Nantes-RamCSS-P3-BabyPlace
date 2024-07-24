@@ -28,7 +28,6 @@ const hashPassword = (req, res, next) => {
   }
 };
 
-
 const resultIsPasswordValid = async (password, hashedPassword) => {
   try {
     return await argon2.verify(hashedPassword, password);
@@ -46,7 +45,10 @@ const login = async (req, res, next) => {
       return;
     }
 
-    const resultPasswordValid = await resultIsPasswordValid(req.body.password, nursery.password);
+    const resultPasswordValid = await resultIsPasswordValid(
+      req.body.password,
+      nursery.password
+    );
     if (!resultPasswordValid) {
       res.sendStatus(401);
       return;
@@ -56,12 +58,11 @@ const login = async (req, res, next) => {
     const token = jwt.sign(payload, process.env.APP_SECRET, {
       expiresIn: "1h",
     });
-    
+
     delete nursery.password;
 
     if (token) res.status(200).send({ token, nursery });
     else throw new Error("Token not created");
-
   } catch (error) {
     next(error);
   }

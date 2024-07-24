@@ -86,8 +86,8 @@ const login = async (req, res, next) => {
 
     if (token) res.status(200).send({ token, parent });
     else throw new Error("Token not created");
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 };
 

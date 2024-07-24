@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
@@ -14,27 +15,42 @@ function LoginParent({ setSelected }) {
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
+  const navigate = useNavigate();
+
+  let res = {};
+
   const handleFetch = async (data) => {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/parents/login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     if (!response.ok) {
-      const res = await response.json();
-      localStorage.setItem("token", res.token);
+      throw new Error(`HTTP error! status: ${response.status}`);
+    } else {
+      res = await response.json();
     }
   };
 
   const handleSubmit = async (event) => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("parent_id");
+    localStorage.removeItem("nursery_id");
+    sessionStorage.removeItem("token");
     try {
       event.preventDefault();
 
       if (email && password) {
         await handleFetch({ email, password });
+        localStorage.setItem("token", res.token);
+        localStorage.setItem("parent_id", res.parent.id);
+        navigate("/dossier-parent");
       }
     } catch (error) {
       console.error(error.message);
@@ -91,6 +107,7 @@ function LoginParent({ setSelected }) {
           variant="shadow"
           fullWidth
           color="primary"
+          type="submit"
         >
           Connexion
         </Button>

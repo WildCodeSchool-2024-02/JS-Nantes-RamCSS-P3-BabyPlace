@@ -31,6 +31,9 @@ router.post("/", hashPassword, credentialsValidation, add);
 // Route to edit an existing parent
 router.post("/login", login, verifyPassword);
 
+// Route to connect an nursery
+router.post("/login", credentialsValidation, login);
+
 // Route to edit an existing parent
 router.put("/:id", edit);
 

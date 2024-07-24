@@ -25,11 +25,7 @@ router.get("/:id", read);
 router.post("/", credentialsValidation, hashPassword, add);
 
 // Route to connect an nursery
-
-router.post("/login",
-  credentialsValidation,
-  login
-);
+router.post("/login", credentialsValidation, login);
 
 // Route to update an existing nursery
 router.put("/:id", edit);

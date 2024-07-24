@@ -84,7 +84,10 @@ function DossierParent() {
               <h1 className="text-xl font-bold">{userParent}</h1>
             </button>
 
-            <NavParentDossier setComponent={setComponent} />
+            <NavParentDossier
+              setComponent={setComponent}
+              component={component}
+            />
           </section>
           {ComponentToRender && (
             <ComponentToRender setComponent={setComponent} />

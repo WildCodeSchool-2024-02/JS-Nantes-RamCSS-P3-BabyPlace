@@ -22,6 +22,7 @@ function ReservationRequest() {
           variant="shadow"
           color="primary"
           type="submit"
+          to="/page_parent/recherche_de_creche"
         >
           {" "}
           &#x3008;
@@ -50,16 +51,13 @@ function ReservationRequest() {
               alt="Pricing Icon"
             />
           </div>
-
-          <div className="more-info-container1">
+          <div className="more-info-container">
             <h3 className="more-information1">Date : lundi 14 septembre</h3>
             <img
               className="more-information-picture1"
               src="./src/assets/images/icônes/params.png"
               alt="Param "
             />
-          </div>
-          <div className="more-info-container2">
             <h3 className="more-information2">Horaires : 9h-16h</h3>
             <img
               className="more-information-picture2"
