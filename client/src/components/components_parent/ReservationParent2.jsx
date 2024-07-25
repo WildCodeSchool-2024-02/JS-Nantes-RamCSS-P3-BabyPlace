@@ -7,17 +7,23 @@ import "../styles_components/ReservationParent2.css";
 
 function ChildSelection({ children, setComponent, selectDate }) {
   // Assurez-vous que 'children' est bien un tableau et qu'il contient des éléments
+  const creche = JSON.parse(localStorage.getItem("selectedNursery"));
+
+  const getTodayDate = () => {
+    const today = new Date();
+    return today.toISOString().split("T")[0];
+  };
 
   // Si vous voulez afficher tous les enfants :
   const [formData, setFormData] = useState({
     message: "",
-    reservation_date: "2024-07-12",
+    reservation_date: getTodayDate(),
     reservation_status: "0",
     status_date: "2024-07-25",
     arriving_date: `${selectDate.arriving_date}`,
     exit_date: `${selectDate.exit_date}`,
     price: "55",
-    nursery_id: 3,
+    nursery_id: `${creche.id}`,
     child_id: null, // Utilisez `null` pour représenter l'absence de sélection
   });
 

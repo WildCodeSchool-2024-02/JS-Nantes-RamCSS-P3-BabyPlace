@@ -56,13 +56,13 @@ function UserValidationParent({
   let color = "";
   let valeur = "";
 
-  if (reservationStatus === 0) {
+  if (reservationStatus === 2) {
     color = "default";
-    valeur = "en cours";
+    valeur = "refusée";
   } else if (reservationStatus === 1) {
     color = "success";
     valeur = "validée";
-  } else if (reservationStatus === 2) {
+  } else if (reservationStatus === 0) {
     color = "warning";
     valeur = "attente";
   } else if (reservationStatus === 3) {
