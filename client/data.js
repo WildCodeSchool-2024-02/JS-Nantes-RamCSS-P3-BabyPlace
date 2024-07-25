@@ -1,10 +1,10 @@
 const columns = [
-  { name: "ID", uid: "id", sortable: true },
-  { name: "NAME", uid: "name", sortable: true },
-  { name: "AGE", uid: "age", sortable: true },
-  { name: "ROLE", uid: "role" },
-  { name: "TEAM", uid: "team" },
-  { name: "EMAIL", uid: "email", sortable: true },
+  // { name: "ID", uid: "id", sortable: true },
+  { name: "PARENT", uid: "name", sortable: true },
+  { name: "ENFANT", uid: "age", sortable: true },
+  { name: "DATE DE RÉSERVATION", uid: "role" },
+  { name: "DATE D'ARRIVÉE", uid: "team" },
+  { name: "DATE DE DÉPART", uid: "email", sortable: true },
   { name: "STATUS", uid: "status", sortable: true },
   { name: "ACTIONS", uid: "actions" },
 ];
