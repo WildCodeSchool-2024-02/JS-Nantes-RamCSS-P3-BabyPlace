@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Input } from "@nextui-org/input";
 import { Checkbox } from "@nextui-org/checkbox";
 import { DatePicker } from "@nextui-org/date-picker";
+import { Button } from "@nextui-org/button";
 
 function DossierEnfant() {
   const userId = localStorage.getItem("parent_id");
@@ -29,7 +30,6 @@ function DossierEnfant() {
         );
         if (response.ok) {
           const data = await response.json();
-          console.warn("Données reçues de l'API:", data);
           if (Array.isArray(data)) {
             setChildren(data); // Assurez-vous que data est un tableau
           } else {
@@ -127,8 +127,9 @@ function DossierEnfant() {
           : children.map((child) => (child.id === result.id ? result : child));
       setChildren(updatedChildren);
       if (selectedChildId === "new") {
-        setSelectedChildId(result.id.toString());
+        setSelectedChildId(result.id);
       }
+      window.location.reload();
     } catch (error) {
       console.error("Erreur:", error);
     }
@@ -233,12 +234,15 @@ function DossierEnfant() {
         value={formData.name_doctor}
         onChange={handleInputChange}
       />
-      <button
-        type="submit"
-        className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+      <Button
+        className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts "
+        variant="shadow"
+        size="lg"
+        color="primary"
+        type="submite"
       >
         Enregistrer
-      </button>
+      </Button>
     </form>
   );
 }

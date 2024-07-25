@@ -15,6 +15,10 @@ const components = {
 function ParentReservation() {
   const userId = localStorage.getItem("parent_id");
   const [children, setChildren] = useState("");
+  const [selectDate, setSelectDate] = useState({
+    arriving_date: "",
+    exit_date: "",
+  });
 
   useEffect(() => {
     const fetchChildren = async () => {
@@ -49,9 +53,13 @@ function ParentReservation() {
   return (
     <div>
       {ComponentToRender && (
-        <ComponentToRender setComponent={setComponent}>
-          {children}
-        </ComponentToRender>
+        <ComponentToRender
+          setComponent={setComponent}
+          setSelectDate={setSelectDate}
+          selectDate={selectDate}
+          // eslint-disable-next-line react/no-children-prop
+          children={children}
+        />
       )}
     </div>
   );

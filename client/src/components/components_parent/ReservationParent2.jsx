@@ -1,30 +1,32 @@
 import { useState } from "react";
 import { Button } from "@nextui-org/button";
-import { Checkbox } from "@nextui-org/checkbox";
+import { RadioGroup, Radio } from "@nextui-org/radio";
+
 import PropTypes from "prop-types";
 import "../styles_components/ReservationParent2.css";
 
-function ChildSelection({ children }) {
+function ChildSelection({ children, setComponent, selectDate }) {
   // Assurez-vous que 'children' est bien un tableau et qu'il contient des éléments
 
   // Si vous voulez afficher tous les enfants :
   const [formData, setFormData] = useState({
     message: "",
     reservation_date: "2024-07-12",
-    reservation_status: "1",
+    reservation_status: "0",
     status_date: "2024-07-25",
-    arriving_date: "2024-08-11",
-    exit_date: "2024-08-15",
+    arriving_date: `${selectDate.arriving_date}`,
+    exit_date: `${selectDate.exit_date}`,
     price: "55",
-    nursery_id: 1,
+    nursery_id: 3,
     child_id: null, // Utilisez `null` pour représenter l'absence de sélection
   });
 
-  const handleCheckboxChange = (e) => {
-    const { name, checked } = e.target;
+  const handleRadioChange = (e) => {
+    const childId = e.target.value; // Utilisez la valeur du bouton radio sélectionné
+
     setFormData((prevData) => ({
       ...prevData,
-      child_id: checked ? name : null, // Met à jour l'ID de l'enfant sélectionné ou le réinitialise
+      child_id: childId, // Mettez à jour l'ID de l'enfant sélectionné
     }));
   };
 
@@ -60,19 +62,24 @@ function ChildSelection({ children }) {
       <h1 className="child-selection-h1">Crèche Picoti Picota</h1>
       <div className="child-selection-details">
         <h2 className="child-selection-h2">Enfant à garder</h2>
-        {children.map((e) => (
-          <div className="child" key={e.id}>
-            {" "}
-            {/* Ajout de la clé pour chaque enfant */}
-            <Checkbox
-              name={e.id}
-              isChecked={formData.child_id === e.id} // Assure que la case est cochée si c'est l'enfant sélectionné
-              onChange={handleCheckboxChange}
+        <RadioGroup
+          className="child"
+          label="Select your favorite city"
+          color="secondary"
+          defaultValue="london"
+        >
+          {children.map((e) => (
+            <Radio
+              key={e.id}
+              name="child" // Tous les boutons radio partagent le même nom
+              value={e.id} // La valeur du bouton radio
+              checked={formData.child_id === e.id} // Assurez-vous que le bouton radio est sélectionné si c'est l'enfant sélectionné
+              onChange={handleRadioChange} // Fonction de gestion du changement
             >
               {e.firstname}
-            </Checkbox>
-          </div>
-        ))}
+            </Radio>
+          ))}
+        </RadioGroup>
         <h2 className="message">Message Libre</h2>
         <textarea
           className="textarea-message"
@@ -94,10 +101,19 @@ function ChildSelection({ children }) {
           <div className="total-buy">
             <small>8h de garde</small>
           </div>
-          <div className="button-container">
+          <div className="button-container flex gap-5">
+            <Button
+              onClick={() => setComponent("ReservationParent")}
+              type="button"
+              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts w-2"
+              variant="shadow"
+              color="secondary"
+            >
+              retour
+            </Button>
             <Button
               type="submit"
-              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts w-5"
               variant="shadow"
               color="secondary"
             >
@@ -111,6 +127,9 @@ function ChildSelection({ children }) {
 }
 
 ChildSelection.propTypes = {
+  setComponent: PropTypes.func.isRequired,
+
+  selectDate: PropTypes.string.isRequired,
   children: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
