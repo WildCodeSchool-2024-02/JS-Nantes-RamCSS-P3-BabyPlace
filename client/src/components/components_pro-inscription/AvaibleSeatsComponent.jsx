@@ -11,7 +11,7 @@ function AvaibleSeatsComponent({ setComponent }) {
 
   // * Déclaration des states
 
-  const [countSeats, setCountSeats] = useState(0);
+  const [countSeats, setCountSeats] = useState(nurseryData.capacity);
   const [countDisabilty, setCountDisabilty] = useState(0);
   const [countYoungBaby, setCountYoungBaby] = useState(0);
 
@@ -146,11 +146,7 @@ function AvaibleSeatsComponent({ setComponent }) {
                     <strong>-</strong>
                   </button>
                   <p className="texts count-number">
-                    <strong>
-                      {nurseryData.capacity === null
-                        ? countSeats
-                        : nurseryData.capacity}
-                    </strong>
+                    <strong>{countSeats}</strong>
                   </p>
                   <button
                     type="button"
