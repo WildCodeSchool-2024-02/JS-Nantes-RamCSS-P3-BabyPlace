@@ -1,9 +1,11 @@
-import "../styles_parents/ReservationParent.css";
+import PropTypes from "prop-types";
+
 import { Checkbox } from "@nextui-org/checkbox";
 import { Button } from "@nextui-org/button";
 import { NavLink } from "react-router-dom";
+import "../styles_components/ReservationParent.css";
 
-function ReservationRequest() {
+function ReservationParent({ setComponent }) {
   return (
     <div className="reservation-request">
       <header className="header-reservation-parent">
@@ -75,21 +77,23 @@ function ReservationRequest() {
             <div className="cost-time-container">
               <h5 className="time">8h de garde*</h5>
             </div>
-            <NavLink to="/reservationdeux">
-              <Button
-                type="button"
-                className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
-                variant="shadow"
-                color="secondary"
-              >
-                Suivant
-              </Button>
-            </NavLink>
+            <Button
+              onClick={() => setComponent("ReservationParent2")}
+              type="button"
+              className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+              variant="shadow"
+              color="secondary"
+            >
+              Suivant
+            </Button>
           </div>
         </div>
       </section>
     </div>
   );
 }
+ReservationParent.propTypes = {
+  setComponent: PropTypes.func.isRequired,
+};
 
-export default ReservationRequest;
+export default ReservationParent;

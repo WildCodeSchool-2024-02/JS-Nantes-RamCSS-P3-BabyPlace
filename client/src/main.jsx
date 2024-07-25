@@ -18,13 +18,12 @@ import Mentions from "./pages/page_parents/Mentions";
 import DashboardPro from "./pages/page_pro/DashboardPro";
 import LayoutPro from "./pages/page_pro/LayoutPro";
 import ReservationConfirmation from "./pages/page_parents/ReservationConfirmation";
-import ReservationRequest from "./pages/page_parents/ReservationParent";
-import ChildSelection from "./pages/page_parents/ReservationParent2";
 
 import { AuthProvider } from "./contexts/AuthContext";
 import { NurseryLoggedContextProvider } from "./contexts/NurseryDataContext";
 import ProtectedRoutePro from "./contexts/ProtectedRoutePro";
 import ProtectedRouteParent from "./contexts/ProtectedRouteParent";
+import ParentReservation from "./pages/page_parents/ParentReservation";
 
 const router = createBrowserRouter([
   {
@@ -70,18 +69,11 @@ const router = createBrowserRouter([
     path: "/reservation",
     element: (
       <ProtectedRouteParent>
-        <ReservationRequest />
+        <ParentReservation />
       </ProtectedRouteParent>
     ),
   },
-  {
-    path: "/reservationdeux",
-    element: (
-      <ProtectedRouteParent>
-        <ChildSelection />,
-      </ProtectedRouteParent>
-    ),
-  },
+
   {
     path: "/reservationconfirmation",
     element: (

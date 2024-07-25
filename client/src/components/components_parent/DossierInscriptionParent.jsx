@@ -13,7 +13,6 @@ function DossierInscriptionParent() {
 
         <Input
           type="text"
-          color="secondary"
           label="Nom"
           className="max-w-[284px] texts"
           size="lg"
@@ -22,7 +21,6 @@ function DossierInscriptionParent() {
         />
         <Input
           type="text"
-          color="secondary"
           label="Prénom"
           className="max-w-[284px] texts"
           size="lg"
@@ -32,7 +30,6 @@ function DossierInscriptionParent() {
 
         <Input
           type="text"
-          color="secondary"
           label="n° et nom de rue"
           className="max-w-[284px] texts"
           size="lg"
@@ -41,7 +38,6 @@ function DossierInscriptionParent() {
         />
         <Input
           type="text"
-          color="secondary"
           label="Code postal"
           className="max-w-[284px] texts"
           size="lg"
@@ -50,7 +46,6 @@ function DossierInscriptionParent() {
         />
         <Input
           type="text"
-          color="secondary"
           label="Commune"
           className="max-w-[284px] texts"
           size="lg"
@@ -59,7 +54,6 @@ function DossierInscriptionParent() {
         />
         <Input
           type="text"
-          color="secondary"
           label="numéro de téléphone"
           className="max-w-[284px] texts"
           size="lg"
