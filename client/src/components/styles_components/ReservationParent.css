@@ -67,13 +67,6 @@
   margin-top: 5.5vh;
 }
 
-.more-info-container {
-  display: grid;
-  grid-template-columns: 15fr 1fr;
-  align-items: center;
-  gap: 0.1vh;
-}
-
 .more-information1 {
   margin: 0;
   font-size: 1rem;

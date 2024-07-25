@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 import CityDatePicker from "../../components/components_parent/CityDatePicker";
 import Toolbar from "../../components/components_parent/Toolbar";
 import NurseryCard from "../../components/components_parent/NurseryCard";
@@ -8,9 +8,22 @@ import "../styles_parents/HomeSearch.css";
 function HomeSearch() {
   const nurseries = useLoaderData();
 
-  // correspond à la barre de recherche pour la ville et la date
+  // Correspond à la barre de recherche pour la ville et la date
   const [city, setCity] = useState("");
   const [date, setDate] = useState(null);
+
+  const handleStoreNursery = (nursery) => {
+    localStorage.setItem(
+      "selectedNursery",
+      JSON.stringify({
+        id: nursery.id,
+        name: nursery.name,
+        address: nursery.address,
+        city: nursery.city,
+        descriptionNursery: nursery.description_nursery,
+      })
+    );
+  };
 
   return (
     <div className="home-search-container">
@@ -21,14 +34,27 @@ function HomeSearch() {
       <div className="home-search-nursery-card pt-10 flex-col flex gap-10">
         {nurseries
           .filter((nursery) => (city ? nursery.city === city : true))
-          .map((e) => (
-            <NurseryCard
-              key={e.id}
-              nameNursery={e.name}
-              address={e.address}
-              city={e.city}
-              descriptionNursery={e.description_nursery}
-            />
+          .map((nursery) => (
+            <div key={nursery.id} className="nursery-card-container">
+              <NavLink
+                to="/reservation"
+                state={{
+                  nurseryId: nursery.id,
+                  nameNursery: nursery.name,
+                  address: nursery.address,
+                  city: nursery.city,
+                  descriptionNursery: nursery.description_nursery,
+                }}
+                onClick={() => handleStoreNursery(nursery)}
+              >
+                <NurseryCard
+                  nameNursery={nursery.name}
+                  address={nursery.address}
+                  city={nursery.city}
+                  descriptionNursery={nursery.description_nursery}
+                />
+              </NavLink>
+            </div>
           ))}
 
         <div className="home-search-toolbar">
