@@ -49,7 +49,7 @@ CREATE TABLE `nursery` (
     `name` VARCHAR(50) NULL,
     `email` VARCHAR(320) UNIQUE NOT NULL,
     `password` VARCHAR(100) NOT NULL,
-    `siret` INT NULL,
+    `siret` VARCHAR(50) NULL,
     `address` VARCHAR(150) NULL,
     `postcode` INT NULL,
     `city` VARCHAR(100) NULL,
