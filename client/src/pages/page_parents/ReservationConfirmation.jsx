@@ -1,4 +1,5 @@
-import "../styles_page_reservation_confirmation/ReservationConfirmation.css";
+import "../styles_parents/ReservationConfirmation.css";
+import { Button } from "@nextui-org/button";
 
 function ReservationConfirmation() {
   return (
@@ -41,12 +42,18 @@ function ReservationConfirmation() {
           N'oubliez pas de compléter votre profil pour avoir plus de chance que
           votre demande soit acceptée
         </p>
-        <text>
-          Suivant
-          <button type="button" className="round-button">
-            &gt;
-          </button>
-        </text>
+
+        <div className="flex justify-end">
+          <Button
+            // Rajouter redirection vers page Menu || Add redirection to Menu page
+            className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+            variant="shadow"
+            color="secondary"
+            type="submit"
+          >
+            Suivant
+          </Button>
+        </div>
       </div>
     </div>
   );

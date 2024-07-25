@@ -4,8 +4,13 @@
   margin: auto;
   text-align: center;
   color: var(--light-color-text);
-  max-width: 100vh;
+  max-width: 100%;
   overflow: hidden;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .header-reservation-confirmation {
@@ -118,24 +123,13 @@
   font-size: 2.5vh;
 }
 
-.round-button {
-  background-color: #882aff;
-  border-radius: 100%;
-  width: 5vh;
-  height: 5vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 1vh;
-  padding-bottom: 2vh;
-}
-
 @media (width >= 1024px) {
   .reservation-confirmation {
     background: var(--background-gradient);
     margin: auto;
     text-align: center;
     color: var(--light-color-text);
+    max-width: 100%;
   }
 
   .header-reservation-confirmation {
@@ -185,7 +179,7 @@
   }
 
   .question-mark {
-    font-size: 1.5em;
+    font-size: 3em;
   }
 
   .confirmation-details > h2 {
@@ -244,17 +238,5 @@
     font-weight: 500;
     margin-bottom: 7vh;
     font-size: 2.5vh;
-  }
-
-  .round-button {
-    background-color: #882aff;
-    border-radius: 100%;
-    width: 5vh;
-    height: 5vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 1vh;
-    padding-bottom: 2vh;
   }
 }

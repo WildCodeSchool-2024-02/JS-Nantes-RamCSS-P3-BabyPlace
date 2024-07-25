@@ -36,7 +36,6 @@ const resultIsPasswordValid = async (password, hashedPassword) => {
   }
 };
 
-
 const login = async (req, res, next) => {
   try {
     const parent = await tables.parent.readByEmail(req.body.email);

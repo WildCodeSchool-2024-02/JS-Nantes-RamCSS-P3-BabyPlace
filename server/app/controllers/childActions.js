@@ -68,6 +68,35 @@ const browse = async (req, res, next) => {
   }
 };
 
+// !Fonction pour récupérer tous les enfants d'un parent par parent_id
+const browseByParentId = async (req, res, next) => {
+  // Extraire parentId directement depuis req.params
+  const { parentId } = req.params;
+
+  try {
+    // Vérifiez si parentId est fourni
+    if (!parentId) {
+      return res.status(400).json({ error: "parentId est requis" });
+    }
+
+    // Fetch all children for the specific parent from the database
+    const children = await tables.child.readAll(parentId);
+
+    // Vérifiez si children est un tableau
+    if (!Array.isArray(children)) {
+      return res
+        .status(500)
+        .json({ error: "Erreur lors de la récupération des enfants" });
+    }
+
+    // Respond with the children in JSON format
+    return res.json(children); // Modifiez ceci pour renvoyer le tableau directement
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    return next(err); // Utiliser return ici pour garantir que le flux de contrôle ne continue pas
+  }
+};
+
 const edit = async (req, res, next) => {
   try {
     const body = {
@@ -123,6 +152,7 @@ const destroy = async (req, res, next) => {
 
 // Ready to export the controller functions
 module.exports = {
+  browseByParentId,
   browse,
   read,
   edit,
