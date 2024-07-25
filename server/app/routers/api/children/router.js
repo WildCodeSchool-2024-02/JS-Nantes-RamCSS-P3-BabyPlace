@@ -4,15 +4,19 @@ const router = express.Router();
 
 // Import child-related actions
 const {
+  browseByParentId,
   browse,
   read,
-  add,
   edit,
+  add,
   destroy,
 } = require("../../../controllers/childActions");
 
 // Route to get a list of children
 router.get("/", browse);
+
+// !Route to get all children for a specific parent
+router.get("/parent/:parentId", browseByParentId);
 
 // Route to get a specific child by ID
 router.get("/:id", read);

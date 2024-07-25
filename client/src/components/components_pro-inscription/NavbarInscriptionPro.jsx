@@ -33,7 +33,11 @@ function NavbarInscriptionPro({ pageTitle }) {
         <p className="nav-bar-pro-text texts">{pageTitle}</p>
       </div>
       <div className="nav-bar-pro-right-part">
-        <button type="submit" onClick={handleNavigate} className="nav-bar-pro-text texts">
+        <button
+          type="submit"
+          onClick={handleNavigate}
+          className="nav-bar-pro-text texts"
+        >
           Enregistrer et quitter
         </button>
       </div>
