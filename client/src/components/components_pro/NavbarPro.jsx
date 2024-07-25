@@ -33,7 +33,7 @@ function NavbarPro() {
           />
           <p className="texts menu-text-navbar-pro">Tableau de bord</p>
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="/pro/reservations"
           className={({ isActive }) =>
             isActive ? "menu-item-navbar-pro-active" : "menu-item-navbar-pro"
@@ -44,7 +44,7 @@ function NavbarPro() {
             alt="icone d'un tableau"
           />
           <p className="texts menu-text-navbar-pro">Vos réservations</p>
-        </NavLink>
+        </NavLink> */}
       </li>
       <li className="menu-bottom-navbar-pro">
         <NavLink

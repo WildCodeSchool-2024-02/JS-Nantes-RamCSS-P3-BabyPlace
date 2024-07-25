@@ -130,7 +130,9 @@ function DashboardPro() {
               Bienvenue <strong>{nurseryData.name}</strong>
             </p>
             <p className="texts card-user-annonces">
-              Annonce BABYPLACE // Annonce BABYPLACE // Annonce BABYPLACE
+              {nurseryData.code_of_conduct === true
+                ? "Bienvenue sur votre Dashboard!"
+                : "Veuillez compléter votre profil pour une meilleure visibilité"}
             </p>
           </section>
           <section className="dashboard-component-graph-subscribers">
