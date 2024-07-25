@@ -1,4 +1,5 @@
 import { Input } from "@nextui-org/input";
+import { Button } from "@nextui-org/button";
 
 function DossierInscriptionParent() {
   return (
@@ -61,12 +62,16 @@ function DossierInscriptionParent() {
           onChange=""
         />
 
-        <button
-          type="submit"
-          className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts"
+        <Button
+          className="bg-gradient-to-tr from-purple-600 to-blue-400 text-white shadow-lg texts "
+          variant="shadow"
+          size="lg"
+          color="primary"
+          type="submite"
         >
+          {" "}
           Soumettre
-        </button>
+        </Button>
       </form>
     </section>
   );

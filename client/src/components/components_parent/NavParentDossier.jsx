@@ -59,7 +59,7 @@ function NavParentDossier({ setComponent, component }) {
             name="dossier_parent"
             value="DossierInscription"
           />
-          <span>Inscription</span>
+          <span>Dossier</span>
         </label>
       </fieldset>
     </>
