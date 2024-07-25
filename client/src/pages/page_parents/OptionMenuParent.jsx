@@ -9,6 +9,7 @@ function OptionMenuParent() {
   const handleLogOut = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("parent_id");
+    localStorage.removeItem("selectedNursery");
     sessionStorage.removeItem("token");
 
     navigate("/connexion");
