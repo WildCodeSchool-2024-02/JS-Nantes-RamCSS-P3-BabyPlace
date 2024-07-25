@@ -23,7 +23,6 @@ function SignUpParent({ setSelected }) {
 
   const isInvalidEmail = useMemo(() => {
     if (email === "") return false;
-
     return !validateEmail(email);
   }, [email]);
 
@@ -34,7 +33,6 @@ function SignUpParent({ setSelected }) {
 
   const isInvalidPassword = useMemo(() => {
     if (password === "") return false;
-
     return !validatePassword(password);
   }, [password]);
 
@@ -42,19 +40,32 @@ function SignUpParent({ setSelected }) {
     setIsTermsChecked(!isTermsChecked);
   };
 
-  //* Function handleSubmit for registration
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const body = Object.fromEntries(formData);
-    fetch("http://localhost:3310/api/parents", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    });
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/parents`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(body),
+        }
+      );
+
+      if (response.ok) {
+        window.location.reload();
+      } else {
+        const errorData = await response.json();
+        console.error("Erreur:", errorData);
+      }
+    } catch (error) {
+      console.error("Erreur de réseau:", error);
+    }
   };
 
   return (
