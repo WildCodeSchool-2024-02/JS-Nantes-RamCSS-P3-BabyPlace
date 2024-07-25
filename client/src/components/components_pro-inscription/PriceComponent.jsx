@@ -6,7 +6,6 @@ import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import { useNurseryLogged } from "../../contexts/NurseryDataContext";
 
-
 import "../styles_components/PriceComponent.css";
 
 function PriceComponent({ setComponent }) {
